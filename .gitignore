@@ -1,5 +1,11 @@
-# Prerequisites
-*.d
+# CMake
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+run/CMakeFiles/
+run/cmake_install.cmake
+benchmark/APFEL
 
 # Compiled Object files
 *.slo
@@ -30,3 +36,16 @@
 *.exe
 *.out
 *.app
+
+# LaTex
+*.aux
+*.idx
+*.log
+*.pdf
+
+.ipynb_checkpoints
+
+build
+bin/MontBlanc-config
+inc/MontBlanc/version.h
+bin/MontBlanc-config

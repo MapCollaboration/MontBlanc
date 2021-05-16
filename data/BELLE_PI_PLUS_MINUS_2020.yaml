@@ -1,0 +1,233 @@
+dependent_variables:
+- header: {title: "BELLE $\\pi^\\pm$ Cross Section (2020)", units: fb}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value: 10.58, units: GeV}
+  - {name: prefactor, value: 2.946e+6}  #sigmatot(NLO) [fb]
+  - {name: z, low: 0.1, high: 1.00, integrate: true}
+  - {name: hadron, value: PI}
+  - {name: charge, value: 0}
+  - {name: tagging, value: [u,d,s,c]}
+  values:
+  - errors:
+    - {label: unc, value:  0.15116E+05}
+    - {label: add, value:  0.44698E-01}
+    - {label: mult, value: 0.014}
+    value:  0.10032E+09
+  - errors:
+    - {label: unc, value:  0.82865E+06}
+    - {label: add, value:  0.15688E-01}
+    - {label: mult, value: 0.014}
+    value:  0.67165E+08
+  - errors:
+    - {label: unc, value:  0.54492E+06}
+    - {label: add, value:  0.16043E-01}
+    - {label: mult, value: 0.014}
+    value:  0.49186E+08
+  - errors:
+    - {label: unc, value:  0.64127E+06}
+    - {label: add, value:  0.16734E-01}
+    - {label: mult, value: 0.014}
+    value:  0.35575E+08
+  - errors:
+    - {label: unc, value:  0.44541E+06}
+    - {label: add, value:  0.15841E-01}
+    - {label: mult, value: 0.014}
+    value:  0.27005E+08
+  - errors:
+    - {label: unc, value:  0.26347E+06}
+    - {label: add, value:  0.15530E-01}
+    - {label: mult, value: 0.014}
+    value:  0.20830E+08
+  - errors:
+    - {label: unc, value:  0.53218E+05}
+    - {label: add, value:  0.15067E-01}
+    - {label: mult, value: 0.014}
+    value:  0.16456E+08
+  - errors:
+    - {label: unc, value:  0.86234E+04}
+    - {label: add, value:  0.14714E-01}
+    - {label: mult, value: 0.014}
+    value:  0.13102E+08
+  - errors:
+    - {label: unc, value:  0.18737E+05}
+    - {label: add, value:  0.14355E-01}
+    - {label: mult, value: 0.014}
+    value:  0.10554E+08
+  - errors:
+    - {label: unc, value:  0.16660E+05}
+    - {label: add, value:  0.14075E-01}
+    - {label: mult, value: 0.014}
+    value:  0.85950E+07
+  - errors:
+    - {label: unc, value:  0.28052E+04}
+    - {label: add, value:  0.13790E-01}
+    - {label: mult, value: 0.014}
+    value:  0.70312E+07
+  - errors:
+    - {label: unc, value:  0.13308E+05}
+    - {label: add, value:  0.13708E-01}
+    - {label: mult, value: 0.014}
+    value:  0.57354E+07
+  - errors:
+    - {label: unc, value:  0.10134E+05}
+    - {label: add, value:  0.13986E-01}
+    - {label: mult, value: 0.014}
+    value:  0.46356E+07
+  - errors:
+    - {label: unc, value:  0.51888E+04}
+    - {label: add, value:  0.14554E-01}
+    - {label: mult, value: 0.014}
+    value:  0.37826E+07
+  - errors:
+    - {label: unc, value:  0.33518E+04}
+    - {label: add, value:  0.15489E-01}
+    - {label: mult, value: 0.014}
+    value:  0.30896E+07
+  - errors:
+    - {label: unc, value:  0.19214E+04}
+    - {label: add, value:  0.15521E-01}
+    - {label: mult, value: 0.014}
+    value:  0.25386E+07
+  - errors:
+    - {label: unc, value:  0.16994E+04}
+    - {label: add, value:  0.16300E-01}
+    - {label: mult, value: 0.014}
+    value:  0.20939E+07
+  - errors:
+    - {label: unc, value:  0.17637E+04}
+    - {label: add, value:  0.16065E-01}
+    - {label: mult, value: 0.014}
+    value:  0.17265E+07
+  - errors:
+    - {label: unc, value:  0.21126E+04}
+    - {label: add, value:  0.16317E-01}
+    - {label: mult, value: 0.014}
+    value:  0.14288E+07
+  - errors:
+    - {label: unc, value:  0.16453E+04}
+    - {label: add, value:  0.15966E-01}
+    - {label: mult, value: 0.014}
+    value:  0.11798E+07
+  - errors:
+    - {label: unc, value:  0.12901E+04}
+    - {label: add, value:  0.16701E-01}
+    - {label: mult, value: 0.014}
+    value:  0.97894E+06
+  - errors:
+    - {label: unc, value:  0.12234E+04}
+    - {label: add, value:  0.16231E-01}
+    - {label: mult, value: 0.014}
+    value:  0.81467E+06
+  - errors:
+    - {label: unc, value:  0.12908E+04}
+    - {label: add, value:  0.16384E-01}
+    - {label: mult, value: 0.014}
+    value:  0.67541E+06
+  - errors:
+    - {label: unc, value:  0.11736E+04}
+    - {label: add, value:  0.16086E-01}
+    - {label: mult, value: 0.014}
+    value:  0.56056E+06
+  - errors:
+    - {label: unc, value:  0.99282E+03}
+    - {label: add, value:  0.15896E-01}
+    - {label: mult, value: 0.014}
+    value:  0.46581E+06
+  - errors:
+    - {label: unc, value:  0.86569E+03}
+    - {label: add, value:  0.17019E-01}
+    - {label: mult, value: 0.014}
+    value:  0.38492E+06
+  - errors:
+    - {label: unc, value:  0.75902E+03}
+    - {label: add, value:  0.15503E-01}
+    - {label: mult, value: 0.014}
+    value:  0.31501E+06
+  - errors:
+    - {label: unc, value:  0.67988E+03}
+    - {label: add, value:  0.14608E-01}
+    - {label: mult, value: 0.014}
+    value:  0.25428E+06
+  - errors:
+    - {label: unc, value:  0.64583E+03}
+    - {label: add, value:  0.15855E-01}
+    - {label: mult, value: 0.014}
+    value:  0.20315E+06
+  - errors:
+    - {label: unc, value:  0.59123E+03}
+    - {label: add, value:  0.18027E-01}
+    - {label: mult, value: 0.014}
+    value:  0.15755E+06
+  - errors:
+    - {label: unc, value:  0.51227E+03}
+    - {label: add, value:  0.18859E-01}
+    - {label: mult, value: 0.014}
+    value:  0.11904E+06
+  - errors:
+    - {label: unc, value:  0.46161E+03}
+    - {label: add, value:  0.18912E-01}
+    - {label: mult, value: 0.014}
+    value:  0.85874E+05
+  - errors:
+    - {label: unc, value:  0.37229E+03}
+    - {label: add, value:  0.18416E-01}
+    - {label: mult, value: 0.014}
+    value:  0.57916E+05
+  - errors:
+    - {label: unc, value:  0.29539E+03}
+    - {label: add, value:  0.32014E-01}
+    - {label: mult, value: 0.014}
+    value:  0.35906E+05
+  - errors:
+    - {label: unc, value:  0.24586E+03}
+    - {label: add, value:  0.48446E-01}
+    - {label: mult, value: 0.014}
+    value:  0.19306E+05
+  - errors:
+    - {label: unc, value:  0.39708E+03}
+    - {label: add, value:  0.11298E+00}
+    - {label: mult, value: 0.014}
+    value:  0.14631E+05
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {high: 0.125, low: 0.100, value: 0.1125}
+  - {high: 0.150, low: 0.125, value: 0.1375}
+  - {high: 0.175, low: 0.150, value: 0.1625}
+  - {high: 0.200, low: 0.175, value: 0.1875}
+  - {high: 0.225, low: 0.200, value: 0.2125}
+  - {high: 0.250, low: 0.225, value: 0.2375}
+  - {high: 0.275, low: 0.250, value: 0.2625}
+  - {high: 0.300, low: 0.275, value: 0.2875}
+  - {high: 0.325, low: 0.300, value: 0.3125}
+  - {high: 0.350, low: 0.325, value: 0.3375}
+  - {high: 0.375, low: 0.350, value: 0.3625}
+  - {high: 0.400, low: 0.375, value: 0.3875}
+  - {high: 0.425, low: 0.400, value: 0.4125}
+  - {high: 0.450, low: 0.425, value: 0.4375}
+  - {high: 0.475, low: 0.450, value: 0.4625}
+  - {high: 0.500, low: 0.475, value: 0.4875}
+  - {high: 0.525, low: 0.500, value: 0.5125}
+  - {high: 0.550, low: 0.525, value: 0.5375}
+  - {high: 0.575, low: 0.550, value: 0.5625}
+  - {high: 0.600, low: 0.575, value: 0.5875}
+  - {high: 0.625, low: 0.600, value: 0.6125}
+  - {high: 0.650, low: 0.625, value: 0.6375}
+  - {high: 0.675, low: 0.650, value: 0.6625}
+  - {high: 0.700, low: 0.675, value: 0.6875}
+  - {high: 0.725, low: 0.700, value: 0.7125}
+  - {high: 0.750, low: 0.725, value: 0.7375}
+  - {high: 0.775, low: 0.750, value: 0.7625}
+  - {high: 0.800, low: 0.775, value: 0.7875}
+  - {high: 0.825, low: 0.800, value: 0.8125}
+  - {high: 0.850, low: 0.825, value: 0.8375}
+  - {high: 0.875, low: 0.850, value: 0.8625}
+  - {high: 0.900, low: 0.875, value: 0.8875}
+  - {high: 0.925, low: 0.900, value: 0.9125}
+  - {high: 0.950, low: 0.925, value: 0.9375}
+  - {high: 0.975, low: 0.950, value: 0.9625}
+  - {high: 1.000, low: 0.975, value: 0.9875}
+  
+
+

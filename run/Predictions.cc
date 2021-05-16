@@ -1,0 +1,166 @@
+//
+// Authors: Rabah Abdul Khalek: rabah.khalek@gmail.com
+//          Valerio Bertone: valerio.bertone@cern.ch
+//          Emanuele R. Nocera: emanuele.nocera@ed.ac.uk
+//
+
+#include "MontBlanc/predictionshandler.h"
+#include "MontBlanc/AnalyticChiSquare.h"
+#include "MontBlanc/LHAPDFparameterisation.h"
+
+#include <NangaParbat/cutfactory.h>
+#include <NangaParbat/Trainingcut.h>
+#include <fstream>
+
+std::string GetCurrentWorkingDir()
+{
+  char buff[FILENAME_MAX];
+  getcwd(buff, FILENAME_MAX);
+  return buff;
+}
+
+int main(int argc, char *argv[])
+{
+  if (argc < 2)
+    {
+      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<set name> (default: LHAPDFSet)]" << std::endl;
+      exit(-1);
+    }
+
+  // Path to result folder
+  const std::string ResultFolder = argv[1];
+
+  // Input information
+  const std::string InputCardPath = ResultFolder + "/config.yaml";
+  const std::string datafolder    = ResultFolder + "/data/";
+  const std::string OutputFile    = ResultFolder + "/Predictions.yaml";
+  std::string LHAPDFSet = "LHAPDFSet";
+  if (argc >= 3)
+    LHAPDFSet = argv[2];
+
+  // Timer
+  apfel::Timer t;
+
+  // Input card
+  YAML::Node config = YAML::LoadFile(InputCardPath);
+
+  // Set silent mode for APFEL++
+  apfel::SetVerbosityLevel(0);
+
+  // Include new search path in LHAPDF
+  if (ResultFolder[0]=='/')
+    LHAPDF::pathsAppend(ResultFolder + "/");
+  else
+    LHAPDF::pathsAppend(GetCurrentWorkingDir() + "/" + ResultFolder + "/");
+
+  // Set PDF set member to central set
+  config["Predictions"]["pdfset"]["member"] = 0;
+
+  // APFEL++ x-space grid
+  std::vector<apfel::SubGrid> vsg;
+  for (auto const& sg : config["Predictions"]["xgrid"])
+    vsg.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> g(new const apfel::Grid{vsg});
+
+  // Run over the data set and gather pairs of DatHandler and
+  // PredictionHandler pairs. Do not impose cuts to compute
+  // predictions for all available points.
+  std::cout << "Computing tables..." << std::endl;
+  std::vector<std::pair<NangaParbat::DataHandler*, NangaParbat::ConvolutionTable*>> DSVect;
+  for (auto const& ds : config["Data"]["sets"])
+    {
+      std::cout << "#Experiment = " << ds["name"].as<std::string>() << std::endl;
+      // Dataset
+      NangaParbat::DataHandler *DH = new NangaParbat::DataHandler{ds["name"].as<std::string>(), YAML::LoadFile(datafolder + ds["file"].as<std::string>())};
+
+      // Add block to the chi2
+      DSVect.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{config["Predictions"], *DH, g}));
+    }
+
+  // Run over the experiments, compute central values and standard
+  // deviations (of the shifted predictions) over the replicas. Save
+  // results in a YAML:Emitter.
+  std::cout << "\nComputing predictions..." << std::endl;
+  YAML::Emitter emitter;
+  emitter << YAML::BeginSeq;
+  for (int iexp = 0; iexp < (int) DSVect.size(); iexp++)
+    {
+      std::cout << "#Experiment = " << DSVect[iexp].first->GetName() << std::endl;
+
+      // Get experimental central values and uncorrelated ucertainties
+      const std::vector<double> mvs = DSVect[iexp].first->GetMeanValues();
+      const std::vector<double> unc = DSVect[iexp].first->GetUncorrelatedUnc();
+
+      // Get binning
+      const std::vector<NangaParbat::DataHandler::Binning> bins = DSVect[iexp].first->GetBinning();
+
+      // Initialise averages
+      std::vector<double> av(bins.size(), 0);
+      std::vector<double> std(bins.size(), 0);
+
+      // Get LHAPDF set
+      const std::vector<LHAPDF::PDF*> sets = LHAPDF::mkPDFs(LHAPDFSet);
+
+      // If the default "LHAPDFSet" we know it is a Monte Carlo set
+      // thus compute central values and uncertanties as averages and
+      // standard deviations...
+      if (LHAPDFSet == "LHAPDFSet")
+        {
+          std::vector<double> av2(bins.size(), 0);
+          // Run over replicas
+          const int nrep = sets.size() - 1;
+          for (int irep = 1; irep <= nrep; irep++)
+            {
+              // Construct chi2 object with the irep-th replica
+              MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, g, irep}};
+              const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+
+              const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
+              for (int i = 0; i < (int) bins.size(); i++)
+                {
+                  av[i] += ( prds[i] + shifts.first[i] ) / nrep;
+                  av2[i] += pow(prds[i] + shifts.first[i], 2) / nrep;
+                }
+            }
+          for (int i = 0; i < (int) bins.size(); i++)
+            std[i] = sqrt(av2[i] - pow(av[i], 2));
+        }
+      // ...otherwise only compute predictions for member 0 with no
+      // uncertainty.
+      else
+        {
+          // Construct chi2 object with the irep-th replica
+          MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, g, 0}};
+          const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+          const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
+          for (int i = 0; i < (int) bins.size(); i++)
+            av[i] += prds[i] + shifts.first[i];
+        }
+
+      emitter << YAML::BeginMap << YAML::Key << DSVect[iexp].first->GetName() << YAML::Value << YAML::BeginSeq;
+      for (int i = 0; i < (int) bins.size(); i++)
+        {
+          const NangaParbat::DataHandler::Binning b = bins[i];
+          emitter << YAML::Flow << YAML::BeginMap;
+          emitter << YAML::Key << "index" << YAML::Value << i;
+          emitter << YAML::Key << "Qav" << YAML::Value << b.Qav << YAML::Key << "Qmin" << YAML::Value << b.Qmin << YAML::Key << "Qmax" << YAML::Value << b.Qmax;
+          emitter << YAML::Key << "yav" << YAML::Value << b.yav << YAML::Key << "ymin" << YAML::Value << b.ymin << YAML::Key << "ymax" << YAML::Value << b.ymax;
+          emitter << YAML::Key << "xav" << YAML::Value << b.xav << YAML::Key << "xmin" << YAML::Value << b.xmin << YAML::Key << "xmax" << YAML::Value << b.xmax;
+          emitter << YAML::Key << "zav" << YAML::Value << b.zav << YAML::Key << "zmin" << YAML::Value << b.zmin << YAML::Key << "zmax" << YAML::Value << b.zmax;
+          emitter << YAML::Key << "exp. central value" << YAML::Value << mvs[i] << YAML::Key << "exp. unc." << YAML::Value << unc[i];
+          emitter << YAML::Key << "prediction" << YAML::Value << av[i] << YAML::Key << "pred. unc." << YAML::Value << std[i];
+          emitter << YAML::EndMap;
+        }
+      emitter << YAML::EndSeq;
+      emitter << YAML::EndMap;
+    }
+  emitter << YAML::EndSeq;
+
+  // Print YAML:Emitter to file
+  std::ofstream fout(OutputFile);
+  fout << emitter.c_str();
+  fout.close();
+
+  t.stop(true);
+  return 0;
+}

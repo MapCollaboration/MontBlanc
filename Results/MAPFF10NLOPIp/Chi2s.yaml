@@ -1,0 +1,25 @@
+- HERMES $\pi^-$ deuteron: {chi2: 0.59856097081011561, Npt: 2}
+- HERMES $\pi^-$ proton: {chi2: 0.023664294146313609, Npt: 2}
+- HERMES $\pi^+$ deuteron: {chi2: 0.29500369039765117, Npt: 2}
+- HERMES $\pi^+$ proton: {chi2: 0.52726076038954472, Npt: 2}
+- COMPASS $\pi^-$: {chi2: 0.79614582907685782, Npt: 157}
+- COMPASS $\pi^+$: {chi2: 1.0677186691508656, Npt: 157}
+- BELLE $\pi^\pm$: {chi2: 0.09144496848718861, Npt: 70}
+- BABAR prompt $\pi^\pm$: {chi2: 0.90184885923197222, Npt: 39}
+- TASSO 12 GeV $\pi^\pm$: {chi2: 0.97271072831107741, Npt: 4}
+- TASSO 14 GeV $\pi^\pm$: {chi2: 1.3888510839239323, Npt: 9}
+- TASSO 22 GeV $\pi^\pm$: {chi2: 1.8520866539977887, Npt: 8}
+- TPC $\pi^\pm$: {chi2: 0.22180059353671389, Npt: 13}
+- TASSO 30 GeV $\pi^\pm$: {chi2: 0.34410056951168844, Npt: 2}
+- TASSO 34 GeV $\pi^\pm$: {chi2: 1.198260952277808, Npt: 9}
+- TASSO 44 GeV $\pi^\pm$: {chi2: 1.1980028867925923, Npt: 6}
+- TOPAZ $\pi^\pm$: {chi2: 0.27816796234511904, Npt: 5}
+- ALEPH $\pi^\pm$: {chi2: 1.2919839622012042, Npt: 23}
+- DELPHI total $\pi^\pm$: {chi2: 1.2940972065248415, Npt: 21}
+- DELPHI $uds$ $\pi^\pm$: {chi2: 2.8439741754827454, Npt: 21}
+- DELPHI bottom $\pi^\pm$: {chi2: 1.6729998129517509, Npt: 21}
+- OPAL $\pi^\pm$: {chi2: 1.7187604425917247, Npt: 24}
+- SLD total $\pi^\pm$: {chi2: 1.138895499226152, Npt: 34}
+- SLD $uds$ $\pi^\pm$: {chi2: 2.0531493075466924, Npt: 34}
+- SLD bottom $\pi^\pm$: {chi2: 0.54673611884041851, Npt: 34}
+- Total: {chi2: 0.90338818151452049, Npt: 699}

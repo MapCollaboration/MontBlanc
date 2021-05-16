@@ -1,0 +1,74 @@
+dependent_variables:
+- header: {title: "TPC $\\pi^\\pm$ Multiplicity c-tag"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value: 29.0}
+  - {name: prefactor, value: 1}
+  - {name: z, low: 0.018, high: 0.378, integrate: false}
+  - {name: hadron, value: PI}
+  - {name: charge, value: 0}
+  - {name: tagging, value: [c]}  
+  values:
+  - errors:
+    - {label: unc, value:   50.63789}
+    value:  146.00592
+  - errors:
+    - {label: unc, value:   49.73013}
+    value:  152.74253
+  - errors:
+    - {label: unc, value:   44.56761}
+    value:  140.20227
+  - errors:
+    - {label: unc, value:   36.22902}
+    value:  127.75497
+  - errors:
+    - {label: unc, value:   31.97272}
+    value:  105.60687
+  - errors:
+    - {label: unc, value:   29.36016}
+    value:  114.50462
+  - errors:
+    - {label: unc, value:   30.51859}
+    value:  111.24520
+  - errors:
+    - {label: unc, value:   23.68722}
+    value:   69.58121
+  - errors:
+    - {label: unc, value:   22.75256}
+    value:   67.16951
+  - errors:
+    - {label: unc, value:   10.95156}
+    value:   38.52959
+  - errors:
+    - {label: unc, value:    6.18643}
+    value:   13.37067
+  - errors:
+    - {label: unc, value:    4.49274}
+    value:   14.87595
+  - errors:
+    - {label: unc, value:    2.69735}
+    value:    9.39078
+  - errors:
+    - {label: unc, value:    1.19933}
+    value:    2.39865
+  - errors:
+    - {label: unc, value:    0.59980}
+    value:    1.49951
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {value: 0.018 }
+  - {value: 0.021 }
+  - {value: 0.026 }
+  - {value: 0.032 }
+  - {value: 0.039 }
+  - {value: 0.047 }
+  - {value: 0.055 }
+  - {value: 0.060 }
+  - {value: 0.066 }
+  - {value: 0.103 }
+  - {value: 0.146 }
+  - {value: 0.170 }
+  - {value: 0.218 }
+  - {value: 0.288 }
+  - {value: 0.378 }

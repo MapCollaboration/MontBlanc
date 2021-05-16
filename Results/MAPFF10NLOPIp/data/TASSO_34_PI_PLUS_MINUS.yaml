@@ -1,0 +1,111 @@
+dependent_variables:
+  - header: {title: "TASSO $\\pi^\\pm$ Multiplicity, 34 GeV", units: nb}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 34, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.01737, high: 0.971, integrate: false}
+      - {name: hadron, value: PI}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 3.00000}
+          - {label: mult, value: 0.06}
+        value: 162.00000
+      - errors:
+          - {label: unc, value: 3.00000}
+          - {label: mult, value: 0.06}
+        value: 151.00000
+      - errors:
+          - {label: unc, value: 3.00000}
+          - {label: mult, value: 0.06}
+        value: 129.00000
+      - errors:
+          - {label: unc, value: 3.00000}
+          - {label: mult, value: 0.06}
+        value: 116.00000
+      - errors:
+          - {label: unc, value: 2.50000}
+          - {label: mult, value: 0.06}
+        value: 98.90000
+      - errors:
+          - {label: unc, value: 1.60000}
+          - {label: mult, value: 0.06}
+        value: 79.80000
+      - errors:
+          - {label: unc, value: 4.20000}
+          - {label: mult, value: 0.06}
+        value: 59.10000
+      - errors:
+          - {label: unc, value: 2.80000}
+          - {label: mult, value: 0.06}
+        value: 43.10000
+      - errors:
+          - {label: unc, value: 1.70000}
+          - {label: mult, value: 0.06}
+        value: 30.30000
+      - errors:
+          - {label: unc, value: 1.10000}
+          - {label: mult, value: 0.06}
+        value: 19.30000
+      - errors:
+          - {label: unc, value: 1.00000}
+          - {label: mult, value: 0.06}
+        value: 9.10000
+      - errors:
+          - {label: unc, value: 0.70000}
+          - {label: mult, value: 0.06}
+        value: 7.70000
+      - errors:
+          - {label: unc, value: 0.40000}
+          - {label: mult, value: 0.06}
+        value: 5.00000
+      - errors:
+          - {label: unc, value: 0.19000}
+          - {label: mult, value: 0.06}
+        value: 2.85000
+      - errors:
+          - {label: unc, value: 0.05200}
+          - {label: mult, value: 0.06}
+        value: 0.91000
+      - errors:
+          - {label: unc, value: 0.02000}
+          - {label: mult, value: 0.06}
+        value: 0.11000
+independent_variables:
+  - header: {name: z}
+    values:
+      - {high: 0.02434, low: 0.01898, value: 0.02163, factor: 0.92468}
+      - {high: 0.02976, low: 0.02434, value: 0.02699, factor: 0.95230}
+      - {high: 0.03527, low: 0.02976, value: 0.03246, factor: 0.96729}
+      - {high: 0.04084, low: 0.03527, value: 0.03800, factor: 0.97624}
+      - {high: 0.04644, low: 0.04084, value: 0.04368, factor: 0.98207}
+      - {high: 0.05769, low: 0.04644, value: 0.05206, factor: 0.98741}
+      - {high: 0.06909, low: 0.05769, value: 0.06344, factor: 0.99154}
+      - {high: 0.09177, low: 0.06909, value: 0.07933, factor: 0.99460}
+      - {high: 0.11430, low: 0.09177, value: 0.10233, factor: 0.99676}
+      - {high: 0.14623, low: 0.11430, value: 0.13026, factor: 0.99800}
+      - {high: 0.19417, low: 0.17120, value: 0.18219, factor: 0.99898}
+      - {high: 0.21716, low: 0.19417, value: 0.20417, factor: 0.99919}
+      - {high: 0.26313, low: 0.21716, value: 0.23714, factor: 0.99940}
+      - {high: 0.34310, low: 0.26313, value: 0.29711, factor: 0.99962}
+      - {high: 0.57106, low: 0.34310, value: 0.43408, factor: 0.99982}
+      - {high: 0.97103, low: 0.57106, value: 0.73005, factor: 0.99994}
+  - header: {name: xp}
+    values:
+      - {high: 0.02290, low: 0.01710, value: 0.02000}
+      - {high: 0.02860, low: 0.02290, value: 0.02570}
+      - {high: 0.03430, low: 0.02860, value: 0.03140}
+      - {high: 0.04000, low: 0.03430, value: 0.03710}
+      - {high: 0.04570, low: 0.04000, value: 0.04290}
+      - {high: 0.05710, low: 0.04570, value: 0.05140}
+      - {high: 0.06860, low: 0.05710, value: 0.06290}
+      - {high: 0.09140, low: 0.06860, value: 0.07890}
+      - {high: 0.11400, low: 0.09140, value: 0.10200}
+      - {high: 0.14600, low: 0.11400, value: 0.13000}
+      - {high: 0.19400, low: 0.17100, value: 0.18200}
+      - {high: 0.21700, low: 0.19400, value: 0.20400}
+      - {high: 0.26300, low: 0.21700, value: 0.23700}
+      - {high: 0.34300, low: 0.26300, value: 0.29700}
+      - {high: 0.57100, low: 0.34300, value: 0.43400}
+      - {high: 0.97100, low: 0.57100, value: 0.73000}
