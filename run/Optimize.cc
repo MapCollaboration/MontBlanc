@@ -26,21 +26,50 @@
 #include <gsl/gsl_randist.h>
 
 // C++
+#include <unistd.h>
+#include <getopt.h>
 #include <sys/stat.h>
 
 int main(int argc, char *argv[])
 {
-  if (argc != 5)
+  const char* const short_opts = "s";
+  const option long_opts[] = {
+            {"separate_replica_results", no_argument, nullptr, 's'},
+  };
+
+  bool separate_replica_results = false;
+
+  while (true)
     {
-      std::cerr << "Usage: " << argv[0] << " <replica index> <input card> <path to data> <output folder>" << std::endl;
+      const auto opt = getopt_long(argc, argv, short_opts, long_opts, nullptr);
+
+      if (opt == -1)
+          break;
+
+      switch (opt)
+        {
+          case 's':
+              separate_replica_results = true;
+              break;
+          case '?': // Unrecognized option
+          default: // Unhandled option
+              std::cerr << "Usage: " << argv[0] << " [-s|--separate_replica_results] <replica index> <input card> <path to data> <output folder>" << std::endl;
+              exit(-1);
+        }
+    }
+
+  if ((argc - optind) != 4)
+    {
+      std::cerr << "Usage: " << argv[0] << " [-s|--separate_replica_results] <replica index> <input card> <path to data> <output folder>" << std::endl;
       exit(-1);
     }
 
   // Input information
-  int replica = atoi(argv[1]);
-  const std::string InputCardPath = argv[2];
-  const std::string DataFolder = (std::string) argv[3] + "/";
-  const std::string ResultFolder = argv[4];
+  int replica = atoi(argv[optind]);
+  const std::string InputCardPath = argv[optind + 1];
+  const std::string DataFolder = (std::string) argv[optind + 2] + "/";
+  const std::string ResultFolder = argv[optind + 3];
+
 
   // Assign to the fit the name of the input card
   const std::string OutputFolder = ResultFolder + "/" + InputCardPath.substr(InputCardPath.find_last_of("/") + 1, InputCardPath.find(".yaml") - InputCardPath.find_last_of("/") - 1);
@@ -265,7 +294,12 @@ int main(int argc, char *argv[])
       emitter << YAML::EndMap;
       emitter << YAML::EndSeq;
       emitter << YAML::Newline;
-      std::ofstream fout(OutputFolder + "/BestParameters.yaml", std::ios::out | std::ios::app);
+      std::ofstream fout;
+      if (separate_replica_results)
+        fout = std::ofstream(OutputFolder + "/SeparateBestParameters/BestParameters_" + std::to_string(replica) + ".yaml", std::ios::out | std::ios::app);
+      else
+        fout = std::ofstream(OutputFolder + "/BestParameters.yaml", std::ios::out | std::ios::app);
+      
       fout << emitter.c_str();
       fout.close();
     }
