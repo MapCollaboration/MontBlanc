@@ -85,7 +85,7 @@ The results produced by the codes described above can finally be visualised by c
 
 If you use this code you might want to refer to and cite the following reference:
 
-- Rabah Abdul Khalek, Valerio Bertone, Emanuele R. Nocera, "A determination of unpolarised pion framentation functions using semi-inclusive deep-inelating-scattering data: MAPFF1.0", arXiv:xxxx.xxxxx
+- Rabah Abdul Khalek, Valerio Bertone, Emanuele R. Nocera, "A determination of unpolarised pion fragmentation functions using semi-inclusive deep-inelastic-scattering data: MAPFF1.0", arXiv:2105.08725
 
 ## Contacts
 
