@@ -10,7 +10,9 @@
 
 #include <NangaParbat/cutfactory.h>
 #include <unistd.h>
+#include <getopt.h>
 #include <fstream>
+#include <sys/stat.h>
 
 std::string GetCurrentWorkingDir()
 {
@@ -19,24 +21,106 @@ std::string GetCurrentWorkingDir()
   return buff;
 }
 
+void usage_error_message(std::string call_name)
+{
+  std::cerr << "Usage: " << call_name << " [-a|--all_replicas] [-i|--index_result] <path to fit folder> [<member_index> (default: 0)] [<set name> (default: LHAPDFSet)]" << std::endl;
+}
+
+void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPDFSet, std::string ResultName = "Chi2s.yaml");
+
+
+std::string i_to_fixed_length_str(int value, int digits_count) 
+{
+    std::ostringstream os;
+    os<<std::setfill('0')<<std::setw(digits_count)<<value;
+    return os.str();
+}
+
+
 int main(int argc, char *argv[])
 {
-  if (argc < 2)
+  const char* const short_opts = "ai";
+  const option long_opts[] = {
+            {"all_replicas", no_argument, nullptr, 'a'},
+            {"index_result", no_argument, nullptr, 'i'}
+            //{"replica member", required_argument, nullptr, 'r'},
+  };
+
+  bool compute_all_replicas = false;
+  bool specify_index_result = false;
+
+  while (true)
     {
-      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<set name> (default: LHAPDFSet)]" << std::endl;
+      const auto opt = getopt_long(argc, argv, short_opts, long_opts, nullptr);
+
+      if (opt == -1)
+          break;
+
+      switch (opt)
+        {
+          case 'a':
+              compute_all_replicas = true;
+              break;
+          case 'i':
+              specify_index_result = true;
+              break;
+          case '?': // Unrecognized option
+          default: // Unhandled option
+              usage_error_message(argv[0]);
+              exit(-1);
+        }
+    }
+
+  if ((argc - optind) < 1)
+    {
+      usage_error_message(argv[0]);
       exit(-1);
     }
 
-  // Timer
-  apfel::Timer t;
-
   // Path to result folder
-  const std::string ResultFolder = argv[1];
+  const std::string ResultFolder = argv[optind];
+
+  // Member index
+  int member_index = 0;
+  if ((argc - optind) >= 2)
+    member_index = atoi(argv[optind+1]);
 
   // Name of the set
   std::string LHAPDFSet = "LHAPDFSet";
-  if (argc >= 3)
-    LHAPDFSet = argv[2];
+  if ((argc - optind) >= 3)
+    LHAPDFSet = argv[optind+2];
+
+  std::cout<<ResultFolder<<" "<<member_index<<" "<<LHAPDFSet<<" "<<compute_all_replicas<<"\n";
+
+  if (compute_all_replicas)
+    {
+      std::cout << mkdir((ResultFolder+"/IndivChi2s").c_str(), 0777) <<"ResultFolder/IndivChi2s" << "\n";
+      //std::cout << (ResultFolder+"/LHAPDFSet/LHAPDFSet_00" + std::to_string(10)+".dat").c_str() << "\n";
+      //std::cout << access((ResultFolder+"/LHAPDFSet/LHAPDFSet_" + i_to_fixed_length_str(10,4)+".dat").c_str(), F_OK) << "\n";
+      //std::cout << access((ResultFolder).c_str(), F_OK) << "\n";
+
+      for(size_t i=1; access((ResultFolder+"/LHAPDFSet/LHAPDFSet_" + i_to_fixed_length_str(i,4)+".dat").c_str(), F_OK) != -1; i++)
+        {
+          //std::cout<<(ResultFolder+"/LHAPDFSet/" + std::to_string(i));
+          compute_chi2s(ResultFolder, i, LHAPDFSet, "IndivChi2s/Chi2sReplica" + std::to_string(i));
+        }
+    }
+  else if (specify_index_result)
+    {
+      mkdir((ResultFolder+"/IndivChi2s").c_str(), 0777);
+      compute_chi2s(ResultFolder, member_index, LHAPDFSet, "IndivChi2s/Chi2sReplica" + std::to_string(member_index));
+    }
+  else
+    {
+      compute_chi2s(ResultFolder, member_index, LHAPDFSet);
+    }
+  return 0;
+}
+
+void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPDFSet, std::string ResultName)
+{
+  // Timer
+  apfel::Timer t;
 
   // Input card
   YAML::Node config = YAML::LoadFile(ResultFolder + "/config.yaml");
@@ -44,6 +128,7 @@ int main(int argc, char *argv[])
   // Set silent mode for APFEL++
   apfel::SetVerbosityLevel(0);
 
+  std::cout<<ResultFolder<<" "<<member_index<<" "<<LHAPDFSet<<" "<<"\n";
   // APFEL++ x-space grid
   std::vector<apfel::SubGrid> vsg;
   for (auto const& sg : config["Predictions"]["xgrid"])
@@ -57,7 +142,7 @@ int main(int argc, char *argv[])
     LHAPDF::pathsAppend(GetCurrentWorkingDir() + "/" + ResultFolder + "/");
 
   // LHAPDF Parameterisation
-  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(LHAPDFSet, g);
+  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(LHAPDFSet, g, member_index);
 
   // Initialiase chi2 object
   NangaParbat::ChiSquare *chi2 = new MontBlanc::AnalyticChiSquare{LHAPDF_FFs};
@@ -100,34 +185,8 @@ int main(int argc, char *argv[])
       emitter << YAML::Key << "Npt" << YAML::Value << chi2->GetDataPointNumbersAfterCuts()[chi2->GetNumberOfExperiments()-1];
       emitter << YAML::EndMap;
       emitter << YAML::EndMap;
-      /*
-            // Compute chi2 starting from the penalty
-            const std::vector<NangaParbat::DataHandler::Binning> bins = DH->GetBinning();
-            const std::vector<double> mvs  = DH->GetFluctutatedData();
-            const std::vector<double> unc  = DH->GetUncorrelatedUnc();
-            const std::vector<double> prds = PH->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
-            const std::pair<std::vector<double>, double> shifts = chi2->GetSystematicShifts(chi2->GetNumberOfExperiments()-1);
-            const std::valarray<bool> CutMask = PH->GetCutMask();
-
-            // Compute chi2 starting from the penalty and print predictions
-            double chi2n = shifts.second;
-            for (int i = 0; i < (int) bins.size(); i++)
-      	{
-      	  chi2n += pow( ( ( CutMask[i] ? mvs[i] - prds[i] : 0 ) - shifts.first[i] ) / unc[i], 2);
-      	  if (bins[i].Qav > 1.28)
-      	    std::cout << i << std::scientific << "\t["
-      	      //<< bins[i].xmin << ": " << bins[i].xmax << "]\t["
-      	      //<< bins[i].ymin << ": " << bins[i].ymax << "]\t["
-      	      //<< bins[i].zmin << ": " << bins[i].zmax << "]\t"
-      		      << bins[i].xav << "\t"
-      		      << bins[i].zav << "\t"
-      		      << pow(bins[i].Qav, 2) << "\t"
-      		      << prds[i] << "\t" << shifts.first[i] << "\t" << mvs[i] << " +- " << unc[i] << "\t"
-      		      << std::endl;
-      	}
-            std::cout << "chi2 / Npt (nuis. pars.) = " << chi2n / chi2->GetDataPointNumbers()[chi2->GetNumberOfExperiments()-1] << std::endl;
-      */
     }
+
   std::cout << "\nTotal chi2 / Npt = " << chi2->Evaluate() << "\n" << std::endl;
   emitter << YAML::BeginMap << YAML::Key << "Total" << YAML::Value;
   emitter << YAML::Flow << YAML::BeginMap;
@@ -137,7 +196,7 @@ int main(int argc, char *argv[])
   emitter << YAML::EndSeq;
 
   // Print YAML:Emitter to file
-  std::ofstream fout(ResultFolder + "/Chi2s.yaml");
+  std::ofstream fout(ResultFolder +"/"+ ResultName);
   fout << emitter.c_str();
   fout.close();
 
@@ -145,5 +204,4 @@ int main(int argc, char *argv[])
   gsl_rng_free(rng);
 
   t.stop(true);
-  return 0;
 }
