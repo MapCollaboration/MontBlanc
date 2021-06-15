@@ -9,7 +9,6 @@
 #include "MontBlanc/LHAPDFparameterisation.h"
 
 #include <NangaParbat/cutfactory.h>
-#include <NangaParbat/Trainingcut.h>
 #include <unistd.h>
 #include <fstream>
 
