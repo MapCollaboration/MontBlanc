@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {title: "TASSO44 $K^\pm$ Multiplicity"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value:  44.0 }
+  - {name: prefactor, value: 1}
+  - {name: z, low:  0.011 , high:  0.8 , integrate: false}
+  - {name: hadron, value: PR}
+  - {name: charge, value: 0}
+  values:
+  - errors:
+    - {label: unc, value: 1.10000}
+    - {label: mult, value: 0.06}
+    value:  2.4
+  - errors:
+    - {label: unc, value: 1.30000}
+    - {label: mult, value: 0.06}
+    value:  6.6
+  - errors:
+    - {label: unc, value: 1.20000}
+    - {label: mult, value: 0.06}
+    value:  5.7
+  - errors:
+    - {label: unc, value: 1.10000}
+    - {label: mult, value: 0.06}
+    value:  8.8
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {high: 0.05210, low: 0.03893, value: 0.04552, factor: 0.34933}
+  - {high: 0.05240, low: 0.04201, value: 0.04732, factor: 0.43322}
+  - {high: 0.05398, low: 0.04489, value: 0.04944, factor: 0.50570}
+  - {high: 0.05590, low: 0.04799, value: 0.05186, factor: 0.56887}
+- header: {name: "xp"}
+  values:
+  - {high: 0.01820, low: 0.01360, value: 0.01590}
+  - {high: 0.02270, low: 0.01820, value: 0.02050}
+  - {high: 0.02730, low: 0.02270, value: 0.02500}
+  - {high: 0.03180, low: 0.02730, value: 0.02950}

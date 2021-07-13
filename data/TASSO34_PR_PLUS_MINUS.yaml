@@ -1,0 +1,81 @@
+dependent_variables:
+- header: {title: "TASSO34 $K^\pm$ Multiplicity"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value:  34.0 }
+  - {name: prefactor, value: 1}
+  - {name: z, low:  0.011 , high:  0.8 , integrate: false}
+  - {name: hadron, value: PR}
+  - {name: charge, value: 0}
+  values:
+  - errors:
+    - {label: unc, value: 0.86000}
+    - {label: mult, value: 0.06}
+    value:  1.54
+  - errors:
+    - {label: unc, value: 0.53000}
+    - {label: mult, value: 0.06}
+    value:  2.63
+  - errors:
+    - {label: unc, value: 0.35000}
+    - {label: mult, value: 0.06}
+    value:  3.33
+  - errors:
+    - {label: unc, value: 0.53000}
+    - {label: mult, value: 0.06}
+    value:  4.55
+  - errors:
+    - {label: unc, value: 1.05000}
+    - {label: mult, value: 0.06}
+    value:  4.55
+  - errors:
+    - {label: unc, value: 0.44000}
+    - {label: mult, value: 0.06}
+    value:  4.74
+  - errors:
+    - {label: unc, value: 0.67000}
+    - {label: mult, value: 0.06}
+    value:  4.1
+  - errors:
+    - {label: unc, value: 1.03000}
+    - {label: mult, value: 0.06}
+    value:  3.4
+  - errors:
+    - {label: unc, value: 0.42000}
+    - {label: mult, value: 0.06}
+    value:  1.37
+  - errors:
+    - {label: unc, value: 0.23000}
+    - {label: mult, value: 0.06}
+    value:  0.56
+  - errors:
+    - {label: unc, value: 0.01600}
+    - {label: mult, value: 0.06}
+    value:  0.032
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {high: 0.06722, low: 0.05019, value: 0.05870, factor: 0.34069}
+  - {high: 0.06775, low: 0.05425, value: 0.06088, factor: 0.42212}
+  - {high: 0.06936, low: 0.05784, value: 0.06350, factor: 0.49449}
+  - {high: 0.07170, low: 0.06148, value: 0.06650, factor: 0.55787}
+  - {high: 0.07447, low: 0.06518, value: 0.06990, factor: 0.61370}
+  - {high: 0.09632, low: 0.06417, value: 0.07863, factor: 0.71222}
+  - {high: 0.11154, low: 0.08372, value: 0.09629, factor: 0.81941}
+  - {high: 0.12962, low: 0.10392, value: 0.11598, factor: 0.87950}
+  - {high: 0.22588, low: 0.17800, value: 0.19881, factor: 0.96069}
+  - {high: 0.35004, low: 0.22145, value: 0.27656, factor: 0.97988}
+  - {high: 0.97377, low: 0.57263, value: 0.73208, factor: 0.99715}
+- header: {name: "xp"}
+  values:
+  - {high: 0.02290, low: 0.01710, value: 0.02000}
+  - {high: 0.02860, low: 0.02290, value: 0.02570}
+  - {high: 0.03430, low: 0.02860, value: 0.03140}
+  - {high: 0.04000, low: 0.03430, value: 0.03710}
+  - {high: 0.04570, low: 0.04000, value: 0.04290}
+  - {high: 0.06860, low: 0.04570, value: 0.05600}
+  - {high: 0.09140, low: 0.06860, value: 0.07890}
+  - {high: 0.11400, low: 0.09140, value: 0.10200}
+  - {high: 0.21700, low: 0.17100, value: 0.19100}
+  - {high: 0.34300, low: 0.21700, value: 0.27100}
+  - {high: 0.97100, low: 0.57100, value: 0.73000}

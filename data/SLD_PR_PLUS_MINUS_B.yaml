@@ -1,0 +1,231 @@
+dependent_variables:
+- header: {title: "SLD $p+\bar{p}$ Multiplicity b-tag"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value:  91.2 }
+  - {name: prefactor, value: 1}
+  - {name: z, low:  0.011 , high:  0.8 , integrate: false}
+  - {name: hadron, value: PR}
+  - {name: charge, value: [b]}
+  values:
+  - errors:
+    - {label: unc, value: 1.49000}
+    - {label: mult, value: 0.01}
+    value:  13.79
+  - errors:
+    - {label: unc, value: 0.78000}
+    - {label: mult, value: 0.01}
+    value:  17.93
+  - errors:
+    - {label: unc, value: 0.93000}
+    - {label: mult, value: 0.01}
+    value:  16.41
+  - errors:
+    - {label: unc, value: 0.52000}
+    - {label: mult, value: 0.01}
+    value:  12.11
+  - errors:
+    - {label: unc, value: 0.42000}
+    - {label: mult, value: 0.01}
+    value:  10.32
+  - errors:
+    - {label: unc, value: 0.40000}
+    - {label: mult, value: 0.01}
+    value:  9.52
+  - errors:
+    - {label: unc, value: 0.36000}
+    - {label: mult, value: 0.01}
+    value:  7.72
+  - errors:
+    - {label: unc, value: 0.32000}
+    - {label: mult, value: 0.01}
+    value:  6.86
+  - errors:
+    - {label: unc, value: 0.32000}
+    - {label: mult, value: 0.01}
+    value:  6.19
+  - errors:
+    - {label: unc, value: 0.29000}
+    - {label: mult, value: 0.01}
+    value:  4.96
+  - errors:
+    - {label: unc, value: 0.29000}
+    - {label: mult, value: 0.01}
+    value:  4.82
+  - errors:
+    - {label: unc, value: 0.29000}
+    - {label: mult, value: 0.01}
+    value:  4.57
+  - errors:
+    - {label: unc, value: 0.29000}
+    - {label: mult, value: 0.01}
+    value:  4.07
+  - errors:
+    - {label: unc, value: 0.29000}
+    - {label: mult, value: 0.01}
+    value:  3.82
+  - errors:
+    - {label: unc, value: 0.21000}
+    - {label: mult, value: 0.01}
+    value:  3.29
+  - errors:
+    - {label: unc, value: 0.22000}
+    - {label: mult, value: 0.01}
+    value:  2.68
+  - errors:
+    - {label: unc, value: 0.23000}
+    - {label: mult, value: 0.01}
+    value:  2.24
+  - errors:
+    - {label: unc, value: 0.19000}
+    - {label: mult, value: 0.01}
+    value:  1.84
+  - errors:
+    - {label: unc, value: 0.27000}
+    - {label: mult, value: 0.01}
+    value:  1.91
+  - errors:
+    - {label: unc, value: 0.36000}
+    - {label: mult, value: 0.01}
+    value:  1.25
+  - errors:
+    - {label: unc, value: 0.12100}
+    - {label: mult, value: 0.01}
+    value:  0.867
+  - errors:
+    - {label: unc, value: 0.07200}
+    - {label: mult, value: 0.01}
+    value:  0.7390000000000001
+  - errors:
+    - {label: unc, value: 0.06000}
+    - {label: mult, value: 0.01}
+    value:  0.645
+  - errors:
+    - {label: unc, value: 0.04700}
+    - {label: mult, value: 0.01}
+    value:  0.392
+  - errors:
+    - {label: unc, value: 0.03800}
+    - {label: mult, value: 0.01}
+    value:  0.252
+  - errors:
+    - {label: unc, value: 0.03500}
+    - {label: mult, value: 0.01}
+    value:  0.266
+  - errors:
+    - {label: unc, value: 0.02200}
+    - {label: mult, value: 0.01}
+    value:  0.146
+  - errors:
+    - {label: unc, value: 0.01800}
+    - {label: mult, value: 0.01}
+    value:  0.102
+  - errors:
+    - {label: unc, value: 0.01200}
+    - {label: mult, value: 0.01}
+    value:  0.02
+  - errors:
+    - {label: unc, value: 0.01100}
+    - {label: mult, value: 0.01}
+    value:  0.034
+  - errors:
+    - {label: unc, value: 0.00700}
+    - {label: mult, value: 0.01}
+    value:  -0.004
+  - errors:
+    - {label: unc, value: 0.00600}
+    - {label: mult, value: 0.01}
+    value:  0.016
+  - errors:
+    - {label: unc, value: 0.00300}
+    - {label: mult, value: 0.01}
+    value:  -0.003
+  - errors:
+    - {label: unc, value: 0.00200}
+    - {label: mult, value: 0.01}
+    value:  0.004
+  - errors:
+    - {label: unc, value: 0.00100}
+    - {label: mult, value: 0.01}
+    value:  -0.001
+  - errors:
+    - {label: unc, value: 0.00000}
+    - {label: mult, value: 0.01}
+    value:  0.0
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {value: 0.02564, factor: 0.59670}
+  - {value: 0.02807, factor: 0.68033}
+  - {value: 0.03207, factor: 0.76705}
+  - {value: 0.03646, factor: 0.82554}
+  - {value: 0.04112, factor: 0.86579}
+  - {value: 0.04596, factor: 0.89420}
+  - {value: 0.05085, factor: 0.91447}
+  - {value: 0.05602, factor: 0.93009}
+  - {value: 0.06116, factor: 0.94172}
+  - {value: 0.06628, factor: 0.95058}
+  - {value: 0.07152, factor: 0.95773}
+  - {value: 0.07681, factor: 0.96345}
+  - {value: 0.08212, factor: 0.96810}
+  - {value: 0.08746, factor: 0.97193}
+  - {value: 0.09535, factor: 0.97644}
+  - {value: 0.10602, factor: 0.98098}
+  - {value: 0.11683, factor: 0.98437}
+  - {value: 0.13261, factor: 0.98789}
+  - {value: 0.15438, factor: 0.99108}
+  - {value: 0.17621, factor: 0.99316}
+  - {value: 0.19807, factor: 0.99459}
+  - {value: 0.21986, factor: 0.99561}
+  - {value: 0.24188, factor: 0.99638}
+  - {value: 0.26370, factor: 0.99695}
+  - {value: 0.28564, factor: 0.99740}
+  - {value: 0.30749, factor: 0.99776}
+  - {value: 0.33443, factor: 0.99811}
+  - {value: 0.36718, factor: 0.99843}
+  - {value: 0.40023, factor: 0.99868}
+  - {value: 0.43299, factor: 0.99887}
+  - {value: 0.46555, factor: 0.99902}
+  - {value: 0.50392, factor: 0.99917}
+  - {value: 0.54739, factor: 0.99929}
+  - {value: 0.60865, factor: 0.99943}
+  - {value: 0.70500, factor: 0.99957}
+  - {value: 0.83855, factor: 0.99970}
+- header: {name: "xp"}
+  values:
+  - {value: 0.01530}
+  - {value: 0.01910}
+  - {value: 0.02460}
+  - {value: 0.03010}
+  - {value: 0.03560}
+  - {value: 0.04110}
+  - {value: 0.04650}
+  - {value: 0.05210}
+  - {value: 0.05760}
+  - {value: 0.06300}
+  - {value: 0.06850}
+  - {value: 0.07400}
+  - {value: 0.07950}
+  - {value: 0.08500}
+  - {value: 0.09310}
+  - {value: 0.10400}
+  - {value: 0.11500}
+  - {value: 0.13100}
+  - {value: 0.15300}
+  - {value: 0.17500}
+  - {value: 0.19700}
+  - {value: 0.21890}
+  - {value: 0.24100}
+  - {value: 0.26290}
+  - {value: 0.28490}
+  - {value: 0.30680}
+  - {value: 0.33380}
+  - {value: 0.36660}
+  - {value: 0.39970}
+  - {value: 0.43250}
+  - {value: 0.46510}
+  - {value: 0.50350}
+  - {value: 0.54700}
+  - {value: 0.60830}
+  - {value: 0.70470}
+  - {value: 0.83830}

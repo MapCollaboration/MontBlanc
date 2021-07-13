@@ -1,0 +1,69 @@
+dependent_variables:
+- header: {title: "TASSO14 $K^\pm$ Multiplicity"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value:  14.0 }
+  - {name: prefactor, value: 1}
+  - {name: z, low:  0.011 , high:  0.8 , integrate: false}
+  - {name: hadron, value: KA}
+  - {name: charge, value: 0}
+  values:
+  - errors:
+    - {label: unc, value: 0.18000}
+    - {label: mult, value: 0.085}
+    value:  1.04
+  - errors:
+    - {label: unc, value: 0.19000}
+    - {label: mult, value: 0.085}
+    value:  1.61
+  - errors:
+    - {label: unc, value: 0.18000}
+    - {label: mult, value: 0.085}
+    value:  1.61
+  - errors:
+    - {label: unc, value: 0.27000}
+    - {label: mult, value: 0.085}
+    value:  1.87
+  - errors:
+    - {label: unc, value: 0.20000}
+    - {label: mult, value: 0.085}
+    value:  1.05
+  - errors:
+    - {label: unc, value: 0.30000}
+    - {label: mult, value: 0.085}
+    value:  1.42
+  - errors:
+    - {label: unc, value: 0.29000}
+    - {label: mult, value: 0.085}
+    value:  0.8
+  - errors:
+    - {label: unc, value: 0.18000}
+    - {label: mult, value: 0.085}
+    value:  0.84
+  - errors:
+    - {label: unc, value: 0.03000}
+    - {label: mult, value: 0.085}
+    value:  0.06
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {high: 0.09880, low: 0.07410, value: 0.08645, factor: 16.19410}
+  - {high: 0.10603, low: 0.08482, value: 0.09543, factor: 18.86242}
+  - {high: 0.11518, low: 0.09598, value: 0.10558, factor: 20.83714}
+  - {high: 0.12557, low: 0.10763, value: 0.11660, factor: 22.29788}
+  - {high: 0.13682, low: 0.11972, value: 0.12827, factor: 23.38801}
+  - {high: 0.16294, low: 0.13035, value: 0.14664, factor: 24.54927}
+  - {high: 0.24450, low: 0.15281, value: 0.19865, factor: 26.17610}
+  - {high: 0.29627, low: 0.23701, value: 0.26664, factor: 27.00282}
+  - {high: 0.66267, low: 0.43217, value: 0.54742, factor: 27.76666}
+- header: {name: "ph"}
+  values:
+  - {high: 0.40000, low: 0.30000, value: 0.35000}
+  - {high: 0.50000, low: 0.40000, value: 0.45000}
+  - {high: 0.60000, low: 0.50000, value: 0.55000}
+  - {high: 0.70000, low: 0.60000, value: 0.65000}
+  - {high: 0.80000, low: 0.70000, value: 0.75000}
+  - {high: 1.00000, low: 0.80000, value: 0.90000}
+  - {high: 1.60000, low: 1.00000, value: 1.30000}
+  - {high: 2.00000, low: 1.60000, value: 1.80000}
+  - {high: 4.60000, low: 3.00000, value: 3.80000}

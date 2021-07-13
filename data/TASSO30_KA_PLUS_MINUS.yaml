@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {title: "TASSO30 $K^\pm$ Multiplicity"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value:  30.0 }
+  - {name: prefactor, value: 1}
+  - {name: z, low:  0.011 , high:  0.8 , integrate: false}
+  - {name: hadron, value: KA}
+  - {name: charge, value: 0}
+  values:
+  - errors:
+    - {label: unc, value: 0.15100}
+    - {label: mult, value: 0.20}
+    value:  0.402
+  - errors:
+    - {label: unc, value: 0.24300}
+    - {label: mult, value: 0.20}
+    value:  0.46299999999999997
+  - errors:
+    - {label: unc, value: 0.40000}
+    - {label: mult, value: 0.20}
+    value:  0.92
+  - errors:
+    - {label: unc, value: 0.20000}
+    - {label: mult, value: 0.20}
+    value:  0.42
+  - errors:
+    - {label: unc, value: 0.14000}
+    - {label: mult, value: 0.20}
+    value:  0.24
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {value: 0.04453, factor: 40.41948}
+  - {value: 0.04927, factor: 44.65102}
+  - {value: 0.05180, factor: 46.33251}
+  - {value: 0.06267, factor: 51.06045}
+  - {value: 0.07435, factor: 53.80101}
+- header: {name: "ph"}
+  values:
+  - {value: 0.45000}
+  - {value: 0.55000}
+  - {value: 0.60000}
+  - {value: 0.80000}
+  - {value: 1.00000}
