@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "OPAL $K^\pm$ Multiplicity"}
+- header: {title: "OPAL $K^\\pm$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  91.2 }

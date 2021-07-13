@@ -1,36 +1,36 @@
 dependent_variables:
-- header: {title: "TASSO44 $K^\pm$ Multiplicity"}
+- header: {title: "TASSO44 $p+\\bar{p}$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  44.0 }
   - {name: prefactor, value: 1}
   - {name: z, low:  0.011 , high:  0.8 , integrate: false}
-  - {name: hadron, value: KA}
+  - {name: hadron, value: PR}
   - {name: charge, value: 0}
   values:
   - errors:
+    - {label: unc, value: 1.10000}
+    - {label: mult, value: 0.06}
+    value:  2.4
+  - errors:
+    - {label: unc, value: 1.30000}
+    - {label: mult, value: 0.06}
+    value:  6.6
+  - errors:
     - {label: unc, value: 1.20000}
     - {label: mult, value: 0.06}
+    value:  5.7
+  - errors:
+    - {label: unc, value: 1.10000}
+    - {label: mult, value: 0.06}
     value:  8.8
-  - errors:
-    - {label: unc, value: 5.30000}
-    - {label: mult, value: 0.06}
-    value:  19.8
-  - errors:
-    - {label: unc, value: 2.60000}
-    - {label: mult, value: 0.06}
-    value:  21.3
-  - errors:
-    - {label: unc, value: 3.10000}
-    - {label: mult, value: 0.06}
-    value:  23.3
 independent_variables:
 - header: {name: "z"}
   values:
-  - {high: 0.03148, low: 0.02352, value: 0.02750, factor: 0.57814}
-  - {high: 0.03366, low: 0.02698, value: 0.03039, factor: 0.67447}
-  - {high: 0.03668, low: 0.03050, value: 0.03359, factor: 0.74418}
-  - {high: 0.03995, low: 0.03430, value: 0.03706, factor: 0.79590}
+  - {high: 0.05210, low: 0.03893, value: 0.04552, factor: 0.34933}
+  - {high: 0.05240, low: 0.04201, value: 0.04732, factor: 0.43322}
+  - {high: 0.05398, low: 0.04489, value: 0.04944, factor: 0.50570}
+  - {high: 0.05590, low: 0.04799, value: 0.05186, factor: 0.56887}
 - header: {name: "xp"}
   values:
   - {high: 0.01820, low: 0.01360, value: 0.01590}

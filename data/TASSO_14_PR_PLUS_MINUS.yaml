@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "TASSO14 $K^\pm$ Multiplicity"}
+- header: {title: "TASSO14 $p+\\nar{p}$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  14.0 }

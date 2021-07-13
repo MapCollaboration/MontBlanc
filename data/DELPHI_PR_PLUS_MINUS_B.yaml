@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "DELPHI $p+\bar{p}$ Multiplicity b-tag"}
+- header: {title: "DELPHI $p+\\bar{p}$ Multiplicity b-tag"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  91.2 }

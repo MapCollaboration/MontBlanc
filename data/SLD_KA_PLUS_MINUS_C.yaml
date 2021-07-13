@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "SLD $K^\pm$ Multiplicity c-tag"}
+- header: {title: "SLD $K^\\pm$ Multiplicity c-tag"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  91.2 }
