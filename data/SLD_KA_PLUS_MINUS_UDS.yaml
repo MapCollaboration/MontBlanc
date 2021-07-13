@@ -6,7 +6,8 @@ dependent_variables:
   - {name: prefactor, value: 1}
   - {name: z, low:  0.011 , high:  0.8 , integrate: false}
   - {name: hadron, value: KA}
-  - {name: charge, value: [u,d,s]}
+  - {name: charge, value: 0}
+  - {name: tagging, value: [u,d,s]}
   values:
   - errors:
     - {label: unc, value: 1.27000}
