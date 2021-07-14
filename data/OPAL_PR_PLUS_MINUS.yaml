@@ -122,79 +122,79 @@ dependent_variables:
 independent_variables:
 - header: {name: "z"}
   values:
-  - {high: 0.02287, low: 0.02206, value: 0.02249, factor: 73.63238}
-  - {high: 0.02310, low: 0.02220, value: 0.02262, factor: 75.84564}
-  - {high: 0.02325, low: 0.02233, value: 0.02279, factor: 78.44904}
-  - {high: 0.02346, low: 0.02252, value: 0.02296, factor: 80.99491}
-  - {high: 0.02364, low: 0.02268, value: 0.02316, factor: 83.75607}
-  - {high: 0.02389, low: 0.02287, value: 0.02338, factor: 86.57880}
-  - {high: 0.02416, low: 0.02309, value: 0.02362, factor: 89.58080}
-  - {high: 0.02440, low: 0.02337, value: 0.02388, factor: 92.61422}
-  - {high: 0.02472, low: 0.02359, value: 0.02418, factor: 95.78750}
-  - {high: 0.02506, low: 0.02393, value: 0.02449, factor: 98.96040}
-  - {high: 0.02543, low: 0.02426, value: 0.02485, factor: 102.23207}
-  - {high: 0.02583, low: 0.02465, value: 0.02522, factor: 105.47161}
-  - {high: 0.02623, low: 0.02502, value: 0.02565, factor: 108.86977}
-  - {high: 0.02674, low: 0.02546, value: 0.02610, factor: 112.19588}
-  - {high: 0.02725, low: 0.02597, value: 0.02659, factor: 115.53166}
-  - {high: 0.02780, low: 0.02649, value: 0.02713, factor: 118.85447}
-  - {high: 0.02839, low: 0.02705, value: 0.02771, factor: 122.14316}
-  - {high: 0.02905, low: 0.02764, value: 0.02835, factor: 125.45285}
-  - {high: 0.02976, low: 0.02833, value: 0.02902, factor: 128.61239}
-  - {high: 0.03051, low: 0.02905, value: 0.02975, factor: 131.75071}
-  - {high: 0.03133, low: 0.02981, value: 0.03055, factor: 134.84064}
-  - {high: 0.03219, low: 0.03065, value: 0.03141, factor: 137.80372}
-  - {high: 0.03315, low: 0.03153, value: 0.03233, factor: 140.68348}
-  - {high: 0.03416, low: 0.03251, value: 0.03332, factor: 143.46274}
-  - {high: 0.03523, low: 0.03353, value: 0.03438, factor: 146.12792}
-  - {high: 0.03640, low: 0.03463, value: 0.03552, factor: 148.66884}
-  - {high: 0.03765, low: 0.03582, value: 0.03672, factor: 151.07852}
-  - {high: 0.11092, low: 0.09075, value: 0.10016, factor: 178.50983}
-  - {high: 0.13440, low: 0.11014, value: 0.12149, factor: 179.76503}
-  - {high: 0.16344, low: 0.13376, value: 0.14771, factor: 180.62167}
-  - {high: 0.19890, low: 0.16291, value: 0.17969, factor: 181.20022}
-  - {high: 0.24252, low: 0.19847, value: 0.21895, factor: 181.59279}
-  - {high: 0.29562, low: 0.24217, value: 0.26658, factor: 181.85587}
-  - {high: 0.36081, low: 0.29533, value: 0.32521, factor: 182.03455}
-  - {high: 0.44029, low: 0.36057, value: 0.39637, factor: 182.15407}
-  - {high: 0.65621, low: 0.44004, value: 0.52190, factor: 182.25819}
-  - {high: 1.00038, low: 0.65595, value: 0.74414, factor: 182.33026}
+  - {high: 0.02287, low: 0.02206, value: 0.02249, factor: 0.00885}
+  - {high: 0.02310, low: 0.02220, value: 0.02262, factor: 0.00912}
+  - {high: 0.02325, low: 0.02233, value: 0.02279, factor: 0.00943}
+  - {high: 0.02346, low: 0.02252, value: 0.02296, factor: 0.00974}
+  - {high: 0.02364, low: 0.02268, value: 0.02316, factor: 0.01007}
+  - {high: 0.02389, low: 0.02287, value: 0.02338, factor: 0.01041}
+  - {high: 0.02416, low: 0.02309, value: 0.02362, factor: 0.01077}
+  - {high: 0.02440, low: 0.02337, value: 0.02388, factor: 0.01113}
+  - {high: 0.02472, low: 0.02359, value: 0.02418, factor: 0.01152}
+  - {high: 0.02506, low: 0.02393, value: 0.02449, factor: 0.01190}
+  - {high: 0.02543, low: 0.02426, value: 0.02485, factor: 0.01229}
+  - {high: 0.02583, low: 0.02465, value: 0.02522, factor: 0.01268}
+  - {high: 0.02623, low: 0.02502, value: 0.02565, factor: 0.01309}
+  - {high: 0.02674, low: 0.02546, value: 0.02610, factor: 0.01349}
+  - {high: 0.02725, low: 0.02597, value: 0.02659, factor: 0.01389}
+  - {high: 0.02780, low: 0.02649, value: 0.02713, factor: 0.01429}
+  - {high: 0.02839, low: 0.02705, value: 0.02771, factor: 0.01469}
+  - {high: 0.02905, low: 0.02764, value: 0.02835, factor: 0.01508}
+  - {high: 0.02976, low: 0.02833, value: 0.02902, factor: 0.01546}
+  - {high: 0.03051, low: 0.02905, value: 0.02975, factor: 0.01584}
+  - {high: 0.03133, low: 0.02981, value: 0.03055, factor: 0.01621}
+  - {high: 0.03219, low: 0.03065, value: 0.03141, factor: 0.01657}
+  - {high: 0.03315, low: 0.03153, value: 0.03233, factor: 0.01691}
+  - {high: 0.03416, low: 0.03251, value: 0.03332, factor: 0.01725}
+  - {high: 0.03523, low: 0.03353, value: 0.03438, factor: 0.01757}
+  - {high: 0.03640, low: 0.03463, value: 0.03552, factor: 0.01787}
+  - {high: 0.03765, low: 0.03582, value: 0.03672, factor: 0.01816}
+  - {high: 0.11092, low: 0.09075, value: 0.10016, factor: 0.02146}
+  - {high: 0.13440, low: 0.11014, value: 0.12149, factor: 0.02161}
+  - {high: 0.16344, low: 0.13376, value: 0.14771, factor: 0.02172}
+  - {high: 0.19890, low: 0.16291, value: 0.17969, factor: 0.02179}
+  - {high: 0.24252, low: 0.19847, value: 0.21895, factor: 0.02183}
+  - {high: 0.29562, low: 0.24217, value: 0.26658, factor: 0.02186}
+  - {high: 0.36081, low: 0.29533, value: 0.32521, factor: 0.02189}
+  - {high: 0.44029, low: 0.36057, value: 0.39637, factor: 0.02190}
+  - {high: 0.65621, low: 0.44004, value: 0.52190, factor: 0.02191}
+  - {high: 1.00038, low: 0.65595, value: 0.74414, factor: 0.02192}
 - header: {name: "ph"}
   values:
-  -{high: 0.42100, low: 0.40600, value: 0.41400}
-  -{high: 0.43800, low: 0.42100, value: 0.42900}
-  -{high: 0.45600, low: 0.43800, value: 0.44700}
-  -{high: 0.47500, low: 0.45600, value: 0.46500}
-  -{high: 0.49500, low: 0.47500, value: 0.48500}
-  -{high: 0.51700, low: 0.49500, value: 0.50600}
-  -{high: 0.54100, low: 0.51700, value: 0.52900}
-  -{high: 0.56500, low: 0.54100, value: 0.55300}
-  -{high: 0.59200, low: 0.56500, value: 0.57900}
-  -{high: 0.62000, low: 0.59200, value: 0.60600}
-  -{high: 0.65000, low: 0.62000, value: 0.63500}
-  -{high: 0.68100, low: 0.65000, value: 0.66500}
-  -{high: 0.71400, low: 0.68100, value: 0.69800}
-  -{high: 0.75000, low: 0.71400, value: 0.73200}
-  -{high: 0.78700, low: 0.75000, value: 0.76800}
-  -{high: 0.82600, low: 0.78700, value: 0.80600}
-  -{high: 0.86700, low: 0.82600, value: 0.84600}
-  -{high: 0.91100, low: 0.86700, value: 0.88900}
-  -{high: 0.95700, low: 0.91100, value: 0.93300}
-  -{high: 1.00500, low: 0.95700, value: 0.98000}
-  -{high: 1.05600, low: 1.00500, value: 1.03000}
-  -{high: 1.10900, low: 1.05600, value: 1.08200}
-  -{high: 1.16600, low: 1.10900, value: 1.13700}
-  -{high: 1.22500, low: 1.16600, value: 1.19500}
-  -{high: 1.28700, low: 1.22500, value: 1.25600}
-  -{high: 1.35300, low: 1.28700, value: 1.32000}
-  -{high: 1.42200, low: 1.35300, value: 1.38700}
-  -{high: 4.95000, low: 4.05000, value: 4.47000}
-  -{high: 6.04000, low: 4.95000, value: 5.46000}
-  -{high: 7.38000, low: 6.04000, value: 6.67000}
-  -{high: 9.01000, low: 7.38000, value: 8.14000}
-  -{high: 11.01000, low: 9.01000, value: 9.94000}
-  -{high: 13.44000, low: 11.01000, value: 12.12000}
-  -{high: 16.42000, low: 13.44000, value: 14.80000}
-  -{high: 20.05000, low: 16.42000, value: 18.05000}
-  -{high: 29.90000, low: 20.05000, value: 23.78000}
-  -{high: 45.60000, low: 29.90000, value: 33.92000}
+  - {high: 0.42100, low: 0.40600, value: 0.41400}
+  - {high: 0.43800, low: 0.42100, value: 0.42900}
+  - {high: 0.45600, low: 0.43800, value: 0.44700}
+  - {high: 0.47500, low: 0.45600, value: 0.46500}
+  - {high: 0.49500, low: 0.47500, value: 0.48500}
+  - {high: 0.51700, low: 0.49500, value: 0.50600}
+  - {high: 0.54100, low: 0.51700, value: 0.52900}
+  - {high: 0.56500, low: 0.54100, value: 0.55300}
+  - {high: 0.59200, low: 0.56500, value: 0.57900}
+  - {high: 0.62000, low: 0.59200, value: 0.60600}
+  - {high: 0.65000, low: 0.62000, value: 0.63500}
+  - {high: 0.68100, low: 0.65000, value: 0.66500}
+  - {high: 0.71400, low: 0.68100, value: 0.69800}
+  - {high: 0.75000, low: 0.71400, value: 0.73200}
+  - {high: 0.78700, low: 0.75000, value: 0.76800}
+  - {high: 0.82600, low: 0.78700, value: 0.80600}
+  - {high: 0.86700, low: 0.82600, value: 0.84600}
+  - {high: 0.91100, low: 0.86700, value: 0.88900}
+  - {high: 0.95700, low: 0.91100, value: 0.93300}
+  - {high: 1.00500, low: 0.95700, value: 0.98000}
+  - {high: 1.05600, low: 1.00500, value: 1.03000}
+  - {high: 1.10900, low: 1.05600, value: 1.08200}
+  - {high: 1.16600, low: 1.10900, value: 1.13700}
+  - {high: 1.22500, low: 1.16600, value: 1.19500}
+  - {high: 1.28700, low: 1.22500, value: 1.25600}
+  - {high: 1.35300, low: 1.28700, value: 1.32000}
+  - {high: 1.42200, low: 1.35300, value: 1.38700}
+  - {high: 4.95000, low: 4.05000, value: 4.47000}
+  - {high: 6.04000, low: 4.95000, value: 5.46000}
+  - {high: 7.38000, low: 6.04000, value: 6.67000}
+  - {high: 9.01000, low: 7.38000, value: 8.14000}
+  - {high: 11.01000, low: 9.01000, value: 9.94000}
+  - {high: 13.44000, low: 11.01000, value: 12.12000}
+  - {high: 16.42000, low: 13.44000, value: 14.80000}
+  - {high: 20.05000, low: 16.42000, value: 18.05000}
+  - {high: 29.90000, low: 20.05000, value: 23.78000}
+  - {high: 45.60000, low: 29.90000, value: 33.92000}

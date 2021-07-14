@@ -23,9 +23,9 @@ dependent_variables:
 independent_variables:
 - header: {name: "z"}
   values:
-  - {value: 0.07425, factor: 32.32433}
-  - {value: 0.08220, factor: 38.92860}
-  - {value: 0.12741, factor: 52.27158}
+  - {value: 0.07425, factor: 0.03592}
+  - {value: 0.08220, factor: 0.04325}
+  - {value: 0.12741, factor: 0.05808}
 - header: {name: "ph"}
   values:
   - {value: 0.60000}

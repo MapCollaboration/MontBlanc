@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "TASSO12 $p +\\bar{p}$ Multiplicity"}
+- header: {title: "TASSO12 $p+\\bar{p}$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  12.0 }
@@ -23,9 +23,9 @@ dependent_variables:
 independent_variables:
 - header: {name: "z"}
   values:
-  - {value: 0.18562, factor: 12.92973}
-  - {value: 0.21101, factor: 16.11325}
-  - {value: 0.30555, factor: 20.61859}
+  - {value: 0.18562, factor: 0.08979}
+  - {value: 0.21101, factor: 0.11190}
+  - {value: 0.30555, factor: 0.14318}
 - header: {name: "ph"}
   values:
   - {value: 0.60000}

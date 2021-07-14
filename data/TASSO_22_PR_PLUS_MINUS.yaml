@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "TASSO22 $K^\pm$ Multiplicity"}
+- header: {title: "TASSO22 $p+\\bar{p}$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  22.0 }
@@ -47,15 +47,15 @@ dependent_variables:
 independent_variables:
 - header: {name: "z"}
   values:
-  - {high: 0.10511, low: 0.08409, value: 0.09460, factor: 19.02743}
-  - {high: 0.10786, low: 0.08988, value: 0.09887, factor: 22.25101}
-  - {high: 0.11175, low: 0.09578, value: 0.10377, factor: 25.05637}
-  - {high: 0.11648, low: 0.10192, value: 0.10920, factor: 27.47278}
-  - {high: 0.14959, low: 0.09973, value: 0.12466, factor: 32.08727}
-  - {high: 0.17510, low: 0.13132, value: 0.15321, factor: 36.55059}
-  - {high: 0.20504, low: 0.16403, value: 0.18453, factor: 39.01736}
-  - {high: 0.35837, low: 0.28292, value: 0.32064, factor: 42.41458}
-  - {high: 0.42849, low: 0.35397, value: 0.39123, factor: 42.94151}
+  - {high: 0.10511, low: 0.08409, value: 0.09460, factor: 0.03931}
+  - {high: 0.10786, low: 0.08988, value: 0.09887, factor: 0.04597}
+  - {high: 0.11175, low: 0.09578, value: 0.10377, factor: 0.05177}
+  - {high: 0.11648, low: 0.10192, value: 0.10920, factor: 0.05676}
+  - {high: 0.14959, low: 0.09973, value: 0.12466, factor: 0.06630}
+  - {high: 0.17510, low: 0.13132, value: 0.15321, factor: 0.07552}
+  - {high: 0.20504, low: 0.16403, value: 0.18453, factor: 0.08061}
+  - {high: 0.35837, low: 0.28292, value: 0.32064, factor: 0.08763}
+  - {high: 0.42849, low: 0.35397, value: 0.39123, factor: 0.08872}
 - header: {name: "ph"}
   values:
   - {high: 0.50000, low: 0.40000, value: 0.45000}
