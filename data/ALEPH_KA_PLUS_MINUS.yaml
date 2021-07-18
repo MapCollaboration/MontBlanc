@@ -2,7 +2,7 @@ dependent_variables:
 - header: {title: "ALEPH $K^\\pm$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
-  - {name: Vs, value:  91.2 }
+  - {name: Vs, value:  91.2 , units: GeV}
   - {name: prefactor, value: 1}
   - {name: z, low:  0.011 , high:  0.8 , integrate: false}
   - {name: hadron, value: KA}

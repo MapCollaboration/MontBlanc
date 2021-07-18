@@ -1,0 +1,404 @@
+dependent_variables:
+- header: {title: "BELLE coventional $K^\\pm$ Multiplicity"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value:  10.52 , units: GeV}
+  - {name: prefactor, value: 1.96235e+6}  #0.65 * sigmatot(NLO) [fb]
+  - {name: z, low:  0.011 , high:  0.8 , integrate: false}
+  - {name: hadron, value: KA}
+  - {name: charge, value: 0}
+  - {name: tagging, value: [u,d,s,c]}
+  values:
+  - errors:
+    - {label: unc, value: 143205.9}
+    - {label: mult, value: 0.014}
+    value: 6373750.0
+  - errors:
+    - {label: unc, value: 139754.4}
+    - {label: mult, value: 0.014}
+    value: 5981600.0
+  - errors:
+    - {label: unc, value: 128153.4}
+    - {label: mult, value: 0.014}
+    value: 5591300.0
+  - errors:
+    - {label: unc, value: 121253.5}
+    - {label: mult, value: 0.014}
+    value: 5234300.0
+  - errors:
+    - {label: unc, value: 118651.6}
+    - {label: mult, value: 0.014}
+    value: 4906600.0
+  - errors:
+    - {label: unc, value: 116496.8}
+    - {label: mult, value: 0.014}
+    value: 4578350.0
+  - errors:
+    - {label: unc, value: 107397.7}
+    - {label: mult, value: 0.014}
+    value: 4256750.0
+  - errors:
+    - {label: unc, value: 101347.4}
+    - {label: mult, value: 0.014}
+    value: 3947500.0
+  - errors:
+    - {label: unc, value: 91199.4}
+    - {label: mult, value: 0.014}
+    value: 3658950.0
+  - errors:
+    - {label: unc, value: 90696.4}
+    - {label: mult, value: 0.014}
+    value: 3396050.0
+  - errors:
+    - {label: unc, value: 85892.5}
+    - {label: mult, value: 0.014}
+    value: 3158350.0
+  - errors:
+    - {label: unc, value: 85839.4}
+    - {label: mult, value: 0.014}
+    value: 2948000.0
+  - errors:
+    - {label: unc, value: 78543.0}
+    - {label: mult, value: 0.014}
+    value: 2752200.0
+  - errors:
+    - {label: unc, value: 75791.3}
+    - {label: mult, value: 0.014}
+    value: 2566150.0
+  - errors:
+    - {label: unc, value: 71890.1}
+    - {label: mult, value: 0.014}
+    value: 2396050.0
+  - errors:
+    - {label: unc, value: 68838.4}
+    - {label: mult, value: 0.014}
+    value: 2238900.0
+  - errors:
+    - {label: unc, value: 64287.7}
+    - {label: mult, value: 0.014}
+    value: 2091750.0
+  - errors:
+    - {label: unc, value: 62935.0}
+    - {label: mult, value: 0.014}
+    value: 1948700.0
+  - errors:
+    - {label: unc, value: 60336.6}
+    - {label: mult, value: 0.014}
+    value: 1814700.0
+  - errors:
+    - {label: unc, value: 56435.4}
+    - {label: mult, value: 0.014}
+    value: 1690600.0
+  - errors:
+    - {label: unc, value: 52984.1}
+    - {label: mult, value: 0.014}
+    value: 1580450.0
+  - errors:
+    - {label: unc, value: 53084.1}
+    - {label: mult, value: 0.014}
+    value: 1480250.0
+  - errors:
+    - {label: unc, value: 51031.8}
+    - {label: mult, value: 0.014}
+    value: 1389000.0
+  - errors:
+    - {label: unc, value: 48529.8}
+    - {label: mult, value: 0.014}
+    value: 1300000.0
+  - errors:
+    - {label: unc, value: 46531.1}
+    - {label: mult, value: 0.014}
+    value: 1214500.0
+  - errors:
+    - {label: unc, value: 44228.9}
+    - {label: mult, value: 0.014}
+    value: 1133800.0
+  - errors:
+    - {label: unc, value: 40631.5}
+    - {label: mult, value: 0.014}
+    value: 1058800.0
+  - errors:
+    - {label: unc, value: 40078.1}
+    - {label: mult, value: 0.014}
+    value: 985950.0
+  - errors:
+    - {label: unc, value: 37180.3}
+    - {label: mult, value: 0.014}
+    value: 919250.0
+  - errors:
+    - {label: unc, value: 36177.2}
+    - {label: mult, value: 0.014}
+    value: 857350.0
+  - errors:
+    - {label: unc, value: 31930.7}
+    - {label: mult, value: 0.014}
+    value: 799900.0
+  - errors:
+    - {label: unc, value: 30977.4}
+    - {label: mult, value: 0.014}
+    value: 748550.0
+  - errors:
+    - {label: unc, value: 29978.3}
+    - {label: mult, value: 0.014}
+    value: 700450.0
+  - errors:
+    - {label: unc, value: 27276.5}
+    - {label: mult, value: 0.014}
+    value: 656050.0
+  - errors:
+    - {label: unc, value: 25678.2}
+    - {label: mult, value: 0.014}
+    value: 613450.0
+  - errors:
+    - {label: unc, value: 23680.5}
+    - {label: mult, value: 0.014}
+    value: 573750.0
+  - errors:
+    - {label: unc, value: 22976.5}
+    - {label: mult, value: 0.014}
+    value: 534950.0
+  - errors:
+    - {label: unc, value: 20479.7}
+    - {label: mult, value: 0.014}
+    value: 497850.0
+  - errors:
+    - {label: unc, value: 19376.0}
+    - {label: mult, value: 0.014}
+    value: 462750.0
+  - errors:
+    - {label: unc, value: 20724.1}
+    - {label: mult, value: 0.014}
+    value: 430600.0
+  - errors:
+    - {label: unc, value: 16428.7}
+    - {label: mult, value: 0.014}
+    value: 401120.0
+  - errors:
+    - {label: unc, value: 15593.4}
+    - {label: mult, value: 0.014}
+    value: 372245.0
+  - errors:
+    - {label: unc, value: 13605.5}
+    - {label: mult, value: 0.014}
+    value: 345955.0
+  - errors:
+    - {label: unc, value: 14257.2}
+    - {label: mult, value: 0.014}
+    value: 321060.0
+  - errors:
+    - {label: unc, value: 13023.0}
+    - {label: mult, value: 0.014}
+    value: 297295.0
+  - errors:
+    - {label: unc, value: 13364.9}
+    - {label: mult, value: 0.014}
+    value: 274670.0
+  - errors:
+    - {label: unc, value: 13777.8}
+    - {label: mult, value: 0.014}
+    value: 253685.0
+  - errors:
+    - {label: unc, value: 12080.4}
+    - {label: mult, value: 0.014}
+    value: 234525.0
+  - errors:
+    - {label: unc, value: 12792.6}
+    - {label: mult, value: 0.014}
+    value: 216530.0
+  - errors:
+    - {label: unc, value: 11659.0}
+    - {label: mult, value: 0.014}
+    value: 198895.0
+  - errors:
+    - {label: unc, value: 12541.3}
+    - {label: mult, value: 0.014}
+    value: 184000.0
+  - errors:
+    - {label: unc, value: 12604.8}
+    - {label: mult, value: 0.014}
+    value: 168805.0
+  - errors:
+    - {label: unc, value: 11606.1}
+    - {label: mult, value: 0.014}
+    value: 155665.0
+  - errors:
+    - {label: unc, value: 11465.7}
+    - {label: mult, value: 0.014}
+    value: 142915.0
+  - errors:
+    - {label: unc, value: 11778.0}
+    - {label: mult, value: 0.014}
+    value: 130980.0
+  - errors:
+    - {label: unc, value: 11168.0}
+    - {label: mult, value: 0.014}
+    value: 119680.0
+  - errors:
+    - {label: unc, value: 10972.1}
+    - {label: mult, value: 0.014}
+    value: 109835.0
+  - errors:
+    - {label: unc, value: 10117.2}
+    - {label: mult, value: 0.014}
+    value: 99520.0
+  - errors:
+    - {label: unc, value:  9183.7}
+    - {label: mult, value: 0.014}
+    value: 90825.0
+  - errors:
+    - {label: unc, value:  9351.4}
+    - {label: mult, value: 0.014}
+    value: 82675.0
+  - errors:
+    - {label: unc, value:  9070.5}
+    - {label: mult, value: 0.014}
+    value: 74625.0
+  - errors:
+    - {label: unc, value:  8370.7}
+    - {label: mult, value: 0.014}
+    value: 67355.0
+  - errors:
+    - {label: unc, value:  8084.5}
+    - {label: mult, value: 0.014}
+    value: 60630.0
+  - errors:
+    - {label: unc, value:  7350.1}
+    - {label: mult, value: 0.014}
+    value: 54135.0
+  - errors:
+    - {label: unc, value:  7038.2}
+    - {label: mult, value: 0.014}
+    value: 47235.0
+  - errors:
+    - {label: unc, value:  6847.5}
+    - {label: mult, value: 0.014}
+    value: 42035.0
+  - errors:
+    - {label: unc, value:  6362.2}
+    - {label: mult, value: 0.014}
+    value: 36840.0
+  - errors:
+    - {label: unc, value:  5846.9}
+    - {label: mult, value: 0.014}
+    value: 32245.0
+  - errors:
+    - {label: unc, value:  5267.6}
+    - {label: mult, value: 0.014}
+    value: 27735.0
+  - errors:
+    - {label: unc, value:  5215.1}
+    - {label: mult, value: 0.014}
+    value: 23285.0
+  - errors:
+    - {label: unc, value:  4710.3}
+    - {label: mult, value: 0.014}
+    value: 19920.0
+  - errors:
+    - {label: unc, value:  4734.5}
+    - {label: mult, value: 0.014}
+    value: 16895.0
+  - errors:
+    - {label: unc, value:  4124.7}
+    - {label: mult, value: 0.014}
+    value: 14135.0
+  - errors:
+    - {label: unc, value:  3919.9}
+    - {label: mult, value: 0.014}
+    value: 11650.0
+  - errors:
+    - {label: unc, value:  3664.1}
+    - {label: mult, value: 0.014}
+    value:  8715.0
+  - errors:
+    - {label: unc, value:  3503.9}
+    - {label: mult, value: 0.014}
+    value:  6275.0
+  - errors:
+    - {label: unc, value:  3604.2}
+    - {label: mult, value: 0.014}
+    value:  4575.0
+  - errors:
+    - {label: unc, value:  7547.6}
+    - {label: mult, value: 0.014}
+    value:  5730.0
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {high: 0.21000, low: 0.20000, value: 0.20500}
+  - {high: 0.22000, low: 0.21000, value: 0.21500}
+  - {high: 0.23000, low: 0.22000, value: 0.22500}
+  - {high: 0.24000, low: 0.23000, value: 0.23500}
+  - {high: 0.25000, low: 0.24000, value: 0.24500}
+  - {high: 0.26000, low: 0.25000, value: 0.25500}
+  - {high: 0.27000, low: 0.26000, value: 0.26500}
+  - {high: 0.28000, low: 0.27000, value: 0.27500}
+  - {high: 0.29000, low: 0.28000, value: 0.28500}
+  - {high: 0.30000, low: 0.29000, value: 0.29500}
+  - {high: 0.31000, low: 0.30000, value: 0.30500}
+  - {high: 0.32000, low: 0.31000, value: 0.31500}
+  - {high: 0.33000, low: 0.32000, value: 0.32500}
+  - {high: 0.34000, low: 0.33000, value: 0.33500}
+  - {high: 0.35000, low: 0.34000, value: 0.34500}
+  - {high: 0.36000, low: 0.35000, value: 0.35500}
+  - {high: 0.37000, low: 0.36000, value: 0.36500}
+  - {high: 0.38000, low: 0.37000, value: 0.37500}
+  - {high: 0.39000, low: 0.38000, value: 0.38500}
+  - {high: 0.40000, low: 0.39000, value: 0.39500}
+  - {high: 0.41000, low: 0.40000, value: 0.40500}
+  - {high: 0.42000, low: 0.41000, value: 0.41500}
+  - {high: 0.43000, low: 0.42000, value: 0.42500}
+  - {high: 0.44000, low: 0.43000, value: 0.43500}
+  - {high: 0.45000, low: 0.44000, value: 0.44500}
+  - {high: 0.46000, low: 0.45000, value: 0.45500}
+  - {high: 0.47000, low: 0.46000, value: 0.46500}
+  - {high: 0.48000, low: 0.47000, value: 0.47500}
+  - {high: 0.49000, low: 0.48000, value: 0.48500}
+  - {high: 0.50000, low: 0.49000, value: 0.49500}
+  - {high: 0.51000, low: 0.50000, value: 0.50500}
+  - {high: 0.52000, low: 0.51000, value: 0.51500}
+  - {high: 0.53000, low: 0.52000, value: 0.52500}
+  - {high: 0.54000, low: 0.53000, value: 0.53500}
+  - {high: 0.55000, low: 0.54000, value: 0.54500}
+  - {high: 0.56000, low: 0.55000, value: 0.55500}
+  - {high: 0.57000, low: 0.56000, value: 0.56500}
+  - {high: 0.58000, low: 0.57000, value: 0.57500}
+  - {high: 0.59000, low: 0.58000, value: 0.58500}
+  - {high: 0.60000, low: 0.59000, value: 0.59500}
+  - {high: 0.61000, low: 0.60000, value: 0.60500}
+  - {high: 0.62000, low: 0.61000, value: 0.61500}
+  - {high: 0.63000, low: 0.62000, value: 0.62500}
+  - {high: 0.64000, low: 0.63000, value: 0.63500}
+  - {high: 0.65000, low: 0.64000, value: 0.64500}
+  - {high: 0.66000, low: 0.65000, value: 0.65500}
+  - {high: 0.67000, low: 0.66000, value: 0.66500}
+  - {high: 0.68000, low: 0.67000, value: 0.67500}
+  - {high: 0.69000, low: 0.68000, value: 0.68500}
+  - {high: 0.70000, low: 0.69000, value: 0.69500}
+  - {high: 0.71000, low: 0.70000, value: 0.70500}
+  - {high: 0.72000, low: 0.71000, value: 0.71500}
+  - {high: 0.73000, low: 0.72000, value: 0.72500}
+  - {high: 0.74000, low: 0.73000, value: 0.73500}
+  - {high: 0.75000, low: 0.74000, value: 0.74500}
+  - {high: 0.76000, low: 0.75000, value: 0.75500}
+  - {high: 0.77000, low: 0.76000, value: 0.76500}
+  - {high: 0.78000, low: 0.77000, value: 0.77500}
+  - {high: 0.79000, low: 0.78000, value: 0.78500}
+  - {high: 0.80000, low: 0.79000, value: 0.79500}
+  - {high: 0.81000, low: 0.80000, value: 0.80500}
+  - {high: 0.82000, low: 0.81000, value: 0.81500}
+  - {high: 0.83000, low: 0.82000, value: 0.82500}
+  - {high: 0.84000, low: 0.83000, value: 0.83500}
+  - {high: 0.85000, low: 0.84000, value: 0.84500}
+  - {high: 0.86000, low: 0.85000, value: 0.85500}
+  - {high: 0.87000, low: 0.86000, value: 0.86500}
+  - {high: 0.88000, low: 0.87000, value: 0.87500}
+  - {high: 0.89000, low: 0.88000, value: 0.88500}
+  - {high: 0.90000, low: 0.89000, value: 0.89500}
+  - {high: 0.91000, low: 0.90000, value: 0.90500}
+  - {high: 0.92000, low: 0.91000, value: 0.91500}
+  - {high: 0.93000, low: 0.92000, value: 0.92500}
+  - {high: 0.94000, low: 0.93000, value: 0.93500}
+  - {high: 0.95000, low: 0.94000, value: 0.94500}
+  - {high: 0.96000, low: 0.95000, value: 0.95500}
+  - {high: 0.97000, low: 0.96000, value: 0.96500}
+  - {high: 0.98000, low: 0.97000, value: 0.97500}
