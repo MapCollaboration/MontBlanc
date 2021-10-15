@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "BELLE coventional $K^\\pm$ Multiplicity"}
+- header: {title: "BELLE $K^\\pm$ Cross Section"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  10.52 , units: GeV}
