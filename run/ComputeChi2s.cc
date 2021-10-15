@@ -2,7 +2,7 @@
 // Authors: Rabah Abdul Khalek: rabah.khalek@gmail.com
 //          Valerio Bertone: valerio.bertone@cern.ch
 //          Emanuele R. Nocera: emanuele.nocera@ed.ac.uk
-//
+//          Hakim Khoudli: hakim.khoudli@polytechnique.org
 
 #include "MontBlanc/predictionshandler.h"
 #include "MontBlanc/AnalyticChiSquare.h"
