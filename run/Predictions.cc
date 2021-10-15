@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
       // uncertainty.
       else
         {
-          // Construct chi2 object with the irep-th replica
+          // Construct chi2 object with the 0-th replica
           MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, g, 0}};
           const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
           const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
