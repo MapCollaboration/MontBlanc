@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "BABAR prmpt $p+\\bar{p}$ Multiplicity"}
+- header: {title: "BABAR prompt $p+\\bar{p}$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  10.54 , units: GeV}
