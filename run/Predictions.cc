@@ -12,6 +12,8 @@
 #include <NangaParbat/Trainingcut.h>
 #include <fstream>
 
+#include <getopt.h>
+
 std::string GetCurrentWorkingDir()
 {
   char buff[FILENAME_MAX];
@@ -21,22 +23,49 @@ std::string GetCurrentWorkingDir()
 
 int main(int argc, char *argv[])
 {
-  if (argc < 2)
+  //Command line options handling
+  const char* const short_opts = "u";
+  const option long_opts[] = {
+            {"force_uncertainties", no_argument, nullptr, 'u'}, //Force the computation of uncertainties even if the PDF set is not LHAPDFSet
+  };
+
+  bool force_uncertainties = false;
+
+  while (true)
+    {
+      const auto opt = getopt_long(argc, argv, short_opts, long_opts, nullptr);
+
+      if (opt == -1)
+          break;
+
+      switch (opt)
+        {
+          case 'u':
+              force_uncertainties = true;
+              break;
+          case '?': // Unrecognized option
+          default: // Unhandled option
+              std::cerr << "Usage: " << argv[0] << " [-u|--force_uncertainties] <path to fit folder> [<set name> (default: LHAPDFSet)]" << std::endl;
+              exit(-1);
+        }
+    }
+
+  if ((argc - optind) < 1)
     {
       std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<set name> (default: LHAPDFSet)]" << std::endl;
       exit(-1);
     }
 
   // Path to result folder
-  const std::string ResultFolder = argv[1];
+  const std::string ResultFolder = argv[optind];
 
   // Input information
   const std::string InputCardPath = ResultFolder + "/config.yaml";
   const std::string datafolder    = ResultFolder + "/data/";
   const std::string OutputFile    = ResultFolder + "/Predictions.yaml";
   std::string LHAPDFSet = "LHAPDFSet";
-  if (argc >= 3)
-    LHAPDFSet = argv[2];
+  if (argc - optind >= 2)
+    LHAPDFSet = argv[optind + 1];
 
   // Timer
   apfel::Timer t;
@@ -104,7 +133,7 @@ int main(int argc, char *argv[])
       // If the default "LHAPDFSet" we know it is a Monte Carlo set
       // thus compute central values and uncertanties as averages and
       // standard deviations...
-      if (LHAPDFSet == "LHAPDFSet")
+      if (LHAPDFSet == "LHAPDFSet" || force_uncertainties)
         {
           std::vector<double> av2(bins.size(), 0);
           // Run over replicas
