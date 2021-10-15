@@ -104,7 +104,7 @@ independent_variables:
   - {high: 0.60012, low: 0.50010, value: 0.55011, factor: 0.02193}
   - {high: 0.79988, low: 0.60007, value: 0.69997, factor: 0.02193}
   - {high: 0.98691, low: 0.79984, value: 0.89338, factor: 0.02193}
-- header: {name: "ph"}
+- header: {name: "ph", units: GeV}
   values:
   - {high: 0.91000, low: 0.70000, value: 0.80500}
   - {high: 1.14000, low: 0.91000, value: 1.02500}
