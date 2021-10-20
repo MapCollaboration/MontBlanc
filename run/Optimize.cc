@@ -141,6 +141,7 @@ int main(int argc, char *argv[])
       filenames.push_back(ds["file"].as<std::string>());
 
       // Load dataset and fluctuate the points
+      // EXCEPT if replica is 0, in which case data is not fluctuated and *DH == *DHc
       NangaParbat::DataHandler *DH = new NangaParbat::DataHandler{ds["name"].as<std::string>(), YAML::LoadFile(DataFolder + ds["file"].as<std::string>()), rng, replica};
 
       // Load dataset without fluctuating the points to be used at the
