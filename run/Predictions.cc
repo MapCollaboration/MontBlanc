@@ -26,8 +26,9 @@ int main(int argc, char *argv[])
 {
   //Command line options handling
   const char* const short_opts = "u";
-  const option long_opts[] = {
-            {"force_uncertainties", no_argument, nullptr, 'u'}, //Force the computation of uncertainties even if the PDF set is not LHAPDFSet
+  const option long_opts[] =
+  {
+    {"force_uncertainties", no_argument, nullptr, 'u'}, //Force the computation of uncertainties even if the PDF set is not LHAPDFSet
   };
 
   bool force_uncertainties = false;
@@ -37,17 +38,17 @@ int main(int argc, char *argv[])
       const auto opt = getopt_long(argc, argv, short_opts, long_opts, nullptr);
 
       if (opt == -1)
-          break;
+        break;
 
       switch (opt)
         {
-          case 'u':
-              force_uncertainties = true;
-              break;
-          case '?': // Unrecognized option
-          default: // Unhandled option
-              std::cerr << "Usage: " << argv[0] << " [-u|--force_uncertainties] <path to fit folder> [<set name> (default: LHAPDFSet)]" << std::endl;
-              exit(-1);
+        case 'u':
+          force_uncertainties = true;
+          break;
+        case '?': // Unrecognized option
+        default: // Unhandled option
+          std::cerr << "Usage: " << argv[0] << " [-u|--force_uncertainties] <path to fit folder> [<set name> (default: LHAPDFSet)]" << std::endl;
+          exit(-1);
         }
     }
 

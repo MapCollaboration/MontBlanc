@@ -56,11 +56,13 @@ namespace MontBlanc
     double                                         const _mu0;
     std::vector<double>                            const _Thresholds;
     std::shared_ptr<const apfel::Grid>             const _g;
+    NangaParbat::DataHandler::Observable           const _obs;
     std::vector<NangaParbat::DataHandler::Binning> const _bins;
     std::vector<double>                            const _qTfact;
     apfel::ConvolutionMap                          const _cmap;
     std::vector<double>                                  _ChargeMap;
     std::vector<apfel::Set<apfel::Operator>>             _FKt;
     apfel::Set<apfel::Distribution>                      _D;
+    apfel::Set<apfel::Distribution>                      _Do;
   };
 }

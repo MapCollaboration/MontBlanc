@@ -28,22 +28,21 @@ void usage_error_message(std::string call_name)
 
 void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPDFSet, std::string ResultName = "Chi2s.yaml");
 
-
-std::string i_to_fixed_length_str(int value, int digits_count) 
+std::string i_to_fixed_length_str(int value, int digits_count)
 {
-    std::ostringstream os;
-    os<<std::setfill('0')<<std::setw(digits_count)<<value;
-    return os.str();
+  std::ostringstream os;
+  os<<std::setfill('0')<<std::setw(digits_count)<<value;
+  return os.str();
 }
-
 
 int main(int argc, char *argv[])
 {
   const char* const short_opts = "ai";
-  const option long_opts[] = {
-            {"all_replicas", no_argument, nullptr, 'a'},
-            {"index_result", no_argument, nullptr, 'i'}
-            //{"replica member", required_argument, nullptr, 'r'},
+  const option long_opts[] =
+  {
+    {"all_replicas", no_argument, nullptr, 'a'},
+    {"index_result", no_argument, nullptr, 'i'}
+    //{"replica member", required_argument, nullptr, 'r'},
   };
 
   bool compute_all_replicas = false;
@@ -54,20 +53,20 @@ int main(int argc, char *argv[])
       const auto opt = getopt_long(argc, argv, short_opts, long_opts, nullptr);
 
       if (opt == -1)
-          break;
+        break;
 
       switch (opt)
         {
-          case 'a':
-              compute_all_replicas = true;
-              break;
-          case 'i':
-              specify_index_result = true;
-              break;
-          case '?': // Unrecognized option
-          default: // Unhandled option
-              usage_error_message(argv[0]);
-              exit(-1);
+        case 'a':
+          compute_all_replicas = true;
+          break;
+        case 'i':
+          specify_index_result = true;
+          break;
+        case '?': // Unrecognized option
+        default: // Unhandled option
+          usage_error_message(argv[0]);
+          exit(-1);
         }
     }
 
@@ -90,7 +89,7 @@ int main(int argc, char *argv[])
   if ((argc - optind) >= 3)
     LHAPDFSet = argv[optind+2];
 
-  std::cout<<ResultFolder<<" "<<member_index<<" "<<LHAPDFSet<<" "<<compute_all_replicas<<"\n";
+  std::cout << ResultFolder << " " << member_index << " " << LHAPDFSet << " " << compute_all_replicas< < "\n";
 
   if (compute_all_replicas)
     {

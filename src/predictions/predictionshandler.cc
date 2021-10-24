@@ -22,6 +22,7 @@ namespace MontBlanc
     _mu0(config["mu0"].as<double>()),
     _Thresholds(config["thresholds"].as<std::vector<double>>()),
     _g(g),
+    _obs(DH.GetObservable()),
     _bins(DH.GetBinning()),
     _qTfact(DH.GetKinematics().qTfact),
     _cmap(apfel::DiagonalBasis{13})
@@ -314,20 +315,18 @@ namespace MontBlanc
         double Qu = -1;
         double Qc = -1;
 
-        // Retrieve observable
-        const NangaParbat::DataHandler::Observable obs = DH.GetObservable();
-
         // Integrate inclusive cross sections and store them
         for (int i = 0; i < (int) _bins.size(); i++)
           {
             double Qmin;
             double Qmax;
-            if (obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
+            if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
               {
                 Qmin = std::max(sqrt(_bins[i].xmin * _bins[i].ymin) * Vs, DH.GetKinematics().var1b.first);
                 Qmax = sqrt(_bins[i].xmax * _bins[i].ymax) * Vs;
               }
-            else if (obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz)
+            else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz ||
+                     _obs == NangaParbat::DataHandler::Observable::opposite_sign_ratio)
               {
                 Qmin = _bins[i].Qmin;
                 Qmax = _bins[i].Qmax;
@@ -357,14 +356,15 @@ namespace MontBlanc
               // Integration bounds in x
               double xbmin;
               double xbmax;
-              if (obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
+              if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
                 {
                   xbmin = std::max(_bins[i].xmin, pow(Q / Vs, 2) / _bins[i].ymax);
                   xbmax = std::min(_bins[i].xmax, pow(Q / Vs, 2) / _bins[i].ymin);
                   if (DH.GetKinematics().PSRed)
                     xbmax = std::min(xbmax, 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
                 }
-              else if (obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz)
+              else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz ||
+                       _obs == NangaParbat::DataHandler::Observable::opposite_sign_ratio)
                 {
                   xbmin = _bins[i].xmin;
                   xbmax = _bins[i].xmax;
@@ -385,14 +385,15 @@ namespace MontBlanc
               // Integration bounds in x
               double xbmin;
               double xbmax;
-              if (obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
+              if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
                 {
                   xbmin = std::max(_bins[i].xmin, pow(Q / Vs, 2) / _bins[i].ymax);
                   xbmax = std::min(_bins[i].xmax, pow(Q / Vs, 2) / _bins[i].ymin);
                   if (DH.GetKinematics().PSRed)
                     xbmax = std::min(xbmax, 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
                 }
-              else if (obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz)
+              else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz ||
+                       _obs == NangaParbat::DataHandler::Observable::opposite_sign_ratio)
                 {
                   xbmin = _bins[i].xmin;
                   xbmax = _bins[i].xmax;
@@ -467,6 +468,7 @@ namespace MontBlanc
     _mu0(PH._mu0),
     _Thresholds(PH._Thresholds),
     _g(PH._g),
+    _obs(PH._obs),
     _bins(PH._bins),
     _qTfact(PH._qTfact),
     _cmap(PH._cmap),
@@ -491,6 +493,18 @@ namespace MontBlanc
   {
     // Construct set of distributions
     _D = apfel::Set<apfel::Distribution> {_ChargeMap * InDistFunc(_mu0)};
+
+    // If we need to compute also predictions with opposite sign, also
+    // allocate _Do.
+    if (_obs == NangaParbat::DataHandler::Observable::opposite_sign_ratio)
+      {
+        // Reverse sign
+        std::vector<double> ChargeMapo = _ChargeMap;
+        for (int i = 1; i <= 6; i++)
+          ChargeMapo[2 * i] *= - 1;
+
+        _Do = apfel::Set<apfel::Distribution> {ChargeMapo * InDistFunc(_mu0)};
+      }
   }
 
   //_________________________________________________________________________
@@ -509,6 +523,18 @@ namespace MontBlanc
       else
         preds[id] = (_cutmask[id] ? (_FKt[id] * _D).Combine().Evaluate(_bins[id].zav) / _bins[id].zav * _qTfact[id] : 0);
 
+    // If needed, compute also predictions with opposite sign using
+    // _Do and take the ratio. If a point does not pass the cut divide
+    // by 1. This is just to avoid dividing zero by another zero.
+    if (_obs == NangaParbat::DataHandler::Observable::opposite_sign_ratio)
+      {
+        for (int id = 0; id < (int) _bins.size(); id++)
+          if (_bins[id].Intz)
+            preds[id] /= (_cutmask[id] ? ((_FKt[id] * _Do).Combine() * [] (double const& z) -> double{ return 1 / z; }).Integrate(_bins[id].zmin, _bins[id].zmax)
+                          / ( _bins[id].zmax - _bins[id].zmin ) * _qTfact[id] : 1);
+          else
+            preds[id] /= (_cutmask[id] ? (_FKt[id] * _Do).Combine().Evaluate(_bins[id].zav) / _bins[id].zav * _qTfact[id] : 1);
+      }
     return preds;
   }
 

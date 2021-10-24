@@ -34,8 +34,9 @@
 int main(int argc, char *argv[])
 {
   const char* const short_opts = "s";
-  const option long_opts[] = {
-            {"separate_replica_results", no_argument, nullptr, 's'},
+  const option long_opts[] =
+  {
+    {"separate_replica_results", no_argument, nullptr, 's'},
   };
 
   bool separate_replica_results = false;
@@ -45,17 +46,17 @@ int main(int argc, char *argv[])
       const auto opt = getopt_long(argc, argv, short_opts, long_opts, nullptr);
 
       if (opt == -1)
-          break;
+        break;
 
       switch (opt)
         {
-          case 's':
-              separate_replica_results = true;
-              break;
-          case '?': // Unrecognized option
-          default: // Unhandled option
-              std::cerr << "Usage: " << argv[0] << " [-s|--separate_replica_results] <replica index> <input card> <path to data> <output folder>" << std::endl;
-              exit(-1);
+        case 's':
+          separate_replica_results = true;
+          break;
+        case '?': // Unrecognized option
+        default: // Unhandled option
+          std::cerr << "Usage: " << argv[0] << " [-s|--separate_replica_results] <replica index> <input card> <path to data> <output folder>" << std::endl;
+          exit(-1);
         }
     }
 
@@ -70,7 +71,6 @@ int main(int argc, char *argv[])
   const std::string InputCardPath = argv[optind + 1];
   const std::string DataFolder = (std::string) argv[optind + 2] + "/";
   const std::string ResultFolder = argv[optind + 3];
-
 
   // Assign to the fit the name of the input card
   const std::string OutputFolder = ResultFolder + "/" + InputCardPath.substr(InputCardPath.find_last_of("/") + 1, InputCardPath.find(".yaml") - InputCardPath.find_last_of("/") - 1);
@@ -301,7 +301,7 @@ int main(int argc, char *argv[])
         fout = std::ofstream(OutputFolder + "/SeparateBestParameters/BestParameters_" + std::to_string(replica) + ".yaml", std::ios::out | std::ios::app);
       else
         fout = std::ofstream(OutputFolder + "/BestParameters.yaml", std::ios::out | std::ios::app);
-      
+
       fout << emitter.c_str();
       fout.close();
     }
