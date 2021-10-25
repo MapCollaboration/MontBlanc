@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
   if ((argc - optind) >= 3)
     LHAPDFSet = argv[optind+2];
 
-  std::cout << ResultFolder << " " << member_index << " " << LHAPDFSet << " " << compute_all_replicas< < "\n";
+  std::cout << ResultFolder << " " << member_index << " " << LHAPDFSet << " " << compute_all_replicas << "\n";
 
   if (compute_all_replicas)
     {
