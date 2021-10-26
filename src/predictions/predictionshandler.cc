@@ -221,7 +221,7 @@ namespace MontBlanc
           }
 
         // Initialize SIDIS objects.
-        const apfel::SidisObjects so = InitializeSIDIS(*_g);
+        const apfel::SidisObjects so = InitializeSIDIS(*_g, _Thresholds);
 
         // Semi-inclusive hard cross sections differential in x, Q, and z
         // as a Set<DoubleObject<Distribution, Operator>> function of Q.
