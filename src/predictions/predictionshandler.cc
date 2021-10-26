@@ -229,7 +229,11 @@ namespace MontBlanc
                                                                                                                        apfel::Set<apfel::DoubleObject<apfel::Distribution, apfel::Operator>>
         {
           // Strong coupling
-          const double as = (PerturbativeOrder == 0 ? 0 : Alphas(Q) / apfel::FourPi);
+          const double as  = Alphas(Q) / apfel::FourPi;
+          const double as2 = as * as;
+
+          // Number of active flavours
+          const int nf = apfel::NF(Q, _Thresholds);
 
           // Get charges
           const std::vector<double> Bq = fBq(Q);
@@ -254,6 +258,7 @@ namespace MontBlanc
           apfel::Distribution eqfq = Bq[0] * ( DistPDFs.at(1) + DistPDFs.at(-1) );
           for (int q = 2; q <= 5; q++)
             eqfq += Bq[q-1] * ( DistPDFs.at(q) + DistPDFs.at(-q) );
+
           // NLO gq for F2 and FL
           apfel::DoubleObject<apfel::Distribution, apfel::Operator> D0t;
           for (auto const& t: so.C21gq.GetTerms())
@@ -294,6 +299,12 @@ namespace MontBlanc
                   for (auto const& t: so.CL1qg.GetTerms())
                     Dit.AddTerm({as * eqTqi * t.coefficient, funcL * ( t.object1 * DistPDFs.at(21) ), t.object2});
                 }
+
+              // NNLO qq for F2
+              if (PerturbativeOrder > 1)
+                for (auto const& t: so.C22qq.at(nf).GetTerms())
+                  Dit.AddTerm({as2 * t.coefficient, func2 * ( t.object1 * eqfqTqi ), t.object2});
+
               KiMap.insert({i, Dit});
             }
           return apfel::Set<apfel::DoubleObject<apfel::Distribution, apfel::Operator>>{KiMap};
