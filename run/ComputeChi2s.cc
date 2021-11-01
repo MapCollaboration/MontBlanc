@@ -136,9 +136,9 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
 
   // Include new search path in LHAPDF
   if (ResultFolder[0]=='/')
-    LHAPDF::pathsAppend(ResultFolder + "/");
+    LHAPDF::pathsPrepend(ResultFolder + "/");
   else
-    LHAPDF::pathsAppend(GetCurrentWorkingDir() + "/" + ResultFolder + "/");
+    LHAPDF::pathsPrepend(GetCurrentWorkingDir() + "/" + ResultFolder + "/");
 
   // LHAPDF Parameterisation
   NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(LHAPDFSet, g, member_index);

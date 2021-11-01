@@ -80,9 +80,9 @@ int main(int argc, char *argv[])
 
   // Include new search path in LHAPDF
   if (ResultFolder[0]=='/')
-    LHAPDF::pathsAppend(ResultFolder + "/");
+    LHAPDF::pathsPrepend(ResultFolder + "/");
   else
-    LHAPDF::pathsAppend(GetCurrentWorkingDir() + "/" + ResultFolder + "/");
+    LHAPDF::pathsPrepend(GetCurrentWorkingDir() + "/" + ResultFolder + "/");
 
   // Set PDF set member to central set
   config["Predictions"]["pdfset"]["member"] = 0;
