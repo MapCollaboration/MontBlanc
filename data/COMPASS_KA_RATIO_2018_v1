@@ -1,0 +1,91 @@
+dependent_variables:
+- header: {title: COMPASS_KA_RATIO_2018}
+  qualifiers:
+  - {name: process, value: SIDIS}
+  - {name: observable, value: opposite_sign_ratio}
+  - {name: target_isoscalarity, value: 0.5}
+  - {name: prefactor, value: 1}
+  - {name: Vs, value: 17.34, units: GeV}
+  - {name: Q, low: 1.5, high: 5.1, integrate: true}
+  - {name: x, low: 0.03, high: 0.094, integrate: true}
+  - {name: z, low: 0.775, high: 1.0, integrate: true}
+  - {name: hadron, value: KA}
+  - {name: charge, value: 1}
+  values:
+  - errors:
+    - {label: unc, value: 0.011800423721205947}
+    - {label: add, value: 0.016454482671904334}
+    value: 0.401
+  - errors:
+    - {label: unc, value: 0.012041594578792296}
+    - {label: add, value: 0.015588457268119894}
+    value: 0.35
+  - errors:
+    - {label: unc, value: 0.010965856099730654}
+    - {label: add, value: 0.012990381056766578}
+    value: 0.287
+  - errors:
+    - {label: unc, value: 0.011715374513859981}
+    - {label: add, value: 0.012990381056766578}
+    value: 0.228
+  - errors:
+    - {label: unc, value: 0.012379418403139948}
+    - {label: add, value: 0.014722431864335457}
+    value: 0.15
+  - errors:
+    - {label: unc, value: 0.008321658488546619}
+    - {label: add, value: 0.007794228634059947}
+    value: 0.235
+  - errors:
+    - {label: unc, value: 0.008902246907382429}
+    - {label: add, value: 0.009526279441628824}
+    value: 0.204
+  - errors:
+    - {label: unc, value: 0.009433981132056603}
+    - {label: add, value: 0.008660254037844387}
+    value: 0.177
+  - errors:
+    - {label: unc, value: 0.01131370849898476}
+    - {label: add, value: 0.013856406460551017}
+    value: 0.136
+  - errors:
+    - {label: unc, value: 0.009433981132056603}
+    - {label: add, value: 0.008660254037844387}
+    value: 0.09
+independent_variables:
+- header: {name: x}
+  values:
+  - {value: 0.03}
+  - {value: 0.03}
+  - {value: 0.031}
+  - {value: 0.031}
+  - {value: 0.032}
+  - {value: 0.094}
+  - {value: 0.094}
+  - {value: 0.093}
+  - {value: 0.093}
+  - {value: 0.093}
+- header: {name: z}
+  values:
+  - {high: 0.8, low: 0.75, value: 0.775}
+  - {high: 0.85, low: 0.8, value: 0.825}
+  - {high: 0.9, low: 0.85, value: 0.875}
+  - {high: 0.95, low: 0.9, value: 0.925}
+  - {high: 1.05, low: 0.95, value: 1.0}
+  - {high: 0.8, low: 0.75, value: 0.775}
+  - {high: 0.85, low: 0.8, value: 0.825}
+  - {high: 0.9, low: 0.85, value: 0.875}
+  - {high: 0.95, low: 0.9, value: 0.925}
+  - {high: 1.05, low: 0.95, value: 1.0}
+- header: {name: Q2}
+  values:
+  - {value: 1.7}
+  - {value: 1.6}
+  - {value: 1.6}
+  - {value: 1.6}
+  - {value: 1.5}
+  - {value: 5.1}
+  - {value: 4.8}
+  - {value: 4.6}
+  - {value: 4.4}
+  - {value: 4.2}

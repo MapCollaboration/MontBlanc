@@ -10,74 +10,74 @@ dependent_variables:
   - {name: tagging, value: [b]}
   values:
   - errors:
-    - {label: unc, value: 1.39846}
-    value:  6.7
+    - {label: unc, value: 0.12310970717209914}
+    value: 0.667
   - errors:
-    - {label: unc, value: 1.64347}
-    value:  8.05
+    - {label: unc, value: 0.10480935072788115}
+    value: 0.612
   - errors:
-    - {label: unc, value: 1.94743}
-    value:  8.51
+    - {label: unc, value: 0.1}
+    value: 0.523
   - errors:
-    - {label: unc, value: 1.47872}
-    value:  10.11
+    - {label: unc, value: 0.07142128534267637}
+    value: 0.585
   - errors:
-    - {label: unc, value: 2.69268}
-    value:  11.03
+    - {label: unc, value: 0.09667471230885562}
+    value: 0.483
   - errors:
-    - {label: unc, value: 3.06307}
-    value:  12.98
+    - {label: unc, value: 0.08000624975587844}
+    value: 0.494
   - errors:
-    - {label: unc, value: 4.28515}
-    value:  14.59
+    - {label: unc, value: 0.07962411694957754}
+    value: 0.398
   - errors:
-    - {label: unc, value: 1.65303}
-    value:  16.08
+    - {label: unc, value: 0.02690724809414742}
+    value: 0.335
   - errors:
-    - {label: unc, value: 1.80801}
-    value:  17.76
+    - {label: unc, value: 0.02245551157288562}
+    value: 0.3225
   - errors:
-    - {label: unc, value: 2.23329}
-    value:  19.43
+    - {label: unc, value: 0.021805045287731004}
+    value: 0.2845
   - errors:
-    - {label: unc, value: 2.01943}
-    value:  20.67
+    - {label: unc, value: 0.018027756377319945}
+    value: 0.249
   - errors:
-    - {label: unc, value: 1.79494}
-    value:  21.23
+    - {label: unc, value: 0.012229881438509534}
+    value: 0.2022
   - errors:
-    - {label: unc, value: 2.43239}
-    value:  21.73
+    - {label: unc, value: 0.012288612614937458}
+    value: 0.1526
   - errors:
-    - {label: unc, value: 3.92898}
-    value:  22.19
+    - {label: unc, value: 0.014866068747318505}
+    value: 0.109
   - errors:
-    - {label: unc, value: 5.86018}
-    value:  21.76
+    - {label: unc, value: 0.016278820596099707}
+    value: 0.083
   - errors:
-    - {label: unc, value: 5.05715}
-    value:  23.09
+    - {label: unc, value: 0.010034440691936944}
+    value: 0.0625
   - errors:
-    - {label: unc, value: 1.21495}
-    value:  22.77
+    - {label: unc, value: 0.0021400934559032696}
+    value: 0.0379
   - errors:
-    - {label: unc, value: 1.57544}
-    value:  22.24
+    - {label: unc, value: 0.0015556349186104045}
+    value: 0.0199
   - errors:
-    - {label: unc, value: 1.70602}
-    value:  19.85
+    - {label: unc, value: 0.0009002777349240623}
+    value: 0.00868
   - errors:
-    - {label: unc, value: 2.54719}
-    value:  15.47
+    - {label: unc, value: 0.000490917508345343}
+    value: 0.00231
   - errors:
-    - {label: unc, value: 2.09745}
-    value:  11.5
+    - {label: unc, value: 0.00023769728648009427}
+    value: 0.00062
   - errors:
-    - {label: unc, value: 3.04529}
-    value:  9.38
+    - {label: unc, value: 6.220128616033596e-05}
+    value: 2.4e-05
   - errors:
-    - {label: unc, value: 11.25814}
-    value:  5.86
+    - {label: unc, value: 3.710795063055894e-06}
+    value: 7.0e-07
 independent_variables:
 - header: {name: "z"}
   values:
@@ -104,7 +104,7 @@ independent_variables:
   - {high: 0.60012, low: 0.50010, value: 0.55011, factor: 0.02193}
   - {high: 0.79988, low: 0.60007, value: 0.69997, factor: 0.02193}
   - {high: 0.98691, low: 0.79984, value: 0.89338, factor: 0.02193}
-- header: {name: "ph"}
+- header: {name: "ph", units: GeV}
   values:
   - {high: 0.91000, low: 0.70000, value: 0.80500}
   - {high: 1.14000, low: 0.91000, value: 1.02500}

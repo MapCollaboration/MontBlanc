@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "BABAR coventional $b+\\bar{p}$ Multiplicity"}
+- header: {title: "BABAR conventional $b+\\bar{p}$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  10.54 , units: GeV}
