@@ -43,9 +43,15 @@ benchmark/APFEL
 *.log
 *.pdf
 
+# Jupyter
 .ipynb_checkpoints
+__pycache__
 
+# Build, config & version
 build
 bin/MontBlanc-config
 inc/MontBlanc/version.h
-bin/MontBlanc-config
+
+# Intermediary results
+testruns/
+fits/
