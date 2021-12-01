@@ -89,8 +89,6 @@ int main(int argc, char *argv[])
   if ((argc - optind) >= 3)
     LHAPDFSet = argv[optind+2];
 
-  std::cout << ResultFolder << " " << member_index << " " << LHAPDFSet << " " << compute_all_replicas << "\n";
-
   if (compute_all_replicas)
     {
       std::cout << mkdir((ResultFolder+"/IndivChi2s").c_str(), 0777) <<"ResultFolder/IndivChi2s" << "\n";
@@ -127,7 +125,6 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
   // Set silent mode for APFEL++
   apfel::SetVerbosityLevel(0);
 
-  std::cout<<ResultFolder<<" "<<member_index<<" "<<LHAPDFSet<<" "<<"\n";
   // APFEL++ x-space grid
   std::vector<apfel::SubGrid> vsg;
   for (auto const& sg : config["Predictions"]["xgrid"])
@@ -185,8 +182,9 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
       emitter << YAML::EndMap;
       emitter << YAML::EndMap;
     }
-
-  std::cout << "\nTotal chi2 / Npt = " << chi2->Evaluate() << "\n" << std::endl;
+  std::cout << "\n- Total:\n";
+  std::cout << "  - Npt = " << chi2->GetDataPointNumberAfterCuts()
+	    << ", chi2 / Npt = " << chi2->Evaluate() << std::endl;
   emitter << YAML::BeginMap << YAML::Key << "Total" << YAML::Value;
   emitter << YAML::Flow << YAML::BeginMap;
   emitter << YAML::Key << "chi2" << YAML::Value << chi2->Evaluate();
