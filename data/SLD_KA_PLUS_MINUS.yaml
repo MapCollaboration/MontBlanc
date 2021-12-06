@@ -2,9 +2,9 @@ dependent_variables:
 - header: {title: "SLD $K^\\pm$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
-  - {name: Vs, value:  91.2 , units: GeV}
+  - {name: Vs, value:  91.28 , units: GeV}
   - {name: prefactor, value: 1}
-  - {name: z, low:  0.011 , high:  0.8 , integrate: false}
+  - {name: z, low:  0.01715 , high: 1.0 , integrate: false}
   - {name: hadron, value: KA}
   - {name: charge, value: 0}
   values:
