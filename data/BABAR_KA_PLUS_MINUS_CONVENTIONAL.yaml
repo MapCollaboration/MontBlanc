@@ -4,7 +4,7 @@ dependent_variables:
   - {name: process, value: SIA}
   - {name: Vs, value:  10.54 , units: GeV}
   - {name: prefactor, value: 1}
-  - {name: z, low:  0.011 , high:  0.8 , integrate: false}
+  - {name: z, low:  0.09151 , high: 1.0 , integrate: false}
   - {name: hadron, value: KA}
   - {name: charge, value: 0}
   - {name: tagging, value: [u,d,s,c]}
