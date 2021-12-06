@@ -1,0 +1,3318 @@
+dependent_variables:
+- header:  {title: "HERMES $K^+$ Multiplicities (proton)"}
+  qualifiers:
+    - {name: process, value: SIDIS}
+    - {name: target_isoscalarity, value: 1.0}
+    - {name: prefactor, value: 1}
+    - {name: Vs, value: 7.256544907874546}
+    - {name: Q, low: 1, high: 3.872983346, integrate: true}
+    - {name: x, low: 0.023, high: 0.6, integrate: true}
+    - {name: z, low: 0.1, high: 1.1, integrate: true}
+    - {name: PS_reduction, W: 3.162277660168379, ymin: 0.1, ymax: 0.85}
+    - {name: hadron, value: KA}
+    - {name: charge, value: 1}
+    - {name: observable, value: dsigma/dxdQdz}
+  values:
+  - errors:
+    - {label: unc, value: 0.0380544}
+    - {label: add, value: 2.66473e-05}
+    - {label: add, value: -0.000634503}
+    - {label: add, value: 0.00402789}
+    - {label: add, value: 0.0034387}
+    - {label: add, value: 7.50405e-05}
+    - {label: add, value: 0.00145799}
+    - {label: add, value: -0.0112985}
+    - {label: add, value: 0.0292816}
+    - {label: add, value: 8.33647e-06}
+    - {label: add, value: -2.66386e-05}
+    - {label: add, value: -3.144e-05}
+    - {label: add, value: -2.77563e-05}
+    - {label: add, value: 5.37572e-06}
+    - {label: add, value: 5.29636e-07}
+    - {label: add, value: -1.74419e-06}
+    - {label: add, value: -8.16305e-06}
+    - {label: add, value: -9.18789e-05}
+    - {label: add, value: -9.49653e-06}
+    - {label: add, value: -2.16645e-05}
+    - {label: add, value: 1.26165e-06}
+    - {label: add, value: -1.50409e-06}
+    - {label: add, value: 4.58281e-05}
+    - {label: add, value: 0.000322735}
+    - {label: add, value: -2.41009e-05}
+    - {label: add, value: -7.83375e-06}
+    - {label: add, value: -3.50076e-05}
+    - {label: add, value: -2.64893e-07}
+    - {label: add, value: -2.99266e-05}
+    - {label: add, value: 3.47347e-06}
+    - {label: add, value: 7.47011e-08}
+    - {label: add, value: 1.33429e-06}
+    - {label: add, value: 5.23815e-07}
+    - {label: add, value: -1.07904e-06}
+    - {label: add, value: -2.63826e-07}
+    - {label: add, value: 1.61018e-07}
+    - {label: add, value: -5.9823e-07}
+    - {label: add, value: 2.36661e-06}
+    - {label: add, value: 2.95663e-07}
+    - {label: add, value: -5.83386e-07}
+    - {label: add, value: -1.57591e-06}
+    - {label: add, value: -4.51342e-07}
+    - {label: add, value: -9.88637e-07}
+    - {label: add, value: 1.89583e-07}
+    - {label: add, value: -1.36436e-06}
+    - {label: add, value: -3.66352e-07}
+    - {label: add, value: 5.02166e-08}
+    - {label: add, value: 3.97442e-09}
+    - {label: add, value: -2.57379e-08}
+    - {label: add, value: -1.42929e-07}
+    - {label: add, value: -2.7698e-10}
+    - {label: add, value: -3.95346e-08}
+    - {label: add, value: 6.22039e-09}
+    - {label: add, value: -1.13234e-07}
+    - {label: add, value: -1.20916e-09}
+    value: 0.362642
+  - errors:
+    - {label: unc, value: 0.0151203}
+    - {label: add, value: 1.47485e-06}
+    - {label: add, value: 8.28215e-06}
+    - {label: add, value: -4.09955e-05}
+    - {label: add, value: -2.27749e-05}
+    - {label: add, value: -3.01918e-07}
+    - {label: add, value: -8.97164e-06}
+    - {label: add, value: 0.000106435}
+    - {label: add, value: -0.00136266}
+    - {label: add, value: -7.3336e-05}
+    - {label: add, value: 3.00152e-06}
+    - {label: add, value: -0.00047859}
+    - {label: add, value: -1.74256e-05}
+    - {label: add, value: 0.00164742}
+    - {label: add, value: 0.000128229}
+    - {label: add, value: -0.000683123}
+    - {label: add, value: -0.00205829}
+    - {label: add, value: -0.00352389}
+    - {label: add, value: -0.00286306}
+    - {label: add, value: -0.00836724}
+    - {label: add, value: 0.000106848}
+    - {label: add, value: 0.000138985}
+    - {label: add, value: 0.00312742}
+    - {label: add, value: 0.0152442}
+    - {label: add, value: -0.00128979}
+    - {label: add, value: -5.45347e-05}
+    - {label: add, value: -0.000523201}
+    - {label: add, value: -5.87842e-05}
+    - {label: add, value: -0.00250328}
+    - {label: add, value: 2.46358e-05}
+    - {label: add, value: -1.23893e-05}
+    - {label: add, value: 1.65866e-05}
+    - {label: add, value: 1.2655e-05}
+    - {label: add, value: -1.56302e-05}
+    - {label: add, value: -3.57689e-06}
+    - {label: add, value: 3.85498e-05}
+    - {label: add, value: -1.83344e-05}
+    - {label: add, value: 3.66309e-05}
+    - {label: add, value: -5.78774e-07}
+    - {label: add, value: 4.48277e-07}
+    - {label: add, value: 4.02052e-05}
+    - {label: add, value: -6.82048e-06}
+    - {label: add, value: -2.4515e-05}
+    - {label: add, value: 1.76222e-06}
+    - {label: add, value: -1.03297e-06}
+    - {label: add, value: 4.58048e-07}
+    - {label: add, value: 2.56868e-06}
+    - {label: add, value: 3.311e-07}
+    - {label: add, value: -1.68497e-07}
+    - {label: add, value: -9.85294e-07}
+    - {label: add, value: -9.81908e-08}
+    - {label: add, value: -2.38263e-07}
+    - {label: add, value: 4.06576e-08}
+    - {label: add, value: -8.40707e-07}
+    - {label: add, value: -3.11548e-08}
+    value: 0.230558
+  - errors:
+    - {label: unc, value: 0.00777315}
+    - {label: add, value: 1.59564e-06}
+    - {label: add, value: -8.03257e-06}
+    - {label: add, value: -2.05016e-05}
+    - {label: add, value: -3.86832e-05}
+    - {label: add, value: -2.2275e-07}
+    - {label: add, value: 1.21577e-05}
+    - {label: add, value: -0.000124253}
+    - {label: add, value: 0.000167784}
+    - {label: add, value: 1.30834e-05}
+    - {label: add, value: -1.02737e-06}
+    - {label: add, value: 7.81876e-05}
+    - {label: add, value: 7.33743e-05}
+    - {label: add, value: -0.000207776}
+    - {label: add, value: -1.54899e-05}
+    - {label: add, value: -0.000312982}
+    - {label: add, value: 0.000414693}
+    - {label: add, value: 0.000398675}
+    - {label: add, value: 0.00169429}
+    - {label: add, value: 0.00072355}
+    - {label: add, value: 8.40735e-05}
+    - {label: add, value: 0.00185184}
+    - {label: add, value: -0.00438292}
+    - {label: add, value: -0.00264421}
+    - {label: add, value: 0.000887172}
+    - {label: add, value: -0.000104468}
+    - {label: add, value: 0.0107745}
+    - {label: add, value: -0.000516523}
+    - {label: add, value: -0.015297}
+    - {label: add, value: 5.28724e-05}
+    - {label: add, value: -8.98655e-05}
+    - {label: add, value: 1.29179e-05}
+    - {label: add, value: -6.7086e-06}
+    - {label: add, value: 7.01345e-06}
+    - {label: add, value: 7.54433e-06}
+    - {label: add, value: 0.000187628}
+    - {label: add, value: -3.92107e-05}
+    - {label: add, value: -0.000235843}
+    - {label: add, value: -0.000157306}
+    - {label: add, value: 0.000257623}
+    - {label: add, value: 0.000884328}
+    - {label: add, value: -9.34068e-06}
+    - {label: add, value: -0.000183002}
+    - {label: add, value: 1.40572e-08}
+    - {label: add, value: 0.000165281}
+    - {label: add, value: 5.42867e-05}
+    - {label: add, value: 5.13645e-06}
+    - {label: add, value: 5.34204e-06}
+    - {label: add, value: -4.03475e-07}
+    - {label: add, value: -1.00773e-06}
+    - {label: add, value: -2.42991e-07}
+    - {label: add, value: 8.68583e-07}
+    - {label: add, value: -6.19672e-07}
+    - {label: add, value: -1.92479e-06}
+    - {label: add, value: -1.12333e-07}
+    value: 0.166376
+  - errors:
+    - {label: unc, value: 0.00498377}
+    - {label: add, value: 2.86188e-06}
+    - {label: add, value: 1.51405e-05}
+    - {label: add, value: 2.17937e-05}
+    - {label: add, value: -3.60961e-05}
+    - {label: add, value: -1.74615e-06}
+    - {label: add, value: -1.38346e-05}
+    - {label: add, value: -2.77806e-05}
+    - {label: add, value: 5.07667e-05}
+    - {label: add, value: 1.0564e-06}
+    - {label: add, value: 1.74772e-06}
+    - {label: add, value: -1.37002e-05}
+    - {label: add, value: -7.74211e-06}
+    - {label: add, value: 2.75869e-06}
+    - {label: add, value: -9.39263e-09}
+    - {label: add, value: 2.70138e-05}
+    - {label: add, value: -1.9628e-05}
+    - {label: add, value: -3.58e-05}
+    - {label: add, value: -0.000214933}
+    - {label: add, value: -0.000347303}
+    - {label: add, value: -2.0367e-06}
+    - {label: add, value: -0.00013102}
+    - {label: add, value: 0.000367442}
+    - {label: add, value: 0.000325161}
+    - {label: add, value: -0.000121269}
+    - {label: add, value: 8.55288e-06}
+    - {label: add, value: -0.00105277}
+    - {label: add, value: 0.000447617}
+    - {label: add, value: 0.00243816}
+    - {label: add, value: -1.04129e-05}
+    - {label: add, value: 3.68796e-05}
+    - {label: add, value: -0.00175327}
+    - {label: add, value: -0.000170962}
+    - {label: add, value: 0.00123237}
+    - {label: add, value: 0.000399625}
+    - {label: add, value: 0.00472498}
+    - {label: add, value: -0.000291487}
+    - {label: add, value: -0.00902567}
+    - {label: add, value: -0.00293443}
+    - {label: add, value: 0.00413551}
+    - {label: add, value: 0.0114625}
+    - {label: add, value: -5.09408e-05}
+    - {label: add, value: -0.00028106}
+    - {label: add, value: -1.02824e-06}
+    - {label: add, value: 0.00347954}
+    - {label: add, value: 0.00102932}
+    - {label: add, value: 1.05544e-05}
+    - {label: add, value: 3.42127e-05}
+    - {label: add, value: 1.19175e-05}
+    - {label: add, value: 3.71486e-05}
+    - {label: add, value: -8.11295e-07}
+    - {label: add, value: 1.18061e-05}
+    - {label: add, value: -3.7802e-06}
+    - {label: add, value: -1.12565e-05}
+    - {label: add, value: -5.70164e-07}
+    value: 0.106933
+  - errors:
+    - {label: unc, value: 0.00304165}
+    - {label: add, value: -1.69492e-06}
+    - {label: add, value: -1.11077e-05}
+    - {label: add, value: 1.77376e-06}
+    - {label: add, value: 3.32472e-05}
+    - {label: add, value: -4.02058e-06}
+    - {label: add, value: -5.7718e-05}
+    - {label: add, value: -2.13369e-05}
+    - {label: add, value: 5.56374e-05}
+    - {label: add, value: -1.52718e-05}
+    - {label: add, value: 1.39989e-05}
+    - {label: add, value: 4.20864e-06}
+    - {label: add, value: -1.14722e-05}
+    - {label: add, value: 0.000115459}
+    - {label: add, value: 9.00672e-06}
+    - {label: add, value: 2.49522e-05}
+    - {label: add, value: -1.53484e-05}
+    - {label: add, value: 9.90455e-05}
+    - {label: add, value: -7.7845e-05}
+    - {label: add, value: 1.24258e-05}
+    - {label: add, value: -5.22655e-06}
+    - {label: add, value: -5.17902e-05}
+    - {label: add, value: 6.81329e-05}
+    - {label: add, value: 8.04079e-05}
+    - {label: add, value: 7.78177e-07}
+    - {label: add, value: 3.03735e-06}
+    - {label: add, value: 0.000666184}
+    - {label: add, value: -0.000106799}
+    - {label: add, value: -0.000510108}
+    - {label: add, value: -8.1194e-06}
+    - {label: add, value: -9.45781e-05}
+    - {label: add, value: 0.000462445}
+    - {label: add, value: -0.000506209}
+    - {label: add, value: -0.000687067}
+    - {label: add, value: -0.000155197}
+    - {label: add, value: -0.00125981}
+    - {label: add, value: 0.00215605}
+    - {label: add, value: 0.00354882}
+    - {label: add, value: 0.00648478}
+    - {label: add, value: -0.00453261}
+    - {label: add, value: -0.003117}
+    - {label: add, value: -0.000385037}
+    - {label: add, value: 0.0150655}
+    - {label: add, value: 3.78064e-05}
+    - {label: add, value: 0.0165152}
+    - {label: add, value: 0.00444074}
+    - {label: add, value: 2.14601e-05}
+    - {label: add, value: 4.82898e-05}
+    - {label: add, value: 6.9182e-06}
+    - {label: add, value: 0.000854055}
+    - {label: add, value: -8.47158e-07}
+    - {label: add, value: 0.000102875}
+    - {label: add, value: -2.57467e-05}
+    - {label: add, value: 0.000452643}
+    - {label: add, value: 5.37905e-06}
+    value: 0.0582529
+  - errors:
+    - {label: unc, value: 0.00072833}
+    - {label: add, value: -3.83412e-06}
+    - {label: add, value: -1.63638e-06}
+    - {label: add, value: 1.06995e-05}
+    - {label: add, value: 3.39289e-06}
+    - {label: add, value: 1.75993e-06}
+    - {label: add, value: 2.68246e-05}
+    - {label: add, value: -2.23246e-05}
+    - {label: add, value: 6.50145e-05}
+    - {label: add, value: -3.4532e-05}
+    - {label: add, value: -7.26308e-06}
+    - {label: add, value: 3.07255e-06}
+    - {label: add, value: 8.61846e-06}
+    - {label: add, value: -1.06612e-05}
+    - {label: add, value: 1.1611e-06}
+    - {label: add, value: -4.77982e-05}
+    - {label: add, value: -5.87189e-05}
+    - {label: add, value: -5.03905e-05}
+    - {label: add, value: 3.62721e-05}
+    - {label: add, value: -9.43553e-05}
+    - {label: add, value: 3.96264e-06}
+    - {label: add, value: -3.12797e-06}
+    - {label: add, value: 0.000103182}
+    - {label: add, value: 5.64254e-05}
+    - {label: add, value: -3.8383e-06}
+    - {label: add, value: 9.88237e-06}
+    - {label: add, value: -7.60693e-05}
+    - {label: add, value: -7.94358e-06}
+    - {label: add, value: -1.07458e-05}
+    - {label: add, value: -1.2219e-06}
+    - {label: add, value: 2.60645e-05}
+    - {label: add, value: -0.000149895}
+    - {label: add, value: 0.000148559}
+    - {label: add, value: 0.00025904}
+    - {label: add, value: 6.47465e-05}
+    - {label: add, value: 0.000611973}
+    - {label: add, value: -0.000761903}
+    - {label: add, value: -0.00182317}
+    - {label: add, value: -0.00260353}
+    - {label: add, value: 0.00178611}
+    - {label: add, value: 0.00100503}
+    - {label: add, value: 0.000166456}
+    - {label: add, value: -0.00635513}
+    - {label: add, value: -1.69735e-05}
+    - {label: add, value: -0.00844073}
+    - {label: add, value: -0.00227351}
+    - {label: add, value: -1.74815e-05}
+    - {label: add, value: 6.74085e-05}
+    - {label: add, value: 0.00271855}
+    - {label: add, value: 0.026399}
+    - {label: add, value: -1.23903e-05}
+    - {label: add, value: 0.00683036}
+    - {label: add, value: -0.00124631}
+    - {label: add, value: 0.0216397}
+    - {label: add, value: 0.000259087}
+    value: 0.0142387
+  - errors:
+    - {label: unc, value: 0.040165}
+    - {label: add, value: -0.000313836}
+    - {label: add, value: 0.0055654}
+    - {label: add, value: -0.0263567}
+    - {label: add, value: -0.0161037}
+    - {label: add, value: -0.000294232}
+    - {label: add, value: -0.00419712}
+    - {label: add, value: 0.026572}
+    - {label: add, value: 0.0075579}
+    - {label: add, value: 2.51815e-06}
+    - {label: add, value: -2.92618e-05}
+    - {label: add, value: -1.45226e-05}
+    - {label: add, value: 6.19654e-07}
+    - {label: add, value: -6.70023e-05}
+    - {label: add, value: -4.78093e-06}
+    - {label: add, value: 1.29478e-05}
+    - {label: add, value: 6.24575e-05}
+    - {label: add, value: 3.08308e-05}
+    - {label: add, value: 7.00052e-05}
+    - {label: add, value: 0.000191076}
+    - {label: add, value: -1.87894e-06}
+    - {label: add, value: -5.43794e-07}
+    - {label: add, value: 4.45235e-06}
+    - {label: add, value: 0.00015598}
+    - {label: add, value: -9.12507e-06}
+    - {label: add, value: -7.44001e-06}
+    - {label: add, value: -2.45249e-05}
+    - {label: add, value: 3.09704e-08}
+    - {label: add, value: -2.19942e-05}
+    - {label: add, value: 3.73758e-06}
+    - {label: add, value: -2.03404e-07}
+    - {label: add, value: -1.19258e-07}
+    - {label: add, value: 1.93226e-07}
+    - {label: add, value: -1.09943e-07}
+    - {label: add, value: 6.77925e-08}
+    - {label: add, value: 2.12646e-06}
+    - {label: add, value: -1.48638e-07}
+    - {label: add, value: -1.27237e-06}
+    - {label: add, value: 4.44553e-07}
+    - {label: add, value: -2.73843e-07}
+    - {label: add, value: 1.37426e-07}
+    - {label: add, value: -3.29558e-07}
+    - {label: add, value: 8.86817e-07}
+    - {label: add, value: 1.27638e-07}
+    - {label: add, value: -5.1883e-07}
+    - {label: add, value: -1.70712e-07}
+    - {label: add, value: 3.33756e-08}
+    - {label: add, value: -4.42439e-09}
+    - {label: add, value: 1.4862e-08}
+    - {label: add, value: -6.22201e-08}
+    - {label: add, value: 8.95573e-11}
+    - {label: add, value: 4.03238e-08}
+    - {label: add, value: -5.64775e-09}
+    - {label: add, value: 8.24542e-08}
+    - {label: add, value: 1.12084e-09}
+    value: 0.403026
+  - errors:
+    - {label: unc, value: 0.0147402}
+    - {label: add, value: -1.99503e-06}
+    - {label: add, value: -9.12363e-05}
+    - {label: add, value: 0.000513554}
+    - {label: add, value: 0.000352545}
+    - {label: add, value: 7.93048e-06}
+    - {label: add, value: 0.000150985}
+    - {label: add, value: -0.00107736}
+    - {label: add, value: -0.000687459}
+    - {label: add, value: 0.000484318}
+    - {label: add, value: -1.15562e-05}
+    - {label: add, value: 0.00287636}
+    - {label: add, value: 0.000141052}
+    - {label: add, value: -0.00769441}
+    - {label: add, value: -0.000578557}
+    - {label: add, value: 0.00241373}
+    - {label: add, value: 0.0072216}
+    - {label: add, value: 0.0110663}
+    - {label: add, value: 0.00514346}
+    - {label: add, value: 0.0131417}
+    - {label: add, value: -0.000129006}
+    - {label: add, value: -0.000187673}
+    - {label: add, value: 0.00111239}
+    - {label: add, value: 0.00691271}
+    - {label: add, value: -0.00054341}
+    - {label: add, value: -2.297e-05}
+    - {label: add, value: -0.00247389}
+    - {label: add, value: -2.47214e-05}
+    - {label: add, value: -0.00148248}
+    - {label: add, value: 3.62603e-05}
+    - {label: add, value: -2.02244e-05}
+    - {label: add, value: 2.01872e-05}
+    - {label: add, value: 1.44244e-05}
+    - {label: add, value: -1.14832e-05}
+    - {label: add, value: -6.62172e-07}
+    - {label: add, value: 6.74548e-05}
+    - {label: add, value: -1.68242e-05}
+    - {label: add, value: 3.11844e-06}
+    - {label: add, value: 6.11072e-06}
+    - {label: add, value: 2.02e-06}
+    - {label: add, value: 5.46469e-05}
+    - {label: add, value: -8.61872e-06}
+    - {label: add, value: -2.09049e-08}
+    - {label: add, value: 2.98381e-06}
+    - {label: add, value: 6.723e-06}
+    - {label: add, value: 2.53422e-06}
+    - {label: add, value: 2.79785e-06}
+    - {label: add, value: 2.91106e-07}
+    - {label: add, value: 3.00125e-07}
+    - {label: add, value: -3.87226e-07}
+    - {label: add, value: -6.37621e-08}
+    - {label: add, value: 6.22474e-07}
+    - {label: add, value: -9.78657e-08}
+    - {label: add, value: 1.03217e-06}
+    - {label: add, value: 1.65087e-09}
+    value: 0.233293
+  - errors:
+    - {label: unc, value: 0.00457976}
+    - {label: add, value: 5.277e-06}
+    - {label: add, value: 3.11734e-05}
+    - {label: add, value: -3.5847e-05}
+    - {label: add, value: -0.000127143}
+    - {label: add, value: -4.09507e-06}
+    - {label: add, value: -4.11457e-05}
+    - {label: add, value: 0.000120221}
+    - {label: add, value: 0.000117115}
+    - {label: add, value: -5.48504e-05}
+    - {label: add, value: -1.73021e-06}
+    - {label: add, value: -0.000305223}
+    - {label: add, value: -0.000518893}
+    - {label: add, value: 0.000788506}
+    - {label: add, value: 5.74187e-05}
+    - {label: add, value: 0.00198205}
+    - {label: add, value: -0.00187135}
+    - {label: add, value: -0.00133128}
+    - {label: add, value: -0.00664747}
+    - {label: add, value: 0.000194412}
+    - {label: add, value: -0.000402805}
+    - {label: add, value: -0.00638946}
+    - {label: add, value: 0.0104624}
+    - {label: add, value: -0.00615507}
+    - {label: add, value: -0.00134239}
+    - {label: add, value: 0.00027971}
+    - {label: add, value: -0.0134328}
+    - {label: add, value: -0.000154306}
+    - {label: add, value: -0.00824658}
+    - {label: add, value: 3.89336e-05}
+    - {label: add, value: -0.000107742}
+    - {label: add, value: 0.000186108}
+    - {label: add, value: 5.4e-05}
+    - {label: add, value: -0.000109306}
+    - {label: add, value: -3.1251e-05}
+    - {label: add, value: -0.000198085}
+    - {label: add, value: -5.52902e-05}
+    - {label: add, value: 0.000659322}
+    - {label: add, value: 3.79753e-05}
+    - {label: add, value: 8.85063e-05}
+    - {label: add, value: 0.00057023}
+    - {label: add, value: -1.58627e-05}
+    - {label: add, value: -0.000190817}
+    - {label: add, value: 2.35386e-06}
+    - {label: add, value: 0.000132611}
+    - {label: add, value: 4.5348e-05}
+    - {label: add, value: 6.87724e-06}
+    - {label: add, value: 2.96547e-06}
+    - {label: add, value: -2.55552e-07}
+    - {label: add, value: 1.749e-07}
+    - {label: add, value: -4.26916e-07}
+    - {label: add, value: 2.56863e-06}
+    - {label: add, value: -1.12208e-06}
+    - {label: add, value: 1.77409e-06}
+    - {label: add, value: -9.38449e-08}
+    value: 0.172188
+  - errors:
+    - {label: unc, value: 0.00407641}
+    - {label: add, value: 1.97884e-05}
+    - {label: add, value: 2.4955e-05}
+    - {label: add, value: -2.83705e-05}
+    - {label: add, value: -1.76986e-05}
+    - {label: add, value: -3.71465e-06}
+    - {label: add, value: -5.07827e-05}
+    - {label: add, value: 3.63793e-05}
+    - {label: add, value: -5.47287e-06}
+    - {label: add, value: 3.75624e-06}
+    - {label: add, value: 1.13676e-05}
+    - {label: add, value: -7.06634e-06}
+    - {label: add, value: 4.90905e-05}
+    - {label: add, value: -5.25475e-05}
+    - {label: add, value: -5.02835e-06}
+    - {label: add, value: -9.18853e-05}
+    - {label: add, value: 0.000244867}
+    - {label: add, value: 0.000300853}
+    - {label: add, value: 0.00041978}
+    - {label: add, value: 0.000115779}
+    - {label: add, value: 2.1535e-05}
+    - {label: add, value: 0.000404788}
+    - {label: add, value: -0.000655415}
+    - {label: add, value: 0.000735717}
+    - {label: add, value: 0.000360943}
+    - {label: add, value: -3.07877e-05}
+    - {label: add, value: 0.00140748}
+    - {label: add, value: -0.001826}
+    - {label: add, value: 0.00187125}
+    - {label: add, value: -2.39682e-06}
+    - {label: add, value: -2.40504e-05}
+    - {label: add, value: 0.00625909}
+    - {label: add, value: 0.000557688}
+    - {label: add, value: -0.00333353}
+    - {label: add, value: -0.00102089}
+    - {label: add, value: -0.0108853}
+    - {label: add, value: 0.000372711}
+    - {label: add, value: 0.00957699}
+    - {label: add, value: -0.00117882}
+    - {label: add, value: 0.00221682}
+    - {label: add, value: 0.00615296}
+    - {label: add, value: 4.4719e-05}
+    - {label: add, value: -0.00391654}
+    - {label: add, value: -1.1333e-05}
+    - {label: add, value: 0.00232746}
+    - {label: add, value: 0.000787555}
+    - {label: add, value: 1.83894e-05}
+    - {label: add, value: 5.77787e-05}
+    - {label: add, value: 2.3388e-06}
+    - {label: add, value: 3.37202e-05}
+    - {label: add, value: -1.47565e-06}
+    - {label: add, value: 3.16604e-05}
+    - {label: add, value: -6.79367e-06}
+    - {label: add, value: -1.16894e-05}
+    - {label: add, value: -8.79147e-07}
+    value: 0.111975
+  - errors:
+    - {label: unc, value: 0.0022623}
+    - {label: add, value: -9.96368e-06}
+    - {label: add, value: 1.60037e-06}
+    - {label: add, value: -4.21385e-05}
+    - {label: add, value: -1.38519e-05}
+    - {label: add, value: 1.17722e-06}
+    - {label: add, value: 1.33469e-05}
+    - {label: add, value: 4.51208e-05}
+    - {label: add, value: 1.05107e-05}
+    - {label: add, value: -0.0001027}
+    - {label: add, value: -4.05594e-06}
+    - {label: add, value: 0.000137254}
+    - {label: add, value: -4.27766e-06}
+    - {label: add, value: -1.63858e-05}
+    - {label: add, value: 3.97018e-06}
+    - {label: add, value: -7.74898e-05}
+    - {label: add, value: -6.1908e-05}
+    - {label: add, value: 5.75618e-05}
+    - {label: add, value: 0.000171426}
+    - {label: add, value: 3.80613e-05}
+    - {label: add, value: 3.83831e-06}
+    - {label: add, value: -0.000138988}
+    - {label: add, value: 0.000448327}
+    - {label: add, value: -0.000240759}
+    - {label: add, value: -0.000142426}
+    - {label: add, value: 2.83388e-05}
+    - {label: add, value: -0.00043101}
+    - {label: add, value: 0.000463353}
+    - {label: add, value: -0.000677728}
+    - {label: add, value: 1.70952e-05}
+    - {label: add, value: 0.000661471}
+    - {label: add, value: -0.00194057}
+    - {label: add, value: 0.00302425}
+    - {label: add, value: 0.00302482}
+    - {label: add, value: 0.000554702}
+    - {label: add, value: 0.00269108}
+    - {label: add, value: -0.00939997}
+    - {label: add, value: -0.00368268}
+    - {label: add, value: -0.012943}
+    - {label: add, value: 0.00358678}
+    - {label: add, value: -0.0144096}
+    - {label: add, value: 0.000728289}
+    - {label: add, value: -0.0152894}
+    - {label: add, value: -5.02805e-05}
+    - {label: add, value: 0.0115513}
+    - {label: add, value: 0.00354499}
+    - {label: add, value: 2.38722e-05}
+    - {label: add, value: 0.000159084}
+    - {label: add, value: -3.08394e-05}
+    - {label: add, value: 0.000661215}
+    - {label: add, value: -1.67916e-06}
+    - {label: add, value: -0.000325236}
+    - {label: add, value: 5.44506e-05}
+    - {label: add, value: -0.000890301}
+    - {label: add, value: -1.04185e-05}
+    value: 0.0540232
+  - errors:
+    - {label: unc, value: 0.000582582}
+    - {label: add, value: 1.73643e-06}
+    - {label: add, value: 1.2009e-05}
+    - {label: add, value: -3.81407e-05}
+    - {label: add, value: -3.01104e-05}
+    - {label: add, value: -3.65363e-07}
+    - {label: add, value: 7.63723e-07}
+    - {label: add, value: 4.22518e-05}
+    - {label: add, value: 2.58769e-06}
+    - {label: add, value: 5.19062e-05}
+    - {label: add, value: -8.10887e-06}
+    - {label: add, value: -4.4611e-05}
+    - {label: add, value: -1.89814e-06}
+    - {label: add, value: -0.000108398}
+    - {label: add, value: -7.5324e-06}
+    - {label: add, value: 0.000123917}
+    - {label: add, value: -2.29091e-05}
+    - {label: add, value: 4.72329e-05}
+    - {label: add, value: 5.64024e-05}
+    - {label: add, value: 8.78922e-05}
+    - {label: add, value: 4.94798e-06}
+    - {label: add, value: 7.73894e-05}
+    - {label: add, value: 6.48283e-05}
+    - {label: add, value: 5.02561e-05}
+    - {label: add, value: 4.50468e-07}
+    - {label: add, value: 3.8663e-06}
+    - {label: add, value: -4.22775e-06}
+    - {label: add, value: -0.000108046}
+    - {label: add, value: 0.000106474}
+    - {label: add, value: -2.92288e-05}
+    - {label: add, value: -0.000226349}
+    - {label: add, value: 0.000708284}
+    - {label: add, value: -0.00107872}
+    - {label: add, value: -0.0012577}
+    - {label: add, value: -0.000258233}
+    - {label: add, value: -0.00163208}
+    - {label: add, value: 0.00363475}
+    - {label: add, value: 0.00107561}
+    - {label: add, value: 0.00478624}
+    - {label: add, value: -0.00116381}
+    - {label: add, value: 0.00600966}
+    - {label: add, value: -0.000272668}
+    - {label: add, value: 0.00585701}
+    - {label: add, value: 1.52049e-05}
+    - {label: add, value: -0.00700843}
+    - {label: add, value: -0.00247037}
+    - {label: add, value: -2.16552e-05}
+    - {label: add, value: -0.000937288}
+    - {label: add, value: -0.0125025}
+    - {label: add, value: 0.0188036}
+    - {label: add, value: -1.88262e-05}
+    - {label: add, value: -0.0181328}
+    - {label: add, value: 0.00210135}
+    - {label: add, value: -0.0262469}
+    - {label: add, value: -0.000276572}
+    value: 0.0139739
+  - errors:
+    - {label: unc, value: 0.0392027}
+    - {label: add, value: 0.00152979}
+    - {label: add, value: -0.0144681}
+    - {label: add, value: 0.0385119}
+    - {label: add, value: 0.00631361}
+    - {label: add, value: -3.37229e-05}
+    - {label: add, value: -0.00250454}
+    - {label: add, value: 0.0215164}
+    - {label: add, value: 0.00281439}
+    - {label: add, value: 6.36288e-06}
+    - {label: add, value: -3.60786e-05}
+    - {label: add, value: -7.56296e-05}
+    - {label: add, value: -4.58755e-06}
+    - {label: add, value: 6.29609e-05}
+    - {label: add, value: 4.5157e-06}
+    - {label: add, value: -9.48703e-06}
+    - {label: add, value: -3.13146e-05}
+    - {label: add, value: -9.00078e-05}
+    - {label: add, value: 4.33561e-05}
+    - {label: add, value: 0.00014404}
+    - {label: add, value: -2.06139e-06}
+    - {label: add, value: -2.73269e-06}
+    - {label: add, value: -8.50885e-06}
+    - {label: add, value: 6.81356e-05}
+    - {label: add, value: -1.9882e-06}
+    - {label: add, value: -8.0272e-06}
+    - {label: add, value: -1.1656e-05}
+    - {label: add, value: -1.06833e-06}
+    - {label: add, value: -1.42775e-05}
+    - {label: add, value: 4.01744e-06}
+    - {label: add, value: 1.09499e-07}
+    - {label: add, value: 1.89476e-06}
+    - {label: add, value: 8.49057e-07}
+    - {label: add, value: -4.94131e-07}
+    - {label: add, value: -1.71274e-08}
+    - {label: add, value: -3.58517e-07}
+    - {label: add, value: -1.16519e-06}
+    - {label: add, value: -1.22172e-06}
+    - {label: add, value: -7.77125e-07}
+    - {label: add, value: 3.64257e-07}
+    - {label: add, value: 4.35722e-07}
+    - {label: add, value: -2.02132e-07}
+    - {label: add, value: 6.73303e-07}
+    - {label: add, value: 8.37633e-08}
+    - {label: add, value: -1.17793e-07}
+    - {label: add, value: -7.37257e-08}
+    - {label: add, value: 1.49391e-08}
+    - {label: add, value: -2.43427e-08}
+    - {label: add, value: -1.3097e-07}
+    - {label: add, value: -2.39998e-08}
+    - {label: add, value: 3.45857e-10}
+    - {label: add, value: -6.1169e-08}
+    - {label: add, value: -2.03545e-10}
+    - {label: add, value: 5.55861e-08}
+    - {label: add, value: 8.47891e-10}
+    value: 0.405672
+  - errors:
+    - {label: unc, value: 0.0148543}
+    - {label: add, value: -5.07381e-05}
+    - {label: add, value: 0.000204098}
+    - {label: add, value: -0.000465704}
+    - {label: add, value: -0.000309742}
+    - {label: add, value: -5.10071e-06}
+    - {label: add, value: 3.44034e-05}
+    - {label: add, value: -0.000754406}
+    - {label: add, value: -0.000390663}
+    - {label: add, value: -0.00231494}
+    - {label: add, value: 5.92475e-05}
+    - {label: add, value: -0.00945439}
+    - {label: add, value: -0.000505351}
+    - {label: add, value: 0.0155779}
+    - {label: add, value: 0.00108107}
+    - {label: add, value: -0.00278618}
+    - {label: add, value: -0.00701689}
+    - {label: add, value: -0.00761469}
+    - {label: add, value: 0.00398128}
+    - {label: add, value: 0.00971032}
+    - {label: add, value: -6.9949e-05}
+    - {label: add, value: 0.000747463}
+    - {label: add, value: -0.00181539}
+    - {label: add, value: 0.00216803}
+    - {label: add, value: 0.000109517}
+    - {label: add, value: -4.97054e-05}
+    - {label: add, value: -0.00170067}
+    - {label: add, value: -1.79427e-06}
+    - {label: add, value: -0.000535696}
+    - {label: add, value: 4.93264e-05}
+    - {label: add, value: -1.53742e-06}
+    - {label: add, value: 4.96916e-05}
+    - {label: add, value: 2.29701e-05}
+    - {label: add, value: -2.28201e-05}
+    - {label: add, value: -2.99446e-06}
+    - {label: add, value: 2.2509e-05}
+    - {label: add, value: -2.35821e-05}
+    - {label: add, value: 8.81994e-06}
+    - {label: add, value: -8.69702e-06}
+    - {label: add, value: 6.35086e-06}
+    - {label: add, value: 3.57991e-05}
+    - {label: add, value: -8.62167e-06}
+    - {label: add, value: 1.79433e-06}
+    - {label: add, value: 3.5649e-06}
+    - {label: add, value: 9.42135e-06}
+    - {label: add, value: 4.7253e-06}
+    - {label: add, value: 2.25068e-06}
+    - {label: add, value: 6.04249e-07}
+    - {label: add, value: -1.32649e-06}
+    - {label: add, value: 4.21162e-08}
+    - {label: add, value: -1.50972e-08}
+    - {label: add, value: -6.64674e-07}
+    - {label: add, value: -3.42836e-08}
+    - {label: add, value: 6.6004e-07}
+    - {label: add, value: 9.11616e-09}
+    value: 0.256665
+  - errors:
+    - {label: unc, value: 0.00748305}
+    - {label: add, value: 3.43749e-05}
+    - {label: add, value: 1.65276e-05}
+    - {label: add, value: 0.000117177}
+    - {label: add, value: 2.20056e-05}
+    - {label: add, value: -5.69006e-06}
+    - {label: add, value: -9.74924e-05}
+    - {label: add, value: 0.000119945}
+    - {label: add, value: 5.54878e-05}
+    - {label: add, value: 0.00026434}
+    - {label: add, value: 2.85002e-05}
+    - {label: add, value: 0.000955239}
+    - {label: add, value: 0.00260079}
+    - {label: add, value: -0.00172176}
+    - {label: add, value: -0.000111591}
+    - {label: add, value: -0.00808387}
+    - {label: add, value: 0.00456696}
+    - {label: add, value: 0.000542915}
+    - {label: add, value: 0.0127327}
+    - {label: add, value: -0.00881873}
+    - {label: add, value: 0.000904711}
+    - {label: add, value: 0.0083106}
+    - {label: add, value: -0.00980351}
+    - {label: add, value: -0.000733254}
+    - {label: add, value: 0.0011532}
+    - {label: add, value: -3.91925e-05}
+    - {label: add, value: -0.0099021}
+    - {label: add, value: 8.38066e-05}
+    - {label: add, value: -0.0024181}
+    - {label: add, value: 3.2373e-05}
+    - {label: add, value: -4.79043e-06}
+    - {label: add, value: -0.000181262}
+    - {label: add, value: 6.4258e-05}
+    - {label: add, value: 0.000103337}
+    - {label: add, value: 3.07623e-05}
+    - {label: add, value: 0.000474611}
+    - {label: add, value: -0.000116194}
+    - {label: add, value: 0.000564299}
+    - {label: add, value: 0.000120695}
+    - {label: add, value: -4.72136e-05}
+    - {label: add, value: 0.000223333}
+    - {label: add, value: -2.22681e-05}
+    - {label: add, value: -0.000111199}
+    - {label: add, value: 5.05732e-06}
+    - {label: add, value: 7.43607e-05}
+    - {label: add, value: 2.76945e-05}
+    - {label: add, value: 9.42157e-06}
+    - {label: add, value: 2.4561e-06}
+    - {label: add, value: -3.07225e-06}
+    - {label: add, value: 1.81608e-06}
+    - {label: add, value: -2.987e-07}
+    - {label: add, value: -9.05332e-07}
+    - {label: add, value: -5.23228e-07}
+    - {label: add, value: 1.2318e-06}
+    - {label: add, value: 7.85465e-09}
+    value: 0.184803
+  - errors:
+    - {label: unc, value: 0.00469376}
+    - {label: add, value: -7.7976e-06}
+    - {label: add, value: -4.05845e-05}
+    - {label: add, value: 4.68742e-05}
+    - {label: add, value: 7.91438e-06}
+    - {label: add, value: 1.12753e-06}
+    - {label: add, value: -1.53503e-05}
+    - {label: add, value: 2.46562e-05}
+    - {label: add, value: 1.56411e-06}
+    - {label: add, value: -3.54077e-05}
+    - {label: add, value: 3.49632e-05}
+    - {label: add, value: -1.85482e-05}
+    - {label: add, value: -0.000225921}
+    - {label: add, value: 0.000322158}
+    - {label: add, value: 2.90533e-05}
+    - {label: add, value: 0.000434861}
+    - {label: add, value: -0.000446988}
+    - {label: add, value: -1.65874e-06}
+    - {label: add, value: -0.000703732}
+    - {label: add, value: 0.000862773}
+    - {label: add, value: -6.59949e-05}
+    - {label: add, value: -0.000698237}
+    - {label: add, value: 0.000633744}
+    - {label: add, value: 0.000127197}
+    - {label: add, value: -0.00173654}
+    - {label: add, value: 2.28692e-05}
+    - {label: add, value: 0.00172725}
+    - {label: add, value: 0.00701968}
+    - {label: add, value: 0.000817664}
+    - {label: add, value: -2.13273e-05}
+    - {label: add, value: 0.000120528}
+    - {label: add, value: -0.0144084}
+    - {label: add, value: -0.000671645}
+    - {label: add, value: 0.00440372}
+    - {label: add, value: 0.00110766}
+    - {label: add, value: 0.0079336}
+    - {label: add, value: 0.00069403}
+    - {label: add, value: 0.00941568}
+    - {label: add, value: 0.0032248}
+    - {label: add, value: -0.000891018}
+    - {label: add, value: 0.00276282}
+    - {label: add, value: -4.32661e-05}
+    - {label: add, value: -0.00325868}
+    - {label: add, value: -4.90937e-06}
+    - {label: add, value: 0.00089235}
+    - {label: add, value: 0.000490296}
+    - {label: add, value: 3.13667e-05}
+    - {label: add, value: 8.91077e-05}
+    - {label: add, value: -1.7562e-05}
+    - {label: add, value: 2.40508e-05}
+    - {label: add, value: -2.29872e-06}
+    - {label: add, value: 2.20965e-05}
+    - {label: add, value: -1.02169e-05}
+    - {label: add, value: -2.10846e-05}
+    - {label: add, value: -1.36978e-06}
+    value: 0.108801
+  - errors:
+    - {label: unc, value: 0.0027251}
+    - {label: add, value: 1.28928e-06}
+    - {label: add, value: -2.77868e-05}
+    - {label: add, value: 6.31384e-05}
+    - {label: add, value: -2.96431e-06}
+    - {label: add, value: 2.30924e-06}
+    - {label: add, value: 1.57097e-05}
+    - {label: add, value: 3.75485e-05}
+    - {label: add, value: 6.05576e-06}
+    - {label: add, value: 3.5036e-05}
+    - {label: add, value: 1.18764e-05}
+    - {label: add, value: -0.000140585}
+    - {label: add, value: 0.000106395}
+    - {label: add, value: 7.04452e-06}
+    - {label: add, value: 1.20978e-06}
+    - {label: add, value: 4.24477e-05}
+    - {label: add, value: -0.000154556}
+    - {label: add, value: -4.99535e-05}
+    - {label: add, value: 0.000360308}
+    - {label: add, value: -0.000152297}
+    - {label: add, value: 3.15603e-05}
+    - {label: add, value: 0.000358884}
+    - {label: add, value: -2.14978e-05}
+    - {label: add, value: -1.82582e-05}
+    - {label: add, value: 0.000427563}
+    - {label: add, value: 8.78974e-05}
+    - {label: add, value: -0.000637708}
+    - {label: add, value: -0.00162729}
+    - {label: add, value: -0.000164022}
+    - {label: add, value: -0.000136894}
+    - {label: add, value: -0.00343641}
+    - {label: add, value: 0.00450926}
+    - {label: add, value: -0.0118964}
+    - {label: add, value: -0.00821684}
+    - {label: add, value: -0.00103388}
+    - {label: add, value: 0.00175137}
+    - {label: add, value: 0.0224441}
+    - {label: add, value: -0.00743194}
+    - {label: add, value: 0.0109201}
+    - {label: add, value: -0.00384352}
+    - {label: add, value: -0.0017828}
+    - {label: add, value: 0.000199469}
+    - {label: add, value: -0.0109266}
+    - {label: add, value: -2.41722e-05}
+    - {label: add, value: 0.00291621}
+    - {label: add, value: 0.00136406}
+    - {label: add, value: 1.26558e-05}
+    - {label: add, value: 0.000259539}
+    - {label: add, value: 0.000767478}
+    - {label: add, value: 0.000164504}
+    - {label: add, value: -2.56753e-06}
+    - {label: add, value: 0.000750692}
+    - {label: add, value: -2.04998e-05}
+    - {label: add, value: -0.000510104}
+    - {label: add, value: -8.78694e-06}
+    value: 0.0606889
+  - errors:
+    - {label: unc, value: 0.000682621}
+    - {label: add, value: 7.41121e-06}
+    - {label: add, value: -2.8152e-05}
+    - {label: add, value: 6.00336e-05}
+    - {label: add, value: 2.05735e-06}
+    - {label: add, value: -1.15793e-06}
+    - {label: add, value: -1.48431e-05}
+    - {label: add, value: 3.08493e-05}
+    - {label: add, value: 4.7339e-06}
+    - {label: add, value: -6.38381e-06}
+    - {label: add, value: -2.28491e-05}
+    - {label: add, value: -5.58808e-05}
+    - {label: add, value: 0.000113787}
+    - {label: add, value: 0.000138063}
+    - {label: add, value: -5.90994e-06}
+    - {label: add, value: -5.03246e-05}
+    - {label: add, value: 0.000117346}
+    - {label: add, value: -0.000111636}
+    - {label: add, value: -6.75156e-05}
+    - {label: add, value: 9.70305e-05}
+    - {label: add, value: -7.22403e-06}
+    - {label: add, value: 0.000164178}
+    - {label: add, value: -8.66878e-05}
+    - {label: add, value: 1.3672e-05}
+    - {label: add, value: -0.000186885}
+    - {label: add, value: 0.000125211}
+    - {label: add, value: 0.000107534}
+    - {label: add, value: 0.000275667}
+    - {label: add, value: -9.00467e-06}
+    - {label: add, value: -9.14122e-05}
+    - {label: add, value: 0.000975719}
+    - {label: add, value: -0.00192918}
+    - {label: add, value: 0.00362565}
+    - {label: add, value: 0.00296518}
+    - {label: add, value: 0.00039585}
+    - {label: add, value: -0.000799037}
+    - {label: add, value: -0.00755909}
+    - {label: add, value: 0.00362712}
+    - {label: add, value: -0.00399888}
+    - {label: add, value: 0.00164855}
+    - {label: add, value: 0.00156366}
+    - {label: add, value: -7.91072e-05}
+    - {label: add, value: 0.0070319}
+    - {label: add, value: -8.68828e-07}
+    - {label: add, value: -0.00349158}
+    - {label: add, value: 0.0007313}
+    - {label: add, value: -7.0011e-05}
+    - {label: add, value: 0.00340221}
+    - {label: add, value: 0.0349716}
+    - {label: add, value: 0.00444037}
+    - {label: add, value: -1.91882e-05}
+    - {label: add, value: 0.0181598}
+    - {label: add, value: 0.000114362}
+    - {label: add, value: -0.0143469}
+    - {label: add, value: -0.000195729}
+    value: 0.0159976
+  - errors:
+    - {label: unc, value: 0.0354673}
+    - {label: add, value: -0.00870206}
+    - {label: add, value: 0.0385407}
+    - {label: add, value: -0.00602548}
+    - {label: add, value: 0.0361343}
+    - {label: add, value: 0.000537864}
+    - {label: add, value: 0.00182951}
+    - {label: add, value: 0.00857474}
+    - {label: add, value: 0.000606092}
+    - {label: add, value: 6.93478e-05}
+    - {label: add, value: -7.64318e-05}
+    - {label: add, value: 9.41297e-05}
+    - {label: add, value: 1.14796e-05}
+    - {label: add, value: -0.000131851}
+    - {label: add, value: -1.03278e-05}
+    - {label: add, value: -1.45581e-05}
+    - {label: add, value: -3.87942e-05}
+    - {label: add, value: -0.000204113}
+    - {label: add, value: 1.86133e-05}
+    - {label: add, value: 9.81401e-05}
+    - {label: add, value: -9.22938e-07}
+    - {label: add, value: -5.77396e-06}
+    - {label: add, value: -1.80316e-05}
+    - {label: add, value: 2.30953e-05}
+    - {label: add, value: 1.65084e-07}
+    - {label: add, value: -1.75524e-05}
+    - {label: add, value: -1.24725e-05}
+    - {label: add, value: 2.46736e-06}
+    - {label: add, value: -9.65307e-06}
+    - {label: add, value: 4.76265e-06}
+    - {label: add, value: -6.58312e-07}
+    - {label: add, value: -1.76652e-06}
+    - {label: add, value: -8.52015e-07}
+    - {label: add, value: -9.97491e-07}
+    - {label: add, value: -8.704e-08}
+    - {label: add, value: -6.52436e-07}
+    - {label: add, value: 8.84322e-07}
+    - {label: add, value: -4.27808e-07}
+    - {label: add, value: -1.0386e-06}
+    - {label: add, value: 8.62828e-07}
+    - {label: add, value: 9.60613e-07}
+    - {label: add, value: -3.11125e-07}
+    - {label: add, value: 1.99831e-07}
+    - {label: add, value: 1.35659e-07}
+    - {label: add, value: 2.07816e-07}
+    - {label: add, value: 5.14674e-09}
+    - {label: add, value: 2.12426e-08}
+    - {label: add, value: 1.13604e-08}
+    - {label: add, value: 1.08713e-07}
+    - {label: add, value: -5.31304e-09}
+    - {label: add, value: 1.10318e-09}
+    - {label: add, value: -9.42863e-08}
+    - {label: add, value: 7.10372e-09}
+    - {label: add, value: 2.54201e-08}
+    - {label: add, value: 5.81424e-10}
+    value: 0.375943
+  - errors:
+    - {label: unc, value: 0.0135862}
+    - {label: add, value: 0.000231706}
+    - {label: add, value: -0.000696446}
+    - {label: add, value: 0.000126773}
+    - {label: add, value: -0.000943063}
+    - {label: add, value: -1.88961e-05}
+    - {label: add, value: -9.4627e-05}
+    - {label: add, value: -0.000447042}
+    - {label: add, value: -0.0002}
+    - {label: add, value: 0.00941653}
+    - {label: add, value: -0.00020449}
+    - {label: add, value: 0.0219475}
+    - {label: add, value: 0.000567448}
+    - {label: add, value: -0.00995526}
+    - {label: add, value: -0.000458811}
+    - {label: add, value: -0.00106442}
+    - {label: add, value: -0.00712216}
+    - {label: add, value: -0.0123337}
+    - {label: add, value: -0.00029529}
+    - {label: add, value: 0.00493222}
+    - {label: add, value: -0.00012826}
+    - {label: add, value: 0.000284985}
+    - {label: add, value: -0.00226723}
+    - {label: add, value: 0.000830625}
+    - {label: add, value: 0.000267724}
+    - {label: add, value: -9.42484e-05}
+    - {label: add, value: -0.00089916}
+    - {label: add, value: 4.26623e-05}
+    - {label: add, value: -0.00017795}
+    - {label: add, value: 7.66449e-05}
+    - {label: add, value: 7.00153e-07}
+    - {label: add, value: 1.4744e-05}
+    - {label: add, value: 6.49855e-06}
+    - {label: add, value: -3.37962e-05}
+    - {label: add, value: -4.69877e-06}
+    - {label: add, value: 1.09507e-05}
+    - {label: add, value: -1.45745e-06}
+    - {label: add, value: 2.46996e-05}
+    - {label: add, value: -6.42663e-06}
+    - {label: add, value: 6.03107e-06}
+    - {label: add, value: 2.03078e-05}
+    - {label: add, value: -9.98273e-06}
+    - {label: add, value: -9.91518e-07}
+    - {label: add, value: 4.21588e-06}
+    - {label: add, value: 1.17939e-05}
+    - {label: add, value: 3.36685e-06}
+    - {label: add, value: 1.96848e-06}
+    - {label: add, value: 3.54501e-07}
+    - {label: add, value: 8.49882e-07}
+    - {label: add, value: 2.54035e-07}
+    - {label: add, value: -8.84593e-09}
+    - {label: add, value: -8.39739e-07}
+    - {label: add, value: 3.45582e-08}
+    - {label: add, value: 3.94548e-07}
+    - {label: add, value: 1.24445e-08}
+    value: 0.238405
+  - errors:
+    - {label: unc, value: 0.00681654}
+    - {label: add, value: -2.70023e-05}
+    - {label: add, value: 8.13135e-05}
+    - {label: add, value: -3.48348e-05}
+    - {label: add, value: 0.000152677}
+    - {label: add, value: -4.25597e-06}
+    - {label: add, value: -8.66749e-05}
+    - {label: add, value: 9.20974e-05}
+    - {label: add, value: 3.88935e-06}
+    - {label: add, value: -0.000873516}
+    - {label: add, value: 3.2019e-05}
+    - {label: add, value: -0.00197639}
+    - {label: add, value: -0.00983566}
+    - {label: add, value: 0.00102933}
+    - {label: add, value: 8.52487e-06}
+    - {label: add, value: 0.0188534}
+    - {label: add, value: -0.00580785}
+    - {label: add, value: 0.00432877}
+    - {label: add, value: -0.0105918}
+    - {label: add, value: 0.000678593}
+    - {label: add, value: -0.000239045}
+    - {label: add, value: 0.00469263}
+    - {label: add, value: -0.0108684}
+    - {label: add, value: 0.00123225}
+    - {label: add, value: 0.00143936}
+    - {label: add, value: -0.000205574}
+    - {label: add, value: -0.00370021}
+    - {label: add, value: -0.000151024}
+    - {label: add, value: -0.000555435}
+    - {label: add, value: 4.25053e-05}
+    - {label: add, value: 2.20939e-05}
+    - {label: add, value: 0.000519195}
+    - {label: add, value: 8.47231e-05}
+    - {label: add, value: -3.17993e-05}
+    - {label: add, value: 9.66494e-06}
+    - {label: add, value: 0.000566532}
+    - {label: add, value: -0.000167382}
+    - {label: add, value: 0.000257538}
+    - {label: add, value: 7.96628e-05}
+    - {label: add, value: -7.09083e-05}
+    - {label: add, value: 7.06112e-05}
+    - {label: add, value: -2.94464e-05}
+    - {label: add, value: -7.54981e-05}
+    - {label: add, value: 9.68017e-06}
+    - {label: add, value: 3.33586e-05}
+    - {label: add, value: 1.58739e-05}
+    - {label: add, value: 1.01087e-05}
+    - {label: add, value: 2.68393e-06}
+    - {label: add, value: 8.6309e-07}
+    - {label: add, value: 1.82403e-06}
+    - {label: add, value: -2.91866e-07}
+    - {label: add, value: -1.32378e-06}
+    - {label: add, value: -2.0205e-07}
+    - {label: add, value: -2.6546e-07}
+    - {label: add, value: -2.68963e-08}
+    value: 0.194128
+  - errors:
+    - {label: unc, value: 0.00357644}
+    - {label: add, value: -1.78996e-05}
+    - {label: add, value: 6.54205e-05}
+    - {label: add, value: -1.56615e-05}
+    - {label: add, value: 4.5535e-05}
+    - {label: add, value: 4.06836e-06}
+    - {label: add, value: 2.17191e-05}
+    - {label: add, value: 6.80234e-06}
+    - {label: add, value: -3.28072e-06}
+    - {label: add, value: 3.50482e-05}
+    - {label: add, value: 1.7072e-05}
+    - {label: add, value: 0.000310904}
+    - {label: add, value: 0.000731232}
+    - {label: add, value: -0.000148207}
+    - {label: add, value: -6.49431e-07}
+    - {label: add, value: -0.00122824}
+    - {label: add, value: 0.000108074}
+    - {label: add, value: -0.000493803}
+    - {label: add, value: 0.000937989}
+    - {label: add, value: 0.000118544}
+    - {label: add, value: 2.18423e-05}
+    - {label: add, value: -0.000483813}
+    - {label: add, value: 0.00284323}
+    - {label: add, value: 0.00017595}
+    - {label: add, value: 0.00680494}
+    - {label: add, value: 2.03503e-05}
+    - {label: add, value: 0.00102067}
+    - {label: add, value: -0.0163491}
+    - {label: add, value: 0.00110082}
+    - {label: add, value: -5.58401e-06}
+    - {label: add, value: -9.55665e-05}
+    - {label: add, value: 0.0109108}
+    - {label: add, value: 0.00152363}
+    - {label: add, value: 0.00284721}
+    - {label: add, value: 0.000933138}
+    - {label: add, value: 0.010769}
+    - {label: add, value: -0.00395462}
+    - {label: add, value: 0.00353403}
+    - {label: add, value: 0.0032224}
+    - {label: add, value: -0.00187036}
+    - {label: add, value: 0.00131213}
+    - {label: add, value: -0.000149859}
+    - {label: add, value: -0.00162604}
+    - {label: add, value: 1.00108e-05}
+    - {label: add, value: 0.000254555}
+    - {label: add, value: 0.000241355}
+    - {label: add, value: 4.78153e-05}
+    - {label: add, value: 8.6451e-05}
+    - {label: add, value: -8.17982e-06}
+    - {label: add, value: 1.40256e-05}
+    - {label: add, value: -3.81303e-06}
+    - {label: add, value: 1.98269e-05}
+    - {label: add, value: -1.48502e-05}
+    - {label: add, value: -2.43938e-05}
+    - {label: add, value: -1.69991e-06}
+    value: 0.108929
+  - errors:
+    - {label: unc, value: 0.00202285}
+    - {label: add, value: -1.76032e-05}
+    - {label: add, value: 6.54386e-05}
+    - {label: add, value: -1.70948e-05}
+    - {label: add, value: 5.16945e-05}
+    - {label: add, value: 1.21114e-06}
+    - {label: add, value: 6.30058e-06}
+    - {label: add, value: 6.44753e-06}
+    - {label: add, value: 1.18162e-06}
+    - {label: add, value: 8.77193e-05}
+    - {label: add, value: -2.32456e-05}
+    - {label: add, value: 8.32533e-05}
+    - {label: add, value: -0.000100181}
+    - {label: add, value: -6.41045e-05}
+    - {label: add, value: -1.20452e-05}
+    - {label: add, value: 0.000230181}
+    - {label: add, value: -1.95316e-05}
+    - {label: add, value: 3.57284e-05}
+    - {label: add, value: -0.00038308}
+    - {label: add, value: 2.83217e-05}
+    - {label: add, value: 6.65384e-07}
+    - {label: add, value: 0.000492419}
+    - {label: add, value: -0.000755732}
+    - {label: add, value: -5.67908e-05}
+    - {label: add, value: -0.00193411}
+    - {label: add, value: 0.000155149}
+    - {label: add, value: -0.000348019}
+    - {label: add, value: 0.00360493}
+    - {label: add, value: -0.000291375}
+    - {label: add, value: 0.000417751}
+    - {label: add, value: 0.0130989}
+    - {label: add, value: -0.00315843}
+    - {label: add, value: 0.0239901}
+    - {label: add, value: 0.0100495}
+    - {label: add, value: 0.000357099}
+    - {label: add, value: -0.0133855}
+    - {label: add, value: -0.00982937}
+    - {label: add, value: -0.0105714}
+    - {label: add, value: 0.0178079}
+    - {label: add, value: -0.00804924}
+    - {label: add, value: 0.0024064}
+    - {label: add, value: -0.000273459}
+    - {label: add, value: -0.00673967}
+    - {label: add, value: 3.28776e-05}
+    - {label: add, value: 0.000277231}
+    - {label: add, value: 0.00294894}
+    - {label: add, value: 1.99889e-05}
+    - {label: add, value: 0.000687983}
+    - {label: add, value: -0.000924477}
+    - {label: add, value: 6.31323e-05}
+    - {label: add, value: -7.11344e-06}
+    - {label: add, value: 0.00109961}
+    - {label: add, value: -0.000109802}
+    - {label: add, value: -0.000319946}
+    - {label: add, value: -1.19765e-05}
+    value: 0.0517347
+  - errors:
+    - {label: unc, value: 0.000543767}
+    - {label: add, value: -2.03084e-05}
+    - {label: add, value: 6.67279e-05}
+    - {label: add, value: -1.53565e-05}
+    - {label: add, value: 4.84819e-05}
+    - {label: add, value: 5.09373e-07}
+    - {label: add, value: 2.92273e-06}
+    - {label: add, value: 3.30362e-06}
+    - {label: add, value: -3.44718e-06}
+    - {label: add, value: 2.29631e-05}
+    - {label: add, value: -7.27836e-07}
+    - {label: add, value: 0.000134386}
+    - {label: add, value: -0.000136779}
+    - {label: add, value: -2.22375e-05}
+    - {label: add, value: 3.40487e-06}
+    - {label: add, value: -1.05433e-05}
+    - {label: add, value: -0.000101273}
+    - {label: add, value: -4.55311e-05}
+    - {label: add, value: -3.16756e-05}
+    - {label: add, value: 6.94371e-05}
+    - {label: add, value: -2.02407e-05}
+    - {label: add, value: -0.000172837}
+    - {label: add, value: 1.32814e-05}
+    - {label: add, value: 4.50075e-05}
+    - {label: add, value: 0.000338951}
+    - {label: add, value: -8.88505e-05}
+    - {label: add, value: 0.000108387}
+    - {label: add, value: -0.00130796}
+    - {label: add, value: 8.73362e-05}
+    - {label: add, value: -0.000265596}
+    - {label: add, value: -0.00366955}
+    - {label: add, value: 0.00037381}
+    - {label: add, value: -0.00630382}
+    - {label: add, value: -0.00192697}
+    - {label: add, value: 7.28092e-05}
+    - {label: add, value: 0.00421295}
+    - {label: add, value: 0.00100585}
+    - {label: add, value: 0.0040282}
+    - {label: add, value: -0.00725141}
+    - {label: add, value: 0.00296683}
+    - {label: add, value: -0.00073938}
+    - {label: add, value: 0.000172986}
+    - {label: add, value: 0.00323166}
+    - {label: add, value: -8.92462e-05}
+    - {label: add, value: 0.00362365}
+    - {label: add, value: -0.0154174}
+    - {label: add, value: 8.0145e-05}
+    - {label: add, value: -0.0155698}
+    - {label: add, value: -0.0305143}
+    - {label: add, value: 0.00137853}
+    - {label: add, value: -3.61419e-05}
+    - {label: add, value: 0.0327966}
+    - {label: add, value: -0.0013861}
+    - {label: add, value: -0.00841562}
+    - {label: add, value: -0.000188084}
+    value: 0.0138825
+  - errors:
+    - {label: unc, value: 0.0384512}
+    - {label: add, value: 0.0346773}
+    - {label: add, value: -0.0367037}
+    - {label: add, value: -0.0185154}
+    - {label: add, value: 0.021481}
+    - {label: add, value: 0.000595427}
+    - {label: add, value: 0.0035419}
+    - {label: add, value: 0.00293358}
+    - {label: add, value: 0.000134574}
+    - {label: add, value: -0.000214242}
+    - {label: add, value: -0.000139907}
+    - {label: add, value: -0.000190269}
+    - {label: add, value: -2.34557e-06}
+    - {label: add, value: -0.000176281}
+    - {label: add, value: -2.13009e-05}
+    - {label: add, value: 8.28023e-06}
+    - {label: add, value: 2.51416e-05}
+    - {label: add, value: -0.000155659}
+    - {label: add, value: 5.65719e-06}
+    - {label: add, value: 4.65359e-05}
+    - {label: add, value: -6.65222e-07}
+    - {label: add, value: -5.95529e-06}
+    - {label: add, value: -1.46997e-05}
+    - {label: add, value: 8.78206e-06}
+    - {label: add, value: 4.99215e-06}
+    - {label: add, value: -2.06664e-05}
+    - {label: add, value: -1.09772e-05}
+    - {label: add, value: -2.57224e-06}
+    - {label: add, value: -4.94998e-06}
+    - {label: add, value: 4.39426e-06}
+    - {label: add, value: 1.42979e-06}
+    - {label: add, value: -1.50274e-06}
+    - {label: add, value: 1.10094e-06}
+    - {label: add, value: 1.6021e-07}
+    - {label: add, value: 8.72122e-08}
+    - {label: add, value: -2.69948e-07}
+    - {label: add, value: 1.12574e-06}
+    - {label: add, value: 2.44492e-08}
+    - {label: add, value: -4.97041e-07}
+    - {label: add, value: 6.96887e-07}
+    - {label: add, value: 9.85408e-07}
+    - {label: add, value: -1.04284e-07}
+    - {label: add, value: -9.50327e-08}
+    - {label: add, value: 5.26188e-08}
+    - {label: add, value: 3.56298e-07}
+    - {label: add, value: -2.3598e-07}
+    - {label: add, value: 7.78712e-09}
+    - {label: add, value: -1.60579e-07}
+    - {label: add, value: 3.78246e-08}
+    - {label: add, value: -6.22229e-10}
+    - {label: add, value: 8.19305e-10}
+    - {label: add, value: -2.50888e-08}
+    - {label: add, value: 8.84571e-09}
+    - {label: add, value: 7.34135e-09}
+    - {label: add, value: 5.23009e-10}
+    value: 0.414414
+  - errors:
+    - {label: unc, value: 0.014103}
+    - {label: add, value: -0.000652813}
+    - {label: add, value: 0.000944938}
+    - {label: add, value: 0.000616497}
+    - {label: add, value: -0.000954204}
+    - {label: add, value: -5.99785e-05}
+    - {label: add, value: -0.000599216}
+    - {label: add, value: -0.000425669}
+    - {label: add, value: -0.000169241}
+    - {label: add, value: -0.0219471}
+    - {label: add, value: 0.000609259}
+    - {label: add, value: -0.0149917}
+    - {label: add, value: 0.00100286}
+    - {label: add, value: -0.0152574}
+    - {label: add, value: -0.00108856}
+    - {label: add, value: -0.00104945}
+    - {label: add, value: 0.00038392}
+    - {label: add, value: -0.00798418}
+    - {label: add, value: -0.00137116}
+    - {label: add, value: 0.00186217}
+    - {label: add, value: -0.000127495}
+    - {label: add, value: -0.00053135}
+    - {label: add, value: -0.00147201}
+    - {label: add, value: 0.00034137}
+    - {label: add, value: 0.000262836}
+    - {label: add, value: -0.000164893}
+    - {label: add, value: -0.000345609}
+    - {label: add, value: 6.80386e-06}
+    - {label: add, value: -4.90687e-05}
+    - {label: add, value: 0.00010706}
+    - {label: add, value: 1.75781e-05}
+    - {label: add, value: -8.11061e-06}
+    - {label: add, value: 1.74469e-05}
+    - {label: add, value: -1.09211e-05}
+    - {label: add, value: 2.35619e-06}
+    - {label: add, value: 2.15401e-05}
+    - {label: add, value: 3.52696e-06}
+    - {label: add, value: 2.34154e-05}
+    - {label: add, value: 1.33973e-06}
+    - {label: add, value: 2.04006e-06}
+    - {label: add, value: 6.23437e-06}
+    - {label: add, value: -8.73036e-06}
+    - {label: add, value: -4.93705e-06}
+    - {label: add, value: 4.35746e-06}
+    - {label: add, value: 9.54291e-06}
+    - {label: add, value: 3.74043e-07}
+    - {label: add, value: 1.66025e-06}
+    - {label: add, value: -1.27433e-06}
+    - {label: add, value: 3.02901e-07}
+    - {label: add, value: 2.44688e-07}
+    - {label: add, value: -1.76813e-09}
+    - {label: add, value: -2.43065e-07}
+    - {label: add, value: 8.01484e-08}
+    - {label: add, value: 9.39798e-08}
+    - {label: add, value: 1.3743e-08}
+    value: 0.25669
+  - errors:
+    - {label: unc, value: 0.00609411}
+    - {label: add, value: 7.06886e-05}
+    - {label: add, value: -0.000128812}
+    - {label: add, value: -6.032e-05}
+    - {label: add, value: 0.000150354}
+    - {label: add, value: 1.614e-05}
+    - {label: add, value: 8.97997e-05}
+    - {label: add, value: 2.86968e-05}
+    - {label: add, value: 4.9337e-05}
+    - {label: add, value: 0.0020013}
+    - {label: add, value: 6.83186e-05}
+    - {label: add, value: 0.00100325}
+    - {label: add, value: 0.0242203}
+    - {label: add, value: 0.00346379}
+    - {label: add, value: 0.000307608}
+    - {label: add, value: -0.0123657}
+    - {label: add, value: 0.00499842}
+    - {label: add, value: 0.00344158}
+    - {label: add, value: -0.0148503}
+    - {label: add, value: 0.00345315}
+    - {label: add, value: -0.000866358}
+    - {label: add, value: -0.0016529}
+    - {label: add, value: -0.00722208}
+    - {label: add, value: 0.00115791}
+    - {label: add, value: 0.000837796}
+    - {label: add, value: -0.000285347}
+    - {label: add, value: -0.00126866}
+    - {label: add, value: 0.000695607}
+    - {label: add, value: -0.000160811}
+    - {label: add, value: 0.000106471}
+    - {label: add, value: 6.26579e-05}
+    - {label: add, value: 0.000518504}
+    - {label: add, value: 0.000108822}
+    - {label: add, value: -0.000249388}
+    - {label: add, value: -3.91724e-05}
+    - {label: add, value: 0.000392078}
+    - {label: add, value: -0.000116674}
+    - {label: add, value: 9.82085e-05}
+    - {label: add, value: 4.52426e-05}
+    - {label: add, value: -6.3481e-05}
+    - {label: add, value: 2.58235e-05}
+    - {label: add, value: -4.1164e-05}
+    - {label: add, value: -4.83928e-05}
+    - {label: add, value: 1.56469e-05}
+    - {label: add, value: 1.43157e-05}
+    - {label: add, value: 1.23092e-05}
+    - {label: add, value: 1.12089e-05}
+    - {label: add, value: 9.07957e-07}
+    - {label: add, value: -6.20253e-07}
+    - {label: add, value: 1.53366e-06}
+    - {label: add, value: -1.59518e-07}
+    - {label: add, value: 7.99015e-08}
+    - {label: add, value: -4.97222e-08}
+    - {label: add, value: -1.34318e-06}
+    - {label: add, value: 3.15432e-08}
+    value: 0.188342
+  - errors:
+    - {label: unc, value: 0.00520291}
+    - {label: add, value: 6.80504e-05}
+    - {label: add, value: -6.39828e-05}
+    - {label: add, value: -2.8393e-05}
+    - {label: add, value: 2.96725e-05}
+    - {label: add, value: -1.31172e-06}
+    - {label: add, value: -8.12966e-06}
+    - {label: add, value: -5.43756e-08}
+    - {label: add, value: -8.21909e-06}
+    - {label: add, value: -0.00023638}
+    - {label: add, value: 4.00216e-05}
+    - {label: add, value: -0.000177767}
+    - {label: add, value: -0.00155701}
+    - {label: add, value: -0.000471128}
+    - {label: add, value: -3.83856e-05}
+    - {label: add, value: 0.00050224}
+    - {label: add, value: -0.000285134}
+    - {label: add, value: -0.000429661}
+    - {label: add, value: 0.00174807}
+    - {label: add, value: -0.000318385}
+    - {label: add, value: 7.24566e-05}
+    - {label: add, value: -0.00048164}
+    - {label: add, value: -0.00153687}
+    - {label: add, value: -0.00120664}
+    - {label: add, value: -0.0191391}
+    - {label: add, value: 0.000398064}
+    - {label: add, value: 0.00103471}
+    - {label: add, value: 0.0148502}
+    - {label: add, value: -2.96684e-05}
+    - {label: add, value: -9.59574e-05}
+    - {label: add, value: -0.000594806}
+    - {label: add, value: 0.0106923}
+    - {label: add, value: -0.000573016}
+    - {label: add, value: -0.00274486}
+    - {label: add, value: -0.000261199}
+    - {label: add, value: 0.00490232}
+    - {label: add, value: -0.00343495}
+    - {label: add, value: 0.000740389}
+    - {label: add, value: 0.00111648}
+    - {label: add, value: -0.00142393}
+    - {label: add, value: 0.000590563}
+    - {label: add, value: -0.000221105}
+    - {label: add, value: -0.000534752}
+    - {label: add, value: 3.1759e-05}
+    - {label: add, value: 4.32217e-05}
+    - {label: add, value: 0.000120714}
+    - {label: add, value: 6.45275e-05}
+    - {label: add, value: 5.48939e-05}
+    - {label: add, value: -5.06373e-06}
+    - {label: add, value: 6.12202e-06}
+    - {label: add, value: -3.32757e-06}
+    - {label: add, value: 2.27858e-05}
+    - {label: add, value: -1.2604e-05}
+    - {label: add, value: -1.48826e-05}
+    - {label: add, value: -9.57462e-07}
+    value: 0.119531
+  - errors:
+    - {label: unc, value: 0.00311841}
+    - {label: add, value: 6.09765e-05}
+    - {label: add, value: -7.12323e-05}
+    - {label: add, value: -3.11152e-05}
+    - {label: add, value: 3.61365e-05}
+    - {label: add, value: -4.00615e-07}
+    - {label: add, value: 5.94509e-06}
+    - {label: add, value: 5.78487e-06}
+    - {label: add, value: 4.20709e-06}
+    - {label: add, value: -0.000123694}
+    - {label: add, value: -1.32102e-05}
+    - {label: add, value: -8.84692e-05}
+    - {label: add, value: 0.00030905}
+    - {label: add, value: -8.32954e-06}
+    - {label: add, value: -4.54983e-06}
+    - {label: add, value: -0.000159935}
+    - {label: add, value: 0.000117357}
+    - {label: add, value: 2.12891e-05}
+    - {label: add, value: -0.000600153}
+    - {label: add, value: 0.000109951}
+    - {label: add, value: -3.4054e-05}
+    - {label: add, value: 0.000290178}
+    - {label: add, value: 7.63164e-05}
+    - {label: add, value: 0.000360461}
+    - {label: add, value: 0.00458105}
+    - {label: add, value: -7.77728e-05}
+    - {label: add, value: -0.000239233}
+    - {label: add, value: -0.00220646}
+    - {label: add, value: 0.000288721}
+    - {label: add, value: -0.00123002}
+    - {label: add, value: -0.028635}
+    - {label: add, value: -0.00609194}
+    - {label: add, value: -0.0172674}
+    - {label: add, value: -0.00438685}
+    - {label: add, value: -0.000206287}
+    - {label: add, value: -0.00586708}
+    - {label: add, value: -0.0166091}
+    - {label: add, value: -0.0034287}
+    - {label: add, value: 0.00518988}
+    - {label: add, value: -0.00516939}
+    - {label: add, value: 0.00173671}
+    - {label: add, value: -0.000411282}
+    - {label: add, value: -0.00163214}
+    - {label: add, value: 1.5811e-05}
+    - {label: add, value: -0.000419942}
+    - {label: add, value: 0.00202675}
+    - {label: add, value: 3.0365e-05}
+    - {label: add, value: 0.00166989}
+    - {label: add, value: -0.000382813}
+    - {label: add, value: 1.32308e-05}
+    - {label: add, value: -1.11846e-05}
+    - {label: add, value: 0.000283254}
+    - {label: add, value: -0.000153238}
+    - {label: add, value: -7.6334e-05}
+    - {label: add, value: -1.26517e-05}
+    value: 0.0634607
+  - errors:
+    - {label: unc, value: 0.000828846}
+    - {label: add, value: 6.6685e-05}
+    - {label: add, value: -6.7084e-05}
+    - {label: add, value: -3.03958e-05}
+    - {label: add, value: 3.62992e-05}
+    - {label: add, value: 1.46749e-06}
+    - {label: add, value: 1.41664e-06}
+    - {label: add, value: 7.86035e-06}
+    - {label: add, value: -2.51171e-06}
+    - {label: add, value: -0.000181904}
+    - {label: add, value: 9.64669e-06}
+    - {label: add, value: -4.20012e-05}
+    - {label: add, value: 3.69231e-05}
+    - {label: add, value: -0.000222161}
+    - {label: add, value: -1.97496e-05}
+    - {label: add, value: 0.00018672}
+    - {label: add, value: -1.88733e-05}
+    - {label: add, value: -0.000101054}
+    - {label: add, value: 0.000436595}
+    - {label: add, value: -0.000164598}
+    - {label: add, value: -2.64071e-06}
+    - {label: add, value: -0.000239361}
+    - {label: add, value: 0.000264686}
+    - {label: add, value: -0.000138382}
+    - {label: add, value: -0.00084516}
+    - {label: add, value: -5.23172e-05}
+    - {label: add, value: 4.20377e-05}
+    - {label: add, value: 2.52622e-05}
+    - {label: add, value: -0.000164412}
+    - {label: add, value: 5.86735e-05}
+    - {label: add, value: 0.00971548}
+    - {label: add, value: 0.00440931}
+    - {label: add, value: 0.00134749}
+    - {label: add, value: 2.9662e-05}
+    - {label: add, value: 0.000148017}
+    - {label: add, value: 0.00662184}
+    - {label: add, value: 0.0126361}
+    - {label: add, value: 0.00522064}
+    - {label: add, value: -0.0109023}
+    - {label: add, value: 0.00863753}
+    - {label: add, value: -0.0032059}
+    - {label: add, value: 0.000555955}
+    - {label: add, value: 0.00718626}
+    - {label: add, value: 0.000154783}
+    - {label: add, value: -0.0175483}
+    - {label: add, value: 0.0547376}
+    - {label: add, value: -0.000578498}
+    - {label: add, value: 0.0310131}
+    - {label: add, value: -0.00851847}
+    - {label: add, value: 0.000194429}
+    - {label: add, value: -6.1576e-05}
+    - {label: add, value: 0.00582093}
+    - {label: add, value: -0.00147505}
+    - {label: add, value: -0.00133125}
+    - {label: add, value: -0.000117864}
+    value: 0.0171895
+  - errors:
+    - {label: unc, value: 0.0378031}
+    - {label: add, value: -0.0700735}
+    - {label: add, value: -0.0232296}
+    - {label: add, value: -0.00771581}
+    - {label: add, value: 0.00658163}
+    - {label: add, value: 0.000885654}
+    - {label: add, value: 0.00817326}
+    - {label: add, value: 0.00166085}
+    - {label: add, value: 5.33273e-05}
+    - {label: add, value: 0.000225425}
+    - {label: add, value: -0.000501481}
+    - {label: add, value: -0.000162445}
+    - {label: add, value: -3.52411e-06}
+    - {label: add, value: -8.01349e-05}
+    - {label: add, value: -1.71442e-05}
+    - {label: add, value: 3.62753e-05}
+    - {label: add, value: 9.29431e-05}
+    - {label: add, value: -0.000120326}
+    - {label: add, value: -7.25918e-08}
+    - {label: add, value: 1.88466e-05}
+    - {label: add, value: -3.50518e-07}
+    - {label: add, value: -6.66211e-06}
+    - {label: add, value: -1.41695e-05}
+    - {label: add, value: 3.46181e-06}
+    - {label: add, value: -2.05697e-06}
+    - {label: add, value: -2.67501e-05}
+    - {label: add, value: -7.57436e-06}
+    - {label: add, value: -1.37492e-06}
+    - {label: add, value: -2.44706e-06}
+    - {label: add, value: 4.84125e-06}
+    - {label: add, value: -1.58528e-06}
+    - {label: add, value: 2.34759e-07}
+    - {label: add, value: 5.72289e-07}
+    - {label: add, value: 6.85791e-07}
+    - {label: add, value: 2.60627e-07}
+    - {label: add, value: -3.01759e-07}
+    - {label: add, value: 3.55439e-07}
+    - {label: add, value: 5.90506e-07}
+    - {label: add, value: 1.92601e-08}
+    - {label: add, value: 6.39884e-07}
+    - {label: add, value: 7.50955e-07}
+    - {label: add, value: -4.81015e-08}
+    - {label: add, value: -9.23279e-08}
+    - {label: add, value: 4.71549e-08}
+    - {label: add, value: 2.95014e-07}
+    - {label: add, value: 2.49724e-07}
+    - {label: add, value: -8.38619e-09}
+    - {label: add, value: -1.57049e-07}
+    - {label: add, value: 1.35853e-08}
+    - {label: add, value: 1.62253e-09}
+    - {label: add, value: 2.31369e-09}
+    - {label: add, value: -5.1322e-09}
+    - {label: add, value: 2.85043e-08}
+    - {label: add, value: 4.97724e-09}
+    - {label: add, value: 2.11217e-09}
+    value: 0.397077
+  - errors:
+    - {label: unc, value: 0.0148711}
+    - {label: add, value: 0.00141064}
+    - {label: add, value: 0.000490289}
+    - {label: add, value: 0.000205798}
+    - {label: add, value: -0.000412527}
+    - {label: add, value: -4.50846e-05}
+    - {label: add, value: -0.000506059}
+    - {label: add, value: -0.000279467}
+    - {label: add, value: -0.000135914}
+    - {label: add, value: 0.031868}
+    - {label: add, value: -0.000477881}
+    - {label: add, value: -0.0147655}
+    - {label: add, value: -0.0019735}
+    - {label: add, value: -0.00500953}
+    - {label: add, value: -0.000711594}
+    - {label: add, value: 0.000933403}
+    - {label: add, value: 0.00532777}
+    - {label: add, value: -0.00511567}
+    - {label: add, value: -0.000623804}
+    - {label: add, value: 0.000552366}
+    - {label: add, value: -6.48642e-05}
+    - {label: add, value: -0.0010478}
+    - {label: add, value: -0.000906417}
+    - {label: add, value: 0.000177625}
+    - {label: add, value: 0.000158569}
+    - {label: add, value: -0.000362667}
+    - {label: add, value: -0.000123691}
+    - {label: add, value: 1.0891e-06}
+    - {label: add, value: -1.27719e-05}
+    - {label: add, value: 0.00015866}
+    - {label: add, value: -1.9215e-05}
+    - {label: add, value: 4.93017e-06}
+    - {label: add, value: 1.68649e-05}
+    - {label: add, value: -4.38381e-06}
+    - {label: add, value: 5.6939e-06}
+    - {label: add, value: 2.69777e-05}
+    - {label: add, value: -3.55645e-06}
+    - {label: add, value: 1.50977e-05}
+    - {label: add, value: 3.84864e-06}
+    - {label: add, value: 1.34225e-06}
+    - {label: add, value: -9.28148e-07}
+    - {label: add, value: -7.78057e-06}
+    - {label: add, value: -7.31384e-06}
+    - {label: add, value: 4.07992e-06}
+    - {label: add, value: 6.26646e-06}
+    - {label: add, value: 3.62554e-06}
+    - {label: add, value: 1.08496e-06}
+    - {label: add, value: -8.46797e-07}
+    - {label: add, value: -9.61017e-08}
+    - {label: add, value: 3.41458e-07}
+    - {label: add, value: 1.24006e-08}
+    - {label: add, value: 3.05944e-08}
+    - {label: add, value: 2.00024e-07}
+    - {label: add, value: 1.94886e-08}
+    - {label: add, value: 2.11825e-08}
+    value: 0.258735
+  - errors:
+    - {label: unc, value: 0.00505366}
+    - {label: add, value: -0.00016152}
+    - {label: add, value: -7.73482e-05}
+    - {label: add, value: -4.25569e-05}
+    - {label: add, value: 8.82444e-05}
+    - {label: add, value: 7.92844e-06}
+    - {label: add, value: 5.85983e-05}
+    - {label: add, value: 4.17635e-05}
+    - {label: add, value: -5.14045e-05}
+    - {label: add, value: -0.00315869}
+    - {label: add, value: 9.8397e-05}
+    - {label: add, value: 0.00352446}
+    - {label: add, value: -0.0304526}
+    - {label: add, value: 0.00112902}
+    - {label: add, value: 0.000196898}
+    - {label: add, value: -0.0162696}
+    - {label: add, value: 0.00478465}
+    - {label: add, value: 0.00198363}
+    - {label: add, value: -0.0054122}
+    - {label: add, value: 0.000898629}
+    - {label: add, value: -0.000864282}
+    - {label: add, value: -0.00692042}
+    - {label: add, value: -0.00474805}
+    - {label: add, value: 0.000932219}
+    - {label: add, value: 0.00206601}
+    - {label: add, value: -0.000353426}
+    - {label: add, value: -0.000458399}
+    - {label: add, value: 0.000601523}
+    - {label: add, value: -5.368e-05}
+    - {label: add, value: 0.00033653}
+    - {label: add, value: 4.55863e-05}
+    - {label: add, value: 0.000212554}
+    - {label: add, value: 0.00017367}
+    - {label: add, value: -0.000393984}
+    - {label: add, value: -7.76485e-05}
+    - {label: add, value: 0.00021834}
+    - {label: add, value: -7.16403e-05}
+    - {label: add, value: 2.3212e-05}
+    - {label: add, value: 3.15588e-05}
+    - {label: add, value: -4.99083e-05}
+    - {label: add, value: 1.29779e-05}
+    - {label: add, value: -6.21463e-05}
+    - {label: add, value: -3.03761e-05}
+    - {label: add, value: 2.65325e-05}
+    - {label: add, value: 4.17397e-06}
+    - {label: add, value: 1.28013e-05}
+    - {label: add, value: 1.23522e-05}
+    - {label: add, value: -5.20462e-07}
+    - {label: add, value: 1.60094e-06}
+    - {label: add, value: 1.12276e-06}
+    - {label: add, value: -9.08495e-08}
+    - {label: add, value: 1.0219e-06}
+    - {label: add, value: 3.73722e-07}
+    - {label: add, value: -1.80127e-06}
+    - {label: add, value: 6.3828e-08}
+    value: 0.184034
+  - errors:
+    - {label: unc, value: 0.00430521}
+    - {label: add, value: -9.73875e-05}
+    - {label: add, value: -2.22173e-05}
+    - {label: add, value: -9.20211e-06}
+    - {label: add, value: -9.47476e-08}
+    - {label: add, value: -1.43334e-06}
+    - {label: add, value: 5.80037e-06}
+    - {label: add, value: -7.1374e-07}
+    - {label: add, value: -4.22559e-07}
+    - {label: add, value: 0.000425599}
+    - {label: add, value: -1.2608e-05}
+    - {label: add, value: -0.000409349}
+    - {label: add, value: 0.00203219}
+    - {label: add, value: -0.00021493}
+    - {label: add, value: -3.52635e-05}
+    - {label: add, value: 0.00169117}
+    - {label: add, value: -0.000497722}
+    - {label: add, value: -0.000415652}
+    - {label: add, value: 0.000877951}
+    - {label: add, value: -7.09153e-05}
+    - {label: add, value: 0.000209833}
+    - {label: add, value: 0.00279997}
+    - {label: add, value: 0.00593815}
+    - {label: add, value: 0.00103283}
+    - {label: add, value: 0.026553}
+    - {label: add, value: 4.803e-05}
+    - {label: add, value: 0.00016619}
+    - {label: add, value: 0.0126088}
+    - {label: add, value: -0.000230301}
+    - {label: add, value: -0.000157041}
+    - {label: add, value: 0.00317978}
+    - {label: add, value: 0.00290199}
+    - {label: add, value: 0.00102208}
+    - {label: add, value: -0.00592236}
+    - {label: add, value: -0.00114517}
+    - {label: add, value: 0.00228745}
+    - {label: add, value: -0.00171694}
+    - {label: add, value: 0.000141715}
+    - {label: add, value: -7.07879e-05}
+    - {label: add, value: -0.00135344}
+    - {label: add, value: 0.000381774}
+    - {label: add, value: -0.000432113}
+    - {label: add, value: -0.000195513}
+    - {label: add, value: 8.99573e-05}
+    - {label: add, value: 1.34655e-05}
+    - {label: add, value: 3.15466e-05}
+    - {label: add, value: 0.000122612}
+    - {label: add, value: 3.18804e-05}
+    - {label: add, value: -3.73233e-06}
+    - {label: add, value: 2.68921e-06}
+    - {label: add, value: -4.42164e-06}
+    - {label: add, value: 1.82538e-05}
+    - {label: add, value: -1.04967e-05}
+    - {label: add, value: -9.05302e-06}
+    - {label: add, value: -1.28829e-07}
+    value: 0.119214
+  - errors:
+    - {label: unc, value: 0.00232927}
+    - {label: add, value: -9.69974e-05}
+    - {label: add, value: -2.17051e-05}
+    - {label: add, value: -1.09851e-05}
+    - {label: add, value: 7.83204e-06}
+    - {label: add, value: 2.26284e-08}
+    - {label: add, value: 2.25341e-06}
+    - {label: add, value: 2.56564e-07}
+    - {label: add, value: -6.01311e-06}
+    - {label: add, value: 0.000204121}
+    - {label: add, value: -9.06893e-06}
+    - {label: add, value: -1.07342e-05}
+    - {label: add, value: -0.000480896}
+    - {label: add, value: 5.43857e-05}
+    - {label: add, value: -6.96525e-06}
+    - {label: add, value: -0.000409663}
+    - {label: add, value: 0.000186904}
+    - {label: add, value: 0.000118539}
+    - {label: add, value: -0.000257275}
+    - {label: add, value: 5.56577e-05}
+    - {label: add, value: -7.17408e-05}
+    - {label: add, value: -0.000873306}
+    - {label: add, value: -0.00152372}
+    - {label: add, value: -0.00026085}
+    - {label: add, value: -0.00659983}
+    - {label: add, value: -1.82105e-05}
+    - {label: add, value: -0.000240949}
+    - {label: add, value: -0.00737804}
+    - {label: add, value: -4.22444e-05}
+    - {label: add, value: 0.000900418}
+    - {label: add, value: 0.0389246}
+    - {label: add, value: -0.0045769}
+    - {label: add, value: -0.0221886}
+    - {label: add, value: -0.00546286}
+    - {label: add, value: 7.0208e-05}
+    - {label: add, value: -0.00224994}
+    - {label: add, value: -0.00843304}
+    - {label: add, value: -0.00101693}
+    - {label: add, value: -0.00181726}
+    - {label: add, value: -0.00816866}
+    - {label: add, value: 0.00204562}
+    - {label: add, value: -0.000909406}
+    - {label: add, value: -0.000759652}
+    - {label: add, value: -9.53709e-05}
+    - {label: add, value: 0.000432159}
+    - {label: add, value: -0.00131713}
+    - {label: add, value: 0.000240685}
+    - {label: add, value: 0.00171812}
+    - {label: add, value: -0.000149267}
+    - {label: add, value: 4.86051e-06}
+    - {label: add, value: -3.22921e-05}
+    - {label: add, value: 6.6236e-05}
+    - {label: add, value: -0.000370472}
+    - {label: add, value: -3.57371e-05}
+    - {label: add, value: -3.03336e-05}
+    value: 0.0565989
+  - errors:
+    - {label: unc, value: 0.00077195}
+    - {label: add, value: -9.88675e-05}
+    - {label: add, value: -2.07158e-05}
+    - {label: add, value: -5.25511e-06}
+    - {label: add, value: 4.6564e-06}
+    - {label: add, value: 1.22974e-06}
+    - {label: add, value: -2.52594e-06}
+    - {label: add, value: -2.71792e-06}
+    - {label: add, value: -8.84908e-07}
+    - {label: add, value: 9.2207e-05}
+    - {label: add, value: 6.84394e-06}
+    - {label: add, value: -4.9484e-05}
+    - {label: add, value: -0.000124182}
+    - {label: add, value: -3.34268e-06}
+    - {label: add, value: 4.88792e-06}
+    - {label: add, value: -6.22097e-05}
+    - {label: add, value: 5.56996e-06}
+    - {label: add, value: -2.55481e-05}
+    - {label: add, value: -5.31942e-05}
+    - {label: add, value: 2.74591e-05}
+    - {label: add, value: 5.22373e-06}
+    - {label: add, value: 0.000206531}
+    - {label: add, value: 0.000317015}
+    - {label: add, value: 8.361e-05}
+    - {label: add, value: 0.0016362}
+    - {label: add, value: -8.58476e-05}
+    - {label: add, value: 1.91817e-05}
+    - {label: add, value: 0.00331905}
+    - {label: add, value: -1.72767e-05}
+    - {label: add, value: -0.000250037}
+    - {label: add, value: -0.010193}
+    - {label: add, value: 0.00189796}
+    - {label: add, value: 0.0116819}
+    - {label: add, value: 0.00309505}
+    - {label: add, value: 7.3315e-05}
+    - {label: add, value: 0.000571152}
+    - {label: add, value: 0.00400907}
+    - {label: add, value: 3.4822e-05}
+    - {label: add, value: 0.00223493}
+    - {label: add, value: 0.00416802}
+    - {label: add, value: -0.000880999}
+    - {label: add, value: 0.00212358}
+    - {label: add, value: -0.000564842}
+    - {label: add, value: -0.000761597}
+    - {label: add, value: 0.0113933}
+    - {label: add, value: -0.0408131}
+    - {label: add, value: -0.001011}
+    - {label: add, value: 0.0393332}
+    - {label: add, value: -0.00282681}
+    - {label: add, value: 5.94002e-05}
+    - {label: add, value: -0.000268955}
+    - {label: add, value: 0.00107023}
+    - {label: add, value: -0.00546}
+    - {label: add, value: -0.000512996}
+    - {label: add, value: -0.000416195}
+    value: 0.0185167
+  - errors:
+    - {label: unc, value: 0.0353241}
+    - {label: add, value: 0.0127298}
+    - {label: add, value: 0.00713184}
+    - {label: add, value: 0.00352318}
+    - {label: add, value: -0.00706996}
+    - {label: add, value: 0.00326423}
+    - {label: add, value: 0.038493}
+    - {label: add, value: 0.00396221}
+    - {label: add, value: 5.8184e-05}
+    - {label: add, value: -0.000189604}
+    - {label: add, value: -0.00393895}
+    - {label: add, value: -2.90159e-05}
+    - {label: add, value: -1.32084e-05}
+    - {label: add, value: 1.25283e-05}
+    - {label: add, value: -5.10579e-05}
+    - {label: add, value: 0.00011752}
+    - {label: add, value: 0.000282741}
+    - {label: add, value: -0.000215157}
+    - {label: add, value: -1.16141e-05}
+    - {label: add, value: 1.75316e-05}
+    - {label: add, value: 3.41073e-06}
+    - {label: add, value: -5.97327e-06}
+    - {label: add, value: -2.52388e-05}
+    - {label: add, value: 3.40666e-06}
+    - {label: add, value: 3.43251e-06}
+    - {label: add, value: -0.000100151}
+    - {label: add, value: -1.10719e-05}
+    - {label: add, value: 3.07053e-06}
+    - {label: add, value: -1.94252e-06}
+    - {label: add, value: 1.38657e-05}
+    - {label: add, value: 5.06785e-07}
+    - {label: add, value: 1.81253e-06}
+    - {label: add, value: -1.68899e-06}
+    - {label: add, value: 2.07339e-06}
+    - {label: add, value: 9.60917e-07}
+    - {label: add, value: 4.8573e-08}
+    - {label: add, value: -4.51103e-07}
+    - {label: add, value: 2.09238e-06}
+    - {label: add, value: 1.33471e-06}
+    - {label: add, value: 1.48683e-06}
+    - {label: add, value: 7.98158e-07}
+    - {label: add, value: 3.3529e-07}
+    - {label: add, value: 8.20928e-08}
+    - {label: add, value: -1.99114e-08}
+    - {label: add, value: 1.03153e-06}
+    - {label: add, value: 2.29177e-07}
+    - {label: add, value: -1.64708e-07}
+    - {label: add, value: 4.27435e-08}
+    - {label: add, value: -3.13515e-09}
+    - {label: add, value: 1.28461e-08}
+    - {label: add, value: 1.53497e-08}
+    - {label: add, value: 1.10553e-08}
+    - {label: add, value: 1.28984e-07}
+    - {label: add, value: 1.88775e-08}
+    - {label: add, value: 1.02253e-08}
+    value: 0.38162
+  - errors:
+    - {label: unc, value: 0.0136481}
+    - {label: add, value: -7.34147e-05}
+    - {label: add, value: 2.76916e-06}
+    - {label: add, value: 2.22538e-05}
+    - {label: add, value: -3.56042e-05}
+    - {label: add, value: -7.08142e-05}
+    - {label: add, value: -0.00133025}
+    - {label: add, value: -0.000271126}
+    - {label: add, value: -0.000109222}
+    - {label: add, value: -0.00733664}
+    - {label: add, value: 0.000767689}
+    - {label: add, value: 0.00662305}
+    - {label: add, value: 0.000428581}
+    - {label: add, value: 0.00726085}
+    - {label: add, value: -0.000444978}
+    - {label: add, value: 0.00764718}
+    - {label: add, value: 0.0169065}
+    - {label: add, value: -0.00934587}
+    - {label: add, value: 0.000387812}
+    - {label: add, value: -5.8021e-06}
+    - {label: add, value: 0.000149582}
+    - {label: add, value: -0.00247831}
+    - {label: add, value: -0.00114287}
+    - {label: add, value: 0.000196994}
+    - {label: add, value: 0.000284352}
+    - {label: add, value: -0.00214446}
+    - {label: add, value: -8.63318e-05}
+    - {label: add, value: 6.30346e-05}
+    - {label: add, value: -4.06939e-06}
+    - {label: add, value: 0.000598692}
+    - {label: add, value: -1.04557e-05}
+    - {label: add, value: 3.14567e-05}
+    - {label: add, value: 4.47525e-06}
+    - {label: add, value: -2.44371e-05}
+    - {label: add, value: 1.76828e-05}
+    - {label: add, value: 3.61508e-05}
+    - {label: add, value: -1.03067e-05}
+    - {label: add, value: 8.56856e-06}
+    - {label: add, value: 2.03958e-05}
+    - {label: add, value: 3.01311e-06}
+    - {label: add, value: -1.1481e-06}
+    - {label: add, value: -1.39485e-05}
+    - {label: add, value: -1.24943e-05}
+    - {label: add, value: 7.72427e-06}
+    - {label: add, value: 4.98298e-06}
+    - {label: add, value: 1.44034e-06}
+    - {label: add, value: 9.14327e-07}
+    - {label: add, value: 3.44998e-07}
+    - {label: add, value: -3.13099e-07}
+    - {label: add, value: 5.08324e-07}
+    - {label: add, value: 9.03288e-08}
+    - {label: add, value: 2.02391e-07}
+    - {label: add, value: 8.3834e-07}
+    - {label: add, value: -3.05897e-07}
+    - {label: add, value: 6.85064e-08}
+    value: 0.255852
+  - errors:
+    - {label: unc, value: 0.00677554}
+    - {label: add, value: 1.06554e-05}
+    - {label: add, value: 6.21963e-06}
+    - {label: add, value: -7.01244e-06}
+    - {label: add, value: -4.09431e-06}
+    - {label: add, value: 2.33508e-05}
+    - {label: add, value: 0.000241283}
+    - {label: add, value: 3.59303e-05}
+    - {label: add, value: 1.27225e-05}
+    - {label: add, value: 0.000510148}
+    - {label: add, value: -3.93414e-05}
+    - {label: add, value: -0.000856656}
+    - {label: add, value: 0.00695515}
+    - {label: add, value: -0.000819103}
+    - {label: add, value: 7.391e-05}
+    - {label: add, value: 0.00525402}
+    - {label: add, value: -0.00654171}
+    - {label: add, value: 0.00292481}
+    - {label: add, value: 0.00762914}
+    - {label: add, value: -0.00361761}
+    - {label: add, value: -0.000894907}
+    - {label: add, value: -0.0177588}
+    - {label: add, value: -0.0068305}
+    - {label: add, value: 0.00122378}
+    - {label: add, value: 0.00181797}
+    - {label: add, value: -0.000382959}
+    - {label: add, value: -0.000315311}
+    - {label: add, value: 0.000142884}
+    - {label: add, value: -1.80306e-05}
+    - {label: add, value: 0.00193078}
+    - {label: add, value: -7.20737e-05}
+    - {label: add, value: -0.000121954}
+    - {label: add, value: 0.000354028}
+    - {label: add, value: -0.000729082}
+    - {label: add, value: -0.000129809}
+    - {label: add, value: 0.000172603}
+    - {label: add, value: -0.000103831}
+    - {label: add, value: -5.36061e-06}
+    - {label: add, value: 3.34068e-05}
+    - {label: add, value: -4.76461e-05}
+    - {label: add, value: 1.16404e-05}
+    - {label: add, value: -0.00017865}
+    - {label: add, value: -2.35024e-05}
+    - {label: add, value: 7.93986e-05}
+    - {label: add, value: 2.78539e-06}
+    - {label: add, value: 4.35278e-06}
+    - {label: add, value: 2.5595e-05}
+    - {label: add, value: 5.58697e-06}
+    - {label: add, value: 1.42888e-06}
+    - {label: add, value: 8.09954e-07}
+    - {label: add, value: -3.30824e-08}
+    - {label: add, value: 2.68251e-06}
+    - {label: add, value: 9.83674e-07}
+    - {label: add, value: -1.92775e-06}
+    - {label: add, value: 1.8472e-07}
+    value: 0.198664
+  - errors:
+    - {label: unc, value: 0.00549289}
+    - {label: add, value: 1.88826e-05}
+    - {label: add, value: 2.01793e-05}
+    - {label: add, value: 1.126e-05}
+    - {label: add, value: -1.99343e-05}
+    - {label: add, value: 4.96627e-06}
+    - {label: add, value: 6.25002e-05}
+    - {label: add, value: 6.29264e-06}
+    - {label: add, value: -2.9297e-06}
+    - {label: add, value: -8.67924e-05}
+    - {label: add, value: 1.71536e-06}
+    - {label: add, value: 7.38492e-05}
+    - {label: add, value: -0.000372107}
+    - {label: add, value: 0.000102973}
+    - {label: add, value: -2.79352e-05}
+    - {label: add, value: -0.000151239}
+    - {label: add, value: 0.000655626}
+    - {label: add, value: -0.000365524}
+    - {label: add, value: -0.000456166}
+    - {label: add, value: 0.000261146}
+    - {label: add, value: 3.0532e-05}
+    - {label: add, value: 0.00156049}
+    - {label: add, value: -4.01149e-05}
+    - {label: add, value: -0.000536609}
+    - {label: add, value: -0.00653798}
+    - {label: add, value: 0.000272747}
+    - {label: add, value: 0.000266745}
+    - {label: add, value: -0.00629189}
+    - {label: add, value: 0.000318135}
+    - {label: add, value: -0.00108822}
+    - {label: add, value: -0.00101465}
+    - {label: add, value: -0.00588932}
+    - {label: add, value: 0.00776702}
+    - {label: add, value: -0.0147842}
+    - {label: add, value: -0.00361671}
+    - {label: add, value: 0.00282988}
+    - {label: add, value: -0.000819058}
+    - {label: add, value: 7.05984e-05}
+    - {label: add, value: -0.00109765}
+    - {label: add, value: -0.0022495}
+    - {label: add, value: 0.000484624}
+    - {label: add, value: -0.00201202}
+    - {label: add, value: -0.000142913}
+    - {label: add, value: 0.000624943}
+    - {label: add, value: -1.04672e-05}
+    - {label: add, value: 6.42191e-05}
+    - {label: add, value: 0.000472127}
+    - {label: add, value: 8.87053e-05}
+    - {label: add, value: -1.3408e-05}
+    - {label: add, value: 1.56141e-06}
+    - {label: add, value: -9.09199e-06}
+    - {label: add, value: 1.77928e-05}
+    - {label: add, value: -1.33334e-05}
+    - {label: add, value: -6.70955e-06}
+    - {label: add, value: 2.53227e-06}
+    value: 0.121053
+  - errors:
+    - {label: unc, value: 0.00308003}
+    - {label: add, value: 2.26985e-05}
+    - {label: add, value: 1.21396e-05}
+    - {label: add, value: 6.0922e-06}
+    - {label: add, value: -1.24337e-05}
+    - {label: add, value: 9.14046e-06}
+    - {label: add, value: 7.16873e-05}
+    - {label: add, value: 8.85771e-06}
+    - {label: add, value: 4.71389e-06}
+    - {label: add, value: -6.49471e-05}
+    - {label: add, value: -7.53405e-06}
+    - {label: add, value: 5.68436e-05}
+    - {label: add, value: 5.08092e-05}
+    - {label: add, value: 1.83668e-05}
+    - {label: add, value: 2.95162e-05}
+    - {label: add, value: 5.48233e-05}
+    - {label: add, value: -1.10966e-05}
+    - {label: add, value: -7.45821e-07}
+    - {label: add, value: 0.000125}
+    - {label: add, value: -6.76898e-05}
+    - {label: add, value: -5.65781e-05}
+    - {label: add, value: -0.000596216}
+    - {label: add, value: -0.000129977}
+    - {label: add, value: 9.8718e-05}
+    - {label: add, value: 0.000959223}
+    - {label: add, value: -0.000111315}
+    - {label: add, value: 5.71262e-06}
+    - {label: add, value: 0.00154511}
+    - {label: add, value: 9.10854e-05}
+    - {label: add, value: -0.000158478}
+    - {label: add, value: -0.0079473}
+    - {label: add, value: 0.00216287}
+    - {label: add, value: 0.00401726}
+    - {label: add, value: 0.00933361}
+    - {label: add, value: 0.00192574}
+    - {label: add, value: -0.00179501}
+    - {label: add, value: 0.00703936}
+    - {label: add, value: -9.30253e-05}
+    - {label: add, value: -0.0134343}
+    - {label: add, value: -0.0220038}
+    - {label: add, value: 0.00455662}
+    - {label: add, value: -0.00294704}
+    - {label: add, value: -0.000672331}
+    - {label: add, value: -0.000567219}
+    - {label: add, value: -8.92515e-06}
+    - {label: add, value: 0.000174799}
+    - {label: add, value: 0.0021259}
+    - {label: add, value: 0.000142416}
+    - {label: add, value: 1.03343e-06}
+    - {label: add, value: 3.01258e-06}
+    - {label: add, value: -0.000150007}
+    - {label: add, value: -3.75559e-05}
+    - {label: add, value: -0.00080224}
+    - {label: add, value: -3.78507e-05}
+    - {label: add, value: -7.21895e-05}
+    value: 0.0606063
+  - errors:
+    - {label: unc, value: 0.000641313}
+    - {label: add, value: 2.24334e-05}
+    - {label: add, value: 1.32685e-05}
+    - {label: add, value: 7.11477e-06}
+    - {label: add, value: -1.43118e-05}
+    - {label: add, value: 7.1125e-06}
+    - {label: add, value: 6.87972e-05}
+    - {label: add, value: 5.6089e-06}
+    - {label: add, value: -2.43838e-06}
+    - {label: add, value: -2.77319e-05}
+    - {label: add, value: -4.24319e-06}
+    - {label: add, value: 1.9711e-05}
+    - {label: add, value: 5.79351e-05}
+    - {label: add, value: 3.82592e-05}
+    - {label: add, value: -3.03008e-06}
+    - {label: add, value: 0.000107185}
+    - {label: add, value: 8.44973e-05}
+    - {label: add, value: -5.20731e-05}
+    - {label: add, value: 3.77047e-05}
+    - {label: add, value: -1.18046e-05}
+    - {label: add, value: 1.62157e-05}
+    - {label: add, value: 5.40112e-05}
+    - {label: add, value: -1.44969e-05}
+    - {label: add, value: 1.03135e-05}
+    - {label: add, value: -5.99386e-05}
+    - {label: add, value: 1.34919e-05}
+    - {label: add, value: 1.13857e-05}
+    - {label: add, value: -0.000371725}
+    - {label: add, value: -3.32446e-05}
+    - {label: add, value: -6.58887e-05}
+    - {label: add, value: 0.00103035}
+    - {label: add, value: -0.000643772}
+    - {label: add, value: -0.000421938}
+    - {label: add, value: -0.0034197}
+    - {label: add, value: -0.000717007}
+    - {label: add, value: 0.000907703}
+    - {label: add, value: -0.00163692}
+    - {label: add, value: 0.000226085}
+    - {label: add, value: 0.00493772}
+    - {label: add, value: 0.00994579}
+    - {label: add, value: -0.00228437}
+    - {label: add, value: 0.00148468}
+    - {label: add, value: 0.000793835}
+    - {label: add, value: 0.000286469}
+    - {label: add, value: -0.00232356}
+    - {label: add, value: 0.00790912}
+    - {label: add, value: -0.00162337}
+    - {label: add, value: -0.0125208}
+    - {label: add, value: 0.00186301}
+    - {label: add, value: 7.7569e-05}
+    - {label: add, value: -0.00374257}
+    - {label: add, value: -0.00321607}
+    - {label: add, value: -0.0435384}
+    - {label: add, value: -0.00174061}
+    - {label: add, value: -0.00365084}
+    value: 0.0126013
+  - errors:
+    - {label: unc, value: 0.0380115}
+    - {label: add, value: -0.000662385}
+    - {label: add, value: -0.000436937}
+    - {label: add, value: -0.000259869}
+    - {label: add, value: 0.000701829}
+    - {label: add, value: -0.00374218}
+    - {label: add, value: -0.0055426}
+    - {label: add, value: -0.000689999}
+    - {label: add, value: -5.31514e-05}
+    - {label: add, value: -0.000569385}
+    - {label: add, value: -0.0255559}
+    - {label: add, value: -2.20962e-05}
+    - {label: add, value: 1.5252e-05}
+    - {label: add, value: 3.09061e-05}
+    - {label: add, value: -0.000351785}
+    - {label: add, value: 9.86016e-06}
+    - {label: add, value: 8.08604e-05}
+    - {label: add, value: -4.92631e-05}
+    - {label: add, value: -1.60361e-05}
+    - {label: add, value: 4.87873e-06}
+    - {label: add, value: 1.27937e-05}
+    - {label: add, value: 5.57801e-08}
+    - {label: add, value: -5.45547e-06}
+    - {label: add, value: -2.34325e-06}
+    - {label: add, value: -5.11225e-06}
+    - {label: add, value: -0.000401261}
+    - {label: add, value: -4.94789e-06}
+    - {label: add, value: 3.22395e-06}
+    - {label: add, value: -4.36404e-08}
+    - {label: add, value: 4.51412e-05}
+    - {label: add, value: -1.29332e-06}
+    - {label: add, value: 1.58549e-06}
+    - {label: add, value: 1.51812e-06}
+    - {label: add, value: -3.81438e-06}
+    - {label: add, value: 6.40169e-07}
+    - {label: add, value: 3.894e-06}
+    - {label: add, value: -5.83788e-07}
+    - {label: add, value: 1.83022e-06}
+    - {label: add, value: 8.39046e-07}
+    - {label: add, value: -1.21786e-06}
+    - {label: add, value: 8.01202e-07}
+    - {label: add, value: 1.41137e-06}
+    - {label: add, value: -8.3471e-07}
+    - {label: add, value: -5.51383e-07}
+    - {label: add, value: 3.89505e-07}
+    - {label: add, value: 2.21925e-07}
+    - {label: add, value: -1.16503e-06}
+    - {label: add, value: -7.50447e-09}
+    - {label: add, value: 7.67329e-09}
+    - {label: add, value: 4.04397e-09}
+    - {label: add, value: 9.90574e-08}
+    - {label: add, value: 5.09398e-09}
+    - {label: add, value: -1.05221e-08}
+    - {label: add, value: -1.98439e-09}
+    - {label: add, value: 3.81111e-10}
+    value: 0.39231
+  - errors:
+    - {label: unc, value: 0.0152762}
+    - {label: add, value: 3.1149e-05}
+    - {label: add, value: 4.82439e-05}
+    - {label: add, value: 3.8585e-05}
+    - {label: add, value: -9.8378e-05}
+    - {label: add, value: 6.72431e-05}
+    - {label: add, value: -5.32992e-05}
+    - {label: add, value: -5.16915e-05}
+    - {label: add, value: -1.77379e-05}
+    - {label: add, value: 0.000508004}
+    - {label: add, value: 0.00147508}
+    - {label: add, value: -0.000525732}
+    - {label: add, value: -4.90218e-05}
+    - {label: add, value: -0.000856807}
+    - {label: add, value: 0.00165547}
+    - {label: add, value: -0.00105967}
+    - {label: add, value: -0.00238152}
+    - {label: add, value: 0.00147889}
+    - {label: add, value: -0.000132488}
+    - {label: add, value: 2.18782e-05}
+    - {label: add, value: 0.00134308}
+    - {label: add, value: 0.0010735}
+    - {label: add, value: 0.000825483}
+    - {label: add, value: -0.000244039}
+    - {label: add, value: -0.000303096}
+    - {label: add, value: -0.0145777}
+    - {label: add, value: -8.31612e-06}
+    - {label: add, value: 2.00002e-05}
+    - {label: add, value: 1.82117e-05}
+    - {label: add, value: 0.00277311}
+    - {label: add, value: -8.48053e-05}
+    - {label: add, value: -5.35166e-06}
+    - {label: add, value: 4.64397e-05}
+    - {label: add, value: -0.000137349}
+    - {label: add, value: 6.53869e-05}
+    - {label: add, value: 3.03635e-05}
+    - {label: add, value: -2.68343e-05}
+    - {label: add, value: -3.84733e-06}
+    - {label: add, value: 1.06197e-05}
+    - {label: add, value: -2.10589e-05}
+    - {label: add, value: 4.609e-06}
+    - {label: add, value: -4.04304e-05}
+    - {label: add, value: -8.54515e-06}
+    - {label: add, value: 1.97172e-05}
+    - {label: add, value: 4.73073e-07}
+    - {label: add, value: 4.20434e-06}
+    - {label: add, value: -2.51367e-06}
+    - {label: add, value: 1.28097e-06}
+    - {label: add, value: 1.23361e-06}
+    - {label: add, value: 3.19689e-07}
+    - {label: add, value: 6.64254e-07}
+    - {label: add, value: 1.47721e-06}
+    - {label: add, value: -4.44061e-07}
+    - {label: add, value: -9.39182e-07}
+    - {label: add, value: -1.77681e-08}
+    value: 0.25865
+  - errors:
+    - {label: unc, value: 0.0076286}
+    - {label: add, value: -2.89589e-06}
+    - {label: add, value: -7.00673e-06}
+    - {label: add, value: -1.05469e-05}
+    - {label: add, value: 3.88098e-06}
+    - {label: add, value: -4.40364e-05}
+    - {label: add, value: 1.79364e-05}
+    - {label: add, value: -1.36572e-05}
+    - {label: add, value: -9.97e-06}
+    - {label: add, value: -5.28716e-05}
+    - {label: add, value: -0.000209321}
+    - {label: add, value: 9.05431e-05}
+    - {label: add, value: -0.000441597}
+    - {label: add, value: 0.00011587}
+    - {label: add, value: -0.000239648}
+    - {label: add, value: -0.000495466}
+    - {label: add, value: 0.000343695}
+    - {label: add, value: -8.48275e-06}
+    - {label: add, value: -0.000829546}
+    - {label: add, value: 0.000329472}
+    - {label: add, value: 0.00133751}
+    - {label: add, value: 0.00225036}
+    - {label: add, value: 0.000939939}
+    - {label: add, value: -0.000191568}
+    - {label: add, value: -0.000231836}
+    - {label: add, value: 0.00490528}
+    - {label: add, value: 0.000138509}
+    - {label: add, value: -9.2041e-05}
+    - {label: add, value: 8.6211e-05}
+    - {label: add, value: 0.0136524}
+    - {label: add, value: -0.00044146}
+    - {label: add, value: -0.000106637}
+    - {label: add, value: 2.19916e-05}
+    - {label: add, value: -0.000277463}
+    - {label: add, value: 0.000387666}
+    - {label: add, value: -5.84763e-07}
+    - {label: add, value: -5.15137e-05}
+    - {label: add, value: -7.61502e-06}
+    - {label: add, value: 1.692e-05}
+    - {label: add, value: 4.19925e-05}
+    - {label: add, value: -1.74992e-05}
+    - {label: add, value: -0.000685638}
+    - {label: add, value: -1.21045e-05}
+    - {label: add, value: 0.000325395}
+    - {label: add, value: -4.56875e-07}
+    - {label: add, value: 1.75872e-06}
+    - {label: add, value: 7.58117e-05}
+    - {label: add, value: 1.60843e-05}
+    - {label: add, value: -3.01895e-06}
+    - {label: add, value: 4.29892e-07}
+    - {label: add, value: 3.84247e-07}
+    - {label: add, value: 3.98091e-06}
+    - {label: add, value: -3.87726e-06}
+    - {label: add, value: -1.70432e-06}
+    - {label: add, value: 2.27596e-07}
+    value: 0.206751
+  - errors:
+    - {label: unc, value: 0.00558902}
+    - {label: add, value: 1.11856e-06}
+    - {label: add, value: -5.57575e-06}
+    - {label: add, value: 1.60658e-06}
+    - {label: add, value: -1.4863e-06}
+    - {label: add, value: -8.99492e-06}
+    - {label: add, value: -1.29477e-05}
+    - {label: add, value: -1.27188e-06}
+    - {label: add, value: -3.62941e-06}
+    - {label: add, value: 2.77675e-06}
+    - {label: add, value: -3.13976e-05}
+    - {label: add, value: -2.72476e-06}
+    - {label: add, value: 2.59614e-05}
+    - {label: add, value: 8.56836e-07}
+    - {label: add, value: 8.01395e-05}
+    - {label: add, value: 3.57609e-05}
+    - {label: add, value: -1.94881e-07}
+    - {label: add, value: -9.73238e-07}
+    - {label: add, value: 4.52459e-05}
+    - {label: add, value: -2.21772e-05}
+    - {label: add, value: -1.35885e-05}
+    - {label: add, value: 8.13136e-05}
+    - {label: add, value: 0.000165745}
+    - {label: add, value: -1.65313e-05}
+    - {label: add, value: 0.00038184}
+    - {label: add, value: -0.000585616}
+    - {label: add, value: 3.17496e-05}
+    - {label: add, value: 0.000505747}
+    - {label: add, value: -1.09104e-05}
+    - {label: add, value: -0.00207039}
+    - {label: add, value: 0.000205254}
+    - {label: add, value: 0.000658773}
+    - {label: add, value: -0.00121792}
+    - {label: add, value: 0.00248666}
+    - {label: add, value: -0.000973473}
+    - {label: add, value: -0.000465206}
+    - {label: add, value: 0.000162415}
+    - {label: add, value: -3.7842e-05}
+    - {label: add, value: 0.000684959}
+    - {label: add, value: 0.00194906}
+    - {label: add, value: -0.000579594}
+    - {label: add, value: -0.0107686}
+    - {label: add, value: -0.000125597}
+    - {label: add, value: 0.0047671}
+    - {label: add, value: 3.58811e-05}
+    - {label: add, value: -0.000142377}
+    - {label: add, value: 0.0021654}
+    - {label: add, value: 0.000115187}
+    - {label: add, value: -7.80259e-06}
+    - {label: add, value: 5.83588e-07}
+    - {label: add, value: -2.64991e-05}
+    - {label: add, value: 4.32276e-06}
+    - {label: add, value: -2.67089e-05}
+    - {label: add, value: -3.09532e-06}
+    - {label: add, value: 1.42646e-05}
+    value: 0.128484
+  - errors:
+    - {label: unc, value: 0.0030825}
+    - {label: add, value: -1.76877e-06}
+    - {label: add, value: 3.47562e-07}
+    - {label: add, value: -1.04439e-06}
+    - {label: add, value: 2.76774e-06}
+    - {label: add, value: -7.92962e-07}
+    - {label: add, value: -1.09404e-05}
+    - {label: add, value: 1.52739e-07}
+    - {label: add, value: 3.17533e-06}
+    - {label: add, value: 7.46918e-06}
+    - {label: add, value: -4.36161e-05}
+    - {label: add, value: -3.73164e-06}
+    - {label: add, value: -6.76148e-06}
+    - {label: add, value: -7.7973e-06}
+    - {label: add, value: 1.17392e-05}
+    - {label: add, value: -8.19997e-06}
+    - {label: add, value: -2.34469e-05}
+    - {label: add, value: 5.99163e-06}
+    - {label: add, value: 4.72139e-06}
+    - {label: add, value: -2.25659e-08}
+    - {label: add, value: 0.000147853}
+    - {label: add, value: -3.09101e-05}
+    - {label: add, value: 7.51179e-06}
+    - {label: add, value: -1.48101e-05}
+    - {label: add, value: -8.31488e-05}
+    - {label: add, value: 3.79861e-05}
+    - {label: add, value: 2.65559e-05}
+    - {label: add, value: -0.000123526}
+    - {label: add, value: 2.50617e-05}
+    - {label: add, value: 0.000572947}
+    - {label: add, value: 0.000447869}
+    - {label: add, value: -0.000159634}
+    - {label: add, value: -0.000356304}
+    - {label: add, value: -0.00054223}
+    - {label: add, value: 0.000285861}
+    - {label: add, value: -5.19116e-06}
+    - {label: add, value: -0.000530187}
+    - {label: add, value: -5.06347e-05}
+    - {label: add, value: 0.00132115}
+    - {label: add, value: 0.00216814}
+    - {label: add, value: -0.000440264}
+    - {label: add, value: 0.0052746}
+    - {label: add, value: 0.000254632}
+    - {label: add, value: -0.00475252}
+    - {label: add, value: -7.20085e-05}
+    - {label: add, value: -7.13228e-06}
+    - {label: add, value: 0.0180968}
+    - {label: add, value: 0.00013445}
+    - {label: add, value: -7.49425e-06}
+    - {label: add, value: 2.01704e-08}
+    - {label: add, value: -0.000748087}
+    - {label: add, value: 7.50512e-06}
+    - {label: add, value: 4.23732e-05}
+    - {label: add, value: -4.54653e-07}
+    - {label: add, value: 7.04106e-05}
+    value: 0.0608131
+  - errors:
+    - {label: unc, value: 0.000676169}
+    - {label: add, value: -1.23682e-06}
+    - {label: add, value: -6.68207e-07}
+    - {label: add, value: -2.95373e-07}
+    - {label: add, value: 5.08492e-07}
+    - {label: add, value: -8.62759e-06}
+    - {label: add, value: -1.09599e-05}
+    - {label: add, value: -2.29867e-06}
+    - {label: add, value: -7.97898e-07}
+    - {label: add, value: 6.77109e-07}
+    - {label: add, value: -3.70952e-05}
+    - {label: add, value: -3.04374e-06}
+    - {label: add, value: -2.48584e-06}
+    - {label: add, value: -3.53671e-07}
+    - {label: add, value: -8.22747e-06}
+    - {label: add, value: -2.95091e-05}
+    - {label: add, value: -6.60805e-06}
+    - {label: add, value: 9.48938e-06}
+    - {label: add, value: -1.2577e-05}
+    - {label: add, value: 1.15141e-05}
+    - {label: add, value: 1.76755e-05}
+    - {label: add, value: 2.08444e-05}
+    - {label: add, value: -2.0365e-05}
+    - {label: add, value: -2.02881e-06}
+    - {label: add, value: -4.60701e-05}
+    - {label: add, value: -7.76369e-05}
+    - {label: add, value: 1.36113e-06}
+    - {label: add, value: -1.41681e-05}
+    - {label: add, value: 3.49472e-06}
+    - {label: add, value: 3.11823e-06}
+    - {label: add, value: 4.46844e-05}
+    - {label: add, value: -4.53374e-05}
+    - {label: add, value: -6.12961e-06}
+    - {label: add, value: 4.50665e-05}
+    - {label: add, value: -0.000396609}
+    - {label: add, value: -1.1185e-05}
+    - {label: add, value: 1.13504e-05}
+    - {label: add, value: -2.14063e-05}
+    - {label: add, value: 2.13814e-05}
+    - {label: add, value: 0.00013546}
+    - {label: add, value: -6.59105e-05}
+    - {label: add, value: -0.00184666}
+    - {label: add, value: -3.41242e-05}
+    - {label: add, value: 0.00179799}
+    - {label: add, value: 0.000113732}
+    - {label: add, value: -0.000372584}
+    - {label: add, value: -0.00965415}
+    - {label: add, value: 0.000491124}
+    - {label: add, value: -0.000104544}
+    - {label: add, value: -4.44831e-05}
+    - {label: add, value: -0.0290027}
+    - {label: add, value: 0.000269922}
+    - {label: add, value: 0.00537677}
+    - {label: add, value: 0.000306538}
+    - {label: add, value: -0.00301039}
+    value: 0.0134533
+  - errors:
+    - {label: unc, value: 0.0405666}
+    - {label: add, value: 6.92236e-05}
+    - {label: add, value: 9.39969e-05}
+    - {label: add, value: 7.87051e-05}
+    - {label: add, value: -0.000431445}
+    - {label: add, value: 0.0414859}
+    - {label: add, value: -0.00350342}
+    - {label: add, value: -0.000294841}
+    - {label: add, value: -5.73638e-06}
+    - {label: add, value: -4.18384e-05}
+    - {label: add, value: -0.00188693}
+    - {label: add, value: 1.16256e-06}
+    - {label: add, value: 7.23422e-07}
+    - {label: add, value: 4.69526e-05}
+    - {label: add, value: -0.00077593}
+    - {label: add, value: -1.39191e-05}
+    - {label: add, value: -2.64817e-05}
+    - {label: add, value: 1.22728e-05}
+    - {label: add, value: 5.116e-07}
+    - {label: add, value: -9.58093e-07}
+    - {label: add, value: -5.03805e-05}
+    - {label: add, value: 7.07275e-06}
+    - {label: add, value: 3.27613e-06}
+    - {label: add, value: -9.29834e-07}
+    - {label: add, value: -1.21908e-06}
+    - {label: add, value: -4.57783e-05}
+    - {label: add, value: -7.13991e-08}
+    - {label: add, value: 3.11716e-07}
+    - {label: add, value: 6.58235e-08}
+    - {label: add, value: 9.66583e-06}
+    - {label: add, value: -3.123e-07}
+    - {label: add, value: 1.53813e-07}
+    - {label: add, value: -9.72843e-08}
+    - {label: add, value: 2.34429e-07}
+    - {label: add, value: -2.45714e-06}
+    - {label: add, value: 2.78109e-07}
+    - {label: add, value: -8.43473e-08}
+    - {label: add, value: 6.15163e-08}
+    - {label: add, value: 8.16353e-08}
+    - {label: add, value: 4.54802e-08}
+    - {label: add, value: -3.35078e-09}
+    - {label: add, value: -8.99687e-07}
+    - {label: add, value: -4.99915e-08}
+    - {label: add, value: -8.98682e-07}
+    - {label: add, value: 1.13433e-08}
+    - {label: add, value: 9.80266e-09}
+    - {label: add, value: -4.46029e-08}
+    - {label: add, value: 3.25414e-09}
+    - {label: add, value: -2.46444e-10}
+    - {label: add, value: 1.75723e-10}
+    - {label: add, value: 7.82946e-09}
+    - {label: add, value: 1.21798e-09}
+    - {label: add, value: 6.15376e-09}
+    - {label: add, value: 9.32777e-10}
+    - {label: add, value: -9.1531e-08}
+    value: 0.40051
+  - errors:
+    - {label: unc, value: 0.0181813}
+    - {label: add, value: -6.57424e-06}
+    - {label: add, value: 1.73567e-05}
+    - {label: add, value: 1.01741e-05}
+    - {label: add, value: 3.62423e-06}
+    - {label: add, value: -0.00250186}
+    - {label: add, value: 0.00025653}
+    - {label: add, value: 2.41823e-05}
+    - {label: add, value: 4.91626e-06}
+    - {label: add, value: -3.22909e-05}
+    - {label: add, value: 0.000892224}
+    - {label: add, value: 0.00010965}
+    - {label: add, value: 1.69486e-05}
+    - {label: add, value: 0.00133432}
+    - {label: add, value: -0.0216685}
+    - {label: add, value: -0.000342523}
+    - {label: add, value: -0.000752302}
+    - {label: add, value: 0.000340041}
+    - {label: add, value: 9.81138e-05}
+    - {label: add, value: -6.77868e-05}
+    - {label: add, value: -0.00300214}
+    - {label: add, value: 0.000258025}
+    - {label: add, value: 0.000109535}
+    - {label: add, value: -2.49381e-05}
+    - {label: add, value: -2.99465e-05}
+    - {label: add, value: -0.00090205}
+    - {label: add, value: 1.63591e-06}
+    - {label: add, value: 1.24354e-06}
+    - {label: add, value: 1.42051e-06}
+    - {label: add, value: 0.000194082}
+    - {label: add, value: -6.67281e-06}
+    - {label: add, value: 2.92073e-07}
+    - {label: add, value: 1.27575e-06}
+    - {label: add, value: -5.00067e-06}
+    - {label: add, value: 1.60594e-05}
+    - {label: add, value: -1.34848e-08}
+    - {label: add, value: -4.53521e-07}
+    - {label: add, value: -1.56827e-07}
+    - {label: add, value: 6.80921e-07}
+    - {label: add, value: 8.02671e-07}
+    - {label: add, value: -3.30795e-07}
+    - {label: add, value: -1.27644e-05}
+    - {label: add, value: -3.83615e-07}
+    - {label: add, value: -1.92971e-06}
+    - {label: add, value: 3.61881e-08}
+    - {label: add, value: 4.24008e-08}
+    - {label: add, value: 2.56371e-06}
+    - {label: add, value: 9.25747e-08}
+    - {label: add, value: 3.36184e-08}
+    - {label: add, value: 7.72701e-09}
+    - {label: add, value: 5.67129e-10}
+    - {label: add, value: 3.8264e-08}
+    - {label: add, value: -3.40551e-08}
+    - {label: add, value: -1.82998e-08}
+    - {label: add, value: -5.94934e-07}
+    value: 0.300121
+  - errors:
+    - {label: unc, value: 0.00902243}
+    - {label: add, value: 8.83417e-06}
+    - {label: add, value: 4.307e-06}
+    - {label: add, value: -1.11232e-06}
+    - {label: add, value: -3.17921e-06}
+    - {label: add, value: 0.000302564}
+    - {label: add, value: -5.02932e-05}
+    - {label: add, value: -1.15114e-05}
+    - {label: add, value: -4.18038e-07}
+    - {label: add, value: -5.79373e-06}
+    - {label: add, value: -0.000138029}
+    - {label: add, value: -8.57153e-06}
+    - {label: add, value: 4.34199e-05}
+    - {label: add, value: -0.000293782}
+    - {label: add, value: 0.00532326}
+    - {label: add, value: 0.000249244}
+    - {label: add, value: 0.000286841}
+    - {label: add, value: -0.00018513}
+    - {label: add, value: 0.000699177}
+    - {label: add, value: -0.000431002}
+    - {label: add, value: -0.019777}
+    - {label: add, value: 0.00117231}
+    - {label: add, value: 0.000369191}
+    - {label: add, value: -6.79268e-05}
+    - {label: add, value: -7.90805e-05}
+    - {label: add, value: -0.000687582}
+    - {label: add, value: 1.36024e-05}
+    - {label: add, value: -4.15436e-06}
+    - {label: add, value: 5.44876e-06}
+    - {label: add, value: 0.000755244}
+    - {label: add, value: -2.32509e-05}
+    - {label: add, value: -9.07604e-06}
+    - {label: add, value: 3.71515e-05}
+    - {label: add, value: -0.0001565}
+    - {label: add, value: 0.000719094}
+    - {label: add, value: -2.27808e-05}
+    - {label: add, value: -1.28005e-06}
+    - {label: add, value: -8.38408e-07}
+    - {label: add, value: 5.45814e-06}
+    - {label: add, value: 1.11654e-05}
+    - {label: add, value: -3.06949e-06}
+    - {label: add, value: -4.23168e-05}
+    - {label: add, value: -5.71499e-07}
+    - {label: add, value: 6.04104e-05}
+    - {label: add, value: 8.42042e-08}
+    - {label: add, value: -3.66606e-07}
+    - {label: add, value: 1.59857e-05}
+    - {label: add, value: 6.77145e-07}
+    - {label: add, value: -5.91629e-08}
+    - {label: add, value: 1.5954e-08}
+    - {label: add, value: -5.22102e-07}
+    - {label: add, value: 1.30123e-07}
+    - {label: add, value: 4.44481e-09}
+    - {label: add, value: -4.14137e-08}
+    - {label: add, value: -9.55379e-07}
+    value: 0.237932
+  - errors:
+    - {label: unc, value: 0.00602388}
+    - {label: add, value: -9.43687e-07}
+    - {label: add, value: -2.4936e-07}
+    - {label: add, value: -8.14248e-07}
+    - {label: add, value: 4.50222e-07}
+    - {label: add, value: 3.27291e-05}
+    - {label: add, value: 1.66227e-06}
+    - {label: add, value: 2.25439e-06}
+    - {label: add, value: 1.59965e-06}
+    - {label: add, value: 2.11078e-07}
+    - {label: add, value: 7.57259e-06}
+    - {label: add, value: 1.07479e-05}
+    - {label: add, value: -1.26039e-06}
+    - {label: add, value: 3.81225e-05}
+    - {label: add, value: -0.000652337}
+    - {label: add, value: -2.70794e-05}
+    - {label: add, value: -5.56437e-05}
+    - {label: add, value: 4.27538e-05}
+    - {label: add, value: -7.82673e-05}
+    - {label: add, value: 4.35171e-05}
+    - {label: add, value: 0.0026433}
+    - {label: add, value: -0.000203547}
+    - {label: add, value: -7.45742e-05}
+    - {label: add, value: 1.32067e-05}
+    - {label: add, value: -1.62221e-05}
+    - {label: add, value: 6.20994e-05}
+    - {label: add, value: -6.76556e-06}
+    - {label: add, value: -6.34744e-05}
+    - {label: add, value: -5.99641e-06}
+    - {label: add, value: -0.0011989}
+    - {label: add, value: 5.58711e-06}
+    - {label: add, value: -0.000174461}
+    - {label: add, value: 0.00100049}
+    - {label: add, value: -0.00368306}
+    - {label: add, value: 0.0172584}
+    - {label: add, value: -0.000538465}
+    - {label: add, value: 3.83758e-05}
+    - {label: add, value: -9.2411e-06}
+    - {label: add, value: 2.76418e-05}
+    - {label: add, value: 6.10939e-05}
+    - {label: add, value: -1.38378e-05}
+    - {label: add, value: 0.000138532}
+    - {label: add, value: 9.22082e-07}
+    - {label: add, value: 0.00243722}
+    - {label: add, value: 2.25527e-06}
+    - {label: add, value: -1.14268e-05}
+    - {label: add, value: 0.000235082}
+    - {label: add, value: 6.88919e-06}
+    - {label: add, value: -4.75678e-07}
+    - {label: add, value: 3.449e-08}
+    - {label: add, value: -8.23638e-06}
+    - {label: add, value: 4.23287e-07}
+    - {label: add, value: -7.12614e-07}
+    - {label: add, value: -4.29731e-07}
+    - {label: add, value: 2.13416e-05}
+    value: 0.129201
+  - errors:
+    - {label: unc, value: 0.00315558}
+    - {label: add, value: 2.26343e-07}
+    - {label: add, value: 4.17423e-07}
+    - {label: add, value: 2.6967e-07}
+    - {label: add, value: 1.04913e-07}
+    - {label: add, value: 4.96527e-05}
+    - {label: add, value: -4.54651e-06}
+    - {label: add, value: -1.50844e-07}
+    - {label: add, value: 1.20668e-07}
+    - {label: add, value: 1.8712e-06}
+    - {label: add, value: 1.3528e-06}
+    - {label: add, value: 3.12547e-06}
+    - {label: add, value: 7.0433e-06}
+    - {label: add, value: 5.86668e-07}
+    - {label: add, value: -2.53151e-06}
+    - {label: add, value: 9.40262e-06}
+    - {label: add, value: 1.21846e-05}
+    - {label: add, value: -1.48529e-05}
+    - {label: add, value: 2.12169e-05}
+    - {label: add, value: -1.25568e-05}
+    - {label: add, value: -0.000649192}
+    - {label: add, value: 8.52681e-05}
+    - {label: add, value: 4.3056e-05}
+    - {label: add, value: -8.0491e-06}
+    - {label: add, value: -1.95315e-05}
+    - {label: add, value: -3.11723e-05}
+    - {label: add, value: 5.28984e-06}
+    - {label: add, value: -1.2205e-05}
+    - {label: add, value: 1.21368e-06}
+    - {label: add, value: 0.000347408}
+    - {label: add, value: -4.74199e-05}
+    - {label: add, value: 2.37163e-05}
+    - {label: add, value: -0.000268467}
+    - {label: add, value: 0.00136131}
+    - {label: add, value: -0.00705175}
+    - {label: add, value: 0.000257353}
+    - {label: add, value: 5.28406e-05}
+    - {label: add, value: 1.54919e-05}
+    - {label: add, value: -0.000653355}
+    - {label: add, value: -0.00168552}
+    - {label: add, value: 0.000505291}
+    - {label: add, value: 0.0114467}
+    - {label: add, value: 0.000111692}
+    - {label: add, value: 0.0226681}
+    - {label: add, value: 7.25397e-07}
+    - {label: add, value: -3.6591e-05}
+    - {label: add, value: 0.00163435}
+    - {label: add, value: 1.74519e-05}
+    - {label: add, value: -5.60448e-07}
+    - {label: add, value: -7.84945e-08}
+    - {label: add, value: -7.32169e-05}
+    - {label: add, value: -9.37449e-07}
+    - {label: add, value: -7.15018e-05}
+    - {label: add, value: -1.47196e-05}
+    - {label: add, value: 0.000918502}
+    value: 0.0604722
+  - errors:
+    - {label: unc, value: 0.000673251}
+    - {label: add, value: 1.49351e-07}
+    - {label: add, value: 3.1056e-07}
+    - {label: add, value: 4.71312e-08}
+    - {label: add, value: -6.08899e-07}
+    - {label: add, value: 4.70235e-05}
+    - {label: add, value: -3.51208e-06}
+    - {label: add, value: -6.90408e-07}
+    - {label: add, value: -4.13952e-07}
+    - {label: add, value: -2.05638e-06}
+    - {label: add, value: 1.04269e-06}
+    - {label: add, value: -1.16499e-06}
+    - {label: add, value: -5.63e-06}
+    - {label: add, value: 6.54097e-06}
+    - {label: add, value: -9.88391e-05}
+    - {label: add, value: -1.12156e-06}
+    - {label: add, value: -1.09161e-05}
+    - {label: add, value: 8.53063e-06}
+    - {label: add, value: -1.49651e-06}
+    - {label: add, value: 1.07499e-06}
+    - {label: add, value: -5.29055e-06}
+    - {label: add, value: -3.4486e-05}
+    - {label: add, value: -2.37898e-05}
+    - {label: add, value: 8.25816e-06}
+    - {label: add, value: 8.9415e-06}
+    - {label: add, value: -3.87453e-07}
+    - {label: add, value: -5.0091e-06}
+    - {label: add, value: 1.04851e-05}
+    - {label: add, value: -4.23353e-06}
+    - {label: add, value: -8.29895e-05}
+    - {label: add, value: -2.3458e-06}
+    - {label: add, value: 1.04523e-05}
+    - {label: add, value: 7.84286e-05}
+    - {label: add, value: -0.000411763}
+    - {label: add, value: 0.00267077}
+    - {label: add, value: -0.000116911}
+    - {label: add, value: 1.11357e-05}
+    - {label: add, value: -2.06029e-06}
+    - {label: add, value: 0.000225804}
+    - {label: add, value: 0.000655683}
+    - {label: add, value: -0.000206234}
+    - {label: add, value: -0.00570377}
+    - {label: add, value: -6.91004e-05}
+    - {label: add, value: -0.0114217}
+    - {label: add, value: -1.45563e-07}
+    - {label: add, value: 4.58594e-05}
+    - {label: add, value: -0.00249156}
+    - {label: add, value: -8.16946e-05}
+    - {label: add, value: 1.75801e-05}
+    - {label: add, value: -7.14528e-06}
+    - {label: add, value: -0.00264514}
+    - {label: add, value: -8.14133e-05}
+    - {label: add, value: -0.00345948}
+    - {label: add, value: -0.000686415}
+    - {label: add, value: 0.0432819}
+    value: 0.0124019
+independent_variables:
+- header: {name: z}
+  values:
+  - {high: 0.2, low: 0.1, value: 0.154456}
+  - {high: 0.3, low: 0.2, value: 0.253693}
+  - {high: 0.4, low: 0.3, value: 0.351516}
+  - {high: 0.6, low: 0.4, value: 0.492556}
+  - {high: 0.8, low: 0.6, value: 0.691369}
+  - {high: 1.1, low: 0.8, value: 0.875385}
+  - {high: 0.2, low: 0.1, value: 0.154588}
+  - {high: 0.3, low: 0.2, value: 0.252785}
+  - {high: 0.4, low: 0.3, value: 0.351354}
+  - {high: 0.6, low: 0.4, value: 0.491524}
+  - {high: 0.8, low: 0.6, value: 0.690474}
+  - {high: 1.1, low: 0.8, value: 0.88082}
+  - {high: 0.2, low: 0.1, value: 0.153589}
+  - {high: 0.3, low: 0.2, value: 0.252474}
+  - {high: 0.4, low: 0.3, value: 0.351211}
+  - {high: 0.6, low: 0.4, value: 0.489445}
+  - {high: 0.8, low: 0.6, value: 0.692607}
+  - {high: 1.1, low: 0.8, value: 0.877702}
+  - {high: 0.2, low: 0.1, value: 0.15289}
+  - {high: 0.3, low: 0.2, value: 0.252035}
+  - {high: 0.4, low: 0.3, value: 0.351035}
+  - {high: 0.6, low: 0.4, value: 0.489625}
+  - {high: 0.8, low: 0.6, value: 0.690115}
+  - {high: 1.1, low: 0.8, value: 0.880981}
+  - {high: 0.2, low: 0.1, value: 0.152233}
+  - {high: 0.3, low: 0.2, value: 0.25098}
+  - {high: 0.4, low: 0.3, value: 0.350023}
+  - {high: 0.6, low: 0.4, value: 0.488983}
+  - {high: 0.8, low: 0.6, value: 0.689781}
+  - {high: 1.1, low: 0.8, value: 0.881761}
+  - {high: 0.2, low: 0.1, value: 0.150415}
+  - {high: 0.3, low: 0.2, value: 0.250389}
+  - {high: 0.4, low: 0.3, value: 0.349482}
+  - {high: 0.6, low: 0.4, value: 0.487744}
+  - {high: 0.8, low: 0.6, value: 0.690756}
+  - {high: 1.1, low: 0.8, value: 0.883644}
+  - {high: 0.2, low: 0.1, value: 0.149146}
+  - {high: 0.3, low: 0.2, value: 0.24927}
+  - {high: 0.4, low: 0.3, value: 0.349063}
+  - {high: 0.6, low: 0.4, value: 0.487698}
+  - {high: 0.8, low: 0.6, value: 0.689001}
+  - {high: 1.1, low: 0.8, value: 0.882373}
+  - {high: 0.2, low: 0.1, value: 0.14671}
+  - {high: 0.3, low: 0.2, value: 0.247148}
+  - {high: 0.4, low: 0.3, value: 0.347038}
+  - {high: 0.6, low: 0.4, value: 0.485897}
+  - {high: 0.8, low: 0.6, value: 0.689509}
+  - {high: 1.1, low: 0.8, value: 0.882741}
+  - {high: 0.2, low: 0.1, value: 0.144152}
+  - {high: 0.3, low: 0.2, value: 0.245597}
+  - {high: 0.4, low: 0.3, value: 0.345372}
+  - {high: 0.6, low: 0.4, value: 0.482966}
+  - {high: 0.8, low: 0.6, value: 0.686287}
+  - {high: 1.1, low: 0.8, value: 0.880141}
+- header: {name: x}
+  values:
+  - {high: 0.6, low: 0.023, value: 0.0637819}
+  - {high: 0.6, low: 0.023, value: 0.0637819}
+  - {high: 0.6, low: 0.023, value: 0.0637819}
+  - {high: 0.6, low: 0.023, value: 0.0637819}
+  - {high: 0.6, low: 0.023, value: 0.0637819}
+  - {high: 0.6, low: 0.023, value: 0.0637819}
+  - {high: 0.6, low: 0.023, value: 0.0758207}
+  - {high: 0.6, low: 0.023, value: 0.0758207}
+  - {high: 0.6, low: 0.023, value: 0.0758207}
+  - {high: 0.6, low: 0.023, value: 0.0758207}
+  - {high: 0.6, low: 0.023, value: 0.0758207}
+  - {high: 0.6, low: 0.023, value: 0.0758207}
+  - {high: 0.6, low: 0.023, value: 0.0876504}
+  - {high: 0.6, low: 0.023, value: 0.0876504}
+  - {high: 0.6, low: 0.023, value: 0.0876504}
+  - {high: 0.6, low: 0.023, value: 0.0876504}
+  - {high: 0.6, low: 0.023, value: 0.0876504}
+  - {high: 0.6, low: 0.023, value: 0.0876504}
+  - {high: 0.6, low: 0.023, value: 0.0993528}
+  - {high: 0.6, low: 0.023, value: 0.0993528}
+  - {high: 0.6, low: 0.023, value: 0.0993528}
+  - {high: 0.6, low: 0.023, value: 0.0993528}
+  - {high: 0.6, low: 0.023, value: 0.0993528}
+  - {high: 0.6, low: 0.023, value: 0.0993528}
+  - {high: 0.6, low: 0.023, value: 0.110646}
+  - {high: 0.6, low: 0.023, value: 0.110646}
+  - {high: 0.6, low: 0.023, value: 0.110646}
+  - {high: 0.6, low: 0.023, value: 0.110646}
+  - {high: 0.6, low: 0.023, value: 0.110646}
+  - {high: 0.6, low: 0.023, value: 0.110646}
+  - {high: 0.6, low: 0.023, value: 0.121274}
+  - {high: 0.6, low: 0.023, value: 0.121274}
+  - {high: 0.6, low: 0.023, value: 0.121274}
+  - {high: 0.6, low: 0.023, value: 0.121274}
+  - {high: 0.6, low: 0.023, value: 0.121274}
+  - {high: 0.6, low: 0.023, value: 0.121274}
+  - {high: 0.6, low: 0.023, value: 0.136205}
+  - {high: 0.6, low: 0.023, value: 0.136205}
+  - {high: 0.6, low: 0.023, value: 0.136205}
+  - {high: 0.6, low: 0.023, value: 0.136205}
+  - {high: 0.6, low: 0.023, value: 0.136205}
+  - {high: 0.6, low: 0.023, value: 0.136205}
+  - {high: 0.6, low: 0.023, value: 0.175495}
+  - {high: 0.6, low: 0.023, value: 0.175495}
+  - {high: 0.6, low: 0.023, value: 0.175495}
+  - {high: 0.6, low: 0.023, value: 0.175495}
+  - {high: 0.6, low: 0.023, value: 0.175495}
+  - {high: 0.6, low: 0.023, value: 0.175495}
+  - {high: 0.6, low: 0.023, value: 0.27737}
+  - {high: 0.6, low: 0.023, value: 0.27737}
+  - {high: 0.6, low: 0.023, value: 0.27737}
+  - {high: 0.6, low: 0.023, value: 0.27737}
+  - {high: 0.6, low: 0.023, value: 0.27737}
+  - {high: 0.6, low: 0.023, value: 0.27737}
+- header: {name: y}
+  values:
+  - {value: 0.337872}
+  - {value: 0.337872}
+  - {value: 0.337872}
+  - {value: 0.337872}
+  - {value: 0.337872}
+  - {value: 0.337872}
+  - {value: 0.348308}
+  - {value: 0.348308}
+  - {value: 0.348308}
+  - {value: 0.348308}
+  - {value: 0.348308}
+  - {value: 0.348308}
+  - {value: 0.356641}
+  - {value: 0.356641}
+  - {value: 0.356641}
+  - {value: 0.356641}
+  - {value: 0.356641}
+  - {value: 0.356641}
+  - {value: 0.363398}
+  - {value: 0.363398}
+  - {value: 0.363398}
+  - {value: 0.363398}
+  - {value: 0.363398}
+  - {value: 0.363398}
+  - {value: 0.369972}
+  - {value: 0.369972}
+  - {value: 0.369972}
+  - {value: 0.369972}
+  - {value: 0.369972}
+  - {value: 0.369972}
+  - {value: 0.37755}
+  - {value: 0.37755}
+  - {value: 0.37755}
+  - {value: 0.37755}
+  - {value: 0.37755}
+  - {value: 0.37755}
+  - {value: 0.387505}
+  - {value: 0.387505}
+  - {value: 0.387505}
+  - {value: 0.387505}
+  - {value: 0.387505}
+  - {value: 0.387505}
+  - {value: 0.417638}
+  - {value: 0.417638}
+  - {value: 0.417638}
+  - {value: 0.417638}
+  - {value: 0.417638}
+  - {value: 0.417638}
+  - {value: 0.512978}
+  - {value: 0.512978}
+  - {value: 0.512978}
+  - {value: 0.512978}
+  - {value: 0.512978}
+  - {value: 0.512978}
+- header: {name: Q2}
+  values:
+  - {high: 1.25, low: 1, value: 1.11581}
+  - {high: 1.25, low: 1, value: 1.11581}
+  - {high: 1.25, low: 1, value: 1.11581}
+  - {high: 1.25, low: 1, value: 1.11581}
+  - {high: 1.25, low: 1, value: 1.11581}
+  - {high: 1.25, low: 1, value: 1.11581}
+  - {high: 1.5, low: 1.25, value: 1.36739}
+  - {high: 1.5, low: 1.25, value: 1.36739}
+  - {high: 1.5, low: 1.25, value: 1.36739}
+  - {high: 1.5, low: 1.25, value: 1.36739}
+  - {high: 1.5, low: 1.25, value: 1.36739}
+  - {high: 1.5, low: 1.25, value: 1.36739}
+  - {high: 1.75, low: 1.5, value: 1.61855}
+  - {high: 1.75, low: 1.5, value: 1.61855}
+  - {high: 1.75, low: 1.5, value: 1.61855}
+  - {high: 1.75, low: 1.5, value: 1.61855}
+  - {high: 1.75, low: 1.5, value: 1.61855}
+  - {high: 1.75, low: 1.5, value: 1.61855}
+  - {high: 2, low: 1.75, value: 1.86941}
+  - {high: 2, low: 1.75, value: 1.86941}
+  - {high: 2, low: 1.75, value: 1.86941}
+  - {high: 2, low: 1.75, value: 1.86941}
+  - {high: 2, low: 1.75, value: 1.86941}
+  - {high: 2, low: 1.75, value: 1.86941}
+  - {high: 2.25, low: 2, value: 2.11957}
+  - {high: 2.25, low: 2, value: 2.11957}
+  - {high: 2.25, low: 2, value: 2.11957}
+  - {high: 2.25, low: 2, value: 2.11957}
+  - {high: 2.25, low: 2, value: 2.11957}
+  - {high: 2.25, low: 2, value: 2.11957}
+  - {high: 2.5, low: 2.25, value: 2.37074}
+  - {high: 2.5, low: 2.25, value: 2.37074}
+  - {high: 2.5, low: 2.25, value: 2.37074}
+  - {high: 2.5, low: 2.25, value: 2.37074}
+  - {high: 2.5, low: 2.25, value: 2.37074}
+  - {high: 2.5, low: 2.25, value: 2.37074}
+  - {high: 3, low: 2.5, value: 2.73282}
+  - {high: 3, low: 2.5, value: 2.73282}
+  - {high: 3, low: 2.5, value: 2.73282}
+  - {high: 3, low: 2.5, value: 2.73282}
+  - {high: 3, low: 2.5, value: 2.73282}
+  - {high: 3, low: 2.5, value: 2.73282}
+  - {high: 5, low: 3, value: 3.79495}
+  - {high: 5, low: 3, value: 3.79495}
+  - {high: 5, low: 3, value: 3.79495}
+  - {high: 5, low: 3, value: 3.79495}
+  - {high: 5, low: 3, value: 3.79495}
+  - {high: 5, low: 3, value: 3.79495}
+  - {high: 15, low: 5, value: 7.36715}
+  - {high: 15, low: 5, value: 7.36715}
+  - {high: 15, low: 5, value: 7.36715}
+  - {high: 15, low: 5, value: 7.36715}
+  - {high: 15, low: 5, value: 7.36715}
+  - {high: 15, low: 5, value: 7.36715}
