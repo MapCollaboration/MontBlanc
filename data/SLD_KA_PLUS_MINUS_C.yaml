@@ -2,7 +2,7 @@ dependent_variables:
 - header: {title: "SLD $K^\\pm$ Multiplicity c-tag"}
   qualifiers:
   - {name: process, value: SIA}
-  - {name: Vs, value:  91.2 , units: GeV}
+  - {name: Vs, value:  91.28 , units: GeV}
   - {name: prefactor, value: 1}
   - {name: z, low:  0.01715 , high:  1.0 , integrate: false}
   - {name: hadron, value: KA}
@@ -156,33 +156,33 @@ dependent_variables:
 independent_variables:
 - header: {name: "z"}
   values:
-  - {value: 0.01874, factor: 0.81631}
-  - {value: 0.02195, factor: 0.86997}
-  - {value: 0.02688, factor: 0.91528}
-  - {value: 0.03199, factor: 0.94098}
-  - {value: 0.03721, factor: 0.95674}
-  - {value: 0.04250, factor: 0.96701}
-  - {value: 0.04774, factor: 0.97395}
-  - {value: 0.05321, factor: 0.97909}
-  - {value: 0.05861, factor: 0.98279}
-  - {value: 0.06392, factor: 0.98555}
-  - {value: 0.06935, factor: 0.98774}
-  - {value: 0.07479, factor: 0.98947}
-  - {value: 0.08023, factor: 0.99085}
-  - {value: 0.08569, factor: 0.99199}
-  - {value: 0.09373, factor: 0.99331}
+  - {value: 0.01874, factor: 0.81655}
+  - {value: 0.02195, factor: 0.87015}
+  - {value: 0.02687, factor: 0.91541}
+  - {value: 0.03198, factor: 0.94108}
+  - {value: 0.03721, factor: 0.95681}
+  - {value: 0.04250, factor: 0.96707}
+  - {value: 0.04774, factor: 0.97400}
+  - {value: 0.05321, factor: 0.97912}
+  - {value: 0.05861, factor: 0.98282}
+  - {value: 0.06392, factor: 0.98558}
+  - {value: 0.06935, factor: 0.98776}
+  - {value: 0.07479, factor: 0.98949}
+  - {value: 0.08023, factor: 0.99087}
+  - {value: 0.08569, factor: 0.99200}
+  - {value: 0.09373, factor: 0.99332}
   - {value: 0.10456, factor: 0.99463}
-  - {value: 0.11551, factor: 0.99560}
-  - {value: 0.13145, factor: 0.99660}
+  - {value: 0.11551, factor: 0.99561}
+  - {value: 0.13145, factor: 0.99661}
   - {value: 0.15338, factor: 0.99751}
-  - {value: 0.17533, factor: 0.99809}
-  - {value: 0.19730, factor: 0.99849}
+  - {value: 0.17533, factor: 0.99810}
+  - {value: 0.19730, factor: 0.99850}
   - {value: 0.21917, factor: 0.99878}
   - {value: 0.24124, factor: 0.99899}
   - {value: 0.26312, factor: 0.99915}
   - {value: 0.28511, factor: 0.99928}
   - {value: 0.30699, factor: 0.99938}
-  - {value: 0.33398, factor: 0.99947}
+  - {value: 0.33398, factor: 0.99948}
   - {value: 0.36676, factor: 0.99956}
   - {value: 0.39985, factor: 0.99963}
   - {value: 0.43264, factor: 0.99969}
