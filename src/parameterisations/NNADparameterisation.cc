@@ -34,7 +34,10 @@ namespace MontBlanc
 
     // Combine rotation matrix with the flavour map
     nnad::Matrix<double> FlavourMapT{_Nout, 13, FlavourMap};
-    FlavourMapT.Transpose();
+    if(config["combine"].as<bool>)
+      FlavourMapT = FlavourMapT.PseudoInverse();
+    else:
+      FlavourMapT.Transpose();
     _Rotation = nnad::Matrix<double> {13, 13, R} * FlavourMapT;
 
     // Fill in grid
