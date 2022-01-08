@@ -99,8 +99,8 @@ int main(int argc, char *argv[])
   // Calculate the (Moore-Penrose) pseudo-inverse of the flavour map
   if(config["combine"].as<bool>())
     FlavourMapT = FlavourMapT.PseudoInverse_LLR();
-
-  FlavourMapT.Transpose();
+  else
+    FlavourMapT.Transpose();
   nnad::Matrix<double> Rotation = nnad::Matrix<double> {13, 13, R} * FlavourMapT;
 
   // Whether the output is linear or quadratic
