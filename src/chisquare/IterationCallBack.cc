@@ -22,21 +22,23 @@ namespace MontBlanc
   IterationCallBack::IterationCallBack(bool VALIDATION,
                                        std::string OutputFolder,
                                        int replica,
-                                       int Nt,
-                                       std::vector<double *> const &Parameters,
-                                       NangaParbat::ChiSquare *chi2v) : _VALIDATION(VALIDATION),
+                                       std::vector<double*> const &Parameters,
+                                       NangaParbat::ChiSquare *chi2t,
+                                       NangaParbat::ChiSquare *chi2v):
+    _VALIDATION(VALIDATION),
     _OutputFolder(OutputFolder),
     _replica(replica),
-    _Nt(Nt),
+    _BestIteration(0),
+    _Bestchi2v(1e10),
     _Parameters(Parameters),
+    _chi2t(chi2t),
     _chi2v(chi2v)
   {
     signal(SIGINT, inthand);
-    _Bestchi2v = 1e10;
-    _BestIteration = 0;
-    int Np = _Parameters.size();
+    const int Np = _Parameters.size();
+    _BestParameters.resize(Np);
     for (int ip = 0; ip < Np; ip++)
-      _BestParameters.push_back(_Parameters[ip][0]);
+      _BestParameters[ip] = _Parameters[ip][0];
 
     // Create output folder but throw an exception if it does not
     // exist.
@@ -74,12 +76,22 @@ namespace MontBlanc
           }
       }
 
+    // Training chi2's
+    _chi2t->SetParameters(vpar);
+    const double chi2t_tot = _chi2t->Evaluate();
+    const int Nexp = _chi2t->GetNumberOfExperiments();
+    std::vector<double> chi2t_par(Nexp);
+    for (int iexp = 0; iexp < Nexp; iexp++)
+      chi2t_par[iexp] = _chi2t->Evaluate(iexp);
+
     // Output parameters into yaml file
     YAML::Emitter emitter;
     emitter << YAML::BeginSeq;
     emitter << YAML::Flow << YAML::BeginMap;
     emitter << YAML::Key << "iteration" << YAML::Value << summary.iteration;
-    emitter << YAML::Key << "training chi2" << YAML::Value << 2 * summary.cost / _Nt;
+    //emitter << YAML::Key << "training chi2" << YAML::Value << 2 * summary.cost / _chi2t->GetDataPointNumber();
+    emitter << YAML::Key << "training chi2" << YAML::Value << chi2t_tot;
+    emitter << YAML::Key << "training partial chi2s" << YAML::Value << YAML::Flow << chi2t_par;
     if (_VALIDATION)
       emitter << YAML::Key << "validation chi2" << YAML::Value << chi2v;
     //emitter << YAML::Key << "parameters" << YAML::Value << YAML::Flow << vpar;

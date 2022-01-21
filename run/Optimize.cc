@@ -249,7 +249,7 @@ int main(int argc, char *argv[])
 
   // Iteration callback
   options.update_state_every_iteration = true;
-  MontBlanc::IterationCallBack *callback = new MontBlanc::IterationCallBack(true, OutputFolder, replica, chi2t->GetDataPointNumber(), initPars, chi2v);
+  MontBlanc::IterationCallBack *callback = new MontBlanc::IterationCallBack(true, OutputFolder, replica, initPars, chi2t, chi2v);
   options.callbacks.push_back(callback);
 
   // Summary object

@@ -27,8 +27,8 @@ namespace MontBlanc
     IterationCallBack(bool VALIDATION,
                       std::string OutputFolder,
                       int replica,
-                      int Nt,
-                      std::vector<double *> const &Parameters,
+                      std::vector<double*> const &Parameters,
+                      NangaParbat::ChiSquare *chi2t,
                       NangaParbat::ChiSquare *chi2v);
 
     virtual ceres::CallbackReturnType operator()(const ceres::IterationSummary &);
@@ -41,12 +41,11 @@ namespace MontBlanc
     const bool _VALIDATION;
     const std::string _OutputFolder;
     const int _replica;
-    const int _Nt;
     int _BestIteration;
     double _Bestchi2v;
     std::vector<double> _BestParameters;
-    std::vector<double *> _Parameters;
+    std::vector<double*> _Parameters;
+    NangaParbat::ChiSquare *_chi2t;
     NangaParbat::ChiSquare *_chi2v;
-
   };
 } // namespace MontBlanc
