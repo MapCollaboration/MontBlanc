@@ -79,10 +79,10 @@ namespace MontBlanc
     // Training chi2's
     _chi2t->SetParameters(vpar);
     const double chi2t_tot = _chi2t->Evaluate();
-    const int Nexp = _chi2t->GetNumberOfExperiments();
-    std::vector<double> chi2t_par(Nexp);
-    for (int iexp = 0; iexp < Nexp; iexp++)
-      chi2t_par[iexp] = _chi2t->Evaluate(iexp);
+    //const int Nexp = _chi2t->GetNumberOfExperiments();
+    //std::vector<double> chi2t_par(Nexp);
+    //for (int iexp = 0; iexp < Nexp; iexp++)
+    //  chi2t_par[iexp] = _chi2t->Evaluate(iexp);
 
     // Output parameters into yaml file
     YAML::Emitter emitter;
@@ -91,7 +91,7 @@ namespace MontBlanc
     emitter << YAML::Key << "iteration" << YAML::Value << summary.iteration;
     //emitter << YAML::Key << "training chi2" << YAML::Value << 2 * summary.cost / _chi2t->GetDataPointNumber();
     emitter << YAML::Key << "training chi2" << YAML::Value << chi2t_tot;
-    emitter << YAML::Key << "training partial chi2s" << YAML::Value << YAML::Flow << chi2t_par;
+    //emitter << YAML::Key << "training partial chi2s" << YAML::Value << YAML::Flow << chi2t_par;
     if (_VALIDATION)
       emitter << YAML::Key << "validation chi2" << YAML::Value << chi2v;
     //emitter << YAML::Key << "parameters" << YAML::Value << YAML::Flow << vpar;
