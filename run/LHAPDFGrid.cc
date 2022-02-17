@@ -97,8 +97,11 @@ int main(int argc, char *argv[])
   nnad::Matrix<double> FlavourMapT{Architecture.back(), 13, config["NNAD"]["flavour map"].as<std::vector<double>>()};
   
   // Calculate the (Moore-Penrose) pseudo-inverse of the flavour map
-  if(config["NNAD"]["combine"].as<bool>())
-    FlavourMapT = FlavourMapT.PseudoInverse_LLR();
+  if(config["NNAD"]["combine"])
+    {
+      if(config["NNAD"]["combine"].as<bool>())
+	FlavourMapT = FlavourMapT.PseudoInverse_LLR();
+    }
   else
     FlavourMapT.Transpose();
   nnad::Matrix<double> Rotation = nnad::Matrix<double> {13, 13, R} * FlavourMapT;
