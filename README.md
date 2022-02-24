@@ -1,5 +1,7 @@
 ![alt text](resources/MontBlanc.jpg "Mont Blanc")
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6264693.svg)](https://doi.org/10.5281/zenodo.6264693)
+
 # MontBlanc
 
 `MontBlanc` is a code devoted to the extraction of collinear distributions. So far, it has been used to determine the fragmentation functions (FFs) of the pion from experimental data for single-inclusive annihilation and semi-inclusive deep-inelastic scattering. Details concerning this fit of FFs in particular and the methodology in general can be found in the reference below.
