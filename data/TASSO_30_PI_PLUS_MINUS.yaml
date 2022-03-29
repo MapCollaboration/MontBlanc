@@ -3,7 +3,8 @@ dependent_variables:
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value: 30, units: GeV}
-  - {name: prefactor, value: 0.4152} #sigmatot(NLO) [nb]
+  - {name: prefactor, value: 1.0} #[nb]
+  - {name: normalised, value: false}
   - {name: z, low: 0.025, high: 0.094, integrate: false}
   - {name: hadron, value: PI}
   - {name: charge, value: 0}
