@@ -145,8 +145,13 @@ namespace MontBlanc
             xsec += apfel::GetSIATotalCrossSection(PerturbativeOrder, Vs, as, aem, _Thresholds, comp);
           }
 
+        // If the cross section is not normalised, set the total cross
+        // section to one.
+        if (!DH.GetNormalised())
+          xsec = 1;
+
         // Combine coefficient functions with the total cross section
-        // prefactor, includingthe overall prefactor. Push the same
+        // prefactor, including the overall prefactor. Push the same
         // resulting set of operators into the FK container as many
         // times as bins. This is not optimal but more symmetric with
         // the SIDIS case.

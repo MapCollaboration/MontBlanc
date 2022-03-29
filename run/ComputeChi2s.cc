@@ -184,7 +184,7 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
     }
   std::cout << "\n- Total:\n";
   std::cout << "  - Npt = " << chi2->GetDataPointNumberAfterCuts()
-	    << ", chi2 / Npt = " << chi2->Evaluate() << std::endl;
+            << ", chi2 / Npt = " << chi2->Evaluate() << std::endl;
   emitter << YAML::BeginMap << YAML::Key << "Total" << YAML::Value;
   emitter << YAML::Flow << YAML::BeginMap;
   emitter << YAML::Key << "chi2" << YAML::Value << chi2->Evaluate();
