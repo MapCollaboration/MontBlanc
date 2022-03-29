@@ -1,9 +1,10 @@
 dependent_variables:
-- header: {title: "BELLE $\\pi^\\pm$ Cross Section (2020)", units: fb}
+- header: {title: "BELLE $\\pi^\\pm$ Cross Section (2020)", units: nb}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value: 10.58, units: GeV}
-  - {name: prefactor, value: 2.946e+6}  #sigmatot(NLO) [fb]
+  - {name: prefactor, value: 1e-6}  #1e-6 [nb]
+  - {name: normalised, value: false}
   - {name: z, low: 0.1, high: 1.00, integrate: true}
   - {name: hadron, value: PI}
   - {name: charge, value: 0}
