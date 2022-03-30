@@ -36,7 +36,6 @@ namespace MontBlanc
     nnad::Matrix<double> FlavourMapT{_Nout, 13, FlavourMap};
 
     // Calculate the (Moore-Penrose) pseudo-inverse of the flavour map
-    std::cout << "eccomi!" << std::endl;
     if (config["combine"])
       {
         if (config["combine"].as<bool>())
