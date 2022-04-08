@@ -101,6 +101,8 @@ int main(int argc, char *argv[])
     {
       if(config["NNAD"]["combine"].as<bool>())
         FlavourMapT = FlavourMapT.PseudoInverse_LLR();
+      else
+        FlavourMapT.Transpose();
     }
   else
     FlavourMapT.Transpose();
