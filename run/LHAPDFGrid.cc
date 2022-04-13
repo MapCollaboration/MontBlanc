@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 {
   if (argc < 2)
     {
-      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<hadron> (default: PIp, options: PIp, PIm, PIsum)] [<set name> (default: LHAPDFSet)] [<Nmembers> (default: all)]" << std::endl;
+      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<hadron> (default: PIp, options: PIp, PIm, PIsum, KAp, KAm, KAsum)] [<set name> (default: LHAPDFSet)] [<Nmembers> (default: all)]" << std::endl;
       exit(-1);
     }
 
@@ -165,11 +165,11 @@ int main(int argc, char *argv[])
           // Fill in map
           for (int i = 0; i < 13; i++)
             {
-              if (!hadron.compare("PIm"))
+              if (!hadron.compare("PIm") || !hadron.compare("KAm"))
                 EvMap[i] += (!(i % 2) && i != 0 ? -1 : 1) * nnv.GetElement(i, 0) / nr;
-              else if (!hadron.compare("PIsum"))
+              else if (!hadron.compare("PIsum") || !hadron.compare("KAsum"))
                 EvMap[i] += (!(i % 2) && i != 0 ? 0 : 2) * nnv.GetElement(i, 0) / nr;
-              else //PIp
+              else // PIp or KAp
                 EvMap[i] += nnv.GetElement(i, 0) / nr;
             }
         }
@@ -202,11 +202,11 @@ int main(int argc, char *argv[])
         std::map<int, double> EvMap;
         for (int i = 0; i < 13; i++)
           {
-            if (!hadron.compare("PIm"))
+            if (!hadron.compare("PIm") || !hadron.compare("KAm"))
               EvMap[i] += (!(i % 2) && i != 0 ? -1 : 1) * nnv.GetElement(i, 0);
-            else if (!hadron.compare("PIsum"))
+            else if (!hadron.compare("PIsum") || !hadron.compare("KAsum"))
               EvMap[i] += (!(i % 2) && i != 0 ? 0 : 2) * nnv.GetElement(i, 0);
-            else //PIp
+            else // PIp or KAp
               EvMap[i] += nnv.GetElement(i, 0);
           }
 
@@ -215,8 +215,46 @@ int main(int argc, char *argv[])
     }
   es.InSet = sets;
 
+  // Custom LHAPDF-grid header
+  std::string GridHeader = "SetDesc: '" + es.name + " ";
+  if (hadron == "PIp")
+    GridHeader += "- pi^+ ";
+  else if (hadron == "PIm")
+    GridHeader += "- pi^- ";
+  else if (hadron == "PIsum")
+    GridHeader += "- (pi^+ + pi^-) ";
+  else if (hadron == "KAp")
+    GridHeader += "- K^+ ";
+  else if (hadron == "KAm")
+    GridHeader += "- K^- ";
+  else if (hadron == "KAsum")
+    GridHeader += "- (K^+ + K^-) ";
+  else
+    GridHeader += "- Unknown species ";
+  GridHeader += "FF fit at " + std::string(es.PerturbativeOrder, 'N') + "LO - mem=0 => average over replicas, ";
+  GridHeader += "mem=1-" + std::to_string(Nmembers) + " => Monte Carlo replicas - set generated with APFEL++'\n";
+
+  GridHeader += "SetIndex: 0000000\n";
+  GridHeader += "SetType: fragfn\n";
+  GridHeader += "Authors: R. Abdul Khalek, V. Bertone, A. Khoudli, E. R. Nocera\n";
+  GridHeader += "Reference: arXiv:xxxx.xxxxx\n";
+  GridHeader += "Format: lhagrid1\n";
+  GridHeader += "DataVersion: 1\n";
+  GridHeader += "NumMembers: " + std::to_string(Nmembers + 1) + "\n";
+  if (hadron.substr(0, 2) == "PI")
+    GridHeader += "Particle: 211\n";
+  else if (hadron.substr(0, 2) == "KA")
+    GridHeader += "Particle: 321\n";
+  else
+    GridHeader += "Particle: 000\n";
+  GridHeader += "Flavors: [-5, -4, -3, -2, -1, 21, 1, 2, 3, 4, 5]\n";
+  GridHeader += "OrderQCD: " + std::to_string(es.PerturbativeOrder) + "\n";
+  GridHeader += "FlavorScheme: variable\n";
+  GridHeader += "NumFlavors: " + std::to_string(es.Thresholds.size()) + "\n";
+  GridHeader += "ErrorType: replicas";
+
   // Feed it to the initialisation class of APFEL++ and create a grid
-  apfel::InitialiseEvolution evpdf{es, true};
+  apfel::InitialiseEvolution evpdf{es, true, GridHeader};
 
   // Move set into the result folder if the set does not exist yet
   std::rename(OutName.c_str(), (ResultFolder + "/" + OutName).c_str());
