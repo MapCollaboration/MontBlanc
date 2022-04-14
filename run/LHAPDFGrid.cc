@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
   es.Qmin              = 1;
   es.Qmax              = 1000;
   es.name              = OutName;
-  es.GridParameters    = {{100, 1e-2, 3}, {60, 1e-1, 3}, {50, 6e-1, 3}, {50, 8e-1, 3}};
+  es.GridParameters    = {{100, 1e-2, 3}, {100, 1e-1, 3}, {50, 6e-1, 3}, {50, 8e-1, 3}};
   es.InSet.clear();
 
   // NN Parameterisation. First compute the average.
