@@ -18,7 +18,7 @@ In order for the code to pe compiled, the following dependencies need to be prei
 - [`ceres-solver`](http://ceres-solver.org)
 - [`LHAPDF`](https://lhapdf.hepforge.org)
 - [`yaml-cpp`](https://github.com/jbeder/yaml-cpp)
-- [`GLS`](https://www.gnu.org/software/gsl/)
+- [`GSL`](https://www.gnu.org/software/gsl/)
 
 ## Compilation and installation
 
