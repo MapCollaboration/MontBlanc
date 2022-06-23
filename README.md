@@ -87,7 +87,8 @@ The results produced by the codes described above can finally be visualised by c
 
 If you use this code you might want to refer to and cite the following reference:
 
-- Rabah Abdul Khalek, Valerio Bertone, Emanuele R. Nocera, "A determination of unpolarised pion fragmentation functions using semi-inclusive deep-inelastic-scattering data: MAPFF1.0", arXiv:2105.08725
+- Rabah Abdul Khalek, Valerio Bertone, Emanuele R. Nocera, "A determination of unpolarised pion fragmentation functions using semi-inclusive deep-inelastic-scattering data: MAPFF1.0", [arXiv:2105.08725](https://arxiv.org/abs/2105.08725)
+- Rabah Abdul Khalek, Valerio Bertone, Alice Khoudli, Emanuele R. Nocera, "Pion and kaon fragmentation functions at next-to-next-to-leading order", [arXiv:2105.08725](https://arxiv.org/abs/2204.10331)
 
 ## Contacts
 
