@@ -1,0 +1,152 @@
+dependent_variables:
+- header: {title: "DELPHI $1/N dN/dp_h^{H^\\pm}$ uds-tag"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value: 91.20}
+  - {name: prefactor, value: 1}
+  - {name: z, low: 0.007, high: 1.00, integrate: false}
+  - {name: hadron, value: H}
+  - {name: charge, value: 0}
+  - {name: tagging, value: [u,d,s]}
+  values:
+  - errors:
+    - {label: unc, value:   0.8766}
+    value: 10.97
+  - errors:
+    - {label: unc, value:   0.6054}
+    value: 10.69
+  - errors:
+    - {label: unc, value:   0.2884}
+    value: 10.02
+  - errors:
+    - {label: unc, value:   0.2802}
+    value: 8.95
+  - errors:
+    - {label: unc, value:   0.2663}
+    value: 7.46
+  - errors:
+    - {label: unc, value:   0.1022}
+    value: 6.046
+  - errors:
+    - {label: unc, value:   0.1010}
+    value: 4.966
+  - errors:
+    - {label: unc, value:   0.0533}
+    value: 4.124
+  - errors:
+    - {label: unc, value:   0.0525}
+    value: 3.506
+  - errors:
+    - {label: unc, value:   0.0410}
+    value: 2.801
+  - errors:
+    - {label: unc, value:   0.0332}
+    value: 2.141
+  - errors:
+    - {label: unc, value:   0.0297}
+    value: 1.708
+  - errors:
+    - {label: unc, value:   0.0269}
+    value: 1.39
+  - errors:
+    - {label: unc, value:   0.0248}
+    value: 1.156
+  - errors:
+    - {label: unc, value:   0.0233}
+    value: 0.968
+  - errors:
+    - {label: unc, value:   0.0205}
+    value: 0.774
+  - errors:
+    - {label: unc, value:   0.0170}
+    value: 0.581
+  - errors:
+    - {label: unc, value:   0.0142}
+    value: 0.451
+  - errors:
+    - {label: unc, value:   0.0121}
+    value: 0.3597
+  - errors:
+    - {label: unc, value:   0.0099}
+    value: 0.2877
+  - errors:
+    - {label: unc, value:   0.0075}
+    value: 0.1948
+  - errors:
+    - {label: unc, value:   0.0051}
+    value: 0.1232
+  - errors:
+    - {label: unc, value:   0.0035}
+    value: 0.0707
+  - errors:
+    - {label: unc, value:   0.0025}
+    value: 0.0324
+  - errors:
+    - {label: unc, value:   0.0022}
+    value: 0.01528
+  - errors:
+    - {label: unc, value:   0.0021}
+    value: 0.0053
+  - errors:
+    - {label: unc, value:   0.0020}
+    value: 0.00079
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {high: 0.008, low: 0.007, value: 0.006, factor:  0.0222}  #not sure factor
+  - {high: 0.010, low: 0.008, value: 0.009, factor: 0.02173}  #not sure factor
+  - {high: 0.012, low: 0.010, value: 0.011, factor: 0.02105}  #not sure factor
+  - {high: 0.015, low: 0.012, value: 0.0135, factor: 0.0214}  #not sure factor
+  - {high: 0.020, low: 0.016, value: 0.018, factor: 0.02161}
+  - {high: 0.025, low: 0.020, value: 0.023, factor: 0.02173}
+  - {high: 0.030, low: 0.025, value: 0.028, factor: 0.02179}
+  - {high: 0.035, low: 0.030, value: 0.033, factor: 0.02183}
+  - {high: 0.040, low: 0.035, value: 0.038, factor: 0.02186}
+  - {high: 0.050, low: 0.040, value: 0.045, factor: 0.02188}
+  - {high: 0.060, low: 0.050, value: 0.055, factor: 0.02190}
+  - {high: 0.070, low: 0.060, value: 0.065, factor: 0.02191}
+  - {high: 0.080, low: 0.070, value: 0.075, factor: 0.02191}
+  - {high: 0.090, low: 0.080, value: 0.085, factor: 0.02192}
+  - {high: 0.100, low: 0.090, value: 0.095, factor: 0.02192}
+  - {high: 0.120, low: 0.100, value: 0.110, factor: 0.02192}
+  - {high: 0.140, low: 0.120, value: 0.130, factor: 0.02192}
+  - {high: 0.160, low: 0.140, value: 0.150, factor: 0.02193}
+  - {high: 0.180, low: 0.160, value: 0.170, factor: 0.02193}
+  - {high: 0.200, low: 0.180, value: 0.190, factor: 0.02193}
+  - {high: 0.261, low: 0.200, value: 0.231, factor: 0.02193}
+  - {high: 0.300, low: 0.261, value: 0.281, factor: 0.02193}
+  - {high: 0.399, low: 0.300, value: 0.350, factor: 0.02193}
+  - {high: 0.500, low: 0.399, value: 0.450, factor: 0.02193}
+  - {high: 0.601, low: 0.500, value: 0.550, factor: 0.02193}
+  - {high: 0.800, low: 0.601, value: 0.701, factor: 0.02193}
+  - {high: 1.000, low: 0.800, value: 0.900, factor: 0.02193}  
+independent_variables:
+- header: {name: "ph", units: GeV}
+  values:
+  - {high: 0.36, low: 0.3, value: 0.33}
+  - {high: 0.46, low: 0.36, value: 0.41}
+  - {high: 0.57, low: 0.46, value: 0.515}
+  - {high: 0.7, low: 0.57, value: 0.635}
+  - {high: 0.91, low: 0.7, value: 0.805}
+  - {high: 1.14, low: 0.91, value: 1.025}
+  - {high: 1.37, low: 1.14, value: 1.255}
+  - {high: 1.6, low: 1.37, value: 1.485}
+  - {high: 1.82, low: 1.6, value: 1.71}
+  - {high: 2.28, low: 1.82, value: 2.05}
+  - {high: 2.74, low: 2.28, value: 2.51}
+  - {high: 3.19, low: 2.74, value: 2.965}
+  - {high: 3.65, low: 3.19, value: 3.42}
+  - {high: 4.1, low: 3.65, value: 3.875}
+  - {high: 4.56, low: 4.1, value: 4.33}
+  - {high: 5.47, low: 4.56, value: 5.015}
+  - {high: 6.38, low: 5.47, value: 5.925}
+  - {high: 7.29, low: 6.38, value: 6.835}
+  - {high: 8.21, low: 7.29, value: 7.75}
+  - {high: 9.12, low: 8.21, value: 8.665}
+  - {high: 11.9, low: 9.12, value: 10.51}
+  - {high: 13.7, low: 11.9, value: 12.8}
+  - {high: 18.2, low: 13.7, value: 15.95}
+  - {high: 22.8, low: 18.2, value: 20.5}
+  - {high: 27.4, low: 22.8, value: 25.1}
+  - {high: 36.5, low: 27.4, value: 31.95}
+  - {high: 45.6, low: 36.5, value: 41.05}
