@@ -1,101 +1,101 @@
 dependent_variables:
-- header: {name: "OPAL $1/\\sigma_{tot}d\\sigma/dz_h^{H^\\pm}$"} #z=X(DEF=2*P(P=3)/SQRT(S))
-  qualifiers:
-  - {name: process, value: SIA}
-  - {name: Vs, value: 91.20}
-  - {name: prefactor, value: 1}
-  - {name: z, low: 0.0, high: 1.00, integrate: false}
-  - {name: hadron, value: H}
-  - {name: charge, value: 0}
-  values:
-  - errors:
-    - {label: unc, value: 7.4061}
-    value: 401.2
-  - errors:
-    - {label: unc, value: 4.9041}
-    value: 401.6
-  - errors:
-    - {label: unc, value: 3.9051}
-    value: 262.8
-  - errors:
-    - {label: unc, value: 2.9069}
-    value: 185.5
-  - errors:
-    - {label: unc, value: 2.1024}
-    value: 137.5
-  - errors:
-    - {label: unc, value: 1.6031}
-    value: 106.2
-  - errors:
-    - {label: unc, value: 1.2042}
-    value: 84.5
-  - errors:
-    - {label: unc, value: 0.9055}
-    value: 68.3
-  - errors:
-    - {label: unc, value: 0.7071}
-    value: 57.9
-  - errors:
-    - {label: unc, value: 0.6083}
-    value: 47.9
-  - errors:
-    - {label: unc, value: 0.4229}
-    value: 38.19
-  - errors:
-    - {label: unc, value: 0.2828}
-    value: 28.3
-  - errors:
-    - {label: unc, value: 0.1924}
-    value: 21.88
-  - errors:
-    - {label: unc, value: 0.1628}
-    value: 17.1
-  - errors:
-    - {label: unc, value: 0.1432}
-    value: 13.54
-  - errors:
-    - {label: unc, value: 0.1105}
-    value: 9.37
-  - errors:
-    - {label: unc, value: 0.0806}
-    value: 5.66
-  - errors:
-    - {label: unc, value: 0.0509}
-    value: 2.89
-  - errors:
-    - {label: unc, value: 0.0362}
-    value: 1.208
-  - errors:
-    - {label: unc, value: 0.0181}
-    value: 0.506
-  - errors:
-    - {label: unc, value: 0.0120}
-    value: 0.153
-  - errors:
-    - {label: unc, value: 0.0044}
-    value: 0.0199
+  - header: {title: "OPAL $1/\\sigma_{tot}d\\sigma/dz_h^{H^\\pm}$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 91.20}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.0, high: 1.00, integrate: false}
+      - {name: hadron, value: H}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 7.4061}
+        value: 401.2
+      - errors:
+          - {label: unc, value: 4.9041}
+        value: 401.6
+      - errors:
+          - {label: unc, value: 3.9051}
+        value: 262.8
+      - errors:
+          - {label: unc, value: 2.9069}
+        value: 185.5
+      - errors:
+          - {label: unc, value: 2.1024}
+        value: 137.5
+      - errors:
+          - {label: unc, value: 1.6031}
+        value: 106.2
+      - errors:
+          - {label: unc, value: 1.2042}
+        value: 84.5
+      - errors:
+          - {label: unc, value: 0.9055}
+        value: 68.3
+      - errors:
+          - {label: unc, value: 0.7071}
+        value: 57.9
+      - errors:
+          - {label: unc, value: 0.6083}
+        value: 47.9
+      - errors:
+          - {label: unc, value: 0.4229}
+        value: 38.19
+      - errors:
+          - {label: unc, value: 0.2828}
+        value: 28.3
+      - errors:
+          - {label: unc, value: 0.1924}
+        value: 21.88
+      - errors:
+          - {label: unc, value: 0.1628}
+        value: 17.1
+      - errors:
+          - {label: unc, value: 0.1432}
+        value: 13.54
+      - errors:
+          - {label: unc, value: 0.1105}
+        value: 9.37
+      - errors:
+          - {label: unc, value: 0.0806}
+        value: 5.66
+      - errors:
+          - {label: unc, value: 0.0509}
+        value: 2.89
+      - errors:
+          - {label: unc, value: 0.0362}
+        value: 1.208
+      - errors:
+          - {label: unc, value: 0.0181}
+        value: 0.506
+      - errors:
+          - {label: unc, value: 0.0120}
+        value: 0.153
+      - errors:
+          - {label: unc, value: 0.0044}
+        value: 0.0199
 independent_variables:
-- header: {name: "z"}
-  values:
-  - {high: 0.01, low: 0.0,  value: 0.005}
-  - {high: 0.02, low: 0.01, value: 0.015}
-  - {high: 0.03, low: 0.02, value: 0.025}
-  - {high: 0.04, low: 0.03, value: 0.035}
-  - {high: 0.05, low: 0.04, value: 0.045}
-  - {high: 0.06, low: 0.05, value: 0.055}
-  - {high: 0.07, low: 0.06, value: 0.065}
-  - {high: 0.08, low: 0.07, value: 0.075}
-  - {high: 0.09, low: 0.08, value: 0.085}
-  - {high: 0.1, low: 0.09, value: 0.095}
-  - {high: 0.12, low: 0.1, value: 0.11}
-  - {high: 0.14, low: 0.12, value: 0.13}
-  - {high: 0.16, low: 0.14, value: 0.15}
-  - {high: 0.18, low: 0.16, value: 0.17}
-  - {high: 0.2, low: 0.18, value: 0.19}
-  - {high: 0.25, low: 0.2, value: 0.225}
-  - {high: 0.3, low: 0.25, value: 0.275}
-  - {high: 0.4, low: 0.3, value: 0.35}
-  - {high: 0.5, low: 0.4, value: 0.45}
-  - {high: 0.6, low: 0.5, value: 0.55}
-  - {high: 0.8, low: 0.6, value: 0.7}
-  - {high: 1.0, low: 0.8, value: 0.9}
+  - header: {name: z}
+    values:
+      - {high: 0.01, low: 0.0, value: 0.005}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.05, low: 0.04, value: 0.045}
+      - {high: 0.06, low: 0.05, value: 0.055}
+      - {high: 0.07, low: 0.06, value: 0.065}
+      - {high: 0.08, low: 0.07, value: 0.075}
+      - {high: 0.09, low: 0.08, value: 0.085}
+      - {high: 0.1, low: 0.09, value: 0.095}
+      - {high: 0.12, low: 0.1, value: 0.11}
+      - {high: 0.14, low: 0.12, value: 0.13}
+      - {high: 0.16, low: 0.14, value: 0.15}
+      - {high: 0.18, low: 0.16, value: 0.17}
+      - {high: 0.2, low: 0.18, value: 0.19}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.4, low: 0.3, value: 0.35}
+      - {high: 0.5, low: 0.4, value: 0.45}
+      - {high: 0.6, low: 0.5, value: 0.55}
+      - {high: 0.8, low: 0.6, value: 0.7}
+      - {high: 1.0, low: 0.8, value: 0.9}

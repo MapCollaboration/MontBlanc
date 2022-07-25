@@ -1,174 +1,174 @@
 dependent_variables:
-- header: {title: "SLD $1/\\sigma_{tot}d\\sigma/dz_h^{H^\\pm}$ b-tag"} #z=X(DEF=2*P(P=3)/SQRT(S))
-  qualifiers:
-  - {name: process, value: SIA}
-  - {name: Vs, value: 91.20}
-  - {name: prefactor, value: 1}
-  - {name: z, low: 0.0066, high: 0.8383, integrate: false}
-  - {name: hadron, value: H}
-  - {name: charge, value: 0}
-  - {name: tagging, value: [b]}
-  values:
-  - errors:
-    - {label: unc, value:  14.2}
-    value: 546.1
-  - errors:
-    - {label: unc, value:  10.3}
-    value: 558.5
-  - errors:
-    - {label: unc, value:  8.0}
-    value: 531.9
-  - errors:
-    - {label: unc, value:  6.3}
-    value: 490.8
-  - errors:
-    - {label: unc, value:  6.7}
-    value: 436.5
-  - errors:
-    - {label: unc, value:  4.4}
-    value: 382.8
-  - errors:
-    - {label: unc, value:  3.4}
-    value: 308.6
-  - errors:
-    - {label: unc, value:  2.6}
-    value: 254.8
-  - errors:
-    - {label: unc, value:  2.1}
-    value: 213.2
-  - errors:
-    - {label: unc, value:  1.9}
-    value: 182.1
-  - errors:
-    - {label: unc, value:  1.7}
-    value: 154.5
-  - errors:
-    - {label: unc, value:  1.6}
-    value: 134.3
-  - errors:
-    - {label: unc, value:  1.4}
-    value: 118.6
-  - errors:
-    - {label: unc, value:  1.3}
-    value: 102.4
-  - errors:
-    - {label: unc, value:  1.22}
-    value: 91.92
-  - errors:
-    - {label: unc, value:  1.14}
-    value: 83.63
-  - errors:
-    - {label: unc, value:  1.1}
-    value: 75.06
-  - errors:
-    - {label: unc, value:  1.04}
-    value: 66.58
-  - errors:
-    - {label: unc, value:  0.74}
-    value: 57.31
-  - errors:
-    - {label: unc, value:  0.71}
-    value: 47.8
-  - errors:
-    - {label: unc, value:  0.67}
-    value: 39.19
-  - errors:
-    - {label: unc, value:  0.48}
-    value: 29.54
-  - errors:
-    - {label: unc, value:  0.48}
-    value: 20.69
-  - errors:
-    - {label: unc, value:  0.55}
-    value: 15.36
-  - errors:
-    - {label: unc, value:  0.26}
-    value: 10.65
-  - errors:
-    - {label: unc, value:  0.2}
-    value: 8.06
-  - errors:
-    - {label: unc, value:  0.16}
-    value: 6.28
-  - errors:
-    - {label: unc, value:  0.13}
-    value: 4.69
-  - errors:
-    - {label: unc, value:  0.11}
-    value: 3.49
-  - errors:
-    - {label: unc, value:  0.098}
-    value: 2.935
-  - errors:
-    - {label: unc, value:  0.068}
-    value: 2.041
-  - errors:
-    - {label: unc, value:  0.058}
-    value: 1.534
-  - errors:
-    - {label: unc, value:  0.051}
-    value: 1.111
-  - errors:
-    - {label: unc, value:  0.042}
-    value: 0.736
-  - errors:
-    - {label: unc, value:  0.037}
-    value: 0.51
-  - errors:
-    - {label: unc, value:  0.027}
-    value: 0.33
-  - errors:
-    - {label: unc, value:  0.022}
-    value: 0.188
-  - errors:
-    - {label: unc, value:  0.012}
-    value: 0.089
-  - errors:
-    - {label: unc, value:  0.006}
-    value: 0.017
-  - errors:
-    - {label: unc, value:  0.002}
-    value: 0.003
+  - header: {title: "SLD $1/\\sigma_{tot}d\\sigma/dz_h^{H^\\pm}$ b-tag"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 91.20}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.005, high: 1.00, integrate: false}
+      - {name: hadron, value: H}
+      - {name: charge, value: 0}
+      - {name: tagging, value: [b]}
+    values:
+      - errors:
+          - {label: unc, value: 14.2}
+        value: 546.1
+      - errors:
+          - {label: unc, value: 10.3}
+        value: 558.5
+      - errors:
+          - {label: unc, value: 8.0}
+        value: 531.9
+      - errors:
+          - {label: unc, value: 6.3}
+        value: 490.8
+      - errors:
+          - {label: unc, value: 6.7}
+        value: 436.5
+      - errors:
+          - {label: unc, value: 4.4}
+        value: 382.8
+      - errors:
+          - {label: unc, value: 3.4}
+        value: 308.6
+      - errors:
+          - {label: unc, value: 2.6}
+        value: 254.8
+      - errors:
+          - {label: unc, value: 2.1}
+        value: 213.2
+      - errors:
+          - {label: unc, value: 1.9}
+        value: 182.1
+      - errors:
+          - {label: unc, value: 1.7}
+        value: 154.5
+      - errors:
+          - {label: unc, value: 1.6}
+        value: 134.3
+      - errors:
+          - {label: unc, value: 1.4}
+        value: 118.6
+      - errors:
+          - {label: unc, value: 1.3}
+        value: 102.4
+      - errors:
+          - {label: unc, value: 1.22}
+        value: 91.92
+      - errors:
+          - {label: unc, value: 1.14}
+        value: 83.63
+      - errors:
+          - {label: unc, value: 1.1}
+        value: 75.06
+      - errors:
+          - {label: unc, value: 1.04}
+        value: 66.58
+      - errors:
+          - {label: unc, value: 0.74}
+        value: 57.31
+      - errors:
+          - {label: unc, value: 0.71}
+        value: 47.8
+      - errors:
+          - {label: unc, value: 0.67}
+        value: 39.19
+      - errors:
+          - {label: unc, value: 0.48}
+        value: 29.54
+      - errors:
+          - {label: unc, value: 0.48}
+        value: 20.69
+      - errors:
+          - {label: unc, value: 0.55}
+        value: 15.36
+      - errors:
+          - {label: unc, value: 0.26}
+        value: 10.65
+      - errors:
+          - {label: unc, value: 0.2}
+        value: 8.06
+      - errors:
+          - {label: unc, value: 0.16}
+        value: 6.28
+      - errors:
+          - {label: unc, value: 0.13}
+        value: 4.69
+      - errors:
+          - {label: unc, value: 0.11}
+        value: 3.49
+      - errors:
+          - {label: unc, value: 0.098}
+        value: 2.935
+      - errors:
+          - {label: unc, value: 0.068}
+        value: 2.041
+      - errors:
+          - {label: unc, value: 0.058}
+        value: 1.534
+      - errors:
+          - {label: unc, value: 0.051}
+        value: 1.111
+      - errors:
+          - {label: unc, value: 0.042}
+        value: 0.736
+      - errors:
+          - {label: unc, value: 0.037}
+        value: 0.51
+      - errors:
+          - {label: unc, value: 0.027}
+        value: 0.33
+      - errors:
+          - {label: unc, value: 0.022}
+        value: 0.188
+      - errors:
+          - {label: unc, value: 0.012}
+        value: 0.089
+      - errors:
+          - {label: unc, value: 0.006}
+        value: 0.017
+      - errors:
+          - {label: unc, value: 0.002}
+        value: 0.003
 independent_variables:
-- header: {name: "z"}
-  values:
-  - {high: 0.008, low: 0.005, value: 0.00660}
-  - {high: 0.010, low: 0.008, value: 0.00880}
-  - {high: 0.012, low: 0.010, value: 0.01090}
-  - {high: 0.014, low: 0.012, value: 0.01310}
-  - {high: 0.016, low: 0.014, value: 0.01530}
-  - {high: 0.022, low: 0.016, value: 0.01910}
-  - {high: 0.027, low: 0.022, value: 0.02460}
-  - {high: 0.033, low: 0.027, value: 0.03010}
-  - {high: 0.038, low: 0.033, value: 0.03560}
-  - {high: 0.044, low: 0.038, value: 0.04110}
-  - {high: 0.049, low: 0.044, value: 0.04650}
-  - {high: 0.055, low: 0.049, value: 0.05210}
-  - {high: 0.060, low: 0.055, value: 0.05760}
-  - {high: 0.066, low: 0.060, value: 0.06300}
-  - {high: 0.071, low: 0.066, value: 0.06850}
-  - {high: 0.077, low: 0.071, value: 0.07400}
-  - {high: 0.082, low: 0.077, value: 0.07950}
-  - {high: 0.088, low: 0.082, value: 0.08500}
-  - {high: 0.099, low: 0.088, value: 0.09310}
-  - {high: 0.110, low: 0.099, value: 0.10400}
-  - {high: 0.121, low: 0.110, value: 0.11500}
-  - {high: 0.143, low: 0.121, value: 0.13100}
-  - {high: 0.164, low: 0.143, value: 0.15300}
-  - {high: 0.186, low: 0.164, value: 0.17500}
-  - {high: 0.208, low: 0.186, value: 0.19700}
-  - {high: 0.230, low: 0.208, value: 0.21890}
-  - {high: 0.252, low: 0.230, value: 0.24100}
-  - {high: 0.274, low: 0.252, value: 0.26290}
-  - {high: 0.296, low: 0.274, value: 0.28490}
-  - {high: 0.318, low: 0.296, value: 0.30680}
-  - {high: 0.351, low: 0.318, value: 0.33380}
-  - {high: 0.384, low: 0.351, value: 0.36660}
-  - {high: 0.417, low: 0.384, value: 0.39970}
-  - {high: 0.450, low: 0.417, value: 0.43250}
-  - {high: 0.482, low: 0.450, value: 0.46510}
-  - {high: 0.526, low: 0.482, value: 0.50350}
-  - {high: 0.570, low: 0.526, value: 0.54700}
-  - {high: 0.658, low: 0.570, value: 0.60830}
-  - {high: 0.768, low: 0.658, value: 0.70470}
-  - {high: 1.000, low: 0.768, value: 0.83830}
+  - header: {name: z}
+    values:
+      - {high: 0.008, low: 0.005, value: 0.00660}
+      - {high: 0.010, low: 0.008, value: 0.00880}
+      - {high: 0.012, low: 0.010, value: 0.01090}
+      - {high: 0.014, low: 0.012, value: 0.01310}
+      - {high: 0.016, low: 0.014, value: 0.01530}
+      - {high: 0.022, low: 0.016, value: 0.01910}
+      - {high: 0.027, low: 0.022, value: 0.02460}
+      - {high: 0.033, low: 0.027, value: 0.03010}
+      - {high: 0.038, low: 0.033, value: 0.03560}
+      - {high: 0.044, low: 0.038, value: 0.04110}
+      - {high: 0.049, low: 0.044, value: 0.04650}
+      - {high: 0.055, low: 0.049, value: 0.05210}
+      - {high: 0.060, low: 0.055, value: 0.05760}
+      - {high: 0.066, low: 0.060, value: 0.06300}
+      - {high: 0.071, low: 0.066, value: 0.06850}
+      - {high: 0.077, low: 0.071, value: 0.07400}
+      - {high: 0.082, low: 0.077, value: 0.07950}
+      - {high: 0.088, low: 0.082, value: 0.08500}
+      - {high: 0.099, low: 0.088, value: 0.09310}
+      - {high: 0.110, low: 0.099, value: 0.10400}
+      - {high: 0.121, low: 0.110, value: 0.11500}
+      - {high: 0.143, low: 0.121, value: 0.13100}
+      - {high: 0.164, low: 0.143, value: 0.15300}
+      - {high: 0.186, low: 0.164, value: 0.17500}
+      - {high: 0.208, low: 0.186, value: 0.19700}
+      - {high: 0.230, low: 0.208, value: 0.21890}
+      - {high: 0.252, low: 0.230, value: 0.24100}
+      - {high: 0.274, low: 0.252, value: 0.26290}
+      - {high: 0.296, low: 0.274, value: 0.28490}
+      - {high: 0.318, low: 0.296, value: 0.30680}
+      - {high: 0.351, low: 0.318, value: 0.33380}
+      - {high: 0.384, low: 0.351, value: 0.36660}
+      - {high: 0.417, low: 0.384, value: 0.39970}
+      - {high: 0.450, low: 0.417, value: 0.43250}
+      - {high: 0.482, low: 0.450, value: 0.46510}
+      - {high: 0.526, low: 0.482, value: 0.50350}
+      - {high: 0.570, low: 0.526, value: 0.54700}
+      - {high: 0.658, low: 0.570, value: 0.60830}
+      - {high: 0.768, low: 0.658, value: 0.70470}
+      - {high: 1.000, low: 0.768, value: 0.83830}
