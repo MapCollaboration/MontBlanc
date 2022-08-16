@@ -157,7 +157,8 @@ int main(int argc, char *argv[])
       // Accumulate kinematic cuts
       std::vector<std::shared_ptr<NangaParbat::Cut> > cuts;
       for (auto const &c : ds["cuts"])
-        cuts.push_back(NangaParbat::CutFactory::GetInstance(*DH, c["name"].as<std::string>(), c["min"].as<double>(), c["max"].as<double>()));
+        cuts.push_back(NangaParbat::CutFactory::GetInstance(*DH, c["name"].as<std::string>(), c["min"].as<double>(), c["max"].as<double>(),
+							    (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double>{})));
 
       // Compute predictions within kinematic cuts
       MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, g, cuts};
