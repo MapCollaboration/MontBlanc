@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {title: "HERMES g1n structure function"}
+  qualifiers:
+  - {name: process, value: pDIS}
+  - {name: observable, value: g1n}
+  - {name: target_isoscalarity, value: 0.}
+  - {name: prefactor, value: 1.}
+  - {name: Vs, value:  7.236 , units: GeV}
+  - {name: x, low:  0.033 , high:  0.464 , integrate: false}
+  values:
+  - errors:
+    - {label: unc, value: 0.16539}
+    value: -0.36700
+  - errors:
+    - {label: unc, value: 0.12712}
+    value: -0.26300
+  - errors:
+    - {label: unc, value: 0.10127}
+    value: -0.13500
+  - errors:
+    - {label: unc, value: 0.08927}
+    value: -0.17200
+  - errors:
+    - {label: unc, value: 0.07004}
+    value: -0.09600
+  - errors:
+    - {label: unc, value: 0.05787}
+    value: -0.10400
+  - errors:
+    - {label: unc, value: 0.04627}
+    value: -0.03100
+  - errors:
+    - {label: unc, value: 0.04627}
+    value: 0.03100
+  - errors:
+    - {label: unc, value: 0.03314}
+    value: -0.01300
+independent_variables:
+- header: {name: "x"}
+  values:
+  - {high: 0.04000, low: 0.02300,   value: 0.03300}
+  - {high: 0.05500, low: 0.04000,   value: 0.04700}
+  - {high: 0.07500, low: 0.05500,   value: 0.06500}
+  - {high: 0.10000, low: 0.07500,   value: 0.08700}
+  - {high: 0.14000, low: 0.10000,   value: 0.11900}
+  - {high: 0.20000, low: 0.14000,   value: 0.16800}
+  - {high: 0.30000, low: 0.20000,   value: 0.24400}
+  - {high: 0.40000, low: 0.30000,   value: 0.34200}
+  - {high: 0.60000, low: 0.40000,   value: 0.46400}
+- header: {name: "Q2"}
+  values:
+  - {value: 1.22000}
+  - {value: 1.47000}
+  - {value: 1.73000}
+  - {value: 1.99000}
+  - {value: 2.30000}
+  - {value: 2.65000}
+  - {value: 3.07000}
+  - {value: 3.86000}
+  - {value: 5.25000}

@@ -1,0 +1,80 @@
+dependent_variables:
+- header: {title: "SMC g1d structure function"}
+  qualifiers:
+  - {name: process, value: pDIS}
+  - {name: observable, value: g1d}
+  - {name: target_isoscalarity, value: 0.5}
+  - {name: prefactor, value: 1.}
+  - {name: Vs, value:  16.316 , units: GeV}
+  - {name: x, low:  0.002 , high:  0.48 , integrate: false}
+  values:
+  - errors:
+    - {label: unc, value: 0.49477}
+    value: -0.30000
+  - errors:
+    - {label: unc, value: 0.42426}
+    value: -0.47000
+  - errors:
+    - {label: unc, value: 0.30265}
+    value: -0.37000
+  - errors:
+    - {label: unc, value: 0.17263}
+    value: -0.30000
+  - errors:
+    - {label: unc, value: 0.14142}
+    value: -0.06000
+  - errors:
+    - {label: unc, value: 0.12042}
+    value: -0.07000
+  - errors:
+    - {label: unc, value: 0.08246}
+    value: 0.27000
+  - errors:
+    - {label: unc, value: 0.05099}
+    value: 0.04000
+  - errors:
+    - {label: unc, value: 0.04123}
+    value: 0.09000
+  - errors:
+    - {label: unc, value: 0.03162}
+    value: 0.15000
+  - errors:
+    - {label: unc, value: 0.02236}
+    value: 0.12000
+  - errors:
+    - {label: unc, value: 0.02000}
+    value: 0.05000
+  - errors:
+    - {label: unc, value: 0.01000}
+    value: 0.03000
+independent_variables:
+- header: {name: "x"}
+  values:
+  - {high: 0.00300, low: 0.00080,   value: 0.00200}
+  - {high: 0.00600, low: 0.00300,   value: 0.00500}
+  - {high: 0.01000, low: 0.00600,   value: 0.00800}
+  - {high: 0.02000, low: 0.01000,   value: 0.01400}
+  - {high: 0.03000, low: 0.02000,   value: 0.02500}
+  - {high: 0.04000, low: 0.03000,   value: 0.03500}
+  - {high: 0.06000, low: 0.04000,   value: 0.04900}
+  - {high: 0.10000, low: 0.06000,   value: 0.07700}
+  - {high: 0.15000, low: 0.10000,   value: 0.12100}
+  - {high: 0.20000, low: 0.15000,   value: 0.17200}
+  - {high: 0.30000, low: 0.20000,   value: 0.24100}
+  - {high: 0.40000, low: 0.30000,   value: 0.34200}
+  - {high: 0.70000, low: 0.40000,   value: 0.47900}
+- header: {name: "Q2"}
+  values:
+  - {value: 0.50000}
+  - {value: 1.30000}
+  - {value: 2.10000}
+  - {value: 3.50000}
+  - {value: 5.50000}
+  - {value: 7.50000}
+  - {value: 10.00000}
+  - {value: 14.40000}
+  - {value: 20.60000}
+  - {value: 26.80000}
+  - {value: 34.30000}
+  - {value: 43.90000}
+  - {value: 54.80000}
