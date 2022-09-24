@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {title: "JLAB_E97_103 g1n structure function"}
+  qualifiers:
+  - {name: process, value: pDIS}
+  - {name: observable, value: g1n}
+  - {name: target_isoscalarity, value: 0.}
+  - {name: prefactor, value: 1.}
+  - {name: Vs, value:  3.059 , units: GeV}
+  - {name: x, low:  0.16 , high:  0.2 , integrate: false}
+  values:
+  - errors:
+    - {label: unc, value: 0.01018}
+    value: -0.07190
+  - errors:
+    - {label: unc, value: 0.01040}
+    value: -0.05570
+  - errors:
+    - {label: unc, value: 0.00946}
+    value: -0.05120
+  - errors:
+    - {label: unc, value: 0.00878}
+    value: -0.04260
+  - errors:
+    - {label: unc, value: 0.00875}
+    value: -0.03690
+independent_variables:
+- header: {name: "x"}
+  values:
+  - {value: 0.16000}
+  - {value: 0.18000}
+  - {value: 0.19000}
+  - {value: 0.19000}
+  - {value: 0.20000}
+- header: {name: "Q2"}
+  values:
+  - {value: 0.57000}
+  - {value: 0.78000}
+  - {value: 0.94000}
+  - {value: 1.13000}
+  - {value: 1.34000}
