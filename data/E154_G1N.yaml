@@ -1,0 +1,70 @@
+dependent_variables:
+- header: {title: "E154 g1n structure function"}
+  qualifiers:
+  - {name: process, value: pDIS}
+  - {name: observable, value: g1n}
+  - {name: target_isoscalarity, value: 0.}
+  - {name: prefactor, value: 1.}
+  - {name: Vs, value:  9.555 , units: GeV}
+  - {name: x, low:  0.017 , high:  0.024 , integrate: false}
+  values:
+  - errors:
+    - {label: unc, value: 0.15914}
+    value: -0.35100
+  - errors:
+    - {label: unc, value: 0.09626}
+    value: -0.37400
+  - errors:
+    - {label: unc, value: 0.07240}
+    value: -0.29000
+  - errors:
+    - {label: unc, value: 0.04565}
+    value: -0.20400
+  - errors:
+    - {label: unc, value: 0.02640}
+    value: -0.13700
+  - errors:
+    - {label: unc, value: 0.01921}
+    value: -0.10800
+  - errors:
+    - {label: unc, value: 0.01664}
+    value: -0.06100
+  - errors:
+    - {label: unc, value: 0.01304}
+    value: -0.04200
+  - errors:
+    - {label: unc, value: 0.01208}
+    value: -0.01700
+  - errors:
+    - {label: unc, value: 0.01118}
+    value: -0.00700
+  - errors:
+    - {label: unc, value: 0.00806}
+    value: 0.00300
+independent_variables:
+- header: {name: "x"}
+  values:
+  - {high: 0.02000, low: 0.01400,   value: 0.01700}
+  - {high: 0.03000, low: 0.02000,   value: 0.02400}
+  - {high: 0.04000, low: 0.03000,   value: 0.03500}
+  - {high: 0.06000, low: 0.04000,   value: 0.04900}
+  - {high: 0.10000, low: 0.06000,   value: 0.08100}
+  - {high: 0.15000, low: 0.10000,   value: 0.12300}
+  - {high: 0.20000, low: 0.15000,   value: 0.17300}
+  - {high: 0.30000, low: 0.20000,   value: 0.24200}
+  - {high: 0.40000, low: 0.30000,   value: 0.34200}
+  - {high: 0.50000, low: 0.40000,   value: 0.44100}
+  - {high: 0.70000, low: 0.50000,   value: 0.56400}
+- header: {name: "Q2"}
+  values:
+  - {value: 1.20000}
+  - {value: 1.60000}
+  - {value: 2.00000}
+  - {value: 2.60000}
+  - {value: 4.40000}
+  - {value: 6.60000}
+  - {value: 8.20000}
+  - {value: 9.80000}
+  - {value: 11.70000}
+  - {value: 13.30000}
+  - {value: 15.00000}

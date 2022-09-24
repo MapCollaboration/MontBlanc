@@ -1,0 +1,90 @@
+dependent_variables:
+- header: {title: "COMPASS g1d structure function"}
+  qualifiers:
+  - {name: process, value: pDIS}
+  - {name: observable, value: g1d}
+  - {name: target_isoscalarity, value: 0.5}
+  - {name: prefactor, value: 1.}
+  - {name: Vs, value:  19.0 , units: GeV}
+  - {name: x, low:  0.0046 , high:  0.567 , integrate: false}
+  values:
+  - errors:
+    - {label: unc, value: 0.20248}
+    value: -0.13000
+  - errors:
+    - {label: unc, value: 0.15000}
+    value: 0.00000
+  - errors:
+    - {label: unc, value: 0.08149}
+    value: -0.01600
+  - errors:
+    - {label: unc, value: 0.07443}
+    value: -0.12100
+  - errors:
+    - {label: unc, value: 0.03302}
+    value: -0.01000
+  - errors:
+    - {label: unc, value: 0.03329}
+    value: 0.04300
+  - errors:
+    - {label: unc, value: 0.03329}
+    value: 0.04300
+  - errors:
+    - {label: unc, value: 0.02524}
+    value: 0.05100
+  - errors:
+    - {label: unc, value: 0.02121}
+    value: 0.11100
+  - errors:
+    - {label: unc, value: 0.01910}
+    value: 0.12300
+  - errors:
+    - {label: unc, value: 0.01910}
+    value: 0.10100
+  - errors:
+    - {label: unc, value: 0.01697}
+    value: 0.09300
+  - errors:
+    - {label: unc, value: 0.01167}
+    value: 0.06750
+  - errors:
+    - {label: unc, value: 0.00813}
+    value: 0.05000
+  - errors:
+    - {label: unc, value: 0.00495}
+    value: 0.02030
+independent_variables:
+- header: {name: "x"}
+  values:
+  - {high: 0.00500, low: 0.00400,   value: 0.00460}
+  - {high: 0.00600, low: 0.00500,   value: 0.00550}
+  - {high: 0.00800, low: 0.00600,   value: 0.00699}
+  - {high: 0.01000, low: 0.00800,   value: 0.00899}
+  - {high: 0.02000, low: 0.01000,   value: 0.01410}
+  - {high: 0.03000, low: 0.02000,   value: 0.02440}
+  - {high: 0.04000, low: 0.03000,   value: 0.03460}
+  - {high: 0.06000, low: 0.04000,   value: 0.04870}
+  - {high: 0.10000, low: 0.06000,   value: 0.07660}
+  - {high: 0.15000, low: 0.10000,   value: 0.12100}
+  - {high: 0.20000, low: 0.15000,   value: 0.17100}
+  - {high: 0.25000, low: 0.20000,   value: 0.22200}
+  - {high: 0.35000, low: 0.25000,   value: 0.29000}
+  - {high: 0.50000, low: 0.35000,   value: 0.40500}
+  - {high: 0.70000, low: 0.50000,   value: 0.56700}
+- header: {name: "Q2"}
+  values:
+  - {value: 1.10000}
+  - {value: 1.22000}
+  - {value: 1.39000}
+  - {value: 1.62000}
+  - {value: 2.19000}
+  - {value: 3.29000}
+  - {value: 4.43000}
+  - {value: 6.06000}
+  - {value: 9.00000}
+  - {value: 13.50000}
+  - {value: 18.60000}
+  - {value: 23.80000}
+  - {value: 31.10000}
+  - {value: 43.90000}
+  - {value: 60.80000}

@@ -1,0 +1,75 @@
+dependent_variables:
+- header: {title: "EMC g1p structure function"}
+  qualifiers:
+  - {name: process, value: pDIS}
+  - {name: observable, value: g1p}
+  - {name: target_isoscalarity, value: 1.}
+  - {name: prefactor, value: 1.}
+  - {name: Vs, value:  16.561 , units: GeV}
+  - {name: x, low:  0.015 , high:  0.466 , integrate: false}
+  values:
+  - errors:
+    - {label: unc, value: 0.51053}
+    - {label: mult, value: 0.14}
+    value: 0.27900
+  - errors:
+    - {label: unc, value: 0.36770}
+    - {label: mult, value: 0.14}
+    value: 0.56400
+  - errors:
+    - {label: unc, value: 0.32527}
+    - {label: mult, value: 0.14}
+    value: 0.11500
+  - errors:
+    - {label: unc, value: 0.20648}
+    - {label: mult, value: 0.14}
+    value: 0.25400
+  - errors:
+    - {label: unc, value: 0.13152}
+    - {label: mult, value: 0.14}
+    value: 0.28000
+  - errors:
+    - {label: unc, value: 0.10748}
+    - {label: mult, value: 0.14}
+    value: 0.22500
+  - errors:
+    - {label: unc, value: 0.10182}
+    - {label: mult, value: 0.14}
+    value: 0.31100
+  - errors:
+    - {label: unc, value: 0.06788}
+    - {label: mult, value: 0.14}
+    value: 0.25300
+  - errors:
+    - {label: unc, value: 0.06223}
+    - {label: mult, value: 0.14}
+    value: 0.16700
+  - errors:
+    - {label: unc, value: 0.03536}
+    - {label: mult, value: 0.14}
+    value: 0.09400
+independent_variables:
+- header: {name: "x"}
+  values:
+  - {value: 0.01500}
+  - {value: 0.02500}
+  - {value: 0.03500}
+  - {value: 0.05000}
+  - {value: 0.07800}
+  - {value: 0.12400}
+  - {value: 0.17500}
+  - {value: 0.24800}
+  - {value: 0.34400}
+  - {value: 0.46600}
+- header: {name: "Q2"}
+  values:
+  - {value: 3.50000}
+  - {value: 4.50000}
+  - {value: 6.00000}
+  - {value: 8.00000}
+  - {value: 10.30000}
+  - {value: 12.90000}
+  - {value: 15.20000}
+  - {value: 18.00000}
+  - {value: 22.50000}
+  - {value: 29.50000}

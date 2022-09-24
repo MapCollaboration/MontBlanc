@@ -1,0 +1,250 @@
+dependent_variables:
+- header: {title: "JLAB_EG1_DVCS g1p/F1p structure function ratio"}
+  qualifiers:
+  - {name: process, value: pDIS}
+  - {name: observable, value: g1p/F1p}
+  - {name: target_isoscalarity, value: 1.}
+  - {name: prefactor, value: 1.}
+  - {name: Vs, value:  3.5 , units: GeV}
+  - {name: x, low:  0.154 , high:  0.578 , integrate: false}
+  values:
+  - errors:
+    - {label: unc, value: 0.02900}
+    value: 0.22200
+  - errors:
+    - {label: unc, value: 0.01825}
+    value: 0.24000
+  - errors:
+    - {label: unc, value: 0.01628}
+    value: 0.24900
+  - errors:
+    - {label: unc, value: 0.01676}
+    value: 0.25700
+  - errors:
+    - {label: unc, value: 0.02921}
+    value: 0.27800
+  - errors:
+    - {label: unc, value: 0.02138}
+    value: 0.29500
+  - errors:
+    - {label: unc, value: 0.01825}
+    value: 0.30000
+  - errors:
+    - {label: unc, value: 0.01746}
+    value: 0.31400
+  - errors:
+    - {label: unc, value: 0.02657}
+    value: 0.36400
+  - errors:
+    - {label: unc, value: 0.02335}
+    value: 0.34600
+  - errors:
+    - {label: unc, value: 0.01924}
+    value: 0.34700
+  - errors:
+    - {label: unc, value: 0.01844}
+    value: 0.36500
+  - errors:
+    - {label: unc, value: 0.04604}
+    value: 0.44200
+  - errors:
+    - {label: unc, value: 0.02668}
+    value: 0.39900
+  - errors:
+    - {label: unc, value: 0.02335}
+    value: 0.39700
+  - errors:
+    - {label: unc, value: 0.02022}
+    value: 0.39200
+  - errors:
+    - {label: unc, value: 0.01965}
+    value: 0.41500
+  - errors:
+    - {label: unc, value: 0.02879}
+    value: 0.40500
+  - errors:
+    - {label: unc, value: 0.02648}
+    value: 0.44200
+  - errors:
+    - {label: unc, value: 0.02335}
+    value: 0.44000
+  - errors:
+    - {label: unc, value: 0.02040}
+    value: 0.43400
+  - errors:
+    - {label: unc, value: 0.02062}
+    value: 0.46000
+  - errors:
+    - {label: unc, value: 0.03276}
+    value: 0.46100
+  - errors:
+    - {label: unc, value: 0.02720}
+    value: 0.42100
+  - errors:
+    - {label: unc, value: 0.02550}
+    value: 0.46500
+  - errors:
+    - {label: unc, value: 0.02256}
+    value: 0.48000
+  - errors:
+    - {label: unc, value: 0.01965}
+    value: 0.47700
+  - errors:
+    - {label: unc, value: 0.03124}
+    value: 0.47000
+  - errors:
+    - {label: unc, value: 0.04319}
+    value: 0.53500
+  - errors:
+    - {label: unc, value: 0.02973}
+    value: 0.49600
+  - errors:
+    - {label: unc, value: 0.02693}
+    value: 0.44700
+  - errors:
+    - {label: unc, value: 0.02571}
+    value: 0.49000
+  - errors:
+    - {label: unc, value: 0.02159}
+    value: 0.51400
+  - errors:
+    - {label: unc, value: 0.02154}
+    value: 0.50800
+  - errors:
+    - {label: unc, value: 0.10153}
+    value: 0.51600
+  - errors:
+    - {label: unc, value: 0.03138}
+    value: 0.54000
+  - errors:
+    - {label: unc, value: 0.02912}
+    value: 0.52900
+  - errors:
+    - {label: unc, value: 0.02693}
+    value: 0.48100
+  - errors:
+    - {label: unc, value: 0.02474}
+    value: 0.50800
+  - errors:
+    - {label: unc, value: 0.02214}
+    value: 0.52800
+  - errors:
+    - {label: unc, value: 0.04652}
+    value: 0.59700
+  - errors:
+    - {label: unc, value: 0.03400}
+    value: 0.53700
+  - errors:
+    - {label: unc, value: 0.03068}
+    value: 0.54500
+  - errors:
+    - {label: unc, value: 0.02816}
+    value: 0.55600
+  - errors:
+    - {label: unc, value: 0.02625}
+    value: 0.51200
+  - errors:
+    - {label: unc, value: 0.02341}
+    value: 0.53300
+  - errors:
+    - {label: unc, value: 0.02702}
+    value: 0.58800
+independent_variables:
+- header: {name: "x"}
+  values:
+  - {value: 0.15400}
+  - {value: 0.16700}
+  - {value: 0.17700}
+  - {value: 0.19100}
+  - {value: 0.20700}
+  - {value: 0.22000}
+  - {value: 0.22300}
+  - {value:     nan}
+  - {value: 0.26700}
+  - {value: 0.27200}
+  - {value: 0.27300}
+  - {value: 0.28200}
+  - {value: 0.30700}
+  - {value: 0.32200}
+  - {value: 0.32300}
+  - {value: 0.32400}
+  - {value: 0.33100}
+  - {value: 0.37100}
+  - {value: 0.37300}
+  - {value: 0.37300}
+  - {value: 0.37400}
+  - {value: 0.38400}
+  - {value: 0.42000}
+  - {value: 0.42300}
+  - {value: 0.42300}
+  - {value: 0.42400}
+  - {value: 0.42600}
+  - {value: 0.44200}
+  - {value: 0.46800}
+  - {value: 0.47400}
+  - {value: 0.47300}
+  - {value: 0.47400}
+  - {value: 0.47400}
+  - {value: 0.47800}
+  - {value: 0.50200}
+  - {value: 0.52300}
+  - {value: 0.52300}
+  - {value: 0.52400}
+  - {value: 0.52400}
+  - {value: 0.52500}
+  - {value: 0.53900}
+  - {value: 0.57200}
+  - {value: 0.57400}
+  - {value: 0.57400}
+  - {value: 0.57300}
+  - {value: 0.57400}
+  - {value: 0.57800}
+- header: {name: "Q2"}
+  values:
+  - {value: 1.07800}
+  - {value: 1.22900}
+  - {value: 1.42200}
+  - {value: 1.63300}
+  - {value: 1.28200}
+  - {value: 1.45500}
+  - {value: 1.71500}
+  - {value: 1.98000}
+  - {value: 1.50500}
+  - {value: 1.72400}
+  - {value: 2.04700}
+  - {value: 2.36600}
+  - {value: 1.54500}
+  - {value: 1.73800}
+  - {value: 2.05200}
+  - {value: 2.43100}
+  - {value: 2.79600}
+  - {value: 1.76900}
+  - {value: 2.05900}
+  - {value: 2.43800}
+  - {value: 2.89600}
+  - {value: 3.28800}
+  - {value: 1.81200}
+  - {value: 2.06400}
+  - {value: 2.43800}
+  - {value: 2.89800}
+  - {value: 3.42400}
+  - {value: 3.86800}
+  - {value: 1.83900}
+  - {value: 2.05200}
+  - {value: 2.44900}
+  - {value: 2.90000}
+  - {value: 3.45500}
+  - {value: 3.96800}
+  - {value: 1.85800}
+  - {value: 2.07100}
+  - {value: 2.45300}
+  - {value: 2.89700}
+  - {value: 3.45400}
+  - {value: 4.08200}
+  - {value: 4.57200}
+  - {value: 2.08800}
+  - {value: 2.45900}
+  - {value: 2.91100}
+  - {value: 3.45700}
+  - {value: 4.11700}
+  - {value: 4.66600}

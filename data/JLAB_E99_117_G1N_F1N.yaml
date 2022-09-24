@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {title: "JLAB_E99_117 g1n/F1n structure function ratio"}
+  qualifiers:
+  - {name: process, value: pDIS}
+  - {name: observable, value: g1n/F1n}
+  - {name: target_isoscalarity, value: 0.}
+  - {name: prefactor, value: 1.}
+  - {name: Vs, value:  3.398 , units: GeV}
+  - {name: x, low:  0.33 , high:  0.6 , integrate: false}
+  values:
+  - errors:
+    - {label: unc, value: 0.02377}
+    value: -0.04300
+  - errors:
+    - {label: unc, value: 0.03669}
+    value: 0.04000
+  - errors:
+    - {label: unc, value: 0.04776}
+    value: 0.12400
+independent_variables:
+- header: {name: "x"}
+  values:
+  - {value: 0.33000}
+  - {value: 0.47000}
+  - {value: 0.60000}
+- header: {name: "Q2"}
+  values:
+  - {value: 2.71000}
+  - {value: 3.52000}
+  - {value: 4.83000}
