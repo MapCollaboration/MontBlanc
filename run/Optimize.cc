@@ -149,8 +149,8 @@ int main(int argc, char *argv[])
       // unfluctuated data set.
       NangaParbat::DataHandler *DHc = new NangaParbat::DataHandler{ds["name"].as<std::string>(), YAML::LoadFile(DataFolder + ds["file"].as<std::string>())};
 
-      // Check whethe the hadronic species set in the configuration card
-      // matches with that of the data set.
+      // Check whether the hadronic species set in the configuration
+      // card matches with that of the data set.
       if (DH->GetHadron() != hadron)
         throw std::runtime_error("This data set corresponds to a hadronic species different from that set in the input configuration card");
 
@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
       std::vector<std::shared_ptr<NangaParbat::Cut> > cuts;
       for (auto const &c : ds["cuts"])
         cuts.push_back(NangaParbat::CutFactory::GetInstance(*DH, c["name"].as<std::string>(), c["min"].as<double>(), c["max"].as<double>(),
-							    (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double>{})));
+                                                            (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double> {})));
 
       // Compute predictions within kinematic cuts
       MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, g, cuts};

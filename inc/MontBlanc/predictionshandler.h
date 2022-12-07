@@ -63,6 +63,5 @@ namespace MontBlanc
     std::vector<double>                                  _ChargeMap;
     std::vector<apfel::Set<apfel::Operator>>             _FKt;
     apfel::Set<apfel::Distribution>                      _D;
-    apfel::Set<apfel::Distribution>                      _Do;
   };
 }

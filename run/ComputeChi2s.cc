@@ -163,7 +163,7 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
       std::vector<std::shared_ptr<NangaParbat::Cut>> cuts;
       for (auto const& c :ds["cuts"])
         cuts.push_back(NangaParbat::CutFactory::GetInstance(*DH, c["name"].as<std::string>(), c["min"].as<double>(), c["max"].as<double>(),
-							    (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double>{})));
+                                                            (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double> {})));
 
       // Predictions
       NangaParbat::ConvolutionTable *PH = new MontBlanc::PredictionsHandler{config["Predictions"], *DH, g, cuts};
