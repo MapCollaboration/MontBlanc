@@ -240,17 +240,13 @@ int main(int argc, char *argv[])
   GridHeader += "Reference: arXiv:xxxx.xxxxx\n";
   GridHeader += "Format: lhagrid1\n";
   GridHeader += "DataVersion: 1\n";
-  GridHeader += "NumMembers: " + std::to_string(Nmembers + 1) + "\n";
   if (hadron.substr(0, 2) == "PI")
     GridHeader += "Particle: 211\n";
   else if (hadron.substr(0, 2) == "KA")
     GridHeader += "Particle: 321\n";
   else
     GridHeader += "Particle: 000\n";
-  GridHeader += "Flavors: [-5, -4, -3, -2, -1, 21, 1, 2, 3, 4, 5]\n";
-  GridHeader += "OrderQCD: " + std::to_string(es.PerturbativeOrder) + "\n";
   GridHeader += "FlavorScheme: variable\n";
-  GridHeader += "NumFlavors: " + std::to_string(es.Thresholds.size()) + "\n";
   GridHeader += "ErrorType: replicas";
 
   // Feed it to the initialisation class of APFEL++ and create a grid
