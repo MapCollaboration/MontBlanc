@@ -128,6 +128,8 @@ int main(int argc, char *argv[])
       // Initialise averages
       std::vector<double> av(bins.size(), 0);
       std::vector<double> std(bins.size(), 0);
+      std::vector<double> avor(bins.size(), 0);
+      std::vector<double> stdor(bins.size(), 0);
 
       // Get LHAPDF set
       const std::vector<LHAPDF::PDF*> sets = LHAPDF::mkPDFs(LHAPDFSet);
@@ -138,6 +140,7 @@ int main(int argc, char *argv[])
       if (LHAPDFSet == "LHAPDFSet" || force_uncertainties)
         {
           std::vector<double> av2(bins.size(), 0);
+          std::vector<double> avor2(bins.size(), 0);
           // Run over replicas
           const int nrep = sets.size() - 1;
           for (int irep = 1; irep <= nrep; irep++)
@@ -151,10 +154,15 @@ int main(int argc, char *argv[])
                 {
                   av[i] += ( prds[i] + shifts.first[i] ) / nrep;
                   av2[i] += pow(prds[i] + shifts.first[i], 2) / nrep;
+                  avor[i] += prds[i] / nrep;
+                  avor2[i] += pow(prds[i], 2) / nrep;
                 }
             }
           for (int i = 0; i < (int) bins.size(); i++)
-            std[i] = sqrt(av2[i] - pow(av[i], 2));
+            {
+              std[i] = sqrt(av2[i] - pow(av[i], 2));
+              stdor[i] = sqrt(avor2[i] - pow(avor[i], 2));
+            }
         }
       // ...otherwise only compute predictions for member 0 with no
       // uncertainty.
@@ -165,7 +173,10 @@ int main(int argc, char *argv[])
           const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
           const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
           for (int i = 0; i < (int) bins.size(); i++)
-            av[i] += prds[i] + shifts.first[i];
+            {
+              av[i] += prds[i] + shifts.first[i];
+              avor[i] += prds[i];
+            }
         }
 
       emitter << YAML::BeginMap << YAML::Key << DSVect[iexp].first->GetName() << YAML::Value << YAML::BeginSeq;
@@ -180,6 +191,7 @@ int main(int argc, char *argv[])
           emitter << YAML::Key << "zav" << YAML::Value << b.zav << YAML::Key << "zmin" << YAML::Value << b.zmin << YAML::Key << "zmax" << YAML::Value << b.zmax;
           emitter << YAML::Key << "exp. central value" << YAML::Value << mvs[i] << YAML::Key << "exp. unc." << YAML::Value << unc[i];
           emitter << YAML::Key << "prediction" << YAML::Value << av[i] << YAML::Key << "pred. unc." << YAML::Value << std[i];
+          emitter << YAML::Key << "unshifted prediction" << YAML::Value << avor[i] << YAML::Key << "unshifted pred. unc." << YAML::Value << stdor[i];
           emitter << YAML::EndMap;
         }
       emitter << YAML::EndSeq;

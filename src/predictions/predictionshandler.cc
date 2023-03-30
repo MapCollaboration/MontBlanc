@@ -106,6 +106,9 @@ namespace MontBlanc
         // Get F2 objects at the scale Vs
         const apfel::StructureFunctionObjects F2Obj = apfel::InitializeF2NCObjectsZMT(*_g, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
 
+        // Get skip vector
+        const std::vector<int> skip = F2Obj.skip;
+
         // Intialise container for the FK table
         std::map<int, apfel::Operator> Cj;
         for (int j = 0; j < 13; j++)
@@ -129,6 +132,9 @@ namespace MontBlanc
             // operators
             for (int j = 0; j < 13; j++)
               {
+                if (std::find(skip.begin(), skip.end(), j) != skip.end())
+                  continue;
+
                 std::map<int, apfel::Operator> gj;
                 for (int i = 0; i < 13; i++)
                   if (apfel::Gkj.count({i, j}) == 0)
