@@ -175,9 +175,6 @@ namespace MontBlanc
         // Target isoscalarity
         const double iso = DH.GetTargetIsoscalarity();
 
-        // Get tagging
-        const std::vector<apfel::QuarkFlavour> tagging = DH.GetTagging();
-
         // Adjust PDFs to account for the isoscalarity
         const std::function<std::map<int, double>(double const&, double const&)> tPDFs = [&] (double const& x, double const& Q) -> std::map<int, double>
         {
