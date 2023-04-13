@@ -132,12 +132,9 @@ namespace MontBlanc
             // operators
             for (int j = 0; j < 13; j++)
               {
-                if (std::find(skip.begin(), skip.end(), j) != skip.end())
-                  continue;
-
                 std::map<int, apfel::Operator> gj;
                 for (int i = 0; i < 13; i++)
-                  if (apfel::Gkj.count({i, j}) == 0)
+                  if (apfel::Gkj.count({i, j}) == 0 || (std::find(skip.begin(), skip.end(), i) != skip.end()))
                     gj.insert({i, Zero});
                   else
                     gj.insert({i, Gammaij.at(apfel::Gkj.at({i, j}))});
