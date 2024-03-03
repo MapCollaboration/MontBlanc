@@ -1,0 +1,117 @@
+#################################
+# Predictions
+#################################
+Predictions:
+  # Perturbative order, 0: LO, 1: NLO
+  perturbative order: 1
+
+  # Initial scale in GeV to be used for the DGLAP evolution of the FFs.
+  mu0: 1
+
+  # Quark thresholds
+  thresholds: [0, 0, 0, 1.51, 4.92]
+
+  # Strong coupling
+  alphas:
+    aref: 0.118
+    Qref: 91.1876
+
+  # Fine-structure constant
+  alphaem:
+    aref: 0.00776578395589
+    Qref: 91.1876
+
+  # APFEL++ grid
+  xgrid:
+    - [100, 1e-2, 3]
+    - [60,  2e-1, 3]
+    - [40,  8e-1, 3]
+
+  # PDF set
+  pdfset:
+    name: NNPDF31_nlo_pch_as_0118
+    member: -1 #N>=0 for a specific member (0 for central) ; N<0 for all members to be used randomly(flat dist)
+    
+#################################
+# Optimiser
+#################################
+# Parameters of the optimiser managed by ceres-solver
+Optimizer:
+  max_num_iterations: 3000
+  chi2_tolerance: 3
+#################################
+# NNAD
+#################################
+NNAD:
+  # Initialisation seed
+  seed: 4
+  # Architecture
+  architecture: [1, 20, 7]
+  # The output function can be either the activation function of the
+  # NN (0), or linear (1), or quadratic (2). If this entry is absent a
+  # linear function is assumed.
+  output function: 2
+  # The flavour map gives the the specific combinations of
+  # distributions in the physical-basis (d, u, s, ..) to be fitted to
+  # the data. The number of combinations has to match the number of
+  # nodes of the output layer of the NN given in the
+  # architecture. When defining the flavour map, one should keep in
+  # mind that the code computes predictions using the QCD-evolution
+  # basis (Sigma, V, T3, ...). Therefore, in general,
+  # QCD-evolution-like combinations should be preferred. Moreover, the
+  # distributions are assumed to be for the positive charge of the a
+  # given hadronic species. The negative distributions are derived
+  # using charge conjugation (q->qbar).
+
+  #             tb bb cb sb ub db g  d  u  s  c  b  t  # Combinations to be fitted (i.e. output of the NN):
+  flavour map: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, # - sb
+    0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, # - g
+    0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, # - s = ubar
+    0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, # - u
+    0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, # - d+
+    0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, # - c+
+    0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0] # - b+
+  #tb bb cb sb ub db g  d  u  s  c  b  t
+  combine: true
+#################################
+# Data
+#################################
+Data:
+  # Seed used for the replica generation and the splitting between
+  # training and validation (do not use a too large number here in
+  # order to avoid correlation in the replica generation).
+  seed: 0
+  # Hadronic species being fitted. This is used to make sure that all
+  # data sets included in the fit actually refer to the correct
+  # species.
+  hadron: KA
+  # Datasets to be included in the fit along with specific cuts and
+  # traning fraction. Each single dataset can implement an arbitrary
+  # number of cuts determined by the name of the appropriate function
+  # (e.g. zcut) and the allowed range.
+  sets:
+    - {name: "HERMES $K^-$ deuteron", file: "HERMES_KA_MINUS_DEUTERON.yaml", cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+    - {name: "HERMES $K^-$ proton", file: "HERMES_KA_MINUS_PROTON.yaml", cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+    - {name: "HERMES $K^+$ deuteron", file: "HERMES_KA_PLUS_DEUTERON.yaml", cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+    - {name: "HERMES $K^+$ proton", file: "HERMES_KA_PLUS_PROTON.yaml", cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+    - {name: "COMPASS $K^-$", file: "COMPASS_KA_MINUS_DECORR.yaml", cuts: [{name: Qcut, min: 2.0, max: 50}], training fraction: 0.5}
+    - {name: "COMPASS $K^+$", file: "COMPASS_KA_PLUS_DECORR.yaml", cuts: [{name: Qcut, min: 2.0, max: 50}], training fraction: 0.5}
+    - {name: "BELLE $K^\\pm$", file: "BELLE_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "BABAR conventional $K^\\pm$", file: "BABAR_KA_PLUS_MINUS_CONVENTIONAL.yaml", cuts: [{name: zcut, min: 0.2, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 12 GeV $K^\\pm$", file: "TASSO_12_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 14 GeV $K^\\pm$", file: "TASSO_14_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 22 GeV $K^\\pm$", file: "TASSO_22_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TPC $K^\\pm$", file: "TPC_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 30 GeV $K^\\pm$", file: "TASSO_30_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 34 GeV $K^\\pm$", file: "TASSO_34_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 44 GeV $K^\\pm$", file: "TASSO_44_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TOPAZ $K^\\pm$", file: "TOPAZ_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "ALEPH $K^\\pm$", file: "ALEPH_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "DELPHI total $K^\\pm$", file: "DELPHI_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "DELPHI $uds$ $K^\\pm$", file: "DELPHI_KA_PLUS_MINUS_UDS.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "DELPHI bottom $K^\\pm$", file: "DELPHI_KA_PLUS_MINUS_B.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "OPAL $K^\\pm$", file: "OPAL_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "SLD total $K^\\pm$", file: "SLD_KA_PLUS_MINUS.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "SLD $uds$ $K^\\pm$", file: "SLD_KA_PLUS_MINUS_UDS.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    #- {name: "SLD charm $K^\\pm$",     file: "SLD_KA_PLUS_MINUS_C.yaml",        cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+    - {name: "SLD bottom $K^\\pm$", file: "SLD_KA_PLUS_MINUS_B.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
