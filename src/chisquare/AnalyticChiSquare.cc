@@ -75,11 +75,11 @@ namespace MontBlanc
     if (jacobians != NULL)
       {
         _NPFunc->DeriveOnGrid();
-        int acc=0;
+        int acc = 0;
         for (int ids = 0; ids < (int) _ndata.size(); ids++)
           {
-            if(ids!=0)
-              acc+=_ndata[ids-1];
+            if (ids != 0)
+              acc += _ndata[ids-1];
 
             _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction());
             std::vector<double> resids = GetResiduals(ids);
@@ -89,11 +89,11 @@ namespace MontBlanc
 
             for (int ip = 0; ip < _Np; ip++)
               {
-                _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionDerivative(ip));
-                std::vector<double> jacobs = GetResidualDerivatives(ids, 0);
-
                 if (jacobians[ip] == nullptr)
                   continue;
+
+                _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionDerivative(ip));
+                std::vector<double> jacobs = GetResidualDerivatives(ids, 0);
 
                 for (int id = 0; id < _ndata[ids]; id++)
                   jacobians[ip][acc + id] = jacobs[id];
@@ -109,6 +109,7 @@ namespace MontBlanc
           {
             if (ids != 0)
               acc += _ndata[ids - 1];
+
             _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction());
             std::vector<double> resids = GetResiduals(ids);
 
@@ -117,7 +118,6 @@ namespace MontBlanc
           }
       }
     return true;
-
   }
 
   // NumericCostFunction
