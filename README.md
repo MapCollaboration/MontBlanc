@@ -1,6 +1,6 @@
-![alt text](resources/MontBlanc.jpg "Mont Blanc")
-
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6264693.svg)](https://doi.org/10.5281/zenodo.6264693)
+
+![alt text](resources/MontBlanc.jpg "Mont Blanc")
 
 # MontBlanc
 
