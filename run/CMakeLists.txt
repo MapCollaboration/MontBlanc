@@ -13,3 +13,6 @@ target_link_libraries(LHAPDFGrid MontBlanc)
 
 add_executable(Predictions Predictions.cc)
 target_link_libraries(Predictions MontBlanc)
+
+add_executable(Predictions_SIDIS Predictions_SIDIS.cc)
+target_link_libraries(Predictions_SIDIS MontBlanc)
