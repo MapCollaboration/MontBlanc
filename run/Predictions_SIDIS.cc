@@ -111,28 +111,11 @@ int main(int argc, char *argv[])
          fout.close();
        }
     }
-  
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Now we Loop over PDF replicas
-  const LHAPDF::PDFSet set(config["Predictions"]["pdfset"]["name"].as<std::string>());
-  for (auto const& dn : config["Data"]["sets"])
-    {
-      if(dn["name"].as<std::string>().find("COMPASS") != std::string::npos || 
-              dn["name"].as<std::string>().find("HERMES") != std::string::npos)
-       {
-         const std::string OutputFile= ResultFolder + "/Pred_" +  dn["name"].as<std::string>() + ".yaml";
-         std::ofstream fout(OutputFile);
-         YAML::Node node;
-         node["exp"]["try"] = "provaaa";
-         fout << node;
-         fout.close();
-       }
-    }
-  
- 
-  const std::vector<LHAPDF::PDF*> PDFs = set.mkPDFs();
-  //const std::vector<LHAPDF::PDF*> PDFs = LHAPDF::mkPDFs(PDFSet);
-  const int n_rep = set.size() - 1;
+
+  std::string pdfset = config["Predictions"]["pdfset"]["name"].as<std::string>();
+  //const std::vector<LHAPDF::PDF*> PDFs = set.mkPDFs();
+  const std::vector<LHAPDF::PDF*> PDFs = LHAPDF::mkPDFs(pdfset);
+  const int n_rep = PDFs.size() - 1;
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
   for (int jrep = 1; jrep <= n_rep; jrep++)
@@ -242,20 +225,19 @@ int main(int argc, char *argv[])
               YAML::Node subnode;
               subnode =  YAML::Node(YAML::NodeType::Map);
               subnode["index"] = i;
-              subnode["Qav"] = b.Qav;
-              subnode["Qmin"] = b.Qmin;
-              subnode["Qmax"] = b.Qmax;
-              subnode["yav"] = b.yav;
-              subnode["ymin"] = b.ymin;
-              subnode["ymax"] = b.ymax;
-              subnode["xav"] = b.xav;
-              subnode["xmin"] = b.xmin;
-              subnode["xmax"] = b.xmax;
-              subnode["zav"] = b.zav;
-              subnode["zmin"] = b.zmin;
-              subnode["zmax"] = b.zmax;
-              subnode["exp. central values"] = mvs[i];
-              subnode["exp. unc."] = unc[i];
+              //subnode["Qmin"] = b.Qmin;
+              //subnode["Qmax"] = b.Qmax;
+              //subnode["yav"] = b.yav;
+              //subnode["ymin"] = b.ymin;
+              //subnode["ymax"] = b.ymax;
+              //subnode["xav"] = b.xav;
+              //subnode["xmin"] = b.xmin;
+              //subnode["xmax"] = b.xmax;
+              //subnode["zav"] = b.zav;
+              //subnode["zmin"] = b.zmin;
+              //subnode["zmax"] = b.zmax;
+              //subnode["exp. central values"] = mvs[i];
+              //subnode["exp. unc."] = unc[i];
               subnode["prediction"] = av[i];
               subnode["pred. unc."] = std[i];
               subnode["unshifted prediction"] = avor[i];
@@ -276,6 +258,7 @@ int main(int argc, char *argv[])
               //emitter << YAML::Key << "unshifted prediction" << YAML::Value << avor[i] << YAML::Key << "unshifted pred. unc." << YAML::Value << stdor[i];
               //emitter << YAML::EndMap;
            }
+           node.reset();
           //emitter << YAML::EndSeq;
           //emitter << YAML::EndMap;
        }
