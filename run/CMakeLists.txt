@@ -19,3 +19,7 @@ target_link_libraries(Predictions_SIDIS MontBlanc)
 
 add_executable(Predictions_SIDIS_V2 Predictions_SIDIS_V2.cc)
 target_link_libraries(Predictions_SIDIS_V2 MontBlanc)
+
+add_executable(Reweighting_SIDIS reweighting.cc)
+target_link_libraries(Reweighting_SIDIS MontBlanc -lgsl -lgslcblas)
+

@@ -218,7 +218,7 @@ int main(int argc, char *argv[])
           //emitter << YAML::Key << "yav" << YAML::Value << b.yav << YAML::Key << "ymin" << YAML::Value << b.ymin << YAML::Key << "ymax" << YAML::Value << b.ymax;
           //emitter << YAML::Key << "xav" << YAML::Value << b.xav << YAML::Key << "xmin" << YAML::Value << b.xmin << YAML::Key << "xmax" << YAML::Value << b.xmax;
           //emitter << YAML::Key << "zav" << YAML::Value << b.zav << YAML::Key << "zmin" << YAML::Value << b.zmin << YAML::Key << "zmax" << YAML::Value << b.zmax;
-          //emitter << YAML::Key << "exp. central value" << YAML::Value << mvs[i] << YAML::Key << "exp. unc." << YAML::Value << unc[i];
+          emitter << YAML::Key << "exp. central value" << YAML::Value << mvs[i] << YAML::Key << "exp. unc." << YAML::Value << unc[i];
           emitter << YAML::Key << "prediction" << YAML::Value << av[i] << YAML::Key << "pred. unc." << YAML::Value << std[i];
           emitter << YAML::Key << "unshifted prediction" << YAML::Value << avor[i] << YAML::Key << "unshifted pred. unc." << YAML::Value << stdor[i];
           emitter << YAML::EndMap;
