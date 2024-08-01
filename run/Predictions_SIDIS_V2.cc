@@ -74,6 +74,7 @@ int main(int argc, char *argv[])
 
   const int replica = std::stoi(argv[optind + 1]);
   
+  
   // Timer
   apfel::Timer t;
 
@@ -93,7 +94,7 @@ int main(int argc, char *argv[])
   config["Predictions"]["pdfset"]["member"] = replica;
 
   // create a folder for each experiment
-  std::filesystem::path folder_path = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_fin";
+  std::filesystem::path folder_path = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_test";
     
   if (!std::filesystem::exists(folder_path)) 
    {
@@ -105,7 +106,7 @@ int main(int argc, char *argv[])
         if(ds["name"].as<std::string>().find("COMPASS") != std::string::npos || 
               ds["name"].as<std::string>().find("HERMES") != std::string::npos)
           {//Create folders
-            std::filesystem::path exp_path = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_fin/Predictions_exp " + ds["name"].as<std::string>();
+            std::filesystem::path exp_path = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_test/Predictions_exp " + ds["name"].as<std::string>();
             std::filesystem::create_directory(exp_path);
           }
        }  
@@ -146,7 +147,7 @@ int main(int argc, char *argv[])
     {
       YAML::Emitter emitter;
       std::cout << "#Experiment = " << DSVect[iexp].first->GetName() << std::endl;
-      const std::string OutputFile = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_fin/Predictions_exp " + DSVect[iexp].first->GetName()+ std::string("/Predictions_replica ") + argv[optind + 1] + ".yaml";
+      const std::string OutputFile = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_test/Predictions_exp " + DSVect[iexp].first->GetName()+ std::string("/Predictions_replica ") + argv[optind + 1] + ".yaml";
       // Get experimental central values and uncorrelated uncertainties
       const std::vector<double> mvs = DSVect[iexp].first->GetMeanValues();
       const std::vector<double> unc = DSVect[iexp].first->GetUncorrelatedUnc();
@@ -198,7 +199,7 @@ int main(int argc, char *argv[])
       else
         {
           // Construct chi2 object with the 0-th replica
-          MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, g, 0}};
+          MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, g, 173}};
           const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
           const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
           for (int i = 0; i < (int) bins.size(); i++)

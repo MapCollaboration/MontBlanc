@@ -13,9 +13,23 @@
 #include <fstream>
 #include <algorithm>
 
-typedef std::pair<std::vector<double>, double> PVD;
+template <typename T1, typename T2, typename T3, typename T4>
+
+struct Quad {
+    T1 first;
+    T2 second;
+    T3 third;
+    T4 fourth;
+    Quad(const T1& f, const T2& s, const T3& t, const T4& fo) : first(f), second(s), third(t), fourth(fo) {}
+};
+
+
+typedef Quad<std::vector<double>, double, int, int> PVD;
+//typedef std::pair<std::vector<double>, double> PVD;
 typedef std::vector<PVD> VPVD;
 typedef std::vector<std::vector<double> > VV;
+
+
 
 bool wayToSort(PVD i, PVD j)
 {
@@ -53,7 +67,7 @@ int main(int argc, char *argv[])
 
   // Load all parameters and pair them with the total chi2 value for sorting
   for (auto const &rep : bestfits)
-    AllPars.push_back(PVD(rep["parameters"].as<std::vector<double> >(), rep["total chi2"].as<double>()));
+    AllPars.push_back(PVD(rep["parameters"].as<std::vector<double> >(), rep["total chi2"].as<double>(), rep["replica"].as<int>(), rep["PDFmember"].as<int>()));
 
   // Sort sets of parameters according to the chi2
   sort(AllPars.begin(), AllPars.end(), wayToSort);
@@ -82,7 +96,26 @@ int main(int argc, char *argv[])
       std::cerr << "Requested more replicas than available." << std::endl;
       exit(-1);
     }
+  
 
+  //print new file with replica sorted
+  YAML::Emitter emitter;
+  for (auto const &rep : AllPars)
+     {
+       emitter << YAML::BeginSeq;
+       emitter << YAML::Flow << YAML::BeginMap;
+       emitter << YAML::Key << "replica" << YAML::Value << rep.third;
+       emitter << YAML::Key << "PDFmember"<< YAML::Value << rep.fourth;
+       emitter << YAML::Key << "total chi2" << YAML::Value << rep.second;
+       emitter << YAML::Key << "parameters" << YAML::Value << YAML::Flow << rep.first;
+       emitter << YAML::EndMap;
+       emitter << YAML::EndSeq;
+       emitter << YAML::Newline;
+     }
+       std::ofstream fout;
+       fout = std::ofstream(ResultFolder + "/BestParameters_sorted.yaml", std::ios::out | std::ios::app);
+       fout << emitter.c_str();
+       fout.close();
   // Construct rotation matrix to obtain FFs in the evolution basis
   // that is what is fed to APFEL++ to do the evolution.
   const std::vector<int> Architecture = config["NNAD"]["architecture"].as<std::vector<int>>();
