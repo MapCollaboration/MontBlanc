@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
             std::string s =  ds["file"].as<std::string>();
             int pos = s.find(".");
             file_names.push_back(s.substr(0, pos));
-            YAML::Node exp = YAML::LoadFile(Predictions +"Predictions_" + file_names.back() +"/Predictions_replica_" + std::to_string(i+1) + ".yaml");
+            YAML::Node exp = YAML::LoadFile(Predictions + file_names.back() +"/Predictions_replica_" + std::to_string(i+1) + ".yaml");
             
              // Get info about z and Q cuts ranges and set dimensions for the corr error matrix 
              if(ds["name"].as<std::string>().find("HERMES") != std::string::npos)
