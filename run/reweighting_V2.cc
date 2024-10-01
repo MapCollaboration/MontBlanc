@@ -66,10 +66,8 @@ int main(int argc, char *argv[])
   //config["Predictions"]["pdfset"]["member"] = replica;
 
   //Loop over PDFs replica
-  int N_rep = 100;
+  int N_rep = 1000;
 
-  YAML::Emitter emitter;
-  emitter <<YAML::BeginMap <<  YAML::Key << "info " << YAML::Value << YAML::BeginSeq;
 
   for(int i = 1; i <= N_rep; i++)
     {
@@ -120,22 +118,23 @@ int main(int argc, char *argv[])
       
       den += pow(c2, 0.5*(np - 1)) * exp(- 0.5 * c2*np); 
       weight_vect.push_back(lw);
-      //std::cout << std::scientific << c2*np << "\t" << lw <<"\t"<<den<< std::endl;
-
-      emitter << YAML::Flow << YAML::BeginMap;
+      //std::cout << std::scientific << np << "\t" << lw <<"\t"<<log(den)<< std::endl;
+      // i ounti sono 838
+      
+     /* emitter << YAML::Flow << YAML::BeginMap;
       emitter << YAML::Key << "log num" << YAML::Value << lw;
        emitter << YAML::Key << "chi2" << YAML::Value << c2*np;
         emitter << YAML::Key << "den" << YAML::Value << den;
-       emitter << YAML::EndMap;
+       emitter << YAML::EndMap;*/
 
     }
-      emitter<< YAML::EndSeq;
+   /*   emitter<< YAML::EndSeq;
   emitter << YAML::EndMap;
   std::ofstream fout(Weights + "weight_for_PDFS.yaml");
   fout << emitter.c_str();
-  fout.close();  
+  fout.close();  */
       //una volta raccolto i 100 chi2 calcolo e stampo i pesi 
-  /*YAML::Emitter emitter;
+  YAML::Emitter emitter;
   emitter <<YAML::BeginMap <<  YAML::Key << "Weights" << YAML::Value << YAML::BeginSeq;
   
   for (int i = 0; i < N_rep; i++)
@@ -149,7 +148,7 @@ int main(int argc, char *argv[])
   emitter << YAML::EndMap;
   std::ofstream fout(Weights + "weight_for_PDFS.yaml");
   fout << emitter.c_str();
-  fout.close();  */
+  fout.close();  
   
       // Print total chi2
       //std::cout << "Replica " << irep << ", Total chi2 / Npt = " << chi2->Evaluate() << " (Npt = " << chi2->GetDataPointNumberAfterCuts() << ")" << std::endl;
