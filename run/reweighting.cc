@@ -1,3 +1,5 @@
+#include "MontBlanc/predictionshandler.h"
+#include "MontBlanc/AnalyticChiSquare.h"
 // NangaParbat
 #include <NangaParbat/chisquare.h>
 #include <NangaParbat/cutfactory.h>
@@ -89,7 +91,8 @@ int main(int argc, char *argv[])
       // Initialise GSL random-number generator
       gsl_rng *rng = gsl_rng_alloc(gsl_rng_ranlxs2);
       gsl_rng_set(rng, config["Data"]["seed"].as<int>());
-      
+      number_data = 0; // total number of data for SIDIS
+
       for (auto const& ds : config["Data"]["sets"])
         {
           // Initialize an Eigen matrix 
@@ -100,8 +103,7 @@ int main(int argc, char *argv[])
           // Dimension of columns for the experiment in the correlated error matrix
           int dim_col; // number of correlated uncertanties
           int dim_row; // number of point
-          number_data = 0; // total number of data for SIDIS
-
+          
           if(ds["name"].as<std::string>().find("COMPASS") != std::string::npos || 
               ds["name"].as<std::string>().find("HERMES") != std::string::npos)
            { 
@@ -109,7 +111,7 @@ int main(int argc, char *argv[])
             std::string s =  ds["file"].as<std::string>();
             int pos = s.find(".");
             file_names.push_back(s.substr(0, pos));
-            YAML::Node exp = YAML::LoadFile(Predictions  + file_names.back() +"/Predictions_replica_" + std::to_string(i+1) + ".yaml");
+            YAML::Node exp = YAML::LoadFile(Predictions +"Predictions_" + file_names.back() +"/Predictions_replica_" + std::to_string(i+1) + ".yaml");
             
              // Get info about z and Q cuts ranges and set dimensions for the corr error matrix 
              if(ds["name"].as<std::string>().find("HERMES") != std::string::npos)
@@ -287,6 +289,7 @@ int main(int argc, char *argv[])
           Q_values = Q_values_blocks[n];
           z_val_low = z_values_low_blocks[n];
           z_val_high = z_values_high_blocks[n];
+          std::string name = file_names[n];
           Eigen::VectorXd dati = data_blocks[n];
           Eigen::VectorXd dati_fluttuati = data_fluctuated_blocks[n];
           Eigen::VectorXd predizioni = pred_blocks[n];

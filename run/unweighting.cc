@@ -2,11 +2,6 @@
 #include "MontBlanc/AnalyticChiSquare.h"
 #include "MontBlanc/LHAPDFparameterisation.h"
 #include <Eigen/Dense>
-// NangaParbat
-#include <NangaParbat/chisquare.h>
-#include <NangaParbat/cutfactory.h>
-#include <NangaParbat/Trainingcut.h>
-#include <NangaParbat/direxists.h>
 
 #include <fstream>
 #include <algorithm>
@@ -15,21 +10,6 @@
 
 #include <filesystem>
 #include <sstream>
-
-#include <gsl/gsl_matrix.h>
-#include <gsl/gsl_linalg.h>
-#include <plot.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "apfel/initialiseevolution.h"
-#include "apfel/grid.h"
-#include "apfel/messages.h"
-#include "apfel/alphaqcdxi.h"
-#include "apfel/tabulateobject.h"
-#include "apfel/constants.h"
-#include "apfel/rotations.h"
-
 
 #include "LHAPDF/Paths.h"
 #include "LHAPDF/LHAPDF.h"
@@ -71,12 +51,17 @@ int main(int argc, char *argv[])
   std::string hadron = "PIp";
   
  
-  if (!std::filesystem::exists(Unweighted_files)) 
+  if (!std::filesystem::exists(Unweighting_files)) 
    {
-     std::filesystem::create_directory(Unweighted_files);
+     std::filesystem::create_directory(Unweighting_files);
      std::cout << "Folder created successfully." << std::endl;
    }
-
+  
+  if (!std::filesystem::exists(UnweightedSet)) 
+   {
+     std::filesystem::create_directory(UnweightedSet);
+     std::cout << "Folder created successfully." << std::endl;
+   }
   YAML::Node config = YAML::LoadFile(InputCardPath);
 
   // Initialise GSL random-number generator
@@ -126,8 +111,7 @@ int main(int argc, char *argv[])
   cum_prob.push_back(0.);
 
   for(int j = 1; j<= N_rep; j++)
-    {
-      
+    {      
       cum_prob.push_back(cum_prob[j-1] + w_k[j-1].second/(float) N_rep);
       cum_prob_k.push_back(std::make_pair(w_k[j-1].first, cum_prob[j]));
     }
@@ -233,7 +217,15 @@ int main(int argc, char *argv[])
 
                 while (std::getline(infofile, line)) 
                   {
-                    if (line.find("NumMembers:") != std::string::npos) 
+                    if (line.find("SetDesc:") != std::string::npos) 
+                     {
+                       destFile << "SetDesc: " << "NNPDF3.1 NLO global fit (perturbative charm), alphas(MZ)=0.118. mem=0 => average on replicas; mem=1-" + std::to_string(N_eff) +" => PDF replicas"<<std::endl;
+                     }
+                     else if (line.find("Authors:") != std::string::npos) 
+                     {
+                       destFile << "Authors: " << "L. Canzian"<< std::endl;  // Write the modified line to temp file
+                     } 
+                    else if (line.find("NumMembers:") != std::string::npos) 
                      {
                        destFile << "NumMembers: " << N_eff + 1 << std::endl;  // Write the modified line to temp file
                      } 
@@ -283,7 +275,8 @@ int main(int argc, char *argv[])
     int i;
 
     // Array of distributions
-    std::vector<double> Thresholds = config["Predictions"]["thresholds"].as<std::vector<double>>()
+   
+    std::vector<double> Thresholds = config["Predictions"]["thresholds"].as<std::vector<double>>();
     const int nd = 2 * Thresholds.size() + 1;
     i = 0;
     while(std::getline(file, line) && s == 0)
@@ -304,16 +297,14 @@ int main(int argc, char *argv[])
     std::getline(file1, line);
     std::getline(file1, line);
     std::getline(file1, line);
-
+     
     const int np = skipline[s];
-    
-    std::cout<<"num of column "<<nd<<"   num of rows "<<np<<std::endl;
-    //double dist[np][nd];
+     
     Eigen::MatrixXd dist =  Eigen::MatrixXd::Zero(np, nd);
     int sum = std::accumulate(skipline.begin(), skipline.begin() + s , 0);   
     int dum;
     dum = (s == 0 ? 0 : sum + 4*s );
-    std::cout<<"sum "<<sum<<"  dum "<<dum<<std::endl;
+    
 
     for (int i = 0; i < dum ; i++) 
           {
