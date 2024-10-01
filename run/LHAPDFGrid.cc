@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 {
   if (argc < 2)
     {
-      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<hadron> (default: PIp, options: PIp, PIm, PIsum, KAp, KAm, KAsum)] [<set name> (default: LHAPDFSet)] [<Nmembers> (default: all)]" << std::endl;
+      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<hadron> (default: PIp, options: PIp, PIm, PIsum, KAp, KAm, KAsum)] [<set name> (default: LHAPDFSet)] [<Nmembers> (default: all)][<Parameter file name> (default: BestParameters.yaml)]" << std::endl;
       exit(-1);
     }
 
@@ -58,9 +58,13 @@ int main(int argc, char *argv[])
 
   // Read Input Card
   YAML::Node config = YAML::LoadFile(ResultFolder + "/config.yaml");
+   
+   std::string file_name = "BestParameters.yaml";
+   if (argc >= 6)
+    file_name = argv[5];
 
   // Retrive best-fit paramaters
-  YAML::Node bestfits = YAML::LoadFile(ResultFolder + "/BestParameters.yaml");
+  YAML::Node bestfits = YAML::LoadFile(ResultFolder + "/" + file_name);
 
   VPVD AllPars;
   VV BestPars;
@@ -97,25 +101,29 @@ int main(int argc, char *argv[])
       exit(-1);
     }
   
-
+  
   //print new file with replica sorted
-  YAML::Emitter emitter;
-  for (auto const &rep : AllPars)
-     {
-       emitter << YAML::BeginSeq;
-       emitter << YAML::Flow << YAML::BeginMap;
-       emitter << YAML::Key << "replica" << YAML::Value << rep.third;
-       emitter << YAML::Key << "PDFmember"<< YAML::Value << rep.fourth;
-       emitter << YAML::Key << "total chi2" << YAML::Value << rep.second;
-       emitter << YAML::Key << "parameters" << YAML::Value << YAML::Flow << rep.first;
-       emitter << YAML::EndMap;
-       emitter << YAML::EndSeq;
-       emitter << YAML::Newline;
-     }
-       std::ofstream fout;
-       fout = std::ofstream(ResultFolder + "/BestParameters_sorted.yaml", std::ios::out | std::ios::app);
-       fout << emitter.c_str();
-       fout.close();
+  if(argc <= 5)
+   {
+     YAML::Emitter emitter;
+     for (auto const &rep : AllPars)
+       {
+         emitter << YAML::BeginSeq;
+         emitter << YAML::Flow << YAML::BeginMap;
+         emitter << YAML::Key << "replica" << YAML::Value << rep.third;
+         emitter << YAML::Key << "PDFmember"<< YAML::Value << rep.fourth;
+         emitter << YAML::Key << "total chi2" << YAML::Value << rep.second;
+         emitter << YAML::Key << "parameters" << YAML::Value << YAML::Flow << rep.first;
+         emitter << YAML::EndMap;
+         emitter << YAML::EndSeq;
+         emitter << YAML::Newline;
+       }
+     std::ofstream fout;
+     fout = std::ofstream(ResultFolder + "/BestParameters_sorted.yaml", std::ios::out | std::ios::app);
+     fout << emitter.c_str();
+     fout.close();
+   }
+
   // Construct rotation matrix to obtain FFs in the evolution basis
   // that is what is fed to APFEL++ to do the evolution.
   const std::vector<int> Architecture = config["NNAD"]["architecture"].as<std::vector<int>>();

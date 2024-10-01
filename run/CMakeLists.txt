@@ -14,18 +14,12 @@ target_link_libraries(LHAPDFGrid MontBlanc)
 add_executable(Predictions Predictions.cc)
 target_link_libraries(Predictions MontBlanc)
 
-add_executable(Predictions_SIDIS Predictions_SIDIS.cc)
-target_link_libraries(Predictions_SIDIS MontBlanc)
-
 add_executable(Predictions_SIDIS_V2 Predictions_SIDIS_V2.cc)
 target_link_libraries(Predictions_SIDIS_V2 MontBlanc)
 
 add_executable(Reweighting_SIDIS reweighting.cc)
 target_link_libraries(Reweighting_SIDIS MontBlanc)
 
-add_executable(Reweighting_SIDIS_V2 reweighting_V2.cc)
-target_link_libraries(Reweighting_SIDIS_V2 MontBlanc)
-
 add_executable(Unweighting unweighting.cc)
 target_link_libraries(Unweighting MontBlanc)
-target_link_libraries(Unweighting -lplot)
+

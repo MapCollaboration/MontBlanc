@@ -67,13 +67,15 @@ int main(int argc, char *argv[])
   // Input information
   const std::string InputCardPath = ResultFolder + "/config.yaml";
   const std::string datafolder    = ResultFolder + "/data/";
-  //const std::string OutputFile    = ResultFolder + "/Predictions_replica" + argv[1] + ".yaml";
+  
   std::string LHAPDFSet = "LHAPDFSet";
   if (argc - optind >= 3)
     LHAPDFSet = argv[optind + 2];
 
   const int replica = std::stoi(argv[optind + 1]);
-  
+
+  // Define vector of file names
+  std::vector<std::string> exp_names;
   
   // Timer
   apfel::Timer t;
@@ -105,12 +107,17 @@ int main(int argc, char *argv[])
        {
         if(ds["name"].as<std::string>().find("COMPASS") != std::string::npos || 
               ds["name"].as<std::string>().find("HERMES") != std::string::npos)
-          {//Create folders
-            std::filesystem::path exp_path = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_test/Predictions_exp " + ds["name"].as<std::string>();
+          {
+            //Create folders
+            std::string s =  ds["file"].as<std::string>();
+            int pos = s.find(".");
+            exp_names.push_back(s.substr(0, pos));
+            std::filesystem::path exp_path = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_test/" + exp_names.back();            
             std::filesystem::create_directory(exp_path);
           }
        }  
    }
+
   // APFEL++ x-space grid
   std::vector<apfel::SubGrid> vsg;
   for (auto const& sg : config["Predictions"]["xgrid"])
@@ -136,7 +143,6 @@ int main(int argc, char *argv[])
        }
     }
 
-
   // Run over the experiments, compute central values and standard
   // deviations (of the shifted predictions) over the replicas. Save
   // results in a YAML:Emitter.
@@ -147,7 +153,7 @@ int main(int argc, char *argv[])
     {
       YAML::Emitter emitter;
       std::cout << "#Experiment = " << DSVect[iexp].first->GetName() << std::endl;
-      const std::string OutputFile = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_test/Predictions_exp " + DSVect[iexp].first->GetName()+ std::string("/Predictions_replica ") + argv[optind + 1] + ".yaml";
+      const std::string OutputFile = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_test/" +  exp_names[iexp] + "/Predictions_replica_" + argv[optind + 1] + ".yaml";
       // Get experimental central values and uncorrelated uncertainties
       const std::vector<double> mvs = DSVect[iexp].first->GetMeanValues();
       const std::vector<double> unc = DSVect[iexp].first->GetUncorrelatedUnc();
@@ -199,7 +205,7 @@ int main(int argc, char *argv[])
       else
         {
           // Construct chi2 object with the 0-th replica
-          MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, g, 173}};
+          MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, g, 0}};
           const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
           const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
           for (int i = 0; i < (int) bins.size(); i++)
@@ -223,36 +229,15 @@ int main(int argc, char *argv[])
           emitter << YAML::Key << "prediction" << YAML::Value << av[i] << YAML::Key << "pred. unc." << YAML::Value << std[i];
           emitter << YAML::Key << "unshifted prediction" << YAML::Value << avor[i] << YAML::Key << "unshifted pred. unc." << YAML::Value << stdor[i];
           emitter << YAML::EndMap;
-          
-
         }
+
       emitter << YAML::EndSeq;
       emitter << YAML::EndMap;
       std::ofstream fout(OutputFile);
       fout << emitter.c_str();
-      fout.close();
-
-      // Load the first YAML file
-    //YAML::Node config1 = YAML::LoadFile(folder_path.generic_string() + "/Predictions_exp " + DSVect[iexp].first->GetName() + ".yaml");
-
-    // Load the second YAML file
-   // YAML::Node config2 = YAML::LoadFile(OutputFile);
-
-    // Merge the two YAML nodes
-    //YAML::Merge merge;
-    //config1.merge(config2);
-    //std::filesystem::remove(OutputFile);
-    //std::ofstream file(folder_path.generic_string() + "/Predictions_exp " + DSVect[iexp].first->GetName() + ".yaml");
-    //file << config1;
-    //file.close();
+      fout.close();     
     }
-  //emitter << YAML::EndSeq;
-
-  // Print YAML:Emitter to file
-  //std::ofstream fout(OutputFile);
-  //fout << emitter.c_str();
-  //fout.close();
-
+  
   t.stop(true);
   return 0;
 }
