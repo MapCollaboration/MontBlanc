@@ -94,16 +94,18 @@ int main(int argc, char *argv[])
 
   // Set PDF set member to the replica chosen
   config["Predictions"]["pdfset"]["member"] = replica;
-
+  LHAPDF::pathsPrepend("/home/canzian/lhapdf");
   // create a folder for each experiment
   std::filesystem::path folder_path = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_test";
+
     
   if (!std::filesystem::exists(folder_path)) 
    {
      std::filesystem::create_directory(folder_path);
      std::cout << "Folder created successfully." << std::endl;
-     
-     for (auto const& ds : config["Data"]["sets"])
+   }
+   
+  for (auto const& ds : config["Data"]["sets"])
        {
         if(ds["name"].as<std::string>().find("COMPASS") != std::string::npos || 
               ds["name"].as<std::string>().find("HERMES") != std::string::npos)
@@ -113,10 +115,11 @@ int main(int argc, char *argv[])
             int pos = s.find(".");
             exp_names.push_back(s.substr(0, pos));
             std::filesystem::path exp_path = GetCurrentWorkingDir() + "/" + ResultFolder + "/Predictions_test/" + exp_names.back();            
-            std::filesystem::create_directory(exp_path);
+            if (!std::filesystem::exists(exp_path))
+               std::filesystem::create_directory(exp_path);
           }
        }  
-   }
+   
 
   // APFEL++ x-space grid
   std::vector<apfel::SubGrid> vsg;
