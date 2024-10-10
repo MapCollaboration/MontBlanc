@@ -5,9 +5,9 @@
 ## generation of Optimize command one for each replica
 
 jbegin=1
-jend=6
 nrep=250
 cpus=6
+jend= $cpus
 mode=${3:-'f1D1'}
 for i in #insert nodenames 
  do
@@ -23,6 +23,6 @@ for i in #insert nodenames
      then
         break
      fi
-     jbegin=$(($jend+1))
-     jend=$(($jbegin+5))
+     jbegin=$(($jbegin + $cpus))
+     jend=$(($jend+ $cpus))
  done
