@@ -1,0 +1,270 @@
+dependent_variables:
+  - header: {title: OPAL $\pi^\pm$ Multiplicity}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 91.20}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.02116, high: 1.00, integrate: false}
+      - {name: hadron, value: PI}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.2983}
+        value: 9.8900
+      - errors:
+          - {label: unc, value: 0.2983}
+        value: 9.9800
+      - errors:
+          - {label: unc, value: 0.3178}
+        value: 10.3700
+      - errors:
+          - {label: unc, value: 0.3178}
+        value: 10.3800
+      - errors:
+          - {label: unc, value: 0.3178}
+        value: 10.4200
+      - errors:
+          - {label: unc, value: 0.3178}
+        value: 10.4000
+      - errors:
+          - {label: unc, value: 0.3158}
+        value: 10.5300
+      - errors:
+          - {label: unc, value: 0.3158}
+        value: 10.6600
+      - errors:
+          - {label: unc, value: 0.3158}
+        value: 10.5300
+      - errors:
+          - {label: unc, value: 0.3158}
+        value: 10.5600
+      - errors:
+          - {label: unc, value: 0.3158}
+        value: 10.4600
+      - errors:
+          - {label: unc, value: 0.3059}
+        value: 10.2300
+      - errors:
+          - {label: unc, value: 0.3059}
+        value: 10.2900
+      - errors:
+          - {label: unc, value: 0.2943}
+        value: 10.0200
+      - errors:
+          - {label: unc, value: 0.2943}
+        value: 9.8300
+      - errors:
+          - {label: unc, value: 0.2844}
+        value: 9.6200
+      - errors:
+          - {label: unc, value: 0.2844}
+        value: 9.4600
+      - errors:
+          - {label: unc, value: 0.2746}
+        value: 9.2300
+      - errors:
+          - {label: unc, value: 0.2648}
+        value: 9.0500
+      - errors:
+          - {label: unc, value: 0.2532}
+        value: 8.7100
+      - errors:
+          - {label: unc, value: 0.2532}
+        value: 8.4000
+      - errors:
+          - {label: unc, value: 0.2433}
+        value: 8.1200
+      - errors:
+          - {label: unc, value: 0.2335}
+        value: 7.8700
+      - errors:
+          - {label: unc, value: 0.2236}
+        value: 7.5000
+      - errors:
+          - {label: unc, value: 0.2121}
+        value: 7.2600
+      - errors:
+          - {label: unc, value: 0.2022}
+        value: 6.9500
+      - errors:
+          - {label: unc, value: 0.2040}
+        value: 6.5600
+      - errors:
+          - {label: unc, value: 0.2113}
+        value: 2.3740
+      - errors:
+          - {label: unc, value: 0.0801}
+        value: 2.2640
+      - errors:
+          - {label: unc, value: 0.0402}
+        value: 2.1030
+      - errors:
+          - {label: unc, value: 0.0288}
+        value: 1.9440
+      - errors:
+          - {label: unc, value: 0.0272}
+        value: 1.7930
+      - errors:
+          - {label: unc, value: 0.0256}
+        value: 1.6720
+      - errors:
+          - {label: unc, value: 0.0273}
+        value: 1.5500
+      - errors:
+          - {label: unc, value: 0.0234}
+        value: 1.4200
+      - errors:
+          - {label: unc, value: 0.0206}
+        value: 1.3280
+      - errors:
+          - {label: unc, value: 0.0188}
+        value: 1.2210
+      - errors:
+          - {label: unc, value: 0.0166}
+        value: 1.1150
+      - errors:
+          - {label: unc, value: 0.0166}
+        value: 1.0350
+      - errors:
+          - {label: unc, value: 0.0152}
+        value: 0.9550
+      - errors:
+          - {label: unc, value: 0.0134}
+        value: 0.8790
+      - errors:
+          - {label: unc, value: 0.0095}
+        value: 0.7050
+      - errors:
+          - {label: unc, value: 0.0073}
+        value: 0.4780
+      - errors:
+          - {label: unc, value: 0.0051}
+        value: 0.3190
+      - errors:
+          - {label: unc, value: 0.0034}
+        value: 0.2052
+      - errors:
+          - {label: unc, value: 0.0025}
+        value: 0.1246
+      - errors:
+          - {label: unc, value: 0.0017}
+        value: 0.0717
+      - errors:
+          - {label: unc, value: 0.0013}
+        value: 0.0386
+      - errors:
+          - {label: unc, value: 0.0014}
+        value: 0.0206
+      - errors:
+          - {label: unc, value: 0.0004}
+        value: 0.0058
+      - errors:
+          - {label: unc, value: 0.0002}
+        value: 0.0006
+independent_variables:
+  - header: {name: z}
+    values:
+      - {high: 0.00607, low: 0.00585, value: 0.00596, factor: 0.01880}
+      - {high: 0.00630, low: 0.00607, value: 0.00619, factor: 0.01904}
+      - {high: 0.00653, low: 0.00630, value: 0.00642, factor: 0.01926}
+      - {high: 0.00679, low: 0.00653, value: 0.00667, factor: 0.01947}
+      - {high: 0.00706, low: 0.00679, value: 0.00692, factor: 0.01966}
+      - {high: 0.00736, low: 0.00706, value: 0.00722, factor: 0.01985}
+      - {high: 0.00766, low: 0.00736, value: 0.00752, factor: 0.02002}
+      - {high: 0.00798, low: 0.00766, value: 0.00782, factor: 0.02017}
+      - {high: 0.00833, low: 0.00798, value: 0.00816, factor: 0.02032}
+      - {high: 0.00870, low: 0.00833, value: 0.00851, factor: 0.02045}
+      - {high: 0.00909, low: 0.00870, value: 0.00890, factor: 0.02058}
+      - {high: 0.00950, low: 0.00909, value: 0.00929, factor: 0.02070}
+      - {high: 0.00994, low: 0.00950, value: 0.00971, factor: 0.02080}
+      - {high: 0.01040, low: 0.00994, value: 0.01017, factor: 0.02091}
+      - {high: 0.01088, low: 0.01040, value: 0.01063, factor: 0.02099}
+      - {high: 0.01139, low: 0.01088, value: 0.01113, factor: 0.02108}
+      - {high: 0.01192, low: 0.01139, value: 0.01166, factor: 0.02116}
+      - {high: 0.01249, low: 0.01192, value: 0.01221, factor: 0.02123}
+      - {high: 0.01308, low: 0.01249, value: 0.01279, factor: 0.02129}
+      - {high: 0.01372, low: 0.01308, value: 0.01340, factor: 0.02135}
+      - {high: 0.01439, low: 0.01372, value: 0.01405, factor: 0.02140}
+      - {high: 0.01507, low: 0.01439, value: 0.01473, factor: 0.02145}
+      - {high: 0.01583, low: 0.01507, value: 0.01546, factor: 0.02149}
+      - {high: 0.01660, low: 0.01583, value: 0.01621, factor: 0.02153}
+      - {high: 0.01742, low: 0.01660, value: 0.01701, factor: 0.02157}
+      - {high: 0.01829, low: 0.01742, value: 0.01785, factor: 0.02160}
+      - {high: 0.01919, low: 0.01829, value: 0.01874, factor: 0.02163}
+      - {high: 0.04659, low: 0.04440, value: 0.04550, factor: 0.02188}
+      - {high: 0.04900, low: 0.04659, value: 0.04769, factor: 0.02188}
+      - {high: 0.05141, low: 0.04900, value: 0.05009, factor: 0.02189}
+      - {high: 0.05403, low: 0.05141, value: 0.05272, factor: 0.02189}
+      - {high: 0.05688, low: 0.05403, value: 0.05535, factor: 0.02190}
+      - {high: 0.05973, low: 0.05688, value: 0.05820, factor: 0.02190}
+      - {high: 0.06279, low: 0.05973, value: 0.06126, factor: 0.02190}
+      - {high: 0.06608, low: 0.06279, value: 0.06433, factor: 0.02190}
+      - {high: 0.06937, low: 0.06608, value: 0.06761, factor: 0.02191}
+      - {high: 0.07287, low: 0.06937, value: 0.07112, factor: 0.02191}
+      - {high: 0.07660, low: 0.07287, value: 0.07484, factor: 0.02191}
+      - {high: 0.08054, low: 0.07660, value: 0.07857, factor: 0.02191}
+      - {high: 0.08470, low: 0.08054, value: 0.08251, factor: 0.02191}
+      - {high: 0.08909, low: 0.08470, value: 0.08690, factor: 0.02192}
+      - {high: 0.10860, low: 0.08909, value: 0.09829, factor: 0.02192}
+      - {high: 0.13271, low: 0.10860, value: 0.12000, factor: 0.02192}
+      - {high: 0.16209, low: 0.13271, value: 0.14652, factor: 0.02193}
+      - {high: 0.19783, low: 0.16209, value: 0.17875, factor: 0.02193}
+      - {high: 0.24169, low: 0.19783, value: 0.21822, factor: 0.02193}
+      - {high: 0.29519, low: 0.24169, value: 0.26625, factor: 0.02193}
+      - {high: 0.36054, low: 0.29519, value: 0.32501, factor: 0.02193}
+      - {high: 0.44036, low: 0.36054, value: 0.39650, factor: 0.02193}
+      - {high: 0.65681, low: 0.44036, value: 0.52216, factor: 0.02193}
+      - {high: 1.00000, low: 0.65681, value: 0.74496, factor: 0.02193}
+  - header: {name: ph, units: GeV}
+    values:
+      - {high: 0.239, low: 0.227, value: 0.233}
+      - {high: 0.251, low: 0.239, value: 0.245}
+      - {high: 0.263, low: 0.251, value: 0.257}
+      - {high: 0.276, low: 0.263, value: 0.27}
+      - {high: 0.29, low: 0.276, value: 0.283}
+      - {high: 0.305, low: 0.29, value: 0.298}
+      - {high: 0.32, low: 0.305, value: 0.313}
+      - {high: 0.336, low: 0.32, value: 0.328}
+      - {high: 0.353, low: 0.336, value: 0.345}
+      - {high: 0.371, low: 0.353, value: 0.362}
+      - {high: 0.39, low: 0.371, value: 0.381}
+      - {high: 0.41, low: 0.39, value: 0.4}
+      - {high: 0.431, low: 0.41, value: 0.42}
+      - {high: 0.453, low: 0.431, value: 0.442}
+      - {high: 0.476, low: 0.453, value: 0.464}
+      - {high: 0.5, low: 0.476, value: 0.488}
+      - {high: 0.525, low: 0.5, value: 0.513}
+      - {high: 0.552, low: 0.525, value: 0.539}
+      - {high: 0.58, low: 0.552, value: 0.566}
+      - {high: 0.61, low: 0.58, value: 0.595}
+      - {high: 0.641, low: 0.61, value: 0.625}
+      - {high: 0.673, low: 0.641, value: 0.657}
+      - {high: 0.708, low: 0.673, value: 0.691}
+      - {high: 0.744, low: 0.708, value: 0.726}
+      - {high: 0.782, low: 0.744, value: 0.763}
+      - {high: 0.822, low: 0.782, value: 0.802}
+      - {high: 0.864, low: 0.822, value: 0.843}
+      - {high: 2.12, low: 2.02, value: 2.07}
+      - {high: 2.23, low: 2.12, value: 2.17}
+      - {high: 2.34, low: 2.23, value: 2.28}
+      - {high: 2.46, low: 2.34, value: 2.4}
+      - {high: 2.59, low: 2.46, value: 2.52}
+      - {high: 2.72, low: 2.59, value: 2.65}
+      - {high: 2.86, low: 2.72, value: 2.79}
+      - {high: 3.01, low: 2.86, value: 2.93}
+      - {high: 3.16, low: 3.01, value: 3.08}
+      - {high: 3.32, low: 3.16, value: 3.24}
+      - {high: 3.49, low: 3.32, value: 3.41}
+      - {high: 3.67, low: 3.49, value: 3.58}
+      - {high: 3.86, low: 3.67, value: 3.76}
+      - {high: 4.06, low: 3.86, value: 3.96}
+      - {high: 4.95, low: 4.06, value: 4.48}
+      - {high: 6.05, low: 4.95, value: 5.47}
+      - {high: 7.39, low: 6.05, value: 6.68}
+      - {high: 9.02, low: 7.39, value: 8.15}
+      - {high: 11.02, low: 9.02, value: 9.95}
+      - {high: 13.46, low: 11.02, value: 12.14}
+      - {high: 16.44, low: 13.46, value: 14.82}
+      - {high: 20.08, low: 16.44, value: 18.08}
+      - {high: 29.95, low: 20.08, value: 23.81}
+      - {high: 45.6, low: 29.95, value: 33.97}
