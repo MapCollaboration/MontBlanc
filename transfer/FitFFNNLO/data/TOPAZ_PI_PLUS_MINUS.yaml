@@ -1,0 +1,100 @@
+dependent_variables:
+  - header: {title: TOPAZ $\pi^\pm$ Multiplicity}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 58, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.009, high: 0.267, integrate: false}
+      - {name: hadron, value: PI}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.12000}
+        value: 1.07000
+      - errors:
+          - {label: unc, value: 0.14000}
+        value: 1.50000
+      - errors:
+          - {label: unc, value: 0.21000}
+        value: 2.24000
+      - errors:
+          - {label: unc, value: 0.23000}
+        value: 2.75000
+      - errors:
+          - {label: unc, value: 0.27000}
+        value: 3.25000
+      - errors:
+          - {label: unc, value: 0.42000}
+        value: 3.75000
+      - errors:
+          - {label: unc, value: 0.64000}
+        value: 3.95000
+      - errors:
+          - {label: unc, value: 0.80000}
+        value: 3.84000
+      - errors:
+          - {label: unc, value: 0.50000}
+        value: 4.75000
+      - errors:
+          - {label: unc, value: 0.46000}
+        value: 4.86000
+      - errors:
+          - {label: unc, value: 0.37000}
+        value: 4.79000
+      - errors:
+          - {label: unc, value: 0.37000}
+        value: 4.53000
+      - errors:
+          - {label: unc, value: 0.34000}
+        value: 4.18000
+      - errors:
+          - {label: unc, value: 0.36000}
+        value: 3.82000
+      - errors:
+          - {label: unc, value: 0.28000}
+        value: 3.27000
+      - errors:
+          - {label: unc, value: 0.18000}
+        value: 2.27000
+      - errors:
+          - {label: unc, value: 0.36000}
+        value: 1.94000
+independent_variables:
+  - header: {name: z}
+    values:
+      - {value: 0.267, factor: 0.267}
+      - {value: 0.198, factor: 0.198}
+      - {value: 0.147, factor: 0.147}
+      - {value: 0.109, factor: 0.109}
+      - {value: 0.085, factor: 0.084}
+      - {value: 0.073, factor: 0.073}
+      - {value: 0.063, factor: 0.062}
+      - {value: 0.051, factor: 0.051}
+      - {value: 0.033, factor: 0.033}
+      - {value: 0.030, factor: 0.030}
+      - {value: 0.027, factor: 0.027}
+      - {value: 0.024, factor: 0.023}
+      - {value: 0.020, factor: 0.018}
+      - {value: 0.017, factor: 0.015}
+      - {value: 0.013, factor: 0.011}
+      - {value: 0.010, factor: 0.008}
+      - {value: 0.009, factor: 0.007}
+  - header: {name: xi}
+    values:
+      - {value: 1.320}
+      - {value: 1.620}
+      - {value: 1.920}
+      - {value: 2.220}
+      - {value: 2.470}
+      - {value: 2.620}
+      - {value: 2.770}
+      - {value: 2.980}
+      - {value: 3.410}
+      - {value: 3.510}
+      - {value: 3.610}
+      - {value: 3.770}
+      - {value: 3.960}
+      - {value: 4.140}
+      - {value: 4.420}
+      - {value: 4.710}
+      - {value: 4.830}
