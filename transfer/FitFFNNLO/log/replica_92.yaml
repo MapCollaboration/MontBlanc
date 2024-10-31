@@ -2874,3 +2874,5 @@
 - {iteration: 2998, training chi2: 1.2944231920969111, validation chi2: 2.9910515442046326}
 - {iteration: 2999, training chi2: 1.2944220637160799, validation chi2: 2.9911214781606832}
 - {iteration: 3000, training chi2: 1.2944208207070196, validation chi2: 2.991086173960495}
+- {iteration: 0, training chi2: 2207.8584393317815, validation chi2: 1960.7264971713932}
+- {iteration: 3, training chi2: 1964.895630255817, validation chi2: 1717.1437296951715}
