@@ -99,8 +99,8 @@ Data:
    - {name: "HERMES $\\pi^-$ proton",    file: "HERMES_PI_MINUS_PROTON.yaml",     cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
    - {name: "HERMES $\\pi^+$ deuteron",  file: "HERMES_PI_PLUS_DEUTERON.yaml",    cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
    - {name: "HERMES $\\pi^+$ proton",    file: "HERMES_PI_PLUS_PROTON.yaml",      cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
-   - {name: "COMPASS $\\pi^-$",          file: "COMPASS_PI_MINUS_DECORR.yaml",           cuts: [{name: Qcut, min: 2.0, max: 50}],      training fraction: 0.5}
-   - {name: "COMPASS $\\pi^+$",          file: "COMPASS_PI_PLUS_DECORR.yaml",            cuts: [{name: Qcut, min: 2.0, max: 50}],      training fraction: 0.5}
+   - {name: "COMPASS $\\pi^-$",          file: "COMPASS_PI_MINUS.yaml",           cuts: [{name: Qcut, min: 2.0, max: 50}],      training fraction: 0.5}
+   - {name: "COMPASS $\\pi^+$",          file: "COMPASS_PI_PLUS.yaml",            cuts: [{name: Qcut, min: 2.0, max: 50}],      training fraction: 0.5}
    - {name: "BELLE $\\pi^\\pm$",         file: "BELLE_PI_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
    - {name: "BABAR prompt $\\pi^\\pm$",  file: "BABAR_PI_PLUS_MINUS_PROMPT.yaml", cuts: [{name: zcut, min: 0.076, max: 0.9}], training fraction: 0.5}
    - {name: "TASSO 12 GeV $\\pi^\\pm$",  file: "TASSO_12_PI_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
