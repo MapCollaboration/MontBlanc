@@ -99,9 +99,12 @@ int main(int argc, char *argv[])
       w_sum += w_k[i].second;
       N_eff_sum += w_k[i].second * log((float) N_rep / w_k[i].second);
     }
-  
-  N_eff_w = (int) exp(N_eff_sum / (float) N_rep);
+    
+  std::cout<<"checking normalization... "<<w_sum<<std::endl;
+  std::cout<<"N_rep is... "<<N_rep<<std::endl;
 
+  N_eff_w = (int) exp(N_eff_sum / (float) N_rep);
+  
   // Shuffle vector
   std::default_random_engine e(config["Data"]["seed"].as<int>());
   shuffle(w_k.begin(), w_k.end(), e); 
@@ -113,7 +116,7 @@ int main(int argc, char *argv[])
   for(int j = 1; j<= N_rep; j++)
     {      
       cum_prob.push_back(cum_prob[j-1] + w_k[j-1].second/(float) N_rep);
-      cum_prob_k.push_back(std::make_pair(w_k[j-1].first, cum_prob[j]));
+      cum_prob_k.push_back(std::make_pair(w_k[j-1].first, cum_prob.back()));
     }
 
   // Compute Shannon Entropy 
@@ -145,19 +148,23 @@ int main(int argc, char *argv[])
     }
 
   // Choose N_eff for the unweighted set
+
   int N_eff = (N_eff_w / 10) * 10 ;
-    
+  std::cout<<"Il numero di repliche efficaci N_eff_w è "<<N_eff_w<<std::endl;
+  std::cout<<"Il numero di repliche efficaci scelto N_eff è "<<N_eff<<std::endl;
+  std::cout<<"Lultimo termine del prob cumulativa è "<<cum_prob_k.back().second<<std::endl;
+      
   // Clear before evaluating new weights
   weight_new_vect.clear();
   w_k_new.clear();
- 
+  const double epsilon = 1.19e-07;
   // Compute new weights
   for(int k = 1; k<= N_rep; k++)
     {
       weight_new_vect.push_back(0.); 
       for(int j = 1; j<= N_eff; j++)
         {
-          weight_new_vect[k-1] += ((j/(float)N_eff - cum_prob_k[k-1].second) >= 0. ? 1. : 0.) * ((cum_prob_k[k].second - j/(float)N_eff) >= 0. ? 1. : 0.);
+          weight_new_vect[k-1] += ((j/(float)N_eff - cum_prob_k[k-1].second) >= -epsilon ? 1. : 0.) * ((cum_prob_k[k].second - j/(float)N_eff) >= -epsilon ? 1. : 0.);
         }
    
       w_k_new.push_back(std::make_pair(cum_prob_k[k].first, weight_new_vect[k-1]));
@@ -169,7 +176,7 @@ int main(int argc, char *argv[])
     {
       w_sum_new += w_k_new[i].second;
     }
-  
+  std::cout<<"checking normalization... "<<w_sum_new<<std::endl;
   // Print yaml file with replicas and associated weights
   YAML::Emitter emitter_1;
   emitter_1 <<YAML::BeginMap <<  YAML::Key << "PDF members" << YAML::Value << YAML::BeginSeq;

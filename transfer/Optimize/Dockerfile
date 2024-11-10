@@ -14,6 +14,7 @@ WORKDIR /home
 RUN  mkdir lordguto
 WORKDIR /home/lordguto
 
+RUN mkdir volume
 # Set version of all software needed for Montblanc and its dependecies
 ARG NNAD_VERS=1.0
 ARG NANGAPARBAT_VERS=1.5.0
@@ -102,6 +103,7 @@ ENV PATH $PATH:/home/lordguto/lhapdf/lhapdfinst/bin
 
 RUN lhapdf install NNPDF31_nnlo_pch_as_0118_1000 
 RUN lhapdf install NNPDF31_nnlo_pch_as_0118
+RUN lhapdf install NNPDF31_nlo_pch_as_0118
                   
 #install -y apfel++
 RUN cd /home/lordguto && wget https://github.com/vbertone/apfelxx/archive/refs/tags/${APFELXX_VERS}.tar.gz \
@@ -153,8 +155,9 @@ RUN cd Montblanc \
  && cd run \
  && mkdir fit
  
-ENTRYPOINT ["/bin/bash", "-c"]
+WORKDIR /home/lordguto/Montblanc/build/run
 
-CMD ["./Optimize", "1", "../../config/MAPFF20/PI/MAPFF20_PI_NNLO_Q1_00.yaml", "../../data/", "fit/"]
+ENTRYPOINT ["/bin/bash", "-c"]
+CMD ["./Optimize 1 ../../config/MAPFF20/PI/MAPFF20_PI_NNLO_Q1_00.yaml ../../data/ fit/"]
 
 

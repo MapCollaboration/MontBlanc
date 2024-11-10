@@ -1,25 +1,28 @@
 #!/bin/bash
 #SBATCH -p standard
-#SBATCH --chdir=/home/lordguto/Montblanc/build/run
+
+##SBATCH --chdir=/home/lordguto/Montblanc/build/run
 
 ## generation of Optimize command one for each replica
 
 jbegin=1
-nrep=250
+nrep=4
 cpus=6
 jend= $cpus
+counter=0
 mode=${3:-'f1D1'}
-for i in #insert nodenames 
+for (( i=1; i<= 4; i++)) #$i in #insert nodenames 
  do
     for (( r=$jbegin; r <= $jend; r++ ))
      do
-        occam-run -n $i -s something Optimize ./Optimize $r ../../config/MAPFF20/PI/MAPFF20_PI_NNLO_Q1_00.yaml ../../data/ fit/
-        if [$r -eq $nrep]
+        occam-run -s -v archive/home/lorenzo.canzian/volume:../../../volume lorenzo.canzian/optimize ./Optimize $r ../../../volume/test.yaml ../../data/ fit/
+        counter=$(($counter + 1))
+        if [$counter -eq $nrep ]
         then
           break
         fi
      done
-     if [$r -eq $nrep]
+     if [$counter -eq $nrep]
      then
         break
      fi
