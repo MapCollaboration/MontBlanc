@@ -148,8 +148,18 @@ int main(int argc, char *argv[])
     }
 
   // Choose N_eff for the unweighted set
+  
+  /*if(N_eff_w < 100)
+    {
+      int N_eff = 100;
+    }
+  else 
+     {
+       int N_eff = 100 ;
+       //(N_eff_w / 10) * 10 ;  
+     } */
 
-  int N_eff = (N_eff_w / 10) * 10 ;
+  int N_eff = 100;
   std::cout<<"Il numero di repliche efficaci N_eff_w è "<<N_eff_w<<std::endl;
   std::cout<<"Il numero di repliche efficaci scelto N_eff è "<<N_eff<<std::endl;
   std::cout<<"Lultimo termine del prob cumulativa è "<<cum_prob_k.back().second<<std::endl;
