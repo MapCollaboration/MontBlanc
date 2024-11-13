@@ -1,0 +1,15 @@
+- {iteration: 0, training chi2: 2193.3069738241202, validation chi2: 1848.4232088852596}
+- {iteration: 1, training chi2: 1319.5808716404963, validation chi2: 1061.8036652435965}
+- {iteration: 6, training chi2: 892.59786459559211, validation chi2: 702.86300446303039}
+- {iteration: 11, training chi2: 834.73451316456669, validation chi2: 655.22178240414905}
+- {iteration: 12, training chi2: 788.9193375853157, validation chi2: 618.00033225804043}
+- {iteration: 13, training chi2: 714.01747148929655, validation chi2: 560.08255219504576}
+- {iteration: 14, training chi2: 655.91479923344696, validation chi2: 521.62569905358373}
+- {iteration: 15, training chi2: 630.04455347275086, validation chi2: 507.24233604804846}
+- {iteration: 16, training chi2: 610.66925580070597, validation chi2: 492.16048250012994}
+- {iteration: 17, training chi2: 591.01895662455252, validation chi2: 473.74219979358202}
+- {iteration: 18, training chi2: 557.51411953782008, validation chi2: 441.83844524614295}
+- {iteration: 19, training chi2: 540.86004620918084, validation chi2: 413.13768380655029}
+- {iteration: 20, training chi2: 454.4063095118633, validation chi2: 348.70604353045667}
+- {iteration: 22, training chi2: 409.92019563743463, validation chi2: 350.50105669657074}
+- {iteration: 23, training chi2: 371.69558363684058, validation chi2: 302.84019960025142}
