@@ -1,0 +1,10 @@
+First run of optimize with central replica of PDFs. 
+
+Built MySetForPip using 200 0f (nearly) 250 replicas.
+
+Leads to small weights with N_eff = 920 at NNLO.
+
+Leads to some large weights with N_eff = 50 at NLO. 
+
+Worked as expected even if a N_eff = 920 it's a very big number of replica in contrast to the NLO case. 
+This can be simply explained by the fact that at NNLO measurements are more accurate, then we need more replicas to represent the set. 

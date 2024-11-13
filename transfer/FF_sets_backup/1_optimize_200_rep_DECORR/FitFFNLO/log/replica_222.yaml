@@ -1,0 +1,3 @@
+- {iteration: 0, training chi2: 1400.4440211933877, validation chi2: 1081.0703931263017}
+- {iteration: 1, training chi2: 608.74881989635878, validation chi2: 592.6217597976829}
+- {iteration: 4, training chi2: 201.01351000371648, validation chi2: 138.12517351924078}
