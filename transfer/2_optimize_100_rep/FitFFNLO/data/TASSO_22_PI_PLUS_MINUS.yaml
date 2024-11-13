@@ -1,0 +1,94 @@
+dependent_variables:
+  - header: {title: "TASSO $d\\sigma/dp_h^{\\pi^\\pm}$, 22 GeV", units: nb}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 22, units: GeV}
+      - {name: prefactor, value: 1.0}
+      - {name: normalised, value: false}
+      - {name: z, low: 0.03010, high: 0.90918, integrate: false}
+      - {name: hadron, value: PI}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.44000}
+          - {label: mult, value: 0.085}
+        value: 6.85000
+      - errors:
+          - {label: unc, value: 0.35000}
+          - {label: mult, value: 0.085}
+        value: 5.83000
+      - errors:
+          - {label: unc, value: 0.28000}
+          - {label: mult, value: 0.085}
+        value: 4.74000
+      - errors:
+          - {label: unc, value: 0.26000}
+          - {label: mult, value: 0.085}
+        value: 4.15000
+      - errors:
+          - {label: unc, value: 0.22000}
+          - {label: mult, value: 0.085}
+        value: 3.26000
+      - errors:
+          - {label: unc, value: 0.19000}
+          - {label: mult, value: 0.085}
+        value: 2.62000
+      - errors:
+          - {label: unc, value: 0.25000}
+          - {label: mult, value: 0.085}
+        value: 2.01000
+      - errors:
+          - {label: unc, value: 0.15000}
+          - {label: mult, value: 0.085}
+        value: 1.10000
+      - errors:
+          - {label: unc, value: 0.09000}
+          - {label: mult, value: 0.085}
+        value: 0.83000
+      - errors:
+          - {label: unc, value: 0.07000}
+          - {label: mult, value: 0.085}
+        value: 0.53000
+      - errors:
+          - {label: unc, value: 0.04000}
+          - {label: mult, value: 0.085}
+        value: 0.18000
+      - errors:
+          - {label: unc, value: 0.01800}
+          - {label: mult, value: 0.085}
+        value: 0.06500
+      - errors:
+          - {label: unc, value: 0.00600}
+          - {label: mult, value: 0.085}
+        value: 0.02000
+independent_variables:
+  - header: {name: z}
+    values:
+      - {high: 0.03853, low: 0.03010, value: 0.03427, factor: 0.08441}
+      - {high: 0.04720, low: 0.03853, value: 0.01273, factor: 0.08537}
+      - {high: 0.05601, low: 0.04720, value: 0.05159, factor: 0.08810}
+      - {high: 0.06490, low: 0.05601, value: 0.06045, factor: 0.08887}
+      - {high: 0.07383, low: 0.06490, value: 0.06936, factor: 0.08937}
+      - {high: 0.09180, low: 0.07383, value: 0.08280, factor: 0.08983}
+      - {high: 0.10983, low: 0.09180, value: 0.10081, factor: 0.09018}
+      - {high: 0.14601, low: 0.10983, value: 0.12791, factor: 0.09046}
+      - {high: 0.18226, low: 0.14601, value: 0.16413, factor: 0.09064}
+      - {high: 0.23671, low: 0.18226, value: 0.20948, factor: 0.09074}
+      - {high: 0.34569, low: 0.27302, value: 0.30935, factor: 0.09083}
+      - {high: 0.41838, low: 0.34569, value: 0.37294, factor: 0.09086}
+      - {high: 0.90918, low: 0.41838, value: 0.54560, factor: 0.09088}
+  - header: {name: ph, units: GeV}
+    values:
+      - {high: 0.40000, low: 0.30000, value: 0.35000}
+      - {high: 0.50000, low: 0.40000, value: 0.00000}
+      - {high: 0.60000, low: 0.50000, value: 0.55000}
+      - {high: 0.70000, low: 0.60000, value: 0.65000}
+      - {high: 0.80000, low: 0.70000, value: 0.75000}
+      - {high: 1.00000, low: 0.80000, value: 0.90000}
+      - {high: 1.20000, low: 1.00000, value: 1.10000}
+      - {high: 1.60000, low: 1.20000, value: 1.40000}
+      - {high: 2.00000, low: 1.60000, value: 1.80000}
+      - {high: 2.60000, low: 2.00000, value: 2.30000}
+      - {high: 3.80000, low: 3.00000, value: 3.40000}
+      - {high: 4.60000, low: 3.80000, value: 4.10000}
+      - {high: 10.0000, low: 4.60000, value: 6.00000}
