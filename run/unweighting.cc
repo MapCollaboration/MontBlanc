@@ -218,7 +218,7 @@ int main(int argc, char *argv[])
              std::string path_to_pdf = LHAPDF::findpdfmempath (config["Predictions"]["pdfset"]["name"].as<std::string>(),w_k_new[k - 1].first );
              
              std::ifstream sourceFile(path_to_pdf, std::ios::binary);
-             std::ofstream destFile(UnweightedSet +"UnweightedSet" +"_"+ ds.str() + ".dat", std::ios::binary);
+             std::ofstream destFile(UnweightedSet +"UnweightedSet_2" +"_"+ ds.str() + ".dat", std::ios::binary);
    
              destFile << sourceFile.rdbuf();
 
@@ -255,8 +255,8 @@ int main(int argc, char *argv[])
                 infofile.close();
                 destFile.close();
 
-                std::remove((UnweightedSet +"UnweightedSet" + ".info").c_str());  // Remove the original file
-                std::rename("temp.txt", (UnweightedSet +"UnweightedSet" + ".info").c_str());  // Rename the temp file to the original file
+                std::remove((UnweightedSet +"UnweightedSet_2" + ".info").c_str());  // Remove the original file
+                std::rename("temp.txt", (UnweightedSet +"UnweightedSet_2" + ".info").c_str());  // Rename the temp file to the original file
            
               } 
          
@@ -271,7 +271,7 @@ int main(int argc, char *argv[])
   int s = 0;
   std::ofstream out;
   out << std::scientific;
-  std::string filename = ResultFolder + "/" + "UnweightedSet" + "/" + "UnweightedSet" + "_0000";
+  std::string filename = ResultFolder + "/" + "UnweightedSet" + "/" + "UnweightedSet_2" + "_0000";
   out.open(filename + ".dat");
   
   out << "PdfType: central\n";
@@ -283,7 +283,7 @@ int main(int argc, char *argv[])
     out << "---\n";
 
     // Write x-grid and Q-grid
-    std::fstream file(UnweightedSet + "UnweightedSet" +"_0001" + ".dat", std::ios::in | std::ios::out);
+    std::fstream file(UnweightedSet + "UnweightedSet_2" +"_0001" + ".dat", std::ios::in | std::ios::out);
     std::string line;
     std::getline(file, line);
     std::getline(file, line);
@@ -310,7 +310,7 @@ int main(int argc, char *argv[])
 
     file.close();
     //file.seekg(0);
-    std::fstream file1(UnweightedSet + "UnweightedSet" +"_0001" + ".dat", std::ios::in | std::ios::out);
+    std::fstream file1(UnweightedSet + "UnweightedSet_2" +"_0001" + ".dat", std::ios::in | std::ios::out);
     std::getline(file1, line);
     std::getline(file1, line);
     std::getline(file1, line);
@@ -358,7 +358,7 @@ int main(int argc, char *argv[])
         std::stringstream rp;
         rp << std::setw(4) << std::setfill('0') << k;
     
-        std::ifstream file1(UnweightedSet + "UnweightedSet"  + "_"+ rp.str() + ".dat");
+        std::ifstream file1(UnweightedSet + "UnweightedSet_2"  + "_"+ rp.str() + ".dat");
         std::getline(file1, line);
         std::getline(file1, line);
         
