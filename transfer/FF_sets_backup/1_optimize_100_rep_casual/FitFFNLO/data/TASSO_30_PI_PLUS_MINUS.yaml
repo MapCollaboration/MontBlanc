@@ -1,0 +1,70 @@
+dependent_variables:
+  - header: {title: "TASSO $d\\sigma/dp_h^{\\pi^\\pm}$, 30 GeV", units: nb}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 30, units: GeV}
+      - {name: prefactor, value: 1.0}
+      - {name: normalised, value: false}
+      - {name: z, low: 0.025, high: 0.094, integrate: false}
+      - {name: hadron, value: PI}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 1.05}
+          - {label: mult, value: 0.02}
+        value: 4.11
+      - errors:
+          - {label: unc, value: 1.06}
+          - {label: mult, value: 0.02}
+        value: 4.51
+      - errors:
+          - {label: unc, value: 0.87}
+          - {label: mult, value: 0.02}
+        value: 3.41
+      - errors:
+          - {label: unc, value: 0.8}
+          - {label: mult, value: 0.02}
+        value: 3.11
+      - errors:
+          - {label: unc, value: 0.56}
+          - {label: mult, value: 0.02}
+        value: 2.64
+      - errors:
+          - {label: unc, value: 0.33}
+          - {label: mult, value: 0.02}
+        value: 1.49
+      - errors:
+          - {label: unc, value: 0.39}
+          - {label: mult, value: 0.02}
+        value: 1.54
+      - errors:
+          - {label: unc, value: 0.272}
+          - {label: mult, value: 0.02}
+        value: 0.808
+      - errors:
+          - {label: unc, value: 0.256}
+          - {label: mult, value: 0.02}
+        value: 0.733
+independent_variables:
+  - header: {name: z}
+    values:
+      - {value: 0.025, factor: 0.06190}
+      - {value: 0.028, factor: 0.06292}
+      - {value: 0.031, factor: 0.06366}
+      - {value: 0.038, factor: 0.06461}
+      - {value: 0.041, factor: 0.06492}
+      - {value: 0.054, factor: 0.06567}
+      - {value: 0.067, factor: 0.06602}
+      - {value: 0.081, factor: 0.06622}
+      - {value: 0.094, factor: 0.06634}
+  - header: {name: ph, units: GeV}
+    values:
+      - {value: 0.35}
+      - {value: 0.4}
+      - {value: 0.45}
+      - {value: 0.55}
+      - {value: 0.6}
+      - {value: 0.8}
+      - {value: 1.0}
+      - {value: 1.2}
+      - {value: 1.4}

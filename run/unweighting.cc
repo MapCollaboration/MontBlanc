@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
   const std::string InputCardPath = ResultFolder + "/config.yaml";
   const std::string BestParameter = ResultFolder + "/BestParameters.yaml";
   const std::string Unweighting_files = ResultFolder + "/Unweighting_files/";
-  const std::string UnweightedSet = ResultFolder + "/UnweightedSet/";
+  const std::string UnweightedSet = ResultFolder + "/UnweightedSet_2/";
   const int N_rep_new = std::stoi(argv[optind + 2]);
 
    // Name of the set
