@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
    {
      std::cerr << "Usage: " << argv[0] << " <path to fit folder>" << std::endl;
      std::cerr << "Usage: " << argv[1] << " <path to weights>" << std::endl;
-     std::cerr << "Usage: " << argv[2] << " <number of unweighted replicas>" << std::endl;
+     std::cerr << "Usage: " << argv[2] << " <name for the Unweighted Set>" << std::endl;
      exit(-1);
    }
 
@@ -40,12 +40,14 @@ int main(int argc, char *argv[])
   const std::string ResultFolder = argv[optind];
   
   // Input information
+  
   const std::string Weights = ResultFolder + argv[optind + 1] + "weight_for_PDFS.yaml";
+  const std::string unw_name = argv[optind + 2];
   const std::string InputCardPath = ResultFolder + "/config.yaml";
   const std::string BestParameter = ResultFolder + "/BestParameters.yaml";
   const std::string Unweighting_files = ResultFolder + "/Unweighting_files/";
-  const std::string UnweightedSet = ResultFolder + "/UnweightedSet_2/";
-  const int N_rep_new = std::stoi(argv[optind + 2]);
+  const std::string UnweightedSet = ResultFolder + "/" + unw_name + "/";
+  
 
    // Name of the set
   std::string hadron = "PIp";
@@ -79,6 +81,7 @@ int main(int argc, char *argv[])
 
   int N_rep;
   int i = 0;
+  int N_rep_new = 200;
 
   YAML::Node W = YAML::LoadFile(Weights);
   
@@ -159,7 +162,7 @@ int main(int argc, char *argv[])
        //(N_eff_w / 10) * 10 ;  
      } */
 
-  int N_eff = 100;
+  int N_eff = 101;
   std::cout<<"Il numero di repliche efficaci N_eff_w è "<<N_eff_w<<std::endl;
   std::cout<<"Il numero di repliche efficaci scelto N_eff è "<<N_eff<<std::endl;
   std::cout<<"Lultimo termine del prob cumulativa è "<<cum_prob_k.back().second<<std::endl;
@@ -218,7 +221,7 @@ int main(int argc, char *argv[])
              std::string path_to_pdf = LHAPDF::findpdfmempath (config["Predictions"]["pdfset"]["name"].as<std::string>(),w_k_new[k - 1].first );
              
              std::ifstream sourceFile(path_to_pdf, std::ios::binary);
-             std::ofstream destFile(UnweightedSet +"UnweightedSet_2" +"_"+ ds.str() + ".dat", std::ios::binary);
+             std::ofstream destFile(UnweightedSet + unw_name +"_"+ ds.str() + ".dat", std::ios::binary);
    
              destFile << sourceFile.rdbuf();
 
@@ -255,8 +258,8 @@ int main(int argc, char *argv[])
                 infofile.close();
                 destFile.close();
 
-                std::remove((UnweightedSet +"UnweightedSet_2" + ".info").c_str());  // Remove the original file
-                std::rename("temp.txt", (UnweightedSet +"UnweightedSet_2" + ".info").c_str());  // Rename the temp file to the original file
+                std::remove((UnweightedSet +unw_name + ".info").c_str());  // Remove the original file
+                std::rename("temp.txt", (UnweightedSet + unw_name + ".info").c_str());  // Rename the temp file to the original file
            
               } 
          
@@ -271,7 +274,7 @@ int main(int argc, char *argv[])
   int s = 0;
   std::ofstream out;
   out << std::scientific;
-  std::string filename = ResultFolder + "/" + "UnweightedSet" + "/" + "UnweightedSet_2" + "_0000";
+  std::string filename = ResultFolder + "/" + unw_name + "/" + unw_name + "_0000";
   out.open(filename + ".dat");
   
   out << "PdfType: central\n";
@@ -283,7 +286,7 @@ int main(int argc, char *argv[])
     out << "---\n";
 
     // Write x-grid and Q-grid
-    std::fstream file(UnweightedSet + "UnweightedSet_2" +"_0001" + ".dat", std::ios::in | std::ios::out);
+    std::fstream file(UnweightedSet + unw_name +"_0001" + ".dat", std::ios::in | std::ios::out);
     std::string line;
     std::getline(file, line);
     std::getline(file, line);
@@ -310,7 +313,7 @@ int main(int argc, char *argv[])
 
     file.close();
     //file.seekg(0);
-    std::fstream file1(UnweightedSet + "UnweightedSet_2" +"_0001" + ".dat", std::ios::in | std::ios::out);
+    std::fstream file1(UnweightedSet + unw_name +"_0001" + ".dat", std::ios::in | std::ios::out);
     std::getline(file1, line);
     std::getline(file1, line);
     std::getline(file1, line);
@@ -358,7 +361,7 @@ int main(int argc, char *argv[])
         std::stringstream rp;
         rp << std::setw(4) << std::setfill('0') << k;
     
-        std::ifstream file1(UnweightedSet + "UnweightedSet_2"  + "_"+ rp.str() + ".dat");
+        std::ifstream file1(UnweightedSet + unw_name + "_"+ rp.str() + ".dat");
         std::getline(file1, line);
         std::getline(file1, line);
         

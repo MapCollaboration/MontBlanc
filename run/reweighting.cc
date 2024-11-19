@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
   float chi2;
   float weight;
   int number_data;
-  const int N_rep = 100;
+  const int N_rep = 1000;
   double norm = 0.;
   
   

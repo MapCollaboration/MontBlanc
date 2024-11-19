@@ -1,0 +1,46 @@
+dependent_variables:
+  - header: {title: "TASSO $d\\sigma/dp_h^{\\pi^\\pm}$, 12 GeV", units: nb}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 12, units: GeV}
+      - {name: prefactor, value: 1.0}
+      - {name: normalised, value: false}
+      - {name: z, low: 0.063, high: 0.218, integrate: false}
+      - {name: hadron, value: PI}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 3.1}
+          - {label: mult, value: 0.02}
+        value: 18.2
+      - errors:
+          - {label: unc, value: 2.9}
+          - {label: mult, value: 0.02}
+        value: 16.3
+      - errors:
+          - {label: unc, value: 2.5}
+          - {label: mult, value: 0.02}
+        value: 13.8
+      - errors:
+          - {label: unc, value: 1.8}
+          - {label: mult, value: 0.02}
+        value: 7.0
+      - errors:
+          - {label: unc, value: 0.9}
+          - {label: mult, value: 0.02}
+        value: 1.8
+independent_variables:
+  - header: {name: z}
+    values:
+      - {value: 0.063, factor: 0.15475}
+      - {value: 0.079, factor: 0.15914}
+      - {value: 0.095, factor: 0.16152}
+      - {value: 0.135, factor: 0.16417}
+      - {value: 0.218, factor: 0.16571}
+  - header: {name: ph, units: GeV}
+    values:
+      - {value: 0.35}
+      - {value: 0.45}
+      - {value: 0.55}
+      - {value: 0.8}
+      - {value: 1.3}
