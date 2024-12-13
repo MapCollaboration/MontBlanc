@@ -1,0 +1,26 @@
+ARGUS:
+ - {name: ARGUS_LA_LABAR, file: ARGUS_LA_LABAR.yaml}
+HRS:
+ - {name: HRS_LA_LABAR, file: HRS_LA_LABAR.yaml}
+MARKII:
+ - {name: MARKII_LA_LABAR, file: MARKII_LA_LABAR.yaml}
+CELLO:
+ - {name: CELLO_LA_LABAR, file: CELLO_LA_LABAR.yaml}
+PreprocessTASSO_14_22_34:
+ - {name: TASSO_14_22_34_LA_LABAR, file: TASSO_14_22_34_LA_LABAR.yaml}
+PreprocessTASSO_34_42:
+ - {name: TASSO_34_42_LA_LABAR, file: TASSO_34_42_LA_LABAR.yaml}
+PreprocessALEPH:
+ - {name: ALEPH_LA_LABAR, file: ALEPH_LA_LABAR.yaml}
+PreprocessDELPHI_91:
+ - {name: DELPHI_91_LA_LABAR, file: DELPHI_91_LA_LABAR.yaml}
+PreprocessDELPHI_183_189:
+ - {name: DELPHI_183_189_LA_LABAR, file: DELPHI_183_189_LA_LABAR.yaml}
+PreprocessSLD:
+ - {name: SLD_LA_LABAR, file: SLD_LA_LABAR.yaml}
+PreprocessOPAL:
+ - {name: OPAL_LA_LABAR, file: OPAL_LA_LABAR.yaml}
+PreprocessBELLE:
+ - {name: BELLE_LA_LABAR, file: BELLE_LA_LABAR.yaml}
+PreprocessTASSO_33:
+ - {name: BELLE_LA_LABAR, file: BELLE_LA_LABAR.yaml}

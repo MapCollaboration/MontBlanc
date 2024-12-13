@@ -1,0 +1,34 @@
+dependent_variables:
+  - header: {title: "TASSO at 22 GeV, Lambda Multiplicity", titlepy: "TASSO at 22 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 22, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: normalised, value: false}
+      - {name: z, low: 0.14, high: 0.6, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 170000}
+          - {label: add, value: 84000}
+        value: 420000
+      - errors:
+          - {label: unc, value: 50000}
+          - {label: add, value: 44000}
+        value: 220000
+      - errors:
+          - {label: unc, value: 33000}
+          - {label: add, value: 12400}
+        value: 62000
+      - errors:
+          - {label: unc, value: 13000}
+          - {label: add, value: 2800}
+        value: 14000
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.2, low: 0.14, value: 0.17, factor: 603.10347}
+      - {high: 0.3, low: 0.2, value: 0.25, factor: 529.53917}
+      - {high: 0.4, low: 0.3, value: 0.35, factor: 505.69979}
+      - {high: 0.6, low: 0.4, value: 0.5, factor: 494.27656}

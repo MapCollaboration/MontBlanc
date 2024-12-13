@@ -1,0 +1,88 @@
+dependent_variables:
+  - header: {title: "OPAL at 91.2 GeV, Lambda Multiplicity", titlepy: "OPAL at 91.2 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{1}{\\sigma}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 91.2, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.1, high: 0.7, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.1}
+          - {label: unc, value: 0.39}
+        value: 5.64
+      - errors:
+          - {label: unc, value: 0.05}
+          - {label: unc, value: 0.31}
+        value: 4.59
+      - errors:
+          - {label: unc, value: 0.05}
+          - {label: unc, value: 0.25}
+        value: 3.63
+      - errors:
+          - {label: unc, value: 0.05}
+          - {label: unc, value: 0.21}
+        value: 3.11
+      - errors:
+          - {label: unc, value: 0.04}
+          - {label: unc, value: 0.18}
+        value: 2.63
+      - errors:
+          - {label: unc, value: 0.02}
+          - {label: unc, value: 0.13}
+        value: 1.98
+      - errors:
+          - {label: unc, value: 0.016}
+          - {label: unc, value: 0.097}
+        value: 1.452
+      - errors:
+          - {label: unc, value: 0.017}
+          - {label: unc, value: 0.08}
+        value: 1.184
+      - errors:
+          - {label: unc, value: 0.011}
+          - {label: unc, value: 0.059}
+        value: 0.883
+      - errors:
+          - {label: unc, value: 0.007}
+          - {label: unc, value: 0.039}
+        value: 0.585
+      - errors:
+          - {label: unc, value: 0.004}
+          - {label: unc, value: 0.022}
+        value: 0.329
+      - errors:
+          - {label: unc, value: 0.003}
+          - {label: unc, value: 0.01}
+        value: 0.148
+      - errors:
+          - {label: unc, value: 0.003}
+          - {label: unc, value: 0.006}
+        value: 0.086
+      - errors:
+          - {label: unc, value: 0.002}
+          - {label: unc, value: 0.003}
+        value: 0.032
+      - errors:
+          - {label: unc, value: 0.001}
+          - {label: unc, value: 0.001}
+        value: 0.01
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.035, low: 0.027, value: 0.031}
+      - {high: 0.045, low: 0.035, value: 0.04}
+      - {high: 0.055, low: 0.045, value: 0.05}
+      - {high: 0.062, low: 0.055, value: 0.059}
+      - {high: 0.07, low: 0.062, value: 0.066}
+      - {high: 0.085, low: 0.07, value: 0.077}
+      - {high: 0.105, low: 0.085, value: 0.095}
+      - {high: 0.12, low: 0.105, value: 0.112}
+      - {high: 0.15, low: 0.12, value: 0.135}
+      - {high: 0.2, low: 0.15, value: 0.174}
+      - {high: 0.3, low: 0.2, value: 0.247}
+      - {high: 0.4, low: 0.3, value: 0.347}
+      - {high: 0.5, low: 0.4, value: 0.446}
+      - {high: 0.6, low: 0.5, value: 0.545}
+      - {high: 0.7, low: 0.6, value: 0.641}

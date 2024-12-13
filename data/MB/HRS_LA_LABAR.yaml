@@ -1,0 +1,74 @@
+dependent_variables:
+  - header: {title: "HRS at 29 GeV, Lambda Multiplicity", titlepy: "HRS at 29 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 29, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: normalised, value: false}
+      - {name: z, low: 0.1, high: 0.8, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 95000}
+          - {label: unc, value: 269000}
+        value: 1053000
+      - errors:
+          - {label: unc, value: 47000}
+          - {label: unc, value: 68600}
+        value: 514000
+      - errors:
+          - {label: unc, value: 33400}
+          - {label: unc, value: 47000}
+        value: 355200
+      - errors:
+          - {label: unc, value: 28000}
+          - {label: unc, value: 40300}
+        value: 307400
+      - errors:
+          - {label: unc, value: 23000}
+          - {label: unc, value: 22200}
+        value: 198700
+      - errors:
+          - {label: unc, value: 13400}
+          - {label: unc, value: 16600}
+        value: 150300
+      - errors:
+          - {label: unc, value: 10100}
+          - {label: unc, value: 10700}
+        value: 86000
+      - errors:
+          - {label: unc, value: 8700}
+          - {label: unc, value: 7900}
+        value: 52500
+      - errors:
+          - {label: unc, value: 7800}
+          - {label: unc, value: 7900}
+        value: 51200
+      - errors:
+          - {label: unc, value: 5200}
+          - {label: unc, value: 5700}
+        value: 28800
+      - errors:
+          - {label: unc, value: 2700}
+          - {label: unc, value: 2600}
+        value: 11100
+      - errors:
+          - {label: unc, value: 1090}
+          - {label: unc, value: 470}
+        value: 2000
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.125, low: 0.1, value: 0.1125, factor: 1152.8047}
+      - {high: 0.15, low: 0.125, value: 0.1375, factor: 1014.7645}
+      - {high: 0.175, low: 0.15, value: 0.1625, factor: 954.82437}
+      - {high: 0.2, low: 0.175, value: 0.1875, factor: 922.23202}
+      - {high: 0.225, low: 0.2, value: 0.2125, factor: 902.22319}
+      - {high: 0.275, low: 0.225, value: 0.25, factor: 883.9068}
+      - {high: 0.325, low: 0.275, value: 0.3, factor: 870.10609}
+      - {high: 0.375, low: 0.325, value: 0.35, factor: 862.0907}
+      - {high: 0.425, low: 0.375, value: 0.4, factor: 857.00542}
+      - {high: 0.5, low: 0.425, value: 0.4625, factor: 852.88593}
+      - {high: 0.6, low: 0.5, value: 0.55, factor: 849.35281}
+      - {high: 0.8, low: 0.6, value: 0.7, factor: 846.12727}
