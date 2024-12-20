@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "MARKII at 29 GeV, Lambda Multiplicity", titlepy: "MARKII at 29 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+  - header: {title: "MARKII at 29 GeV, Lambda Multiplicity", titlepy: "MARKII at 29 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [nb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{nb GeV^{2}}]$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 29, units: GeV}
@@ -10,50 +10,50 @@ dependent_variables:
       - {name: charge, value: 0}
     values:
       - errors:
-          - {label: unc, value: 358600}
-        value: 2318100
+          - {label: unc, value: 358.6}
+        value: 2318.1
       - errors:
-          - {label: unc, value: 153200}
-        value: 1211900
+          - {label: unc, value: 153.2}
+        value: 1211.9
       - errors:
-          - {label: unc, value: 68600}
-        value: 636600
+          - {label: unc, value: 68.6}
+        value: 636.6
       - errors:
-          - {label: unc, value: 45500}
-        value: 395500
+          - {label: unc, value: 45.5}
+        value: 395.5
       - errors:
-          - {label: unc, value: 29000}
-        value: 219900
+          - {label: unc, value: 29}
+        value: 219.9
       - errors:
-          - {label: unc, value: 30800}
-        value: 235600
+          - {label: unc, value: 30.8}
+        value: 235.6
       - errors:
-          - {label: unc, value: 21200}
-        value: 142900
+          - {label: unc, value: 21.2}
+        value: 142.9
       - errors:
-          - {label: unc, value: 19000}
-        value: 117300
+          - {label: unc, value: 19}
+        value: 117.3
       - errors:
-          - {label: unc, value: 14900}
-        value: 79900
+          - {label: unc, value: 14.9}
+        value: 79.9
       - errors:
-          - {label: unc, value: 13300}
-        value: 58400
+          - {label: unc, value: 13.3}
+        value: 58.4
       - errors:
-          - {label: unc, value: 8100}
-        value: 37800
+          - {label: unc, value: 8.1}
+        value: 37.8
       - errors:
-          - {label: unc, value: 5800}
-        value: 20000
+          - {label: unc, value: 5.8}
+        value: 20
       - errors:
-          - {label: unc, value: 3400}
-        value: 10200
+          - {label: unc, value: 3.4}
+        value: 10.2
       - errors:
-          - {label: unc, value: 3300}
-        value: 3000
+          - {label: unc, value: 3.3}
+        value: 3
       - errors:
-          - {label: unc, value: 2700}
-        value: 1100
+          - {label: unc, value: 2.7}
+        value: 1.1
 independent_variables:
   - header: {name: "z"}
     values:

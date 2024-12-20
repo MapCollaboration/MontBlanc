@@ -1,30 +1,30 @@
 dependent_variables:
-  - header: {title: "TASSO at 22 GeV, Lambda Multiplicity", titlepy: "TASSO at 22 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+  - header: {title: "TASSO at 22 GeV, Lambda Multiplicity", titlepy: "TASSO at 22 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [nb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{nb GeV^{2}}]$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 22, units: GeV}
-      - {name: prefactor, value: 1}
+      - {name: prefactor, value: 0.001}
       - {name: normalised, value: false}
       - {name: z, low: 0.14, high: 0.6, integrate: false}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
     values:
       - errors:
-          - {label: unc, value: 170000}
-          - {label: add, value: 84000}
-        value: 420000
+          - {label: unc, value: 0.17}
+          - {label: add, value: 0.2}
+        value: 0.42
       - errors:
-          - {label: unc, value: 50000}
-          - {label: add, value: 44000}
-        value: 220000
+          - {label: unc, value: 0.05}
+          - {label: add, value: 0.2}
+        value: 0.22
       - errors:
-          - {label: unc, value: 33000}
-          - {label: add, value: 12400}
-        value: 62000
+          - {label: unc, value: 0.033}
+          - {label: add, value: 0.2}
+        value: 0.062
       - errors:
-          - {label: unc, value: 13000}
-          - {label: add, value: 2800}
-        value: 14000
+          - {label: unc, value: 0.013}
+          - {label: add, value: 0.2}
+        value: 0.014
 independent_variables:
   - header: {name: "z"}
     values:

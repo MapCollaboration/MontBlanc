@@ -1,42 +1,42 @@
 dependent_variables:
-  - header: {title: "TASSO at 34 GeV, Lambda Multiplicity", titlepy: "TASSO at 34 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+  - header: {title: "TASSO at 34 GeV, Lambda Multiplicity", titlepy: "TASSO at 34 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [nb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{nb GeV^{2}}]$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 34, units: GeV}
-      - {name: prefactor, value: 1}
+      - {name: prefactor, value: 0.001}
       - {name: normalised, value: false}
       - {name: z, low: 0.075, high: 0.6, integrate: false}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
     values:
       - errors:
-          - {label: unc, value: 720000}
-          - {label: add, value: 368000}
-        value: 1840000
+          - {label: unc, value: 0.72}
+          - {label: add, value: 0.2}
+        value: 1.84
       - errors:
-          - {label: unc, value: 190000}
-          - {label: add, value: 164000}
-        value: 820000
+          - {label: unc, value: 0.19}
+          - {label: add, value: 0.2}
+        value: 0.82
       - errors:
-          - {label: unc, value: 70000}
-          - {label: add, value: 112000}
-        value: 560000
+          - {label: unc, value: 0.07}
+          - {label: add, value: 0.2}
+        value: 0.56
       - errors:
-          - {label: unc, value: 40000}
-          - {label: add, value: 68000}
-        value: 340000
+          - {label: unc, value: 0.04}
+          - {label: add, value: 0.2}
+        value: 0.34
       - errors:
-          - {label: unc, value: 20000}
-          - {label: add, value: 28000}
-        value: 140000
+          - {label: unc, value: 0.02}
+          - {label: add, value: 0.2}
+        value: 0.14
       - errors:
-          - {label: unc, value: 18000}
-          - {label: add, value: 12000}
-        value: 60000
+          - {label: unc, value: 0.018}
+          - {label: add, value: 0.2}
+        value: 0.06
       - errors:
-          - {label: unc, value: 15000}
-          - {label: add, value: 6400}
-        value: 32000
+          - {label: unc, value: 0.015}
+          - {label: add, value: 0.2}
+        value: 0.032
 independent_variables:
   - header: {name: "z"}
     values:

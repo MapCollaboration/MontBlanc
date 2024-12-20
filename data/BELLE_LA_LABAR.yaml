@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "BELLE at 10.52 GeV, Lambda Multiplicity", titlepy: "BELLE at 10.52 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{1}{\\sigma}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+  - header: {title: "BELLE at 10.52 GeV, Lambda Multiplicity", titlepy: "BELLE at 10.52 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{d#it{#sigma}}{d#it{z}} [nb]", ylabelpy: "$\\frac{d\\sigma}{dz}[nb]$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 10.52, units: GeV}
@@ -10,69 +10,69 @@ dependent_variables:
       - {name: charge, value: 0}
     values:
       - errors:
-          - {label: unc, value: 3.4}
-          - {label: unc, value: 42}
-        value: 776
+          - {label: unc, value: 0.0034}
+          - {label: unc, value: 0.042}
+        value: 0.776
       - errors:
-          - {label: unc, value: 2.5}
-          - {label: unc, value: 43}
-        value: 788
+          - {label: unc, value: 0.0025}
+          - {label: unc, value: 0.043}
+        value: 0.788
       - errors:
-          - {label: unc, value: 2.1}
-          - {label: unc, value: 39}
-        value: 721
+          - {label: unc, value: 0.0021}
+          - {label: unc, value: 0.039}
+        value: 0.721
       - errors:
-          - {label: unc, value: 1.9}
-          - {label: unc, value: 34}
-        value: 635
+          - {label: unc, value: 0.0019}
+          - {label: unc, value: 0.034}
+        value: 0.635
       - errors:
-          - {label: unc, value: 1.6}
-          - {label: unc, value: 28}
-        value: 519
+          - {label: unc, value: 0.0016}
+          - {label: unc, value: 0.028}
+        value: 0.519
       - errors:
-          - {label: unc, value: 1.4}
-          - {label: unc, value: 22}
-        value: 399
+          - {label: unc, value: 0.0014}
+          - {label: unc, value: 0.022}
+        value: 0.399
       - errors:
-          - {label: unc, value: 1.1}
-          - {label: unc, value: 16}
-        value: 289
+          - {label: unc, value: 0.0011}
+          - {label: unc, value: 0.016}
+        value: 0.289
       - errors:
-          - {label: unc, value: 0.87}
-          - {label: unc, value: 11}
-        value: 198
+          - {label: unc, value: 0.00087}
+          - {label: unc, value: 0.011}
+        value: 0.198
       - errors:
-          - {label: unc, value: 0.75}
-          - {label: unc, value: 7.1}
-        value: 132
+          - {label: unc, value: 0.00075}
+          - {label: unc, value: 0.0071}
+        value: 0.132
       - errors:
-          - {label: unc, value: 0.64}
-          - {label: unc, value: 4.7}
-        value: 86.6
+          - {label: unc, value: 0.00064}
+          - {label: unc, value: 0.0047}
+        value: 0.0866
       - errors:
-          - {label: unc, value: 0.48}
-          - {label: unc, value: 2.7}
-        value: 50.8
+          - {label: unc, value: 0.00048}
+          - {label: unc, value: 0.0027}
+        value: 0.0508
       - errors:
-          - {label: unc, value: 0.37}
-          - {label: unc, value: 1.6}
-        value: 29.2
+          - {label: unc, value: 0.00037}
+          - {label: unc, value: 0.0016}
+        value: 0.0292
       - errors:
-          - {label: unc, value: 0.26}
-          - {label: unc, value: 0.81}
-        value: 15
+          - {label: unc, value: 0.00026}
+          - {label: unc, value: 0.00081}
+        value: 0.015
       - errors:
-          - {label: unc, value: 0.2}
-          - {label: unc, value: 0.42}
-        value: 7.79
+          - {label: unc, value: 0.0002}
+          - {label: unc, value: 0.00042}
+        value: 0.00779
       - errors:
-          - {label: unc, value: 0.12}
-          - {label: unc, value: 0.15}
-        value: 2.84
+          - {label: unc, value: 0.00012}
+          - {label: unc, value: 0.00015}
+        value: 0.00284
       - errors:
-          - {label: unc, value: 0.061}
-          - {label: unc, value: 0.044}
-        value: 0.812
+          - {label: unc, value: 6.1e-05}
+          - {label: unc, value: 4.4e-05}
+        value: 0.000812
 independent_variables:
   - header: {name: "z"}
     values:

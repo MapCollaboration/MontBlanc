@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "ALEPH at 91.2 GeV, Lambda Multiplicity", titlepy: "ALEPH at 91.2 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{1}{\\sigma}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+  - header: {title: "ALEPH at 91.2 GeV, Lambda Multiplicity", titlepy: "ALEPH at 91.2 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma}#frac{d#it{#sigma}}{d#it{z}}", ylabelpy: "$\\frac{1}{\\sigma}\\frac{d\\sigma}{dz}$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 91.2, units: GeV}

@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "CELLO at 35 GeV, Lambda Multiplicity", titlepy: "CELLO at 35 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+  - header: {title: "CELLO at 35 GeV, Lambda Multiplicity", titlepy: "CELLO at 35 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma#beta}#frac{d#it{#sigma}}{d#it{z}}", ylabelpy: "$\\frac{1}{\\sigma\\beta}\\frac{d\\sigma}{dz}$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 35, units: GeV}

@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "HRS at 29 GeV, Lambda Multiplicity", titlepy: "HRS at 29 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+  - header: {title: "HRS at 29 GeV, Lambda Multiplicity", titlepy: "HRS at 29 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [nb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{nb GeV^{2}}]$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 29, units: GeV}
@@ -10,53 +10,53 @@ dependent_variables:
       - {name: charge, value: 0}
     values:
       - errors:
-          - {label: unc, value: 95000}
-          - {label: unc, value: 269000}
-        value: 1053000
+          - {label: unc, value: 95}
+          - {label: unc, value: 269}
+        value: 1053
       - errors:
-          - {label: unc, value: 47000}
-          - {label: unc, value: 68600}
-        value: 514000
+          - {label: unc, value: 47}
+          - {label: unc, value: 68.6}
+        value: 514
       - errors:
-          - {label: unc, value: 33400}
-          - {label: unc, value: 47000}
-        value: 355200
+          - {label: unc, value: 33.4}
+          - {label: unc, value: 47}
+        value: 355.2
       - errors:
-          - {label: unc, value: 28000}
-          - {label: unc, value: 40300}
-        value: 307400
+          - {label: unc, value: 28}
+          - {label: unc, value: 40.3}
+        value: 307.4
       - errors:
-          - {label: unc, value: 23000}
-          - {label: unc, value: 22200}
-        value: 198700
+          - {label: unc, value: 23}
+          - {label: unc, value: 22.2}
+        value: 198.7
       - errors:
-          - {label: unc, value: 13400}
-          - {label: unc, value: 16600}
-        value: 150300
+          - {label: unc, value: 13.4}
+          - {label: unc, value: 16.6}
+        value: 150.3
       - errors:
-          - {label: unc, value: 10100}
-          - {label: unc, value: 10700}
-        value: 86000
+          - {label: unc, value: 10.1}
+          - {label: unc, value: 10.7}
+        value: 86
       - errors:
-          - {label: unc, value: 8700}
-          - {label: unc, value: 7900}
-        value: 52500
+          - {label: unc, value: 8.7}
+          - {label: unc, value: 7.9}
+        value: 52.5
       - errors:
-          - {label: unc, value: 7800}
-          - {label: unc, value: 7900}
-        value: 51200
+          - {label: unc, value: 7.8}
+          - {label: unc, value: 7.9}
+        value: 51.2
       - errors:
-          - {label: unc, value: 5200}
-          - {label: unc, value: 5700}
-        value: 28800
+          - {label: unc, value: 5.2}
+          - {label: unc, value: 5.7}
+        value: 28.8
       - errors:
-          - {label: unc, value: 2700}
-          - {label: unc, value: 2600}
-        value: 11100
+          - {label: unc, value: 2.7}
+          - {label: unc, value: 2.6}
+        value: 11.1
       - errors:
-          - {label: unc, value: 1090}
-          - {label: unc, value: 470}
-        value: 2000
+          - {label: unc, value: 1.09}
+          - {label: unc, value: 0.47}
+        value: 2
 independent_variables:
   - header: {name: "z"}
     values:

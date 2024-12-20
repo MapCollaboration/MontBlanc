@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "ARGUS at 10 GeV, Lambda Multiplicity", titlepy: "ARGUS at 10 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#beta#it{#sigma}}#frac{d#it{#sigma}}{d#it{z}}", ylabelpy: "$\\frac{1}{\\beta\\sigma}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+  - header: {title: "ARGUS at 10 GeV, Lambda Multiplicity", titlepy: "ARGUS at 10 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#beta#it{#sigma}}#frac{d#it{#sigma}}{d#it{z}}", ylabelpy: "$\\frac{1}{\\beta\\sigma}\\frac{d\\sigma}{dz}$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 10, units: GeV}
