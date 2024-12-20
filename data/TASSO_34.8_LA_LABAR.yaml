@@ -1,63 +1,64 @@
 dependent_variables:
-  - header: {title: "TASSO at 34.8 GeV, Lambda Multiplicity", titlepy: "TASSO at 34.8 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [pb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{pb GeV^{2}}]$"}
+  - header: {title: "TASSO at 34.8 GeV, Lambda Multiplicity", titlepy: "TASSO at 34.8 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [nb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{nb GeV^{2}}]$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 34.8, units: GeV}
       - {name: prefactor, value: 1}
+      - {name: normalised, value: false}
       - {name: z, low: 0.069, high: 1, integrate: false}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
     values:
       - errors:
-          - {label: unc, value: minus, -142000: plus, 148000}
-          - {label: add, value: 55300}
-          - {label: add, value: 99540}
-        value: 1106000
+          - {label: unc, value: 145.06206}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 1109
       - errors:
-          - {label: unc, value: minus, -66000: plus, 70000}
-          - {label: add, value: 28200}
-          - {label: add, value: 50760}
-        value: 564000
+          - {label: unc, value: 68.058798}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 566
       - errors:
-          - {label: unc, value: minus, -55000: plus, 57000}
-          - {label: add, value: 22900}
-          - {label: add, value: 41220}
-        value: 458000
+          - {label: unc, value: 56.017854}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 459
       - errors:
-          - {label: unc, value: minus, -37000: plus, 38000}
-          - {label: add, value: 14050}
-          - {label: add, value: 25290}
-        value: 281000
+          - {label: unc, value: 37.506666}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 281.5
       - errors:
-          - {label: unc, value: minus, -46000: plus, 47000}
-          - {label: add, value: 18250}
-          - {label: add, value: 32850}
-        value: 365000
+          - {label: unc, value: 46.505376}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 365.5
       - errors:
-          - {label: unc, value: minus, -34000: plus, 36000}
-          - {label: add, value: 11600}
-          - {label: add, value: 20880}
-        value: 232000
+          - {label: unc, value: 35.02856}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 233
       - errors:
-          - {label: unc, value: minus, -23000: plus, 24000}
-          - {label: add, value: 7000}
-          - {label: add, value: 12600}
-        value: 140000
+          - {label: unc, value: 23.510636}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 140.5
       - errors:
-          - {label: unc, value: minus, -24000: plus, 26000}
-          - {label: add, value: 7100}
-          - {label: add, value: 12780}
-        value: 142000
+          - {label: unc, value: 25.039968}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 143
       - errors:
-          - {label: unc, value: minus, -17000: plus, 19000}
-          - {label: add, value: 4700}
-          - {label: add, value: 8460}
-        value: 94000
+          - {label: unc, value: 18.05547}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 95
       - errors:
-          - {label: unc, value: 3000}
-          - {label: add, value: 50}
-          - {label: add, value: 90}
-        value: 14000
+          - {label: unc, value: 3}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 14
 independent_variables:
   - header: {name: "z"}
     values:
