@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 {
   if (argc < 2)
     {
-      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<hadron> (default: PIp, options: PIp, PIm, PIsum, KAp, KAm, KAsum)] [<set name> (default: LHAPDFSet)] [<Nmembers> (default: all)]" << std::endl;
+      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<hadron> (default: PIp, options: PIp, PIm, PIsum, KAp, KAm, KAsum, LA)] [<set name> (default: LHAPDFSet)] [<Nmembers> (default: all)]" << std::endl;
       exit(-1);
     }
 
@@ -167,9 +167,9 @@ int main(int argc, char *argv[])
             {
               if (!hadron.compare("PIm") || !hadron.compare("KAm"))
                 EvMap[i] += (!(i % 2) && i != 0 ? -1 : 1) * nnv.GetElement(i, 0) / nr;
-              else if (!hadron.compare("PIsum") || !hadron.compare("KAsum"))
+              else if (!hadron.compare("PIsum") || !hadron.compare("KAsum") || !hadron.compare("LA"))
                 EvMap[i] += (!(i % 2) && i != 0 ? 0 : 2) * nnv.GetElement(i, 0) / nr;
-              else // PIp or KAp
+              else // PIp or KAp or LAMBDA
                 EvMap[i] += nnv.GetElement(i, 0) / nr;
             }
         }
@@ -204,7 +204,7 @@ int main(int argc, char *argv[])
           {
             if (!hadron.compare("PIm") || !hadron.compare("KAm"))
               EvMap[i] += (!(i % 2) && i != 0 ? -1 : 1) * nnv.GetElement(i, 0);
-            else if (!hadron.compare("PIsum") || !hadron.compare("KAsum"))
+            else if (!hadron.compare("PIsum") || !hadron.compare("KAsum") || !hadron.compare("LA"))
               EvMap[i] += (!(i % 2) && i != 0 ? 0 : 2) * nnv.GetElement(i, 0);
             else // PIp or KAp
               EvMap[i] += nnv.GetElement(i, 0);
@@ -229,6 +229,8 @@ int main(int argc, char *argv[])
     GridHeader += "- K^- ";
   else if (hadron == "KAsum")
     GridHeader += "- (K^+ + K^-) ";
+  else if (hadron == "LA")
+    GridHeader += "- Lambda ";
   else
     GridHeader += "- Unknown species ";
   GridHeader += "FF fit at " + std::string(es.PerturbativeOrder, 'N') + "LO - mem=0 => average over replicas, ";
