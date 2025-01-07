@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Usage:
+# > bash run_fit.sh <path to runcard> <nrep> <path to fit fodler>
+
 source /exports/csce/eddie/ph/groups/nnpdf/Users/ac/miniconda3/bin/activate map
 
 mkdir -p logs
