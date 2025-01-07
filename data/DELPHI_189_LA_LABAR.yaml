@@ -35,7 +35,6 @@ dependent_variables:
 independent_variables:
   - header: {name: "z"}
     values:
-      - {high: 0.54893861, low: 0.30142552, value: 0.40674105, factor: 0.40639835}
       - {high: 0.30142552, low: 0.16571998, value: 0.22344229, factor: 0.22281846}
       - {high: 0.16571998, low: 0.091482987, value: 0.12302425, factor: 0.12189122}
       - {high: 0.091482987, low: 0.051167783, value: 0.068234675, factor: 0.066191873}
@@ -44,10 +43,8 @@ independent_variables:
       - {high: 0.019085523, low: 0.014391616, value: 0.016211098, factor: 0.0076126742}
       - {high: 0.014391616, low: 0.012640783, value: 0.013287596, factor: 0.0027973698}
       - {high: 0.012640783, low: 0.012063751, value: 0.012271323, factor: 0.00091232909}
-      - {high: 0.012063751, low: 0.011884464, value: 0.011948301, factor: 0.00028221713}
   - header: {name: "xip"}
     values:
-      - {high: 0.6, low: 1.2, value: 0.9}
       - {high: 1.2, low: 1.8, value: 1.5}
       - {high: 1.8, low: 2.4, value: 2.1}
       - {high: 2.4, low: 3, value: 2.7}
@@ -56,4 +53,3 @@ independent_variables:
       - {high: 4.2, low: 4.8, value: 4.5}
       - {high: 4.8, low: 5.4, value: 5.1}
       - {high: 5.4, low: 6, value: 5.7}
-      - {high: 6, low: 6.6, value: 6.3}
