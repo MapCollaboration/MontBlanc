@@ -90,22 +90,22 @@ Data:
   # number of cuts determined by the name of the appropriate function
   # (e.g. zcut) and the allowed range.
   sets:
-    - {name: "ALEPH $\Lambda \bar{\Lambda}$", file: "ALEPH_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "ARGUS $\Lambda \bar{\Lambda}$", file: "ARGUS_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "BELLE $\Lambda \bar{\Lambda}$", file: "BELLE_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "CELLO $\Lambda \bar{\Lambda}$", file: "CELLO_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "Delphi 91.2 GeV $\Lambda \bar{\Lambda}$", file: "DELPHI_91.2_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    #- {name: "Delphi 183 GeV $\Lambda \bar{\Lambda}$", file: "DELPHI_183_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    #- {name: "Delphi 189 GeV $\Lambda \bar{\Lambda}$", file: "DELPHI_189_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "HRS $\Lambda \bar{\Lambda}$", file: "HRS_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "MARK II $\Lambda \bar{\Lambda}$", file: "MARKII_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "OPAL $\Lambda \bar{\Lambda}$", file: "OPAL_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "SLD B $\Lambda \bar{\Lambda}$", file: "SLD_LA_LABAR_B.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "SLD C $\Lambda \bar{\Lambda}$", file: "SLD_LA_LABAR_C.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "SLD UDS $\Lambda \bar{\Lambda}$", file: "SLD_LA_LABAR_UDS.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "SLD $\Lambda \bar{\Lambda}$", file: "SLD_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "TASSO 14 GeV $\Lambda \bar{\Lambda}$", file: "TASSO_14_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "TASSO 22 GeV $\Lambda \bar{\Lambda}$", file: "TASSO_22_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    - {name: "TASSO 33 GeV $\Lambda \bar{\Lambda}$", file: "TASSO_33_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    #- {name: "TASSO 34.8 GeV $\Lambda \bar{\Lambda}$", file: "TASSO_34.8_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-    #- {name: "TASSO 42.1 GeV $\Lambda \bar{\Lambda}$", file: "TASSO_42.1_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "ALEPH $\\Lambda \\bar{\\Lambda}$", file: "ALEPH_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "ARGUS $\\Lambda \\bar{\\Lambda}$", file: "ARGUS_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "BELLE $\\Lambda \\bar{\\Lambda}$", file: "BELLE_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "CELLO $\\Lambda \\bar{\\Lambda}$", file: "CELLO_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "Delphi 91.2 GeV $\\Lambda \\bar{\\Lambda}$", file: "DELPHI_91.2_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "Delphi 183 GeV $\\Lambda \\bar{\\Lambda}$", file: "DELPHI_183_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "Delphi 189 GeV $\\Lambda \\bar{\\Lambda}$", file: "DELPHI_189_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "HRS $\Lambda \\bar{\\Lambda}$", file: "HRS_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "MARK II $\\Lambda \\bar{\\Lambda}$", file: "MARKII_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "OPAL $\\Lambda \\bar{\\Lambda}$", file: "OPAL_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "SLD B $\\Lambda \\bar{\\Lambda}$", file: "SLD_LA_LABAR_B.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "SLD C $\\Lambda \\bar{\\Lambda}$", file: "SLD_LA_LABAR_C.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "SLD UDS $\\Lambda \\bar{\\Lambda}$", file: "SLD_LA_LABAR_UDS.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "SLD $\\Lambda \\bar{\\Lambda}$", file: "SLD_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 14 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_14_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 22 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_22_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 33 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_33_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 34.8 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_34.8_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 42.1 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_42.1_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
