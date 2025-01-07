@@ -167,7 +167,7 @@ int main(int argc, char *argv[])
             {
               if (!hadron.compare("PIm") || !hadron.compare("KAm"))
                 EvMap[i] += (!(i % 2) && i != 0 ? -1 : 1) * nnv.GetElement(i, 0) / nr;
-              else if (!hadron.compare("PIsum") || !hadron.compare("KAsum") || !hadron.compare("LA"))
+              else if (!hadron.compare("PIsum") || !hadron.compare("KAsum"))
                 EvMap[i] += (!(i % 2) && i != 0 ? 0 : 2) * nnv.GetElement(i, 0) / nr;
               else // PIp or KAp or LAMBDA
                 EvMap[i] += nnv.GetElement(i, 0) / nr;
@@ -204,7 +204,7 @@ int main(int argc, char *argv[])
           {
             if (!hadron.compare("PIm") || !hadron.compare("KAm"))
               EvMap[i] += (!(i % 2) && i != 0 ? -1 : 1) * nnv.GetElement(i, 0);
-            else if (!hadron.compare("PIsum") || !hadron.compare("KAsum") || !hadron.compare("LA"))
+            else if (!hadron.compare("PIsum") || !hadron.compare("KAsum"))
               EvMap[i] += (!(i % 2) && i != 0 ? 0 : 2) * nnv.GetElement(i, 0);
             else // PIp or KAp
               EvMap[i] += nnv.GetElement(i, 0);
