@@ -229,12 +229,12 @@ int main(int argc, char *argv[])
     GridHeader += "- K^- ";
   else if (hadron == "KAsum")
     GridHeader += "- (K^+ + K^-) ";
+  else if (hadron == "LA")
+    GridHeader += "- Lambda ";
   else if (hadron == "LAbar")
     GridHeader += "- LambdaBar ";
   else if (hadron == "LAsum")
     GridHeader += "- Lambda + LambdaBar ";
-  else if (hadron == "LA")
-    GridHeader += "- Lambda ";
   else
     GridHeader += "- Unknown species ";
   GridHeader += "FF fit at " + std::string(es.PerturbativeOrder, 'N') + "LO - mem=0 => average over replicas, ";
