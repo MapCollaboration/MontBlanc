@@ -165,11 +165,11 @@ int main(int argc, char *argv[])
           // Fill in map
           for (int i = 0; i < 13; i++)
             {
-              if (!hadron.compare("PIm") || !hadron.compare("KAm"))
+              if (!hadron.compare("PIm") || !hadron.compare("KAm") || !hadron.compare("LAbar"))
                 EvMap[i] += (!(i % 2) && i != 0 ? -1 : 1) * nnv.GetElement(i, 0) / nr;
-              else if (!hadron.compare("PIsum") || !hadron.compare("KAsum"))
+              else if (!hadron.compare("PIsum") || !hadron.compare("KAsum") || !hadron.compare("LAsum"))
                 EvMap[i] += (!(i % 2) && i != 0 ? 0 : 2) * nnv.GetElement(i, 0) / nr;
-              else // PIp or KAp or LAMBDA
+              else // PIp or KAp or LA
                 EvMap[i] += nnv.GetElement(i, 0) / nr;
             }
         }
@@ -202,11 +202,11 @@ int main(int argc, char *argv[])
         std::map<int, double> EvMap;
         for (int i = 0; i < 13; i++)
           {
-            if (!hadron.compare("PIm") || !hadron.compare("KAm"))
+            if (!hadron.compare("PIm") || !hadron.compare("KAm")|| !hadron.compare("LAbar"))
               EvMap[i] += (!(i % 2) && i != 0 ? -1 : 1) * nnv.GetElement(i, 0);
-            else if (!hadron.compare("PIsum") || !hadron.compare("KAsum"))
+            else if (!hadron.compare("PIsum") || !hadron.compare("KAsum")|| !hadron.compare("LAsum"))
               EvMap[i] += (!(i % 2) && i != 0 ? 0 : 2) * nnv.GetElement(i, 0);
-            else // PIp or KAp
+            else // PIp or KAp or LA
               EvMap[i] += nnv.GetElement(i, 0);
           }
 
@@ -229,6 +229,10 @@ int main(int argc, char *argv[])
     GridHeader += "- K^- ";
   else if (hadron == "KAsum")
     GridHeader += "- (K^+ + K^-) ";
+  else if (hadron == "LAbar")
+    GridHeader += "- LambdaBar ";
+  else if (hadron == "LAsum")
+    GridHeader += "- Lambda + LambdaBar ";
   else if (hadron == "LA")
     GridHeader += "- Lambda ";
   else
@@ -246,6 +250,8 @@ int main(int argc, char *argv[])
     GridHeader += "Particle: 211\n";
   else if (hadron.substr(0, 2) == "KA")
     GridHeader += "Particle: 321\n";
+  else if (hadron.substr(0, 2) == "LA")
+    GridHeader += "Particle: 3122\n";
   else
     GridHeader += "Particle: 000\n";
   GridHeader += "FlavorScheme: variable\n";
