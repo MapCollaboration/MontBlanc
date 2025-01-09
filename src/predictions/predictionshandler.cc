@@ -73,7 +73,7 @@ namespace MontBlanc
 
     // Initialize QCD time-like evolution operators and tabulated them
     const std::unique_ptr<const apfel::TabulateObject<apfel::Set<apfel::Operator>>> TabGammaij{new const apfel::TabulateObject<apfel::Set<apfel::Operator>>
-      {*(BuildDglap(InitializeDglapObjectsQCDT(*_g, _Thresholds, true), _mu0, PerturbativeOrder, Alphas)), 100, 1, 100, 3}};
+      {*(BuildDglap(InitializeDglapObjectsQCDT(*_g, _Thresholds, true), _mu0, PerturbativeOrder, Alphas)), 100, 1, 190, 3}};
 
     // Zero operator
     const apfel::Operator Zero{*_g, apfel::Null{}};
