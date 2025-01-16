@@ -11,27 +11,35 @@ dependent_variables:
     values:
       - errors:
           - {label: unc, value: 0.87}
+          - {label: add, value: 0.034}
         value: 4.72
       - errors:
           - {label: unc, value: 0.49}
+          - {label: add, value: 0.034}
         value: 3.87
       - errors:
           - {label: unc, value: 0.35}
+          - {label: add, value: 0.034}
         value: 3.41
       - errors:
           - {label: unc, value: 0.22}
+          - {label: add, value: 0.034}
         value: 2.21
       - errors:
           - {label: unc, value: 0.16}
+          - {label: add, value: 0.034}
         value: 1.14
       - errors:
           - {label: unc, value: 0.13}
+          - {label: add, value: 0.034}
         value: 1.15
       - errors:
           - {label: unc, value: 0.08}
+          - {label: add, value: 0.034}
         value: 0.52
       - errors:
           - {label: unc, value: 0.05}
+          - {label: add, value: 0.034}
         value: 0.24
 independent_variables:
   - header: {name: "z"}
