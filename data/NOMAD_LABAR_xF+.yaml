@@ -1,0 +1,50 @@
+dependent_variables:
+  - header: {title: "NOMAD, Lambdabar Multiplicity", titlepy: "NOMAD, Lambdabar Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N#nu}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N\\nu}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIDIS}
+      - {name: Vs, value: 9.266, units: GeV}
+      - {name: xF, value: "> 0.0"}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.05, high: 1, integrate: false}
+      - {name: hadron, value: LABAR}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.00537}
+        value: 0.00809
+      - errors:
+          - {label: unc, value: 0.02858}
+        value: 0.20266
+      - errors:
+          - {label: unc, value: 0.03643}
+        value: 0.33587
+      - errors:
+          - {label: unc, value: 0.03013}
+        value: 0.2425
+      - errors:
+          - {label: unc, value: 0.01883}
+        value: 0.11271
+      - errors:
+          - {label: unc, value: 0.01415}
+        value: 0.06672
+      - errors:
+          - {label: unc, value: 0.00777}
+        value: 0.02346
+      - errors:
+          - {label: unc, value: 0.00339}
+        value: 0.00653
+      - errors:
+          - {label: unc, value: 0.0012}
+        value: 0.00145
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.1, low: 0, value: 0.05}
+      - {high: 0.2, low: 0.1, value: 0.15}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.4, low: 0.3, value: 0.35}
+      - {high: 0.5, low: 0.4, value: 0.45}
+      - {high: 0.6, low: 0.5, value: 0.55}
+      - {high: 0.7, low: 0.6, value: 0.65}
+      - {high: 0.8, low: 0.7, value: 0.75}
+      - {high: 0.9, low: 0.8, value: 0.85}

@@ -1,0 +1,44 @@
+dependent_variables:
+  - header: {title: "WA59, Lambda Multiplicity", titlepy: "WA59, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIDIS}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0, high: 1, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.0233}
+        value: 0.2402
+      - errors:
+          - {label: unc, value: 0.0218}
+        value: 0.2219
+      - errors:
+          - {label: unc, value: 0.019}
+        value: 0.1684
+      - errors:
+          - {label: unc, value: 0.0137}
+        value: 0.0882
+      - errors:
+          - {label: unc, value: 0.0137}
+        value: 0.0789
+      - errors:
+          - {label: unc, value: 0.0099}
+        value: 0.0455
+      - errors:
+          - {label: unc, value: 0.0028}
+        value: 0.004
+      - errors:
+          - {label: unc, value: 0.0066}
+        value: 0.0116
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.1, low: 0, value: 0.05}
+      - {high: 0.2, low: 0.1, value: 0.15}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.4, low: 0.3, value: 0.35}
+      - {high: 0.5, low: 0.4, value: 0.45}
+      - {high: 0.6, low: 0.5, value: 0.55}
+      - {high: 0.7, low: 0.6, value: 0.65}
+      - {high: 0.8, low: 0.7, value: 0.75}
