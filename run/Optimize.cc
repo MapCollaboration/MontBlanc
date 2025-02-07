@@ -6,6 +6,7 @@
 //
 
 #include "MontBlanc/predictionshandler.h"
+#include "MontBlanc/predictionshandler_approx.h"
 #include "MontBlanc/AnalyticChiSquare.h"
 #include "MontBlanc/IterationCallBack.h"
 #include "MontBlanc/NNADparameterisation.h"
@@ -28,6 +29,7 @@
 
 // C++
 #include <unistd.h>
+#include <memory>
 #include <getopt.h>
 #include <sys/stat.h>
 
@@ -111,11 +113,18 @@ int main(int argc, char *argv[])
   // Set silent mode for APFEL++
   apfel::SetVerbosityLevel(0);
 
-  // APFEL++ x-space grid
-  std::vector<apfel::SubGrid> vsg;
-  for (auto const &sg : config["Predictions"]["xgrid"])
-    vsg.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
-  const std::shared_ptr<const apfel::Grid> g(new const apfel::Grid{vsg});
+  // APFEL++ x-space and z-space grids
+  std::vector<apfel::SubGrid> vsgx, vsgz;
+  const auto config_xgrid = config["Predictions"]["xgrid"];
+  const auto config_zgrid = (config["Predictions"]["zgrid"] ? config["Predictions"]["zgrid"] : config_xgrid);
+  // Grid for x
+  for (auto const &sg : config_xgrid)
+    vsgx.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gx(new const apfel::Grid{vsgx});
+  // Grid for z
+  for (auto const &sg : config_zgrid)
+    vsgz.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gz(new const apfel::Grid{vsgz});
 
   // Initialise GSL random-number generator
   gsl_rng *rng = gsl_rng_alloc(gsl_rng_ranlxs2);
@@ -123,6 +132,10 @@ int main(int argc, char *argv[])
 
   // Hadronic species
   const std::string hadron = config["Data"]["hadron"].as<std::string>();
+
+  // Temporary
+  // SIDIS approx. or exact
+  const int SIDIStype = config["Predictions"]["SIDIS type"].as<int>();
 
   // Vectors of DataHandler-ConvolutionTable pairs to be fed to the chi2
   std::vector<std::pair<NangaParbat::DataHandler*, NangaParbat::ConvolutionTable*>> DSVect;
@@ -161,7 +174,13 @@ int main(int argc, char *argv[])
                                                             (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double> {})));
 
       // Compute predictions within kinematic cuts
-      MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, g, cuts};
+      std::shared_ptr<NangaParbat::ConvolutionTable> PH;
+      // Temporary
+      if (SIDIStype == 0)
+        PH = std::make_shared<MontBlanc::PredictionsHandler>(config["Predictions"], *DH, gx, gz, cuts);
+      else
+        PH = std::make_shared<MontBlanc::PredictionsHandlerApprox>(config["Predictions"], *DH, gz, cuts);
+      //MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, gx, gz, cuts};
 
       // Training fraction
       double TrainingFraction = ds["training fraction"].as<double>();
@@ -176,11 +195,11 @@ int main(int argc, char *argv[])
             throw std::runtime_error("Only closure tests level 0, 1, and 2 are defined.");
 
           // Construct LHAPDF Parameterisation with input FF set
-          NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(config["Data"]["closure_test"]["ffset"].as<std::string>(), g);
+          NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(config["Data"]["closure_test"]["ffset"].as<std::string>(), gz);
 
           // Set LHAPDF set as an input and compute predictions
-          PH.SetInputFFs(LHAPDF_FFs->DistributionFunction());
-          const std::vector<double> theories = PH.GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+          PH->SetInputFFs(LHAPDF_FFs->DistributionFunction());
+          const std::vector<double> theories = PH->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
           // Data fluctuation seed, if zero no fluctuations
           const int df = (ctlvl == 0 ? 0 : config["Data"]["seed"].as<int>());
@@ -208,14 +227,23 @@ int main(int argc, char *argv[])
       // the DH and PH objects defined above (tables are not recomputed)
       // for the total dataset (used at the end of the fit to compute
       // the optimal chi2) and the training and validation subsets.
-      DSVect.push_back(std::make_pair(DHc, new MontBlanc::PredictionsHandler{PH}));
-      DSVectt.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{PH, {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*TrainingCut})}}));
-      DSVectv.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{PH, {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*ValidationCut})}}));
+      if (SIDIStype == 0)
+        {
+          DSVect.push_back(std::make_pair(DHc, new MontBlanc::PredictionsHandler{*dynamic_cast<MontBlanc::PredictionsHandler*>(PH.get())}));
+          DSVectt.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{*dynamic_cast<MontBlanc::PredictionsHandler*>(PH.get()), {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*TrainingCut})}}));
+          DSVectv.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{*dynamic_cast<MontBlanc::PredictionsHandler*>(PH.get()), {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*ValidationCut})}}));
+        }
+      else
+        {
+          DSVect.push_back(std::make_pair(DHc, new MontBlanc::PredictionsHandlerApprox{*dynamic_cast<MontBlanc::PredictionsHandlerApprox*>(PH.get())}));
+          DSVectt.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandlerApprox{*dynamic_cast<MontBlanc::PredictionsHandlerApprox*>(PH.get()), {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*TrainingCut})}}));
+          DSVectv.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandlerApprox{*dynamic_cast<MontBlanc::PredictionsHandlerApprox*>(PH.get()), {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*ValidationCut})}}));
+        }
+
     }
 
   // NN Parameterisation
-  NangaParbat::Parameterisation *NN_FFs = new MontBlanc::NNADparameterisation(config["NNAD"], g);
-
+  NangaParbat::Parameterisation *NN_FFs = new MontBlanc::NNADparameterisation(config["NNAD"], gz);
   // Initialiase chi2 objects for training and validation
   MontBlanc::AnalyticChiSquare *chi2t = new MontBlanc::AnalyticChiSquare{DSVectt, NN_FFs};
   MontBlanc::AnalyticChiSquare *chi2v = new MontBlanc::AnalyticChiSquare{DSVectv, NN_FFs};

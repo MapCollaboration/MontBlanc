@@ -21,6 +21,15 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Set a default path (relative to the source directory) for APFEL++ tables
+set(DEFAULT_TABLE_DIR "${CMAKE_SOURCE_DIR}/tables")
+
+# Allow the user to override the default using -DCMAKE_TABLE_DIR=<custom_path>
+set(TABLE_DIR ${DEFAULT_TABLE_DIR} CACHE PATH "Path to the directory containing the table files")
+
+# Pass the path as a preprocessor definition
+add_compile_definitions(TABLE_DIR="${TABLE_DIR}")
+
 # export version to file
 configure_file(
   "${PROJECT_SOURCE_DIR}/inc/MontBlanc/version.h.in"

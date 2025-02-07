@@ -4,30 +4,24 @@
 //          Emanuele R. Nocera: emanuele.nocera@ed.ac.uk
 //
 
-#include "MontBlanc/predictionshandler.h"
+#include "MontBlanc/predictionshandler_approx.h"
 
-#include <apfel/apfelxx.h>
-#include <apfel/sidiscoefficientfunctionsunp.h>
 #include <LHAPDF/LHAPDF.h>
+#include <apfel/SIDIS.h>
+#include <apfel/zeromasscoefficientfunctionsunp_tl.h>
 #include <numeric>
-
-#ifndef TABLE_DIR
-  #error "TABLE_DIR is not defined!"
-#endif //TABLE_DIR
 
 namespace MontBlanc
 {
   //_________________________________________________________________________
-  PredictionsHandler::PredictionsHandler(YAML::Node                                     const& config,
+  PredictionsHandlerApprox::PredictionsHandlerApprox(YAML::Node                                     const& config,
                                          NangaParbat::DataHandler                       const& DH,
-                                         std::shared_ptr<const apfel::Grid>             const& gx,
-                                         std::shared_ptr<const apfel::Grid>             const& gz,
+                                         std::shared_ptr<const apfel::Grid>             const& g,
                                          std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts):
     NangaParbat::ConvolutionTable{},
     _mu0(config["mu0"].as<double>()),
     _Thresholds(config["thresholds"].as<std::vector<double>>()),
-    _gx(gx),
-    _gz(gz),
+    _g(g),
     _obs(DH.GetObservable()),
     _bins(DH.GetBinning()),
     _qTfact(DH.GetKinematics().qTfact),
@@ -63,7 +57,7 @@ namespace MontBlanc
           _ChargeMap[2 * i] = 0;
       }
     else
-      throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unsupported charge.");
+      throw std::runtime_error("[PredictionsHandlerApprox::PredictionsHandlerApprox]: Unsupported charge.");
 
     // Perturbative order
     const int PerturbativeOrder = config["perturbative order"].as<int>();
@@ -79,10 +73,10 @@ namespace MontBlanc
 
     // Initialize QCD time-like evolution operators and tabulated them
     const std::unique_ptr<const apfel::TabulateObject<apfel::Set<apfel::Operator>>> TabGammaij{new const apfel::TabulateObject<apfel::Set<apfel::Operator>>
-      {*(BuildDglap(InitializeDglapObjectsQCDT(*_gz, _Thresholds, true), _mu0, PerturbativeOrder, Alphas)), 100, 1, 100, 3}};
+      {*(BuildDglap(InitializeDglapObjectsQCDT(*_g, _Thresholds, true), _mu0, PerturbativeOrder, Alphas)), 100, 1, 100, 3}};
 
     // Zero operator
-    const apfel::Operator Zero{*_gz, apfel::Null{}};
+    const apfel::Operator Zero{*_g, apfel::Null{}};
 
     // Set cuts in the mother class
     this->_cuts = cuts;
@@ -109,8 +103,11 @@ namespace MontBlanc
         // Get evolution-operator objects
         std::map<int, apfel::Operator> Gammaij = TabGammaij->Evaluate(Vs).GetObjects();
 
+        if (PerturbativeOrder == 2)
+          throw std::runtime_error("[PredictionsHandlerApprox::PredictionsHandlerApprox]: Exact NNLO is not supported for SIA (?).");
+
         // Get F2 objects at the scale Vs
-        const apfel::StructureFunctionObjects F2Obj = apfel::InitializeF2NCObjectsZMT(*_gz, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
+        const apfel::StructureFunctionObjects F2Obj = apfel::InitializeF2NCObjectsZMT(*_g, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
 
         // Get skip vector
         const std::vector<int> skip = F2Obj.skip;
@@ -198,10 +195,8 @@ namespace MontBlanc
         std::function<std::vector<double>(double const&)> fBq = [=] (double const& Q) -> std::vector<double> { return apfel::ElectroWeakCharges(Q, false); };
 
         // Initialise inclusive structure functions
-        // TODO
-        // Is _gx correct here?
-        const auto IF2 = BuildStructureFunctions(InitializeF2NCObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
-        const auto IFL = BuildStructureFunctions(InitializeFLNCObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
+        const auto IF2 = BuildStructureFunctions(InitializeF2NCObjectsZM(*_g, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
+        const auto IFL = BuildStructureFunctions(InitializeFLNCObjectsZM(*_g, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
 
         // Inclusive cross section differential in x and Q as a
         // distribution function of Q
@@ -221,37 +216,6 @@ namespace MontBlanc
         // Tabulate total inclusive cross sections in Q
         const apfel::TabulateObject<apfel::Distribution> TabIncXSecQ{IncXSecQ, 100, 1, 10, 3, _Thresholds};
 
-        // LO
-        const apfel::DoubleOperator OT0ns{YAML::LoadFile(std::string(TABLE_DIR) + "/DoubleIdentity.yaml"), *_gx, *_gz, apfel::DoubleIdentity{}};
-        // NLO
-        const apfel::DoubleOperator OT1ns{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TQ2Q.yaml"), *_gx, *_gz, apfel::C1TQ2Q{}};
-        const apfel::DoubleOperator OT1gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TQ2G.yaml"), *_gx, *_gz, apfel::C1TQ2G{}};
-        const apfel::DoubleOperator OT1qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TG2Q.yaml"), *_gx, *_gz, apfel::C1TG2Q{}};
-        // NNLO
-        const apfel::DoubleOperator OT2ns_nf3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{3}};
-        const apfel::DoubleOperator OT2ns_nf4{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{4}};
-        const apfel::DoubleOperator OT2ns_nf5{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{5}};
-        const apfel::DoubleOperator OT2gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2G.yaml"), *_gx, *_gz, apfel::C2TQ2G{}};
-        const apfel::DoubleOperator OT2qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TG2Q.yaml"), *_gx, *_gz, apfel::C2TG2Q{}};
-        const apfel::DoubleOperator OT2gg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TG2G.yaml"), *_gx, *_gz, apfel::C2TG2G{}};
-        const apfel::DoubleOperator OT2qbq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QB.yaml"), *_gx, *_gz, apfel::C2TQ2QB{}};
-        const apfel::DoubleOperator OT2qpq1{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QP1.yaml"), *_gx, *_gz, apfel::C2TQ2QP1{}};
-        const apfel::DoubleOperator OT2qpq2{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QP2.yaml"), *_gx, *_gz, apfel::C2TQ2QP2{}};
-        const apfel::DoubleOperator OT2qpq3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QP3.yaml"), *_gx, *_gz, apfel::C2TQ2QP3{}};
-        const apfel::DoubleOperator OT2ps{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QPS.yaml"), *_gx, *_gz, apfel::C2TQ2QPS{}};
-
-        const apfel::DoubleOperator OZero{*_gx, *_gz, apfel::DoubleNull{}};
-
-        apfel::DoubleOperator Ons = OT0ns;
-        apfel::DoubleOperator OTgq = OZero;
-        apfel::DoubleOperator OTqg = OZero;
-        apfel::DoubleOperator OTgg = OZero;
-        apfel::DoubleOperator OTps = OZero;
-        apfel::DoubleOperator OTqbq = OZero;
-        apfel::DoubleOperator OTqpq1 = OZero;
-        apfel::DoubleOperator OTqpq2 = OZero;
-        apfel::DoubleOperator OTqpq3 = OZero;
-
         // Rotation Matrix from evolution to physical basis
         std::map<int, std::map<int, double>> Tqi;
         for (int q = -6; q <= 6; q++)
@@ -263,12 +227,17 @@ namespace MontBlanc
               Tqi[q].insert({j, apfel::RotQCDEvToPhysFull[q+6][j]});
           }
 
-        // Defining the quark hard x-sec
-        const std::function<apfel::Set<apfel::DistributionOperator>(double const&)> Ki = [&] (double const& Q) -> apfel::Set<apfel::DistributionOperator>
+        // Initialize SIDIS objects.
+        const apfel::SidisObjects so = InitializeSIDIS(*_g, _Thresholds);
+
+        // Semi-inclusive hard cross sections differential in x, Q, and z
+        // as a Set<DoubleObject<Distribution, Operator>> function of Q.
+        const std::function<apfel::Set<apfel::DoubleObject<apfel::Distribution, apfel::Operator>>(double const&)> Ki = [&] (double const& Q) ->
+                                                                                                                       apfel::Set<apfel::DoubleObject<apfel::Distribution, apfel::Operator>>
         {
-          // Coupling constant at NLO
+          // Strong coupling
           const double as  = Alphas(Q) / apfel::FourPi;
-          const double as2  = as * as;
+          const double as2 = as * as;
 
           // Number of active flavours
           const int nf = apfel::NF(Q, _Thresholds);
@@ -283,123 +252,73 @@ namespace MontBlanc
           const std::function<double(double const)> func2 = [=] (double const& x) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
           const std::function<double(double const)> funcL = [=] (double const& x) -> double{ return - fact * pow(Q / Vs, 4) / pow(x, 3); };
 
-          // Define operators that multiply all channels
-          if (PerturbativeOrder >= 1)
-            {
-              Ons += as * OT1ns;
-              OTgq += as * OT1gq;
-              OTqg += as * OT1qg;
-            }
-          if (PerturbativeOrder >= 2)
-            {
-              if (nf == 3)
-                Ons += as2 * OT2ns_nf3;
-              else if (nf == 4)
-                Ons += as2 * OT2ns_nf4;
-              else if (nf == 5)
-                Ons += as2 * OT2ns_nf5;
-              else
-                throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown number of active flavours.");
-
-              OTgq += as2 * OT2gq;
-              OTqg += as2 * OT2qg;
-              OTgg += as2 * OT2gg;
-              OTps += as2 * OT2ps;
-              OTqbq += as2 * OT2qbq;
-              OTqpq1 += as2 * OT2qpq1;
-              OTqpq2 += as2 * OT2qpq2;
-              OTqpq3 += as2 * OT2qpq3;
-            }
-
-          // Produce a map of distributions out of the PDFs in the physical basis
-          // This line envelops the PDFs into a map of apfel::Distribution objects. These
-          // objects will then be convoluted.
-          const std::map<int, apfel::Distribution> DistPDFs = apfel::DistributionMap(*_gx, tPDFs, Q);
+          // Produce a map of distributions out of the PDFs in the
+          // physical basis
+          const std::map<int, apfel::Distribution> DistPDFs = apfel::DistributionMap(*_g, tPDFs, Q);
 
           // Initialise a map of double objects to be used to construct
           // a set
-          std::map<int, apfel::DistributionOperator> KiMap{};
+          std::map<int, apfel::DoubleObject<apfel::Distribution, apfel::Operator>> KiMap{};
 
-          // gq channel (NLO + NNLO)
-          // -----------------------
+          // Start with the gluon channel and construct the relevant
+          // combination of PDFs
           apfel::Distribution eqfq = Bq[0] * ( DistPDFs.at(1) + DistPDFs.at(-1) );
           for (int q = 2; q <= 5; q++)
             eqfq += Bq[q-1] * ( DistPDFs.at(q) + DistPDFs.at(-q) );
-          const apfel::DistributionOperator C_gq_DO = OTgq.MultiplyFirstBy(eqfq);
 
-          // gg channel (NNLO)
-          // -----------------
-          const double etot = std::accumulate(Bq.begin(), Bq.begin() + nf, 0.);
-          const apfel::Distribution eqfgTgi = etot * DistPDFs.at(21); // gluon
-          const apfel::DistributionOperator C_gg_DO = OTgg.MultiplyFirstBy(eqfgTgi);
+          // NLO gq for F2 and FL
+          apfel::DoubleObject<apfel::Distribution, apfel::Operator> D0t;
+          for (auto const& t: so.C21gq.GetTerms())
+            D0t.AddTerm({as * t.coefficient, func2 * ( t.object1 * eqfq ), t.object2});
+          for (auto const& t: so.CL1gq.GetTerms())
+            D0t.AddTerm({as * t.coefficient, funcL * ( t.object1 * eqfq ), t.object2});
+          KiMap.insert({0, D0t});
 
-          // Sum the gg and gq channels and insert into Ki map
-          KiMap.insert({0, C_gq_DO + C_gg_DO}); // DO = Double Operator
-
-          // Construct the other channels
+          // Now run over the quark evolution basis
           for (int i = 1; i < 13; i++)
             {
-              // Distribution for qq channel NS (LO + NLO + NNLO)
-              // ------------------------------------------------
+              apfel::DoubleObject<apfel::Distribution, apfel::Operator> Dit;
+
+              // Useful combination
               apfel::Distribution eqfqTqi = Bq[0] * ( DistPDFs.at(1) * Tqi.at(1).at(i) + DistPDFs.at(-1) * Tqi.at(-1).at(i) );
               for (int q = 2; q <= 5; q++)
                 eqfqTqi += Bq[q-1] * ( DistPDFs.at(q) * Tqi.at(q).at(i) + DistPDFs.at(-q) * Tqi.at(-q).at(i) );
-              const apfel::DistributionOperator C_qq_NS = Ons.MultiplyFirstBy(eqfqTqi);
 
-              // Distribution for qg channel (NLO + NNLO)
-              // ----------------------------------------
+              // LO (F2 only)
+              for (auto const& t: so.C20qq.GetTerms())
+                Dit.AddTerm({t.coefficient, func2 * ( t.object1 * eqfqTqi ), t.object2});
+
+              // NLO qq for F2 and FL
+              for (auto const& t: so.C21qq.GetTerms())
+                Dit.AddTerm({as * t.coefficient, func2 * ( t.object1 * eqfqTqi ), t.object2});
+              for (auto const& t: so.CL1qq.GetTerms())
+                Dit.AddTerm({as * t.coefficient, funcL * ( t.object1 * eqfqTqi ), t.object2});
+
+              // NLO qg for F2 and FL
               double eqTqi = 0;
               for (int q = 1; q <= 5; q++)
                 eqTqi += Bq[q-1] * ( Tqi.at(q).at(i) + Tqi.at(-q).at(i) );
-              const apfel::Distribution fgeqTqi = eqTqi * DistPDFs.at(21);
-              const apfel::DistributionOperator C_qg = OTqg.MultiplyFirstBy(fgeqTqi);
 
-              // Distribution PS (NNLO)
-              // ----------------------
-              apfel::Distribution etot_fqTqi = DistPDFs.at(1) * Tqi.at(1).at(i) + DistPDFs.at(-1) * Tqi.at(-1).at(i);
-              for (int q = 2; q <= 5; q++)
-                etot_fqTqi += DistPDFs.at(q) * Tqi.at(q).at(i) + DistPDFs.at(-q) * Tqi.at(-q).at(i);
-              etot_fqTqi *= etot;
-              const apfel::DistributionOperator C_qq_ps = OTps.MultiplyFirstBy(etot_fqTqi);
-
-              // Distribution for \bar{q}q channel (NNLO)
-              // ----------------------------------------
-              apfel::Distribution eqfmqTqi = Bq[0] * ( DistPDFs.at(-1) * Tqi.at(1).at(i) + DistPDFs.at(1) * Tqi.at(-1).at(i) );
-              for (int q = 2; q <= 5; q++)
-                eqfmqTqi += Bq[q-1] * ( DistPDFs.at(-q) * Tqi.at(q).at(i) + DistPDFs.at(q) * Tqi.at(-q).at(i) );
-              apfel::DistributionOperator C_qbq = OTqbq.MultiplyFirstBy(eqfmqTqi);
-
-              // Distribution (1), (2) and (3) for q'q (NNLO)
-              // --------------------------------------------
-              apfel::Distribution eq1fq1Tq2i{*_gx, [] (double const&) -> double { return 0.0; }};
-              apfel::Distribution eq1fq2Tq1i{*_gx, [] (double const&) -> double { return 0.0; }};
-              apfel::Distribution eq1eq2fq2Tq1i{*_gx, [] (double const&) -> double { return 0.0; }};
-              for (int q1 = -nf; q1 <= nf; q1++)
+              if (eqTqi != 0)
                 {
-                  for (int q2 = -nf; q2 <= nf; q2++)
-                    {
-                      if (q1 == 0 || q2 == 0)
-                        continue;
-
-                      if (q1 != q2 && q1 != -q2)
-                        {
-                          eq1fq1Tq2i += Bq[std::abs(q1)-1] * DistPDFs.at(q1) * Tqi.at(q2).at(i);
-                          eq1fq2Tq1i += Bq[std::abs(q2)-1] * DistPDFs.at(q1) * Tqi.at(q2).at(i);
-                          eq1eq2fq2Tq1i += (q1*q2 < 0 ? -1 : 1) * sqrt(Bq[q1-1] * Bq[q2-1]) * DistPDFs.at(q1) * Tqi.at(q2).at(i);
-                        }
-                    }
+                  for (auto const& t: so.C21qg.GetTerms())
+                    Dit.AddTerm({as * eqTqi * t.coefficient, func2 * ( t.object1 * DistPDFs.at(21) ), t.object2});
+                  for (auto const& t: so.CL1qg.GetTerms())
+                    Dit.AddTerm({as * eqTqi * t.coefficient, funcL * ( t.object1 * DistPDFs.at(21) ), t.object2});
                 }
-              apfel::DistributionOperator C_qpq_1 = OTqpq1.MultiplyFirstBy(eq1fq1Tq2i);
-              apfel::DistributionOperator C_qpq_2 = OTqpq2.MultiplyFirstBy(eq1fq2Tq1i);
-              apfel::DistributionOperator C_qpq_3 = OTqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i);
-              KiMap.insert({i, C_qq_NS + C_qg + C_qq_ps + C_qbq + C_qpq_1 + C_qpq_2 + C_qpq_3});
-            }
 
-          return apfel::Set<apfel::DistributionOperator>{KiMap};
+              // NNLO qq for F2
+              if (PerturbativeOrder > 1)
+                for (auto const& t: so.C22qq.at(nf).GetTerms())
+                  Dit.AddTerm({as2 * t.coefficient, func2 * ( t.object1 * eqfqTqi ), t.object2});
+
+              KiMap.insert({i, Dit});
+            }
+          return apfel::Set<apfel::DoubleObject<apfel::Distribution, apfel::Operator>>{KiMap};
         };
 
         // Tabulate semi-inclusive cross sections in Q
-        const apfel::TabulateObject<apfel::Set<apfel::DistributionOperator>> TabKi{Ki, 100, 1, 10, 3, _Thresholds};
+        const apfel::TabulateObject<apfel::Set<apfel::DoubleObject<apfel::Distribution, apfel::Operator>>> TabKi{Ki, 100, 1, 10, 3, _Thresholds};
 
         // Pointers to the tabulated functions
         std::unique_ptr<apfel::TabulateObject<double>> TabIncQIntegrand;
@@ -430,7 +349,7 @@ namespace MontBlanc
                 Qmax = _bins[i].Qmax;
               }
             else
-              throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
+              throw std::runtime_error("[PredictionsHandlerApprox::PredictionsHandlerApprox]: Unknown Observable.");
 
             // If the point does not obey the cut, set FK table to zero and continue
             if (!_cutmask[i])
@@ -472,7 +391,7 @@ namespace MontBlanc
                     }
                 }
               else
-                throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
+                throw std::runtime_error("[PredictionsHandlerApprox::PredictionsHandlerApprox]: Unknown Observable.");
               return (_bins[i].Intx ? TabIncXSecQ.Evaluate(Q).Integrate(xbmin, xbmax) : TabIncXSecQ.Evaluate(Q).Evaluate(_bins[i].xav));
             };
 
@@ -500,16 +419,19 @@ namespace MontBlanc
                     }
                 }
               else
-                throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
+                throw std::runtime_error("[PredictionsHandlerApprox::PredictionsHandlerApprox]: Unknown Observable.");
 
-              // Get Ki_map objects at the scale Q
-              const std::map<int, apfel::DistributionOperator> Ki_map = TabKi.Evaluate(Q).GetObjects();
+              // Get Ki objects at the scale Q
+              const std::map<int, apfel::DoubleObject<apfel::Distribution, apfel::Operator>> Ki = TabKi.Evaluate(Q).GetObjects();
 
               // Compute integral of Ki in x and construct a set
               std::map<int, apfel::Operator> IntKi;
-              for (auto const& tms : Ki_map)
+              for (auto const& tms : Ki)
                 {
-                  apfel::Operator cumulant = (_bins[i].Intx ? tms.second.Integrate(xbmin, xbmax) : tms.second.Evaluate(_bins[i].xav));
+                  apfel::Operator cumulant = Zero;
+                  for (auto const& t : tms.second.GetTerms())
+                    cumulant += t.coefficient * (_bins[i].Intx ? t.object1.Integrate(xbmin, xbmax) : t.object1.Evaluate(_bins[i].xav)) * t.object2;
+
                   IntKi.insert({tms.first, cumulant});
                 };
 
@@ -517,26 +439,25 @@ namespace MontBlanc
               apfel::Set<apfel::Operator> Gammaij = TabGammaij->Evaluate(Q);
 
               // Intialise container for the FK table
-              std::map<int, apfel::Operator> Nj_map;
+              std::map<int, apfel::Operator> Nj;
               for (int j = 0; j < 13; j++)
-                Nj_map.insert({j, Zero});
+                Nj.insert({j, Zero});
 
               // Compute the product of Ki and Gammaij and adjust the
               // convolution basis
               for (int j = 0; j < 13; j++)
                 for (int i = 0; i < 13; i++)
                   if (apfel::Gkj.count({i, j}) != 0)
-                    Nj_map.at(j) += IntKi.at(i) * Gammaij.at(apfel::Gkj.at({i, j}));
+                    Nj.at(j) += IntKi.at(i) * Gammaij.at(apfel::Gkj.at({i, j}));
 
               // Return the result
-              return apfel::Set<apfel::Operator> {_cmap, Nj_map};
+              return apfel::Set<apfel::Operator> {_cmap, Nj};
             };
 
             // Tabulate cross section
             TabIncQIntegrand = std::unique_ptr<apfel::TabulateObject<double>> {new apfel::TabulateObject<double> {IncQIntegrand, 50, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds}};
             TabSemiIncQIntegrand = std::unique_ptr<apfel::TabulateObject<apfel::Set<apfel::Operator>>>
                                    (new apfel::TabulateObject<apfel::Set<apfel::Operator>> {Nj, 50, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds});
-
             // Push back multiplicities
             if (_bins[i].IntQ)
               _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax) / TabIncQIntegrand->Integrate(Qmin, Qmax)});
@@ -552,17 +473,16 @@ namespace MontBlanc
           }
       }
     else
-      throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Process.");
+      throw std::runtime_error("[PredictionsHandlerApprox::PredictionsHandlerApprox]: Unknown Process.");
   }
 
   //_________________________________________________________________________
-  PredictionsHandler::PredictionsHandler(PredictionsHandler                             const& PH,
+  PredictionsHandlerApprox::PredictionsHandlerApprox(PredictionsHandlerApprox                             const& PH,
                                          std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts):
     NangaParbat::ConvolutionTable{},
     _mu0(PH._mu0),
     _Thresholds(PH._Thresholds),
-    _gx(PH._gx),
-    _gz(PH._gz),
+    _g(PH._g),
     _obs(PH._obs),
     _bins(PH._bins),
     _qTfact(PH._qTfact),
@@ -584,14 +504,14 @@ namespace MontBlanc
   }
 
   //_________________________________________________________________________
-  void PredictionsHandler::SetInputFFs(std::function<apfel::Set<apfel::Distribution>(double const&)> const& InDistFunc)
+  void PredictionsHandlerApprox::SetInputFFs(std::function<apfel::Set<apfel::Distribution>(double const&)> const& InDistFunc)
   {
     // Construct set of distributions
     _D = apfel::Set<apfel::Distribution> {_ChargeMap * InDistFunc(_mu0)};
   }
 
   //_________________________________________________________________________
-  std::vector<double> PredictionsHandler::GetPredictions(std::function<double(double const&, double const&, double const&)> const&) const
+  std::vector<double> PredictionsHandlerApprox::GetPredictions(std::function<double(double const&, double const&, double const&)> const&) const
   {
     // Initialise vector of predictions
     std::vector<double> preds(_bins.size());
@@ -610,22 +530,22 @@ namespace MontBlanc
   }
 
   //_________________________________________________________________________
-  std::vector<double> PredictionsHandler::GetPredictions(std::function<double(double const&, double const&, double const&)> const&,
+  std::vector<double> PredictionsHandlerApprox::GetPredictions(std::function<double(double const&, double const&, double const&)> const&,
                                                          std::function<double(double const&, double const&, double const&)> const&) const
   {
-    return PredictionsHandler::GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+    return PredictionsHandlerApprox::GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
   }
 
   //_________________________________________________________________________
-  std::vector<double> PredictionsHandler::GetPredictions(std::function<double(double const&, double const&, double const&, int const&)> const&) const
+  std::vector<double> PredictionsHandlerApprox::GetPredictions(std::function<double(double const&, double const&, double const&, int const&)> const&) const
   {
-    return PredictionsHandler::GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+    return PredictionsHandlerApprox::GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
   }
 
   //_________________________________________________________________________
-  std::vector<double> PredictionsHandler::GetPredictions(std::function<double(double const&, double const&, double const&, int const&)> const&,
+  std::vector<double> PredictionsHandlerApprox::GetPredictions(std::function<double(double const&, double const&, double const&, int const&)> const&,
                                                          std::function<double(double const&, double const&, double const&, int const&)> const&) const
   {
-    return PredictionsHandler::GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+    return PredictionsHandlerApprox::GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
   }
 }
