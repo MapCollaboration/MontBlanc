@@ -15,6 +15,8 @@
   #error "TABLE_DIR is not defined!"
 #endif //TABLE_DIR
 
+#define y pow(Q / Vs, 2) / x
+
 namespace MontBlanc
 {
   //_________________________________________________________________________
@@ -221,13 +223,19 @@ namespace MontBlanc
         // Tabulate total inclusive cross sections in Q
         const apfel::TabulateObject<apfel::Distribution> TabIncXSecQ{IncXSecQ, 100, 1, 10, 3, _Thresholds};
 
-        // LO
+        // -- LO
         const apfel::DoubleOperator OT0ns{YAML::LoadFile(std::string(TABLE_DIR) + "/DoubleIdentity.yaml"), *_gx, *_gz, apfel::DoubleIdentity{}};
-        // NLO
+        // -- NLO
+        // Transverse
         const apfel::DoubleOperator OT1ns{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TQ2Q.yaml"), *_gx, *_gz, apfel::C1TQ2Q{}};
         const apfel::DoubleOperator OT1gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TQ2G.yaml"), *_gx, *_gz, apfel::C1TQ2G{}};
         const apfel::DoubleOperator OT1qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TG2Q.yaml"), *_gx, *_gz, apfel::C1TG2Q{}};
-        // NNLO
+        // Longitudinal
+        const apfel::DoubleOperator OL1ns{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LQ2Q.yaml"), *_gx, *_gz, apfel::C1LQ2Q{}};
+        const apfel::DoubleOperator OL1gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LQ2G.yaml"), *_gx, *_gz, apfel::C1LQ2G{}};
+        const apfel::DoubleOperator OL1qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LG2Q.yaml"), *_gx, *_gz, apfel::C1LG2Q{}};
+        // -- NNLO
+        // Transverse
         const apfel::DoubleOperator OT2ns_nf3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{3}};
         const apfel::DoubleOperator OT2ns_nf4{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{4}};
         const apfel::DoubleOperator OT2ns_nf5{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{5}};
@@ -239,10 +247,23 @@ namespace MontBlanc
         const apfel::DoubleOperator OT2qpq2{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QP2.yaml"), *_gx, *_gz, apfel::C2TQ2QP2{}};
         const apfel::DoubleOperator OT2qpq3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QP3.yaml"), *_gx, *_gz, apfel::C2TQ2QP3{}};
         const apfel::DoubleOperator OT2ps{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QPS.yaml"), *_gx, *_gz, apfel::C2TQ2QPS{}};
+        // Longitudinal
+        const apfel::DoubleOperator OL2ns_nf3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{3}};
+        const apfel::DoubleOperator OL2ns_nf4{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{4}};
+        const apfel::DoubleOperator OL2ns_nf5{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{5}};
+        const apfel::DoubleOperator OL2gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2G.yaml"), *_gx, *_gz, apfel::C2LQ2G{}};
+        const apfel::DoubleOperator OL2qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LG2Q.yaml"), *_gx, *_gz, apfel::C2LG2Q{}};
+        const apfel::DoubleOperator OL2gg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LG2G.yaml"), *_gx, *_gz, apfel::C2LG2G{}};
+        const apfel::DoubleOperator OL2qbq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QB.yaml"), *_gx, *_gz, apfel::C2LQ2QB{}};
+        const apfel::DoubleOperator OL2qpq1{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QP1.yaml"), *_gx, *_gz, apfel::C2LQ2QP1{}};
+        const apfel::DoubleOperator OL2qpq2{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QP2.yaml"), *_gx, *_gz, apfel::C2LQ2QP2{}};
+        const apfel::DoubleOperator OL2qpq3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QP3.yaml"), *_gx, *_gz, apfel::C2LQ2QP3{}};
+        const apfel::DoubleOperator OL2ps{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QPS.yaml"), *_gx, *_gz, apfel::C2LQ2QPS{}};
 
         const apfel::DoubleOperator OZero{*_gx, *_gz, apfel::DoubleNull{}};
 
-        apfel::DoubleOperator Ons = OT0ns;
+        // Transverse
+        apfel::DoubleOperator OTns = OT0ns;
         apfel::DoubleOperator OTgq = OZero;
         apfel::DoubleOperator OTqg = OZero;
         apfel::DoubleOperator OTgg = OZero;
@@ -251,6 +272,17 @@ namespace MontBlanc
         apfel::DoubleOperator OTqpq1 = OZero;
         apfel::DoubleOperator OTqpq2 = OZero;
         apfel::DoubleOperator OTqpq3 = OZero;
+
+        // Longitudinal
+        apfel::DoubleOperator OLns = OZero;
+        apfel::DoubleOperator OLgq = OZero;
+        apfel::DoubleOperator OLqg = OZero;
+        apfel::DoubleOperator OLgg = OZero;
+        apfel::DoubleOperator OLps = OZero;
+        apfel::DoubleOperator OLqbq = OZero;
+        apfel::DoubleOperator OLqpq1 = OZero;
+        apfel::DoubleOperator OLqpq2 = OZero;
+        apfel::DoubleOperator OLqpq3 = OZero;
 
         // Rotation Matrix from evolution to physical basis
         std::map<int, std::map<int, double>> Tqi;
@@ -277,30 +309,45 @@ namespace MontBlanc
           const std::vector<double> Bq = fBq(Q);
 
           // Overall Q-dependent factor of the cross section
-          const double fact = 4 * M_PI * pow(Alphaem(Q), 2) / pow(Q, 3);
+          const double fact = 8 * M_PI * pow(Alphaem(Q), 2) / pow(Q, 3);
 
-          // Functions that multiply F2 and FL
-          const std::function<double(double const)> func2 = [=] (double const& x) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
-          const std::function<double(double const)> funcL = [=] (double const& x) -> double{ return - fact * pow(Q / Vs, 4) / pow(x, 3); };
+          // Functions that multiply FT and FL
+          const std::function<double(double const)> funcT = [=] (double const& x) -> double{ return fact * 0.5 * ( 1 + pow(1 - y, 2) ) / x; };
+          const std::function<double(double const)> funcL = [=] (double const& x) -> double{ return fact * ( 1 - y ) / x; };
 
           // Define operators that multiply all channels
           if (PerturbativeOrder >= 1)
             {
-              Ons += as * OT1ns;
+              // Transverse
+              OTns += as * OT1ns;
               OTgq += as * OT1gq;
               OTqg += as * OT1qg;
+              // Longitudinal
+              OLns += as * OL1ns;
+              OLgq += as * OL1gq;
+              OLqg += as * OL1qg;
             }
           if (PerturbativeOrder >= 2)
             {
               if (nf == 3)
-                Ons += as2 * OT2ns_nf3;
+                {
+                  OTns += as2 * OT2ns_nf3;
+                  OLns += as2 * OL2ns_nf3;
+                }
               else if (nf == 4)
-                Ons += as2 * OT2ns_nf4;
+                {
+                  OTns += as2 * OT2ns_nf4;
+                  OLns += as2 * OL2ns_nf4;
+                }
               else if (nf == 5)
-                Ons += as2 * OT2ns_nf5;
+                {
+                  OTns += as2 * OT2ns_nf5;
+                  OLns += as2 * OL2ns_nf5;
+                }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown number of active flavours.");
 
+              // Transverse
               OTgq += as2 * OT2gq;
               OTqg += as2 * OT2qg;
               OTgg += as2 * OT2gg;
@@ -309,7 +356,40 @@ namespace MontBlanc
               OTqpq1 += as2 * OT2qpq1;
               OTqpq2 += as2 * OT2qpq2;
               OTqpq3 += as2 * OT2qpq3;
+
+              // Longitudinal
+              OLgq += as2 * OL2gq;
+              OLqg += as2 * OL2qg;
+              OLgg += as2 * OL2gg;
+              OLps += as2 * OL2ps;
+              OLqbq += as2 * OL2qbq;
+              OLqpq1 += as2 * OL2qpq1;
+              OLqpq2 += as2 * OL2qpq2;
+              OLqpq3 += as2 * OL2qpq3;
             }
+
+          // TODO: Check why the following does not work
+          // Multiply operators by the pre-factors
+          // Transverse
+          //OTns   *= funcT;
+          //OTgq   *= funcT;
+          //OTqg   *= funcT;
+          //OTgg   *= funcT;
+          //OTps   *= funcT;
+          //OTqbq  *= funcT;
+          //OTqpq1 *= funcT;
+          //OTqpq2 *= funcT;
+          //OTqpq3 *= funcT;
+          // Longitudinal
+          //OLns   *= funcL;
+          //OLgq   *= funcL;
+          //OLqg   *= funcL;
+          //OLgg   *= funcL;
+          //OLps   *= funcL;
+          //OLqbq  *= funcL;
+          //OLqpq1 *= funcL;
+          //OLqpq2 *= funcL;
+          //OLqpq3 *= funcL;
 
           // Produce a map of distributions out of the PDFs in the physical basis
           // This line envelops the PDFs into a map of apfel::Distribution objects. These
@@ -325,34 +405,34 @@ namespace MontBlanc
           apfel::Distribution eqfq = Bq[0] * ( DistPDFs.at(1) + DistPDFs.at(-1) );
           for (int q = 2; q <= 5; q++)
             eqfq += Bq[q-1] * ( DistPDFs.at(q) + DistPDFs.at(-q) );
-          const apfel::DistributionOperator C_gq_DO = OTgq.MultiplyFirstBy(eqfq);
+          apfel::DistributionOperator C_gq_DO = OTgq.MultiplyFirstBy(eqfq * funcT) + OLgq.MultiplyFirstBy(eqfq * funcL);
 
           // gg channel (NNLO)
           // -----------------
           const double etot = std::accumulate(Bq.begin(), Bq.begin() + nf, 0.);
           const apfel::Distribution eqfgTgi = etot * DistPDFs.at(21); // gluon
-          const apfel::DistributionOperator C_gg_DO = OTgg.MultiplyFirstBy(eqfgTgi);
+          const apfel::DistributionOperator C_gg_DO = OTgg.MultiplyFirstBy(eqfgTgi * funcT) + OLgg.MultiplyFirstBy(eqfgTgi * funcL);
 
           // Sum the gg and gq channels and insert into Ki map
-          KiMap.insert({0, C_gq_DO + C_gg_DO}); // DO = Double Operator
+          KiMap.insert({0, C_gq_DO + C_gg_DO});
 
           // Construct the other channels
           for (int i = 1; i < 13; i++)
             {
-              // Distribution for qq channel NS (LO + NLO + NNLO)
+              // Distribution for qq channel NS (LO / NLO / NNLO)
               // ------------------------------------------------
               apfel::Distribution eqfqTqi = Bq[0] * ( DistPDFs.at(1) * Tqi.at(1).at(i) + DistPDFs.at(-1) * Tqi.at(-1).at(i) );
               for (int q = 2; q <= 5; q++)
                 eqfqTqi += Bq[q-1] * ( DistPDFs.at(q) * Tqi.at(q).at(i) + DistPDFs.at(-q) * Tqi.at(-q).at(i) );
-              const apfel::DistributionOperator C_qq_NS = Ons.MultiplyFirstBy(eqfqTqi);
+              const apfel::DistributionOperator C_qq_NS = OTns.MultiplyFirstBy(eqfqTqi * funcT) + OLns.MultiplyFirstBy(eqfqTqi * funcL);
 
-              // Distribution for qg channel (NLO + NNLO)
+              // Distribution for qg channel (NLO / NNLO)
               // ----------------------------------------
               double eqTqi = 0;
               for (int q = 1; q <= 5; q++)
                 eqTqi += Bq[q-1] * ( Tqi.at(q).at(i) + Tqi.at(-q).at(i) );
               const apfel::Distribution fgeqTqi = eqTqi * DistPDFs.at(21);
-              const apfel::DistributionOperator C_qg = OTqg.MultiplyFirstBy(fgeqTqi);
+              const apfel::DistributionOperator C_qg = OTqg.MultiplyFirstBy(fgeqTqi * funcT) + OLqg.MultiplyFirstBy(fgeqTqi * funcL);
 
               // Distribution PS (NNLO)
               // ----------------------
@@ -360,14 +440,14 @@ namespace MontBlanc
               for (int q = 2; q <= 5; q++)
                 etot_fqTqi += DistPDFs.at(q) * Tqi.at(q).at(i) + DistPDFs.at(-q) * Tqi.at(-q).at(i);
               etot_fqTqi *= etot;
-              const apfel::DistributionOperator C_qq_ps = OTps.MultiplyFirstBy(etot_fqTqi);
+              const apfel::DistributionOperator C_qq_ps = OTps.MultiplyFirstBy(etot_fqTqi * funcT) + OLps.MultiplyFirstBy(etot_fqTqi * funcL);
 
               // Distribution for \bar{q}q channel (NNLO)
               // ----------------------------------------
               apfel::Distribution eqfmqTqi = Bq[0] * ( DistPDFs.at(-1) * Tqi.at(1).at(i) + DistPDFs.at(1) * Tqi.at(-1).at(i) );
               for (int q = 2; q <= 5; q++)
                 eqfmqTqi += Bq[q-1] * ( DistPDFs.at(-q) * Tqi.at(q).at(i) + DistPDFs.at(q) * Tqi.at(-q).at(i) );
-              apfel::DistributionOperator C_qbq = OTqbq.MultiplyFirstBy(eqfmqTqi);
+              apfel::DistributionOperator C_qbq = OTqbq.MultiplyFirstBy(eqfmqTqi * funcT) + OLqbq.MultiplyFirstBy(eqfmqTqi * funcL);
 
               // Distribution (1), (2) and (3) for q'q (NNLO)
               // --------------------------------------------
@@ -389,9 +469,9 @@ namespace MontBlanc
                         }
                     }
                 }
-              apfel::DistributionOperator C_qpq_1 = OTqpq1.MultiplyFirstBy(eq1fq1Tq2i);
-              apfel::DistributionOperator C_qpq_2 = OTqpq2.MultiplyFirstBy(eq1fq2Tq1i);
-              apfel::DistributionOperator C_qpq_3 = OTqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i);
+              apfel::DistributionOperator C_qpq_1 = OTqpq1.MultiplyFirstBy(eq1fq1Tq2i * funcT) + OLqpq1.MultiplyFirstBy(eq1fq1Tq2i * funcL);;
+              apfel::DistributionOperator C_qpq_2 = OTqpq2.MultiplyFirstBy(eq1fq2Tq1i * funcT) + OLqpq2.MultiplyFirstBy(eq1fq2Tq1i * funcL);
+              apfel::DistributionOperator C_qpq_3 = OTqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i * funcT) + OLqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i * funcL);
               KiMap.insert({i, C_qq_NS + C_qg + C_qq_ps + C_qbq + C_qpq_1 + C_qpq_2 + C_qpq_3});
             }
 
