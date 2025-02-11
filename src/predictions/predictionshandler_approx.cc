@@ -103,9 +103,6 @@ namespace MontBlanc
         // Get evolution-operator objects
         std::map<int, apfel::Operator> Gammaij = TabGammaij->Evaluate(Vs).GetObjects();
 
-        if (PerturbativeOrder == 2)
-          throw std::runtime_error("[PredictionsHandlerApprox::PredictionsHandlerApprox]: Exact NNLO is not supported for SIA (?).");
-
         // Get F2 objects at the scale Vs
         const apfel::StructureFunctionObjects F2Obj = apfel::InitializeF2NCObjectsZMT(*_g, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
 
@@ -267,11 +264,14 @@ namespace MontBlanc
             eqfq += Bq[q-1] * ( DistPDFs.at(q) + DistPDFs.at(-q) );
 
           // NLO gq for F2 and FL
-          apfel::DoubleObject<apfel::Distribution, apfel::Operator> D0t;
-          for (auto const& t: so.C21gq.GetTerms())
-            D0t.AddTerm({as * t.coefficient, func2 * ( t.object1 * eqfq ), t.object2});
-          for (auto const& t: so.CL1gq.GetTerms())
-            D0t.AddTerm({as * t.coefficient, funcL * ( t.object1 * eqfq ), t.object2});
+          apfel::DoubleObject<apfel::Distribution, apfel::Operator> D0t{{{1.0, apfel::Distribution {*_g, [] (double const&) -> double { return 0.0; }}, apfel::Operator {*_g, apfel::Null{}}}}};
+          if (PerturbativeOrder >= 1)
+           {
+             for (auto const& t: so.C21gq.GetTerms())
+               D0t.AddTerm({as * t.coefficient, func2 * ( t.object1 * eqfq ), t.object2});
+             for (auto const& t: so.CL1gq.GetTerms())
+               D0t.AddTerm({as * t.coefficient, funcL * ( t.object1 * eqfq ), t.object2});
+           }
           KiMap.insert({0, D0t});
 
           // Now run over the quark evolution basis
@@ -289,26 +289,29 @@ namespace MontBlanc
                 Dit.AddTerm({t.coefficient, func2 * ( t.object1 * eqfqTqi ), t.object2});
 
               // NLO qq for F2 and FL
-              for (auto const& t: so.C21qq.GetTerms())
-                Dit.AddTerm({as * t.coefficient, func2 * ( t.object1 * eqfqTqi ), t.object2});
-              for (auto const& t: so.CL1qq.GetTerms())
-                Dit.AddTerm({as * t.coefficient, funcL * ( t.object1 * eqfqTqi ), t.object2});
-
-              // NLO qg for F2 and FL
-              double eqTqi = 0;
-              for (int q = 1; q <= 5; q++)
-                eqTqi += Bq[q-1] * ( Tqi.at(q).at(i) + Tqi.at(-q).at(i) );
-
-              if (eqTqi != 0)
+              if (PerturbativeOrder >= 1)
                 {
-                  for (auto const& t: so.C21qg.GetTerms())
-                    Dit.AddTerm({as * eqTqi * t.coefficient, func2 * ( t.object1 * DistPDFs.at(21) ), t.object2});
-                  for (auto const& t: so.CL1qg.GetTerms())
-                    Dit.AddTerm({as * eqTqi * t.coefficient, funcL * ( t.object1 * DistPDFs.at(21) ), t.object2});
+                  for (auto const& t: so.C21qq.GetTerms())
+                    Dit.AddTerm({as * t.coefficient, func2 * ( t.object1 * eqfqTqi ), t.object2});
+                  for (auto const& t: so.CL1qq.GetTerms())
+                    Dit.AddTerm({as * t.coefficient, funcL * ( t.object1 * eqfqTqi ), t.object2});
+
+                  // NLO qg for F2 and FL
+                  double eqTqi = 0;
+                  for (int q = 1; q <= 5; q++)
+                    eqTqi += Bq[q-1] * ( Tqi.at(q).at(i) + Tqi.at(-q).at(i) );
+
+                  if (eqTqi != 0)
+                    {
+                      for (auto const& t: so.C21qg.GetTerms())
+                        Dit.AddTerm({as * eqTqi * t.coefficient, func2 * ( t.object1 * DistPDFs.at(21) ), t.object2});
+                      for (auto const& t: so.CL1qg.GetTerms())
+                        Dit.AddTerm({as * eqTqi * t.coefficient, funcL * ( t.object1 * DistPDFs.at(21) ), t.object2});
+                    }
                 }
 
               // NNLO qq for F2
-              if (PerturbativeOrder > 1)
+              if (PerturbativeOrder >= 2)
                 for (auto const& t: so.C22qq.at(nf).GetTerms())
                   Dit.AddTerm({as2 * t.coefficient, func2 * ( t.object1 * eqfqTqi ), t.object2});
 
