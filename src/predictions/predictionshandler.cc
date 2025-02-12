@@ -15,8 +15,6 @@
   #error "TABLE_DIR is not defined!"
 #endif //TABLE_DIR
 
-#define y pow(Q / Vs, 2) / x
-
 namespace MontBlanc
 {
   //_________________________________________________________________________
@@ -309,11 +307,11 @@ namespace MontBlanc
           const std::vector<double> Bq = fBq(Q);
 
           // Overall Q-dependent factor of the cross section
-          const double fact = 8 * M_PI * pow(Alphaem(Q), 2) / pow(Q, 3);
+          const double fact = ( 4 * M_PI * pow(Alphaem(Q), 2) / pow(Q, 3) );
 
           // Functions that multiply FT and FL
-          const std::function<double(double const, double const)> funcT = [=] (double const& x, double const& z) -> double{ return fact * 0.5 * ( 1 + pow(1 - y, 2) ) / x; };
-          const std::function<double(double const, double const)> funcL = [=] (double const& x, double const& z) -> double{ return fact * ( 1 - y ) / x; };
+          const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const& z) -> double{ return fact * 2 * ( 1 - pow(Q / Vs, 2) / x ) / x; };
+	        const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const& z) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
 
           // Define operators that multiply all channels
           if (PerturbativeOrder >= 1)
@@ -393,7 +391,7 @@ namespace MontBlanc
           apfel::DistributionOperator CL_gg_DO = OLgg.MultiplyFirstBy(eqfgTgi);
 
           // Sum the gg and gq channels and insert into Ki map
-          KiMap.insert({0, (CT_gg_DO + CT_gq_DO) + (CL_gg_DO + CL_gq_DO)});
+          KiMap.insert({0, funcT * (CT_gg_DO + CT_gq_DO) + funcL * (CL_gg_DO + CL_gq_DO)});
 
           // Construct the other channels
           for (int i = 1; i < 13; i++)
