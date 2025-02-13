@@ -1,9 +1,8 @@
-# build exacutable
-add_executable(ClosureTests ClosureTests.cc)
-target_link_libraries(ClosureTests MontBlanc)
-
-add_executable(MCReplicaGeneration MCReplicaGeneration.cc)
-target_link_libraries(MCReplicaGeneration MontBlanc)
-
-add_executable(Reweighting Reweighting.cc)
-target_link_libraries(Reweighting MontBlanc)
+# build tests
+file(GLOB testcodes *.cc )
+foreach(testsource ${testcodes})
+  GET_FILENAME_COMPONENT(filename ${testsource} NAME_WE)
+  add_executable(${filename} ${filename}.cc)
+  target_link_libraries(${filename} MontBlanc)
+  add_test(${filename} ${filename})
+endforeach()
