@@ -15,13 +15,15 @@ namespace MontBlanc
 {
   //_________________________________________________________________________
   PredictionsHandlerApprox::PredictionsHandlerApprox(YAML::Node                                     const& config,
-                                         NangaParbat::DataHandler                       const& DH,
-                                         std::shared_ptr<const apfel::Grid>             const& g,
-                                         std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts):
+                                                     NangaParbat::DataHandler                       const& DH,
+                                                     std::shared_ptr<const apfel::Grid>             const& gx,
+                                                     std::shared_ptr<const apfel::Grid>             const& gz,
+                                                     std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts):
     NangaParbat::ConvolutionTable{},
     _mu0(config["mu0"].as<double>()),
     _Thresholds(config["thresholds"].as<std::vector<double>>()),
-    _g(g),
+    _gx(gx),
+    _gz(gz),
     _obs(DH.GetObservable()),
     _bins(DH.GetBinning()),
     _qTfact(DH.GetKinematics().qTfact),
@@ -73,10 +75,10 @@ namespace MontBlanc
 
     // Initialize QCD time-like evolution operators and tabulated them
     const std::unique_ptr<const apfel::TabulateObject<apfel::Set<apfel::Operator>>> TabGammaij{new const apfel::TabulateObject<apfel::Set<apfel::Operator>>
-      {*(BuildDglap(InitializeDglapObjectsQCDT(*_g, _Thresholds, true), _mu0, PerturbativeOrder, Alphas)), 100, 1, 100, 3}};
+      {*(BuildDglap(InitializeDglapObjectsQCDT(*_gz, _Thresholds, true), _mu0, PerturbativeOrder, Alphas)), 100, 1, 100, 3}};
 
     // Zero operator
-    const apfel::Operator Zero{*_g, apfel::Null{}};
+    const apfel::Operator Zero{*_gz, apfel::Null{}};
 
     // Set cuts in the mother class
     this->_cuts = cuts;
@@ -104,7 +106,7 @@ namespace MontBlanc
         std::map<int, apfel::Operator> Gammaij = TabGammaij->Evaluate(Vs).GetObjects();
 
         // Get F2 objects at the scale Vs
-        const apfel::StructureFunctionObjects F2Obj = apfel::InitializeF2NCObjectsZMT(*_g, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
+        const apfel::StructureFunctionObjects F2Obj = apfel::InitializeF2NCObjectsZMT(*_gz, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
 
         // Get skip vector
         const std::vector<int> skip = F2Obj.skip;
@@ -192,8 +194,8 @@ namespace MontBlanc
         std::function<std::vector<double>(double const&)> fBq = [=] (double const& Q) -> std::vector<double> { return apfel::ElectroWeakCharges(Q, false); };
 
         // Initialise inclusive structure functions
-        const auto IF2 = BuildStructureFunctions(InitializeF2NCObjectsZM(*_g, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
-        const auto IFL = BuildStructureFunctions(InitializeFLNCObjectsZM(*_g, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
+        const auto IF2 = BuildStructureFunctions(InitializeF2NCObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
+        const auto IFL = BuildStructureFunctions(InitializeFLNCObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
 
         // Inclusive cross section differential in x and Q as a
         // distribution function of Q
@@ -225,7 +227,7 @@ namespace MontBlanc
           }
 
         // Initialize SIDIS objects.
-        const apfel::SidisObjects so = InitializeSIDIS(*_g, _Thresholds);
+        const apfel::SidisObjects so = InitializeSIDIS(*_gx, *_gz,_Thresholds);
 
         // Semi-inclusive hard cross sections differential in x, Q, and z
         // as a Set<DoubleObject<Distribution, Operator>> function of Q.
@@ -251,7 +253,7 @@ namespace MontBlanc
 
           // Produce a map of distributions out of the PDFs in the
           // physical basis
-          const std::map<int, apfel::Distribution> DistPDFs = apfel::DistributionMap(*_g, tPDFs, Q);
+          const std::map<int, apfel::Distribution> DistPDFs = apfel::DistributionMap(*_gx, tPDFs, Q);
 
           // Initialise a map of double objects to be used to construct
           // a set
@@ -264,7 +266,7 @@ namespace MontBlanc
             eqfq += Bq[q-1] * ( DistPDFs.at(q) + DistPDFs.at(-q) );
 
           // NLO gq for F2 and FL
-          apfel::DoubleObject<apfel::Distribution, apfel::Operator> D0t{{{1.0, apfel::Distribution {*_g, [] (double const&) -> double { return 0.0; }}, apfel::Operator {*_g, apfel::Null{}}}}};
+          apfel::DoubleObject<apfel::Distribution, apfel::Operator> D0t{{{1.0, apfel::Distribution {*_gx, [] (double const&) -> double { return 0.0; }}, apfel::Operator {*_gz, apfel::Null{}}}}};
           if (PerturbativeOrder >= 1)
            {
              for (auto const& t: so.C21gq.GetTerms())
@@ -480,12 +482,13 @@ namespace MontBlanc
   }
 
   //_________________________________________________________________________
-  PredictionsHandlerApprox::PredictionsHandlerApprox(PredictionsHandlerApprox                             const& PH,
-                                         std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts):
+  PredictionsHandlerApprox::PredictionsHandlerApprox(PredictionsHandlerApprox                       const& PH,
+                                                     std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts):
     NangaParbat::ConvolutionTable{},
     _mu0(PH._mu0),
     _Thresholds(PH._Thresholds),
-    _g(PH._g),
+    _gx(PH._gx),
+    _gz(PH._gz),
     _obs(PH._obs),
     _bins(PH._bins),
     _qTfact(PH._qTfact),

@@ -26,16 +26,17 @@ namespace MontBlanc
      * @brief The "PredictionsHandlerApprox" constructor
      */
     PredictionsHandlerApprox(YAML::Node                                     const& config,
-                       NangaParbat::DataHandler                       const& DH,
-                       std::shared_ptr<const apfel::Grid>             const& g,
-                       std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts = {});
+                             NangaParbat::DataHandler                       const& DH,
+                             std::shared_ptr<const apfel::Grid>             const& gx,
+                             std::shared_ptr<const apfel::Grid>             const& gz,
+                             std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts = {});
 
     /**
      * @brief The "PredictionsHandlerApprox" copy constructor with possibly
      * additional cuts
      */
-    PredictionsHandlerApprox(PredictionsHandlerApprox                             const& DH,
-                       std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts = {});
+    PredictionsHandlerApprox(PredictionsHandlerApprox                       const& DH,
+                             std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts = {});
 
     /**
      * @brief Function that sets the input set of FFs at the initial scale
@@ -56,7 +57,8 @@ namespace MontBlanc
   private:
     double                                         const _mu0;
     std::vector<double>                            const _Thresholds;
-    std::shared_ptr<const apfel::Grid>             const _g;
+    std::shared_ptr<const apfel::Grid>             const _gx;
+    std::shared_ptr<const apfel::Grid>             const _gz;
     NangaParbat::DataHandler::Observable           const _obs;
     std::vector<NangaParbat::DataHandler::Binning> const _bins;
     std::vector<double>                            const _qTfact;

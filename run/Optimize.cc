@@ -179,7 +179,7 @@ int main(int argc, char *argv[])
       if (SIDIStype == 0)
         PH = std::make_shared<MontBlanc::PredictionsHandler>(config["Predictions"], *DH, gx, gz, cuts);
       else
-        PH = std::make_shared<MontBlanc::PredictionsHandlerApprox>(config["Predictions"], *DH, gz, cuts);
+        PH = std::make_shared<MontBlanc::PredictionsHandlerApprox>(config["Predictions"], *DH, gx, gz, cuts);
       //MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, gx, gz, cuts};
 
       // Training fraction

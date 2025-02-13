@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
       NangaParbat::DataHandler *DH = new NangaParbat::DataHandler{ds["name"].as<std::string>(), YAML::LoadFile(datafolder + ds["file"].as<std::string>())};
 
       // Add block to the chi2
-      DSVect_legacy.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandlerApprox{config["Predictions"], *DH, gz}));
+      DSVect_legacy.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandlerApprox{config["Predictions"], *DH, gx, gz}));
       DSVect_new.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{config["Predictions"], *DH, gx, gz}));
     }
 
