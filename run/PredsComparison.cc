@@ -120,18 +120,21 @@ int main(int argc, char *argv[])
       const std::vector<double> prds_new = DSVect_new[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
       std::cout << std::setw(15) << std::left << "Experimental\n   value"
-                << std::setw(20) << std::right << "Legacy"
-                << std::setw(20) << std::right << "new"
+                << std::setw(20) << std::right << "(Q,x,z)"
+                << std::setw(28) << std::right << "Legacy"
+                << std::setw(15) << std::right << "new"
                 << std::setw(30) << std::right << "(legacy - new) / legacy"
-                << std::setw(30) << std::right << "legacy / new"
+                << std::setw(15) << std::right << "legacy / new"
                 << std::endl;
-      std::cout << std::setw(40) << std::setfill('-') << "" << std::setfill(' ') << std::endl;  
+      std::cout << std::setw(110) << std::setfill('-') << "" << std::setfill(' ') << std::endl;  
 
+      auto kin_bins = DSVect_legacy[iexp].first->GetBinning();
       for (int i = 0; i < (int) bins.size(); i++)
         {
-          std::cout << std::setw(20) << std::left << mvs[i]
-                    << std::setw(10) << std::right << prds_legacy[i]
-                    << std::setw(20) << std::right << prds_new[i]
+          std::cout << std::setw(10) << std::left << mvs[i]
+                    << std::setw(10) << std::right << kin_bins[i].Qav << " | " << kin_bins[i].xav << " | " << kin_bins[i].zav
+                    << std::setw(15) << std::right << prds_legacy[i]
+                    << std::setw(15) << std::right << prds_new[i]
                     << std::setw(20) << std::right << (prds_legacy[i] - prds_new[i]) / prds_legacy[i] 
                     << std::setw(20) << std::right << prds_legacy[i] / prds_new[i] 
                     << std::endl;
