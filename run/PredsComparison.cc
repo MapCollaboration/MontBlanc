@@ -90,6 +90,10 @@ int main(int argc, char *argv[])
       DSVect_new.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{config["Predictions"], *DH, gx, gz}));
     }
 
+  // Get LHAPDF set
+  std::vector<LHAPDF::PDF*> sets = LHAPDF::mkPDFs(LHAPDFSet);
+  std::shared_ptr<MontBlanc::LHAPDFparameterisation> FFset = std::make_shared<MontBlanc::LHAPDFparameterisation>(sets[0], gz);
+
   // Run over the experiments, compute central values and standard
   // deviations (of the shifted predictions) over the replicas.
   std::cout << "\nComputing predictions..." << std::endl;
@@ -110,43 +114,26 @@ int main(int argc, char *argv[])
       std::vector<double> avor_legacy(bins.size(), 0);
       std::vector<double> avor_new(bins.size(), 0);
 
-      // Get LHAPDF set
-      const std::vector<LHAPDF::PDF*> sets = LHAPDF::mkPDFs(LHAPDFSet);
-
-      // Run over replicas
-      const int nrep = sets.size() - 1;
-      for (int irep = 1; irep <= nrep; irep++)
-        {
-          // Construct chi2 object with the irep-th replica
-          MontBlanc::AnalyticChiSquare chi2_legacy{DSVect_legacy, new MontBlanc::LHAPDFparameterisation{sets, gz, 0}};
-          MontBlanc::AnalyticChiSquare chi2_new{DSVect_new, new MontBlanc::LHAPDFparameterisation{sets, gz, 0}};
-          const std::vector<double> prds_legacy = DSVect_legacy[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
-          const std::vector<double> prds_new = DSVect_new[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
-
-          //const std::pair<std::vector<double>, double> shifts_legacy = chi2_legacy.GetSystematicShifts(iexp);
-          //const std::pair<std::vector<double>, double> shifts_new = chi2_new.GetSystematicShifts(iexp);
-          for (int i = 0; i < (int) bins.size(); i++)
-            {
-              //av_legacy[i] += ( prds_legacy[i] + shifts_legacy.first[i] ) / nrep;
-              avor_legacy[i] += prds_legacy[i] / nrep;
-              //av_new[i] += ( prds_new[i] + shifts_new.first[i] ) / nrep;
-              avor_new[i] += prds_new[i] / nrep;
-            }
-        }
+      DSVect_legacy[iexp].second->SetInputFFs(FFset->DistributionFunction());
+      DSVect_new[iexp].second->SetInputFFs(FFset->DistributionFunction());
+      const std::vector<double> prds_legacy = DSVect_legacy[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+      const std::vector<double> prds_new = DSVect_new[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
       std::cout << std::setw(15) << std::left << "Experimental\n   value"
                 << std::setw(20) << std::right << "Legacy"
                 << std::setw(20) << std::right << "new"
                 << std::setw(30) << std::right << "(legacy - new) / legacy"
+                << std::setw(30) << std::right << "legacy / new"
                 << std::endl;
       std::cout << std::setw(40) << std::setfill('-') << "" << std::setfill(' ') << std::endl;  
 
       for (int i = 0; i < (int) bins.size(); i++)
         {
           std::cout << std::setw(20) << std::left << mvs[i]
-                    << std::setw(10) << std::right << avor_legacy[i]
-                    << std::setw(20) << std::right << avor_new[i]
-                    << std::setw(20) << std::right << (avor_legacy[i] - avor_new[i]) / avor_legacy[i] 
+                    << std::setw(10) << std::right << prds_legacy[i]
+                    << std::setw(20) << std::right << prds_new[i]
+                    << std::setw(20) << std::right << (prds_legacy[i] - prds_new[i]) / prds_legacy[i] 
+                    << std::setw(20) << std::right << prds_legacy[i] / prds_new[i] 
                     << std::endl;
         }
     }
