@@ -226,19 +226,19 @@ namespace MontBlanc
         // -- NLO
         // Transverse
         const apfel::DoubleOperator OT1ns{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TQ2Q.yaml"), *_gx, *_gz, apfel::C1TQ2Q{}};
-        const apfel::DoubleOperator OT1qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TQ2G.yaml"), *_gx, *_gz, apfel::C1TQ2G{}};
-        const apfel::DoubleOperator OT1gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TG2Q.yaml"), *_gx, *_gz, apfel::C1TG2Q{}};
+        const apfel::DoubleOperator OT1gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TQ2G.yaml"), *_gx, *_gz, apfel::C1TQ2G{}};
+        const apfel::DoubleOperator OT1qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TG2Q.yaml"), *_gx, *_gz, apfel::C1TG2Q{}};
         // Longitudinal
         const apfel::DoubleOperator OL1ns{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LQ2Q.yaml"), *_gx, *_gz, apfel::C1LQ2Q{}};
-        const apfel::DoubleOperator OL1qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LQ2G.yaml"), *_gx, *_gz, apfel::C1LQ2G{}};
-        const apfel::DoubleOperator OL1gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LG2Q.yaml"), *_gx, *_gz, apfel::C1LG2Q{}};
+        const apfel::DoubleOperator OL1gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LQ2G.yaml"), *_gx, *_gz, apfel::C1LQ2G{}};
+        const apfel::DoubleOperator OL1qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LG2Q.yaml"), *_gx, *_gz, apfel::C1LG2Q{}};
         // -- NNLO
         // Transverse
         const apfel::DoubleOperator OT2ns_nf3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{3}};
         const apfel::DoubleOperator OT2ns_nf4{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{4}};
         const apfel::DoubleOperator OT2ns_nf5{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{5}};
-        const apfel::DoubleOperator OT2qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2G.yaml"), *_gx, *_gz, apfel::C2TQ2G{}};
-        const apfel::DoubleOperator OT2gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TG2Q.yaml"), *_gx, *_gz, apfel::C2TG2Q{}};
+        const apfel::DoubleOperator OT2gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2G.yaml"), *_gx, *_gz, apfel::C2TQ2G{}};
+        const apfel::DoubleOperator OT2qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TG2Q.yaml"), *_gx, *_gz, apfel::C2TG2Q{}};
         const apfel::DoubleOperator OT2gg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TG2G.yaml"), *_gx, *_gz, apfel::C2TG2G{}};
         const apfel::DoubleOperator OT2qbq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QB.yaml"), *_gx, *_gz, apfel::C2TQ2QB{}};
         const apfel::DoubleOperator OT2qpq1{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QP1.yaml"), *_gx, *_gz, apfel::C2TQ2QP1{}};
@@ -249,8 +249,8 @@ namespace MontBlanc
         const apfel::DoubleOperator OL2ns_nf3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{3}};
         const apfel::DoubleOperator OL2ns_nf4{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{4}};
         const apfel::DoubleOperator OL2ns_nf5{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{5}};
-        const apfel::DoubleOperator OL2qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2G.yaml"), *_gx, *_gz, apfel::C2LQ2G{}};
-        const apfel::DoubleOperator OL2gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LG2Q.yaml"), *_gx, *_gz, apfel::C2LG2Q{}};
+        const apfel::DoubleOperator OL2gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2G.yaml"), *_gx, *_gz, apfel::C2LQ2G{}};
+        const apfel::DoubleOperator OL2qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LG2Q.yaml"), *_gx, *_gz, apfel::C2LG2Q{}};
         const apfel::DoubleOperator OL2gg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LG2G.yaml"), *_gx, *_gz, apfel::C2LG2G{}};
         const apfel::DoubleOperator OL2qbq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QB.yaml"), *_gx, *_gz, apfel::C2LQ2QB{}};
         const apfel::DoubleOperator OL2qpq1{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QP1.yaml"), *_gx, *_gz, apfel::C2LQ2QP1{}};
@@ -259,28 +259,6 @@ namespace MontBlanc
         const apfel::DoubleOperator OL2ps{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QPS.yaml"), *_gx, *_gz, apfel::C2LQ2QPS{}};
 
         const apfel::DoubleOperator OZero{*_gx, *_gz, apfel::DoubleNull{}};
-
-        // Transverse
-        apfel::DoubleOperator OTns = OT0ns;
-        apfel::DoubleOperator OTgq = OZero;
-        apfel::DoubleOperator OTqg = OZero;
-        apfel::DoubleOperator OTgg = OZero;
-        apfel::DoubleOperator OTps = OZero;
-        apfel::DoubleOperator OTqbq = OZero;
-        apfel::DoubleOperator OTqpq1 = OZero;
-        apfel::DoubleOperator OTqpq2 = OZero;
-        apfel::DoubleOperator OTqpq3 = OZero;
-
-        // Longitudinal
-        apfel::DoubleOperator OLns = OZero;
-        apfel::DoubleOperator OLgq = OZero;
-        apfel::DoubleOperator OLqg = OZero;
-        apfel::DoubleOperator OLgg = OZero;
-        apfel::DoubleOperator OLps = OZero;
-        apfel::DoubleOperator OLqbq = OZero;
-        apfel::DoubleOperator OLqpq1 = OZero;
-        apfel::DoubleOperator OLqpq2 = OZero;
-        apfel::DoubleOperator OLqpq3 = OZero;
 
         // Rotation Matrix from evolution to physical basis
         std::map<int, std::map<int, double>> Tqi;
@@ -312,6 +290,28 @@ namespace MontBlanc
           // Functions that multiply FT and FL
           const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const& z) -> double{ return fact * 2 * ( 1 - pow(Q / Vs, 2) / x ) / x; };
 	        const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const& z) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
+
+          // Transverse
+          apfel::DoubleOperator OTns = OT0ns;
+          apfel::DoubleOperator OTgq = OZero;
+          apfel::DoubleOperator OTqg = OZero;
+          apfel::DoubleOperator OTgg = OZero;
+          apfel::DoubleOperator OTps = OZero;
+          apfel::DoubleOperator OTqbq = OZero;
+          apfel::DoubleOperator OTqpq1 = OZero;
+          apfel::DoubleOperator OTqpq2 = OZero;
+          apfel::DoubleOperator OTqpq3 = OZero;
+
+          // Longitudinal
+          apfel::DoubleOperator OLns = OZero;
+          apfel::DoubleOperator OLgq = OZero;
+          apfel::DoubleOperator OLqg = OZero;
+          apfel::DoubleOperator OLgg = OZero;
+          apfel::DoubleOperator OLps = OZero;
+          apfel::DoubleOperator OLqbq = OZero;
+          apfel::DoubleOperator OLqpq1 = OZero;
+          apfel::DoubleOperator OLqpq2 = OZero;
+          apfel::DoubleOperator OLqpq3 = OZero;
 
           // Define operators that multiply all channels
           if (PerturbativeOrder >= 1)
