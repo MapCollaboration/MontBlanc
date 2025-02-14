@@ -11,8 +11,10 @@
 #include <LHAPDF/LHAPDF.h>
 #include <numeric>
 
-#ifndef TABLE_DIR
-  #error "TABLE_DIR is not defined!"
+// Compiler guard to avoid warnings in the use of the SOURCE_DIR
+// The variable SOURCE_DIR is defined during the CMake configuration
+#ifndef SOURCE_DIR
+  #error "SOURCE_DIR is not defined!"
 #endif //TABLE_DIR
 
 namespace MontBlanc
@@ -221,42 +223,45 @@ namespace MontBlanc
         // Tabulate total inclusive cross sections in Q
         const apfel::TabulateObject<apfel::Distribution> TabIncXSecQ{IncXSecQ, 100, 1, 10, 3, _Thresholds};
 
+        // Path to SIDIS tables
+        std::string SIDISTablePath = SOURCE_DIR + std::string("/") + (config["SIDIS tables"] ? config["SIDIS tables"].as<std::string>() : std::string("tables"));
+
         // -- LO
-        const apfel::DoubleOperator OT0ns{YAML::LoadFile(std::string(TABLE_DIR) + "/DoubleIdentity.yaml"), *_gx, *_gz, apfel::DoubleIdentity{}};
+        const apfel::DoubleOperator OT0ns{YAML::LoadFile(SIDISTablePath + "/DoubleIdentity.yaml"), *_gx, *_gz, apfel::DoubleIdentity{}};
         // -- NLO
         // Transverse
-        const apfel::DoubleOperator OT1ns{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TQ2Q.yaml"), *_gx, *_gz, apfel::C1TQ2Q{}};
-        const apfel::DoubleOperator OT1gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TQ2G.yaml"), *_gx, *_gz, apfel::C1TQ2G{}};
-        const apfel::DoubleOperator OT1qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C1TG2Q.yaml"), *_gx, *_gz, apfel::C1TG2Q{}};
+        const apfel::DoubleOperator OT1ns{YAML::LoadFile(SIDISTablePath + "/C1TQ2Q.yaml"), *_gx, *_gz, apfel::C1TQ2Q{}};
+        const apfel::DoubleOperator OT1gq{YAML::LoadFile(SIDISTablePath + "/C1TQ2G.yaml"), *_gx, *_gz, apfel::C1TQ2G{}};
+        const apfel::DoubleOperator OT1qg{YAML::LoadFile(SIDISTablePath + "/C1TG2Q.yaml"), *_gx, *_gz, apfel::C1TG2Q{}};
         // Longitudinal
-        const apfel::DoubleOperator OL1ns{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LQ2Q.yaml"), *_gx, *_gz, apfel::C1LQ2Q{}};
-        const apfel::DoubleOperator OL1gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LQ2G.yaml"), *_gx, *_gz, apfel::C1LQ2G{}};
-        const apfel::DoubleOperator OL1qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C1LG2Q.yaml"), *_gx, *_gz, apfel::C1LG2Q{}};
+        const apfel::DoubleOperator OL1ns{YAML::LoadFile(SIDISTablePath + "/C1LQ2Q.yaml"), *_gx, *_gz, apfel::C1LQ2Q{}};
+        const apfel::DoubleOperator OL1gq{YAML::LoadFile(SIDISTablePath + "/C1LQ2G.yaml"), *_gx, *_gz, apfel::C1LQ2G{}};
+        const apfel::DoubleOperator OL1qg{YAML::LoadFile(SIDISTablePath + "/C1LG2Q.yaml"), *_gx, *_gz, apfel::C1LG2Q{}};
         // -- NNLO
         // Transverse
-        const apfel::DoubleOperator OT2ns_nf3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{3}};
-        const apfel::DoubleOperator OT2ns_nf4{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{4}};
-        const apfel::DoubleOperator OT2ns_nf5{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{5}};
-        const apfel::DoubleOperator OT2gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2G.yaml"), *_gx, *_gz, apfel::C2TQ2G{}};
-        const apfel::DoubleOperator OT2qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TG2Q.yaml"), *_gx, *_gz, apfel::C2TG2Q{}};
-        const apfel::DoubleOperator OT2gg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TG2G.yaml"), *_gx, *_gz, apfel::C2TG2G{}};
-        const apfel::DoubleOperator OT2qbq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QB.yaml"), *_gx, *_gz, apfel::C2TQ2QB{}};
-        const apfel::DoubleOperator OT2qpq1{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QP1.yaml"), *_gx, *_gz, apfel::C2TQ2QP1{}};
-        const apfel::DoubleOperator OT2qpq2{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QP2.yaml"), *_gx, *_gz, apfel::C2TQ2QP2{}};
-        const apfel::DoubleOperator OT2qpq3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QP3.yaml"), *_gx, *_gz, apfel::C2TQ2QP3{}};
-        const apfel::DoubleOperator OT2ps{YAML::LoadFile(std::string(TABLE_DIR) + "/C2TQ2QPS.yaml"), *_gx, *_gz, apfel::C2TQ2QPS{}};
+        const apfel::DoubleOperator OT2ns_nf3{YAML::LoadFile(SIDISTablePath + "/C2TQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{3}};
+        const apfel::DoubleOperator OT2ns_nf4{YAML::LoadFile(SIDISTablePath + "/C2TQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{4}};
+        const apfel::DoubleOperator OT2ns_nf5{YAML::LoadFile(SIDISTablePath + "/C2TQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{5}};
+        const apfel::DoubleOperator OT2gq{YAML::LoadFile(SIDISTablePath + "/C2TQ2G.yaml"), *_gx, *_gz, apfel::C2TQ2G{}};
+        const apfel::DoubleOperator OT2qg{YAML::LoadFile(SIDISTablePath + "/C2TG2Q.yaml"), *_gx, *_gz, apfel::C2TG2Q{}};
+        const apfel::DoubleOperator OT2gg{YAML::LoadFile(SIDISTablePath + "/C2TG2G.yaml"), *_gx, *_gz, apfel::C2TG2G{}};
+        const apfel::DoubleOperator OT2qbq{YAML::LoadFile(SIDISTablePath + "/C2TQ2QB.yaml"), *_gx, *_gz, apfel::C2TQ2QB{}};
+        const apfel::DoubleOperator OT2qpq1{YAML::LoadFile(SIDISTablePath + "/C2TQ2QP1.yaml"), *_gx, *_gz, apfel::C2TQ2QP1{}};
+        const apfel::DoubleOperator OT2qpq2{YAML::LoadFile(SIDISTablePath + "/C2TQ2QP2.yaml"), *_gx, *_gz, apfel::C2TQ2QP2{}};
+        const apfel::DoubleOperator OT2qpq3{YAML::LoadFile(SIDISTablePath + "/C2TQ2QP3.yaml"), *_gx, *_gz, apfel::C2TQ2QP3{}};
+        const apfel::DoubleOperator OT2ps{YAML::LoadFile(SIDISTablePath + "/C2TQ2QPS.yaml"), *_gx, *_gz, apfel::C2TQ2QPS{}};
         // Longitudinal
-        const apfel::DoubleOperator OL2ns_nf3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{3}};
-        const apfel::DoubleOperator OL2ns_nf4{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{4}};
-        const apfel::DoubleOperator OL2ns_nf5{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{5}};
-        const apfel::DoubleOperator OL2gq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2G.yaml"), *_gx, *_gz, apfel::C2LQ2G{}};
-        const apfel::DoubleOperator OL2qg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LG2Q.yaml"), *_gx, *_gz, apfel::C2LG2Q{}};
-        const apfel::DoubleOperator OL2gg{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LG2G.yaml"), *_gx, *_gz, apfel::C2LG2G{}};
-        const apfel::DoubleOperator OL2qbq{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QB.yaml"), *_gx, *_gz, apfel::C2LQ2QB{}};
-        const apfel::DoubleOperator OL2qpq1{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QP1.yaml"), *_gx, *_gz, apfel::C2LQ2QP1{}};
-        const apfel::DoubleOperator OL2qpq2{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QP2.yaml"), *_gx, *_gz, apfel::C2LQ2QP2{}};
-        const apfel::DoubleOperator OL2qpq3{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QP3.yaml"), *_gx, *_gz, apfel::C2LQ2QP3{}};
-        const apfel::DoubleOperator OL2ps{YAML::LoadFile(std::string(TABLE_DIR) + "/C2LQ2QPS.yaml"), *_gx, *_gz, apfel::C2LQ2QPS{}};
+        const apfel::DoubleOperator OL2ns_nf3{YAML::LoadFile(SIDISTablePath + "/C2LQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{3}};
+        const apfel::DoubleOperator OL2ns_nf4{YAML::LoadFile(SIDISTablePath + "/C2LQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{4}};
+        const apfel::DoubleOperator OL2ns_nf5{YAML::LoadFile(SIDISTablePath + "/C2LQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{5}};
+        const apfel::DoubleOperator OL2gq{YAML::LoadFile(SIDISTablePath + "/C2LQ2G.yaml"), *_gx, *_gz, apfel::C2LQ2G{}};
+        const apfel::DoubleOperator OL2qg{YAML::LoadFile(SIDISTablePath + "/C2LG2Q.yaml"), *_gx, *_gz, apfel::C2LG2Q{}};
+        const apfel::DoubleOperator OL2gg{YAML::LoadFile(SIDISTablePath + "/C2LG2G.yaml"), *_gx, *_gz, apfel::C2LG2G{}};
+        const apfel::DoubleOperator OL2qbq{YAML::LoadFile(SIDISTablePath + "/C2LQ2QB.yaml"), *_gx, *_gz, apfel::C2LQ2QB{}};
+        const apfel::DoubleOperator OL2qpq1{YAML::LoadFile(SIDISTablePath + "/C2LQ2QP1.yaml"), *_gx, *_gz, apfel::C2LQ2QP1{}};
+        const apfel::DoubleOperator OL2qpq2{YAML::LoadFile(SIDISTablePath + "/C2LQ2QP2.yaml"), *_gx, *_gz, apfel::C2LQ2QP2{}};
+        const apfel::DoubleOperator OL2qpq3{YAML::LoadFile(SIDISTablePath + "/C2LQ2QP3.yaml"), *_gx, *_gz, apfel::C2LQ2QP3{}};
+        const apfel::DoubleOperator OL2ps{YAML::LoadFile(SIDISTablePath + "/C2LQ2QPS.yaml"), *_gx, *_gz, apfel::C2LQ2QPS{}};
 
         const apfel::DoubleOperator OZero{*_gx, *_gz, apfel::DoubleNull{}};
 
@@ -288,8 +293,8 @@ namespace MontBlanc
           const double fact = ( 4 * M_PI * pow(Alphaem(Q), 2) / pow(Q, 3) );
 
           // Functions that multiply FT and FL
-          const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const& z) -> double{ return fact * 2 * ( 1 - pow(Q / Vs, 2) / x ) / x; };
-	        const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const& z) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
+          const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const&) -> double{ return fact * 2 * ( 1 - pow(Q / Vs, 2) / x ) / x; };
+	        const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const&) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
 
           // Transverse
           apfel::DoubleOperator OTns = OT0ns;

@@ -26,6 +26,18 @@ if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.27.0")
 endif ()
 
 # ============================
+# SIDIS TABLES
+# ============================s
+# Set a default path (relative to the source directory)
+set(DEFAULT_SOURCE_DIR "${CMAKE_SOURCE_DIR}")
+
+# Allow the user to override the default using -DCMAKE_SOURCE_DIR=<custom_path>
+set(SOURCE_DIR ${DEFAULT_SOURCE_DIR} CACHE PATH "Path to the source directory where tables are stored")
+
+# Pass the path as a preprocessor definition
+add_compile_definitions(SOURCE_DIR="${SOURCE_DIR}")
+
+# ============================
 # MAIN
 # ============================
 
