@@ -6,7 +6,6 @@
 //
 
 #include "MontBlanc/predictionshandler.h"
-#include "MontBlanc/predictionshandler_approx.h"
 #include "MontBlanc/AnalyticChiSquare.h"
 #include "MontBlanc/IterationCallBack.h"
 #include "MontBlanc/NNADparameterisation.h"
@@ -133,10 +132,6 @@ int main(int argc, char *argv[])
   // Hadronic species
   const std::string hadron = config["Data"]["hadron"].as<std::string>();
 
-  // Temporary
-  // SIDIS approx. or exact
-  const int SIDIStype = config["Predictions"]["SIDIS type"].as<int>();
-
   // Vectors of DataHandler-ConvolutionTable pairs to be fed to the chi2
   std::vector<std::pair<NangaParbat::DataHandler*, NangaParbat::ConvolutionTable*>> DSVect;
   std::vector<std::pair<NangaParbat::DataHandler*, NangaParbat::ConvolutionTable*>> DSVectt;
@@ -174,13 +169,7 @@ int main(int argc, char *argv[])
                                                             (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double> {})));
 
       // Compute predictions within kinematic cuts
-      std::shared_ptr<NangaParbat::ConvolutionTable> PH;
-      // Temporary
-      if (SIDIStype == 0)
-        PH = std::make_shared<MontBlanc::PredictionsHandler>(config["Predictions"], *DH, gx, gz, cuts);
-      else
-        PH = std::make_shared<MontBlanc::PredictionsHandlerApprox>(config["Predictions"], *DH, gx, gz, cuts);
-      //MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, gx, gz, cuts};
+      MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, gx, gz, cuts};
 
       // Training fraction
       double TrainingFraction = ds["training fraction"].as<double>();
@@ -198,8 +187,8 @@ int main(int argc, char *argv[])
           NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(config["Data"]["closure_test"]["ffset"].as<std::string>(), gz);
 
           // Set LHAPDF set as an input and compute predictions
-          PH->SetInputFFs(LHAPDF_FFs->DistributionFunction());
-          const std::vector<double> theories = PH->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+          PH.SetInputFFs(LHAPDF_FFs->DistributionFunction());
+          const std::vector<double> theories = PH.GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
           // Data fluctuation seed, if zero no fluctuations
           const int df = (ctlvl == 0 ? 0 : config["Data"]["seed"].as<int>());
@@ -227,19 +216,9 @@ int main(int argc, char *argv[])
       // the DH and PH objects defined above (tables are not recomputed)
       // for the total dataset (used at the end of the fit to compute
       // the optimal chi2) and the training and validation subsets.
-      if (SIDIStype == 0)
-        {
-          DSVect.push_back(std::make_pair(DHc, new MontBlanc::PredictionsHandler{*dynamic_cast<MontBlanc::PredictionsHandler*>(PH.get())}));
-          DSVectt.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{*dynamic_cast<MontBlanc::PredictionsHandler*>(PH.get()), {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*TrainingCut})}}));
-          DSVectv.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{*dynamic_cast<MontBlanc::PredictionsHandler*>(PH.get()), {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*ValidationCut})}}));
-        }
-      else
-        {
-          DSVect.push_back(std::make_pair(DHc, new MontBlanc::PredictionsHandlerApprox{*dynamic_cast<MontBlanc::PredictionsHandlerApprox*>(PH.get())}));
-          DSVectt.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandlerApprox{*dynamic_cast<MontBlanc::PredictionsHandlerApprox*>(PH.get()), {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*TrainingCut})}}));
-          DSVectv.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandlerApprox{*dynamic_cast<MontBlanc::PredictionsHandlerApprox*>(PH.get()), {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*ValidationCut})}}));
-        }
-
+      DSVect.push_back(std::make_pair(DHc, new MontBlanc::PredictionsHandler{PH}));
+      DSVectt.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{PH, {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*TrainingCut})}}));
+      DSVectv.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{PH, {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*ValidationCut})}}));
     }
 
   // NN Parameterisation
