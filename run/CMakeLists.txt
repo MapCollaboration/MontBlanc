@@ -1,5 +1,5 @@
 # build run
-file(GLOB runcodes *.cc )
+file(GLOB runcodes *.cc)
 foreach(testsource ${runcodes})
   GET_FILENAME_COMPONENT(filename ${testsource} NAME_WE)
   add_executable(${filename} ${filename}.cc)

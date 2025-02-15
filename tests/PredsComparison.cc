@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
       DSVect_legacy[iexp].second->SetInputFFs(FFset->DistributionFunction());
       DSVect_new[iexp].second->SetInputFFs(FFset->DistributionFunction());
       const std::vector<double> prds_legacy = DSVect_legacy[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
-      const std::vector<double> prds_new = DSVect_new[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+      const std::vector<double> prds_new    = DSVect_new[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
       std::cout << std::setw(15) << std::left << "Experimental\n   value"
                 << std::setw(20) << std::right << "(Q,x,z)"
