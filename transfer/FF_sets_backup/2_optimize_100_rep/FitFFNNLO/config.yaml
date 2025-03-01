@@ -30,7 +30,7 @@ Predictions:
   # PDF set
   pdfset:
     # name: NNPDF31_nnlo_pch_as_0118_1000
-    name: UnweightedSet
+    name: UnweightedSet_1_iter_NNLO
     member: 0 #N>=0 for a specific member (0 for central) ; N<0 for all members to be used randomly(flat dist)
 
 #################################

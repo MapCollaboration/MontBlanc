@@ -78,13 +78,21 @@ int main(int argc, char *argv[])
   
   // temporary variables
   float chi2;
-  float weight;
+  double weight;
   int number_data;
-  const int N_rep = 100;
+  int N_rep;
+  if(config["Predictions"]["pdfset"]["name"].as<std::string>().find("NNPDF") != std::string::npos) 
+    {
+      N_rep = 1000;
+    }
+  else
+    {
+      N_rep = 100;
+    }
   double norm = 0.;
   
-  
-
+  YAML::Emitter emitter2;
+  emitter2 <<YAML::BeginMap <<  YAML::Key << "Chi square" << YAML::Value << YAML::BeginSeq;
   //Cycle over PDF replicas
   for (int i = 0; i < N_rep; i++) 
     {
@@ -129,9 +137,18 @@ int main(int argc, char *argv[])
                  z_cuts_min.push_back(0.);
                  z_cuts_max.push_back(0.);
                  Q_cuts.push_back(2.);
-                 dim_col = 1;
-                 dim_row = 311;
-                 number_data += 311;
+                 if( ds["name"].as<std::string>().find("K") != std::string::npos)
+                   {
+                     dim_col = 1;
+                     dim_row = 309;
+                     number_data += 309;
+                   }
+                 else
+                   {
+                     dim_col = 1;
+                     dim_row = 311;
+                     number_data += 311;
+                   }
                }
 
              //Resize of prediction and data Eigen vectors
@@ -343,7 +360,11 @@ int main(int argc, char *argv[])
         }
       
       c2 = chi2 / number_data;
-  
+
+      emitter2 << YAML::Flow << YAML::BeginMap;
+      emitter2 <<YAML::Key << "replica "<< YAML::Value << i+1 << YAML::Key << "chi2" << YAML::Value << chi2 << YAML::Key << "chi2/point" << YAML::Value <<c2 << YAML::Key << "number of point" << YAML::Value << number_data ;
+      emitter2 << YAML::EndMap;
+      
       const double lw = ( number_data - 1 ) * log(c2*number_data) / 2 - c2*number_data / 2 - 0.5*(number_data - 1) * log(number_data) + log(N_rep);
       
       norm += pow(c2, 0.5*(number_data - 1)) * exp(- 0.5 * c2*number_data); 
@@ -356,6 +377,12 @@ int main(int argc, char *argv[])
       file_names.clear(); 
       gsl_rng_free(rng);      
     } 
+
+  emitter2 << YAML::EndSeq;
+  emitter2 << YAML::EndMap;
+  std::ofstream fout2(ResultFolder + "chi2_for_PDFS.yaml");
+  fout2 << emitter2.c_str();
+  fout2.close();
 
   YAML::Emitter emitter;
   emitter <<YAML::BeginMap <<  YAML::Key << "Weights" << YAML::Value << YAML::BeginSeq;
