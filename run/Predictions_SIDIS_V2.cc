@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
   for (auto const& ds : config["Data"]["sets"])
        {
         if(ds["name"].as<std::string>().find("COMPASS") != std::string::npos || 
-              ds["name"].as<std::string>().find("HERMES") != std::string::npos||)
+              ds["name"].as<std::string>().find("HERMES") != std::string::npos)
               //ds["name"].as<std::string>().find("EIC") != std::string::npos)
           {
             //Create folders
