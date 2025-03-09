@@ -456,7 +456,7 @@ namespace MontBlanc
             TabSemiIncQIntegrand = std::unique_ptr<apfel::TabulateObject<apfel::Set<apfel::Operator>>>
                                    (new apfel::TabulateObject<apfel::Set<apfel::Operator>> {Nj, 50, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds});
             // Push back multiplicities
-            if (YAML::Node parameter = config["observable"]) {
+            if ( DH.GetName().find("EIC") != std::string::npos) {
               if (_bins[i].IntQ)
               _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax)});
             else
