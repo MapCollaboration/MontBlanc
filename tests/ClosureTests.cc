@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
   const std::shared_ptr<const apfel::Grid> gz(new const apfel::Grid{vsgz});
 
   // LHAPDF Parameterisation
-  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation("NNFF10_PIsum_nlo", gz);
+  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation({{"PI", "NNFF10_PIsum_nlo"}}, gz, {{"PI", 0}});
 
   // Initialise GSL random-number generator
   gsl_rng *rng = gsl_rng_alloc(gsl_rng_ranlxs2);
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
       for (int j = 0; j < (int) CTVect.size(); j++)
         {
           // Pseudo data part
-          CTVect[j]->SetInputFFs(LHAPDF_FFs->DistributionFunction());
+          CTVect[j]->SetInputFFs(LHAPDF_FFs->DistributionFunction(DHVect[replica][j]->GetHadron()));
           const std::vector<double> theories = CTVect[j]->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
           NangaParbat::DataHandler *PDH = new NangaParbat::DataHandler(*(DHVect[replica][j]));
           PDH->SetMeans(theories);
