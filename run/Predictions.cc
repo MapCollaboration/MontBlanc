@@ -47,14 +47,14 @@ int main(int argc, char *argv[])
           break;
         case '?': // Unrecognized option
         default: // Unhandled option
-          std::cerr << "Usage: " << argv[0] << " [-u|--force_uncertainties] <path to fit folder> [<set name> (default: LHAPDFSet)]" << std::endl;
+          std::cerr << "Usage: " << argv[0] << " [-u|--force_uncertainties] <path to fit folder>" << std::endl;
           exit(-1);
         }
     }
 
   if ((argc - optind) < 1)
     {
-      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<set name> (default: LHAPDFSet)]" << std::endl;
+      std::cerr << "Usage: " << argv[0] << " <path to fit folder>" << std::endl;
       exit(-1);
     }
 
@@ -65,9 +65,6 @@ int main(int argc, char *argv[])
   const std::string InputCardPath = ResultFolder + "/config.yaml";
   const std::string datafolder    = ResultFolder + "/data/";
   const std::string OutputFile    = ResultFolder + "/Predictions.yaml";
-  std::string LHAPDFSet = "LHAPDFSet";
-  if (argc - optind >= 2)
-    LHAPDFSet = argv[optind + 1];
 
   // Timer
   apfel::Timer t;
@@ -138,22 +135,31 @@ int main(int argc, char *argv[])
       std::vector<double> avor(bins.size(), 0);
       std::vector<double> stdor(bins.size(), 0);
 
-      // Get LHAPDF set
-      const std::vector<LHAPDF::PDF*> sets = LHAPDF::mkPDFs(LHAPDFSet);
+      // Get LHAPDF sets
+      std::unordered_map<std::string, std::vector<LHAPDF::PDF*>> MapLHAPDFsets;
+      std::unordered_map<std::string, int> MapMembers;
+      for (auto const& FlavMap : config["NNAD"]["flavour maps"])
+        {
+          MapLHAPDFsets.insert({FlavMap["hadron"].as<std::string>(), LHAPDF::mkPDFs(FlavMap["SetName"].as<std::string>())});
+          MapMembers.insert({FlavMap["hadron"].as<std::string>(), 0});
+        }
 
       // If the default "LHAPDFSet" we know it is a Monte Carlo set
       // thus compute central values and uncertanties as averages and
       // standard deviations...
-      if (LHAPDFSet == "LHAPDFSet" || force_uncertainties)
+      if (config["NNAD"]["flavour maps"][0]["SetName"].as<std::string>().find("LHAPDFSet") == 0 || force_uncertainties)
         {
           std::vector<double> av2(bins.size(), 0);
           std::vector<double> avor2(bins.size(), 0);
           // Run over replicas
-          const int nrep = sets.size() - 1;
+          const int nrep = MapLHAPDFsets.at(config["NNAD"]["flavour maps"][0]["hadron"].as<std::string>()).size() - 1;
           for (int irep = 1; irep <= nrep; irep++)
             {
+              for (auto const& FlavMap : config["NNAD"]["flavour maps"])
+                MapMembers[FlavMap["hadron"].as<std::string>()] = irep;
+
               // Construct chi2 object with the irep-th replica
-              MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, gz, irep}};
+              MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{MapLHAPDFsets, gz, MapMembers}};
               const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
               const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
@@ -176,7 +182,7 @@ int main(int argc, char *argv[])
       else
         {
           // Construct chi2 object with the 0-th replica
-          MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, gz, 0}};
+          MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{MapLHAPDFsets, gz, MapMembers}};
           const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
           const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
           for (int i = 0; i < (int) bins.size(); i++)

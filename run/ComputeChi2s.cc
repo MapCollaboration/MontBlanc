@@ -23,10 +23,10 @@ std::string GetCurrentWorkingDir()
 
 void usage_error_message(std::string call_name)
 {
-  std::cerr << "Usage: " << call_name << " [-a|--all_replicas] [-i|--index_result] <path to fit folder> [<member_index> (default: 0)] [<set name> (default: LHAPDFSet)]" << std::endl;
+  std::cerr << "Usage: " << call_name << " [-a|--all_replicas] [-i|--index_result] <path to fit folder> [<member_index> (default: 0)]" << std::endl;
 }
 
-void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPDFSet, std::string ResultName = "Chi2s.yaml");
+void compute_chi2s(std::string ResultFolder, std::unordered_map<std::string, int> MembersMap, std::unordered_map<std::string, std::string> SetNamesMap, std::string ResultName = "Chi2s.yaml");
 
 std::string i_to_fixed_length_str(int value, int digits_count)
 {
@@ -37,6 +37,7 @@ std::string i_to_fixed_length_str(int value, int digits_count)
 
 int main(int argc, char *argv[])
 {
+  LHAPDF::setVerbosity(0);
   const char* const short_opts = "ai";
   const option long_opts[] =
   {
@@ -76,45 +77,52 @@ int main(int argc, char *argv[])
       exit(-1);
     }
 
-  // Path to result folder
+  // Input information
   const std::string ResultFolder = argv[optind];
+  const std::string InputCardPath = ResultFolder + "/config.yaml";
+  YAML::Node config = YAML::LoadFile(InputCardPath);
 
   // Member index
   int member_index = 0;
   if ((argc - optind) >= 2)
     member_index = atoi(argv[optind+1]);
 
-  // Name of the set
-  std::string LHAPDFSet = "LHAPDFSet";
-  if ((argc - optind) >= 3)
-    LHAPDFSet = argv[optind+2];
+  // Name of the sets
+  std::unordered_map<std::string, std::string> SetNamesMap;
+  std::unordered_map<std::string, int> MembersMap;
+  for (auto const& map : config["NNAD"]["flavour maps"])
+    {
+      SetNamesMap.insert({map["hadron"].as<std::string>(), map["SetName"].as<std::string>()});
+      MembersMap.insert({map["hadron"].as<std::string>(), 0});
+    }
 
   if (compute_all_replicas)
     {
       std::cout << mkdir((ResultFolder+"/IndivChi2s").c_str(), 0777) <<"ResultFolder/IndivChi2s" << "\n";
-      //std::cout << (ResultFolder+"/LHAPDFSet/LHAPDFSet_00" + std::to_string(10)+".dat").c_str() << "\n";
-      //std::cout << access((ResultFolder+"/LHAPDFSet/LHAPDFSet_" + i_to_fixed_length_str(10,4)+".dat").c_str(), F_OK) << "\n";
-      //std::cout << access((ResultFolder).c_str(), F_OK) << "\n";
 
-      for(size_t i=1; access((ResultFolder+"/LHAPDFSet/LHAPDFSet_" + i_to_fixed_length_str(i,4)+".dat").c_str(), F_OK) != -1; i++)
+      for(size_t i=1; access((ResultFolder+ "/" + SetNamesMap[0] + "/" + SetNamesMap[0] + "_" + i_to_fixed_length_str(i,4) + ".dat").c_str(), F_OK) != -1; i++)
         {
           //std::cout<<(ResultFolder+"/LHAPDFSet/" + std::to_string(i));
-          compute_chi2s(ResultFolder, i, LHAPDFSet, "IndivChi2s/Chi2sReplica" + std::to_string(i));
+          for (auto const& map : config["NNAD"]["flavour maps"])
+            MembersMap.insert({map["hadron"].as<std::string>(), i});
+          compute_chi2s(ResultFolder, MembersMap, SetNamesMap, "IndivChi2s/Chi2sReplica" + std::to_string(i));
         }
     }
   else if (specify_index_result)
     {
       mkdir((ResultFolder+"/IndivChi2s").c_str(), 0777);
-      compute_chi2s(ResultFolder, member_index, LHAPDFSet, "IndivChi2s/Chi2sReplica" + std::to_string(member_index));
+      for (auto const& map : config["NNAD"]["flavour maps"])
+            MembersMap.insert({map["hadron"].as<std::string>(), member_index});
+      compute_chi2s(ResultFolder, MembersMap, SetNamesMap, "IndivChi2s/Chi2sReplica" + std::to_string(member_index));
     }
   else
     {
-      compute_chi2s(ResultFolder, member_index, LHAPDFSet);
+      compute_chi2s(ResultFolder, MembersMap, SetNamesMap);
     }
   return 0;
 }
 
-void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPDFSet, std::string ResultName)
+void compute_chi2s(std::string ResultFolder, std::unordered_map<std::string, int> MembersMap, std::unordered_map<std::string, std::string> SetNamesMap, std::string ResultName)
 {
   // Timer
   apfel::Timer t;
@@ -145,7 +153,7 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
     LHAPDF::pathsPrepend(GetCurrentWorkingDir() + "/" + ResultFolder + "/");
 
   // LHAPDF Parameterisation
-  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(LHAPDFSet, gz, member_index);
+  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(SetNamesMap, gz, MembersMap);
 
   // Initialiase chi2 object
   NangaParbat::ChiSquare *chi2 = new MontBlanc::AnalyticChiSquare{LHAPDF_FFs};
@@ -209,4 +217,6 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
   gsl_rng_free(rng);
 
   t.stop(true);
+  delete LHAPDF_FFs;
+  delete chi2;
 }

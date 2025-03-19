@@ -32,15 +32,21 @@
 #include <getopt.h>
 #include <sys/stat.h>
 
+// Unix-like system commands
+#include <unistd.h>
+
 int main(int argc, char *argv[])
 {
-  const char* const short_opts = "s";
+  const char* const short_opts = "sj";
   const option long_opts[] =
   {
     {"separate_replica_results", no_argument, nullptr, 's'},
+    {"jobs", required_argument, nullptr, 'j'},
+    {nullptr, no_argument, nullptr, 0}  // Required at the end of long_opts
   };
 
   bool separate_replica_results = false;
+  int numCores = sysconf(_SC_NPROCESSORS_ONLN);
 
   while (true)
     {
@@ -54,6 +60,9 @@ int main(int argc, char *argv[])
         case 's':
           separate_replica_results = true;
           break;
+        case 'j':
+          numCores = std::stoi(optarg);
+          break;
         case '?': // Unrecognized option
         default: // Unhandled option
           std::cerr << "Usage: " << argv[0] << " [-s|--separate_replica_results] <replica index> <input card> <path to data> <output folder>" << std::endl;
@@ -66,6 +75,12 @@ int main(int argc, char *argv[])
       std::cerr << "Usage: " << argv[0] << " [-s|--separate_replica_results] <replica index> <input card> <path to data> <output folder>" << std::endl;
       exit(-1);
     }
+
+  // Get the number of cores
+  if (numCores > 1)
+    std::cout << "[Optimize]: Using " << numCores << " cores for Ceres Solver." << std::endl;
+  else
+    std::cout << "[Optimize]: Using 1 core." << std::endl;
 
   // Input information
   int replica = atoi(argv[optind]);
@@ -129,9 +144,6 @@ int main(int argc, char *argv[])
   gsl_rng *rng = gsl_rng_alloc(gsl_rng_ranlxs2);
   gsl_rng_set(rng, config["Data"]["seed"].as<int>());
 
-  // Hadronic species
-  const std::string hadron = config["Data"]["hadron"].as<std::string>();
-
   // Vectors of DataHandler-ConvolutionTable pairs to be fed to the chi2
   std::vector<std::pair<NangaParbat::DataHandler*, NangaParbat::ConvolutionTable*>> DSVect;
   std::vector<std::pair<NangaParbat::DataHandler*, NangaParbat::ConvolutionTable*>> DSVectt;
@@ -141,8 +153,9 @@ int main(int argc, char *argv[])
   std::vector<std::string> filenames;
 
   // Run over the data set
-  for (auto const &ds : config["Data"]["sets"])
+  for (size_t i = 0; i < config["Data"]["sets"].size(); i++)
     {
+      auto const &ds = config["Data"]["sets"][i];
       std::cout << "Initialising " << ds["name"].as<std::string>() << (config["Data"]["closure_test"] ? " for closure test level " + config["Data"]["closure_test"]["level"].as<std::string>() : "" ) + "...\n";
 
       // Push back file name
@@ -156,11 +169,6 @@ int main(int argc, char *argv[])
       // end of the fit to compute the final chi2 over the entire and
       // unfluctuated data set.
       NangaParbat::DataHandler *DHc = new NangaParbat::DataHandler{ds["name"].as<std::string>(), YAML::LoadFile(DataFolder + ds["file"].as<std::string>())};
-
-      // Check whether the hadronic species set in the configuration
-      // card matches with that of the data set.
-      if (DH->GetHadron() != hadron)
-        throw std::runtime_error("This data set corresponds to a hadronic species different from that set in the input configuration card");
 
       // Accumulate kinematic cuts
       std::vector<std::shared_ptr<NangaParbat::Cut> > cuts;
@@ -183,11 +191,19 @@ int main(int argc, char *argv[])
           if (ctlvl != 0 && ctlvl != 1 && ctlvl != 2)
             throw std::runtime_error("Only closure tests level 0, 1, and 2 are defined.");
 
+          std::unordered_map<std::string, std::string> SetsMap;
+          std::unordered_map<std::string, int> MembersMap;
+          for (auto const &map : config["NNAD"]["flavour maps"])
+          {
+            SetsMap.insert({map["hadron"].as<std::string>(), map["SetName"].as<std::string>()});
+            MembersMap.insert({map["hadron"].as<std::string>(), 0});
+          }
+
           // Construct LHAPDF Parameterisation with input FF set
-          NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(config["Data"]["closure_test"]["ffset"].as<std::string>(), gz);
+          std::shared_ptr<NangaParbat::Parameterisation> LHAPDF_FFs = std::make_shared<MontBlanc::LHAPDFparameterisation>(SetsMap, gz, MembersMap);
 
           // Set LHAPDF set as an input and compute predictions
-          PH.SetInputFFs(LHAPDF_FFs->DistributionFunction());
+          PH.SetInputFFs(LHAPDF_FFs->DistributionFunction(DH->GetHadron()));
           const std::vector<double> theories = PH.GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
           // Data fluctuation seed, if zero no fluctuations
@@ -248,6 +264,9 @@ int main(int argc, char *argv[])
   options.minimizer_progress_to_stdout = true;
   if (config["Optimizer"]["use_nonmonotonic_steps"])
     options.use_nonmonotonic_steps = config["Optimizer"]["use_nonmonotonic_steps"].as<bool>();
+
+  // Set the number of threads to use to compute the Jacobian
+  options.num_threads = numCores;
 
   // Set all tolerances to zero to ensure that all fits get to the
   // maximum number of iterations without stopping.
@@ -332,5 +351,6 @@ int main(int argc, char *argv[])
     }
 
   t.stop(true);
+
   return 0;
 }
