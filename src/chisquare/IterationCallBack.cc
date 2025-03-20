@@ -13,7 +13,7 @@ namespace MontBlanc
   volatile sig_atomic_t stop;
 
   //_________________________________________________________________________
-  void inthand(int signum)
+  void inthand(int)
   {
     stop = 1;
   }
