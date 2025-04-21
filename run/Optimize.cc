@@ -194,10 +194,10 @@ int main(int argc, char *argv[])
           std::unordered_map<std::string, std::string> SetsMap;
           std::unordered_map<std::string, int> MembersMap;
           for (auto const &map : config["NNAD"]["flavour maps"])
-          {
-            SetsMap.insert({map["hadron"].as<std::string>(), map["SetName"].as<std::string>()});
-            MembersMap.insert({map["hadron"].as<std::string>(), 0});
-          }
+            {
+              SetsMap.insert({map["hadron"].as<std::string>(), map["SetName"].as<std::string>()});
+              MembersMap.insert({map["hadron"].as<std::string>(), 0});
+            }
 
           // Construct LHAPDF Parameterisation with input FF set
           std::shared_ptr<NangaParbat::Parameterisation> LHAPDF_FFs = std::make_shared<MontBlanc::LHAPDFparameterisation>(SetsMap, gz, MembersMap);

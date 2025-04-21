@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
     {
       mkdir((ResultFolder+"/IndivChi2s").c_str(), 0777);
       for (auto const& map : config["NNAD"]["flavour maps"])
-            MembersMap.insert({map["hadron"].as<std::string>(), member_index});
+        MembersMap.insert({map["hadron"].as<std::string>(), member_index});
       compute_chi2s(ResultFolder, MembersMap, SetNamesMap, "IndivChi2s/Chi2sReplica" + std::to_string(member_index));
     }
   else

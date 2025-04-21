@@ -37,10 +37,10 @@ namespace MontBlanc
      * @brief The "LHAPDFparameterisation" destructor
      */
     ~LHAPDFparameterisation()
-      {
-        for (auto const& p : _MapFFs)
-          delete p.second;
-      }
+    {
+      for (auto const& p : _MapFFs)
+        delete p.second;
+    }
 
     /**
      * @brief Function that returns the parametrisation in the form of

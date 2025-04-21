@@ -31,35 +31,35 @@ namespace MontBlanc
     std::map<std::string, nnad::Matrix<double>> Rotations;
     int TotalSize = 0;
     for (auto &maps : config["flavour maps"])
-    {
-      std::string hadron = maps["hadron"].as<std::string>();
-      std::vector<double> FlavourMap = maps["map"].as<std::vector<double>>();
-      _HadronOutputSizeMap[hadron] = (int) FlavourMap.size() / 13;
+      {
+        std::string hadron = maps["hadron"].as<std::string>();
+        std::vector<double> FlavourMap = maps["map"].as<std::vector<double>>();
+        _HadronOutputSizeMap[hadron] = (int) FlavourMap.size() / 13;
 
-      // Layer: Rotation into full flavour basis
-      nnad::Matrix<double> FlavourMapT{ _HadronOutputSizeMap[hadron], 13, FlavourMap};
-      if (config["combine"] ? config["combine"].as<bool>() : false)
-        FlavourMapT = FlavourMapT.PseudoInverse_LLR();
-      else
-        FlavourMapT.Transpose();
+        // Layer: Rotation into full flavour basis
+        nnad::Matrix<double> FlavourMapT{ _HadronOutputSizeMap[hadron], 13, FlavourMap};
+        if (config["combine"] ? config["combine"].as<bool>() : false)
+          FlavourMapT = FlavourMapT.PseudoInverse_LLR();
+        else
+          FlavourMapT.Transpose();
 
-      // Layer: Rotation to QCD evolution from full flavour basis
-      _Rotations[hadron] = nnad::Matrix<double> {13, 13, R} * FlavourMapT;
+        // Layer: Rotation to QCD evolution from full flavour basis
+        _Rotations[hadron] = nnad::Matrix<double> {13, 13, R} * FlavourMapT;
 
-      // Prepare the matrix that splits the output of the network
-      nnad::Matrix<double> SplitMatrix {_HadronOutputSizeMap[hadron], _Nout, std::vector<double>(_HadronOutputSizeMap[hadron] * _Nout, 0.0)};
-      for (int j = 0; j < (int) _HadronOutputSizeMap[hadron]; j++)
-            SplitMatrix.SetElement(j, j + TotalSize, 1.0);
-      _SplitMatrices[hadron] = SplitMatrix;
+        // Prepare the matrix that splits the output of the network
+        nnad::Matrix<double> SplitMatrix {_HadronOutputSizeMap[hadron], _Nout, std::vector<double>(_HadronOutputSizeMap[hadron] * _Nout, 0.0)};
+        for (int j = 0; j < (int) _HadronOutputSizeMap[hadron]; j++)
+          SplitMatrix.SetElement(j, j + TotalSize, 1.0);
+        _SplitMatrices[hadron] = SplitMatrix;
 
-      TotalSize += _HadronOutputSizeMap[hadron];
-      _NNderivativeSets[hadron] = std::vector<apfel::Set<apfel::Distribution>>(_Np + 1, apfel::Set<apfel::Distribution> {apfel::DiagonalBasis{13}, std::map<int, apfel::Distribution>{}});
-    }
+        TotalSize += _HadronOutputSizeMap[hadron];
+        _NNderivativeSets[hadron] = std::vector<apfel::Set<apfel::Distribution>>(_Np + 1, apfel::Set<apfel::Distribution> {apfel::DiagonalBasis{13}, std::map<int, apfel::Distribution>{}});
+      }
 
     // Check that the size of the maps match the output of the network
     // TODO: Check if this makes sense
     if (_Nout != TotalSize)
-        throw std::runtime_error("[NNADparametersiation::Constructor]: FlavourMap doesn't match NNarchitecture.");
+      throw std::runtime_error("[NNADparametersiation::Constructor]: FlavourMap doesn't match NNarchitecture.");
 
     // Fill in grid
     EvaluateOnGrid();
@@ -100,12 +100,13 @@ namespace MontBlanc
           dists.emplace(i, outputs.Combine(RotationMap.second.GetLine(i)));
         _NNderivativeSets.at(RotationMap.first)[0].SetObjects(dists);
       }
-      // @note: So far everything runs fine (maybe with the wrong result)
-      // Implement sum rules
-      // _NNderivativeSets["sum1"][0] = _NNderivativeSets["PI"][0] + _NNderivativeSets["KA"][0];
-      // _NNderivativeSets["sum2"][0] = _NNderivativeSets["PI"][0] + _NNderivativeSets["KA"][0];
-      // _NNderivativeSets["sum3"][0] = _NNderivativeSets["PI"][0] + _NNderivativeSets["KA"][0];
-      // _NNderivativeSets["h+"][0] =  _NNderivativeSets["hres"][0] - _NNderivativeSets["PI"][0] + _NNderivativeSets["KA"][0];
+    // @note: So far everything runs fine (maybe with the wrong result)
+    // @todo The following lines show how we mean to implement sum rules.
+    // Implement sum rules
+    // _NNderivativeSets["sum1"][0] = _NNderivativeSets["PI"][0] + _NNderivativeSets["KA"][0];
+    // _NNderivativeSets["sum2"][0] = _NNderivativeSets["PI"][0] + _NNderivativeSets["KA"][0];
+    // _NNderivativeSets["sum3"][0] = _NNderivativeSets["PI"][0] + _NNderivativeSets["KA"][0];
+    // _NNderivativeSets["h+"][0] =  _NNderivativeSets["hres"][0] - _NNderivativeSets["PI"][0] + _NNderivativeSets["KA"][0];
   }
 
   //_________________________________________________________________________
@@ -145,12 +146,12 @@ namespace MontBlanc
 
           std::vector<double> FilteredOutput (HadronOutputSize * (_Np + 1), 0.0);
           for (int par = 0; par < _Np + 1; par++)
-          {
-            for (int idx = 0; idx < HadronOutputSize; idx++)       
             {
-              FilteredOutput[idx + HadronOutputSize * par] = dnnx[par * _Nout + (idx + HadronSizeOffset)];
+              for (int idx = 0; idx < HadronOutputSize; idx++)
+                {
+                  FilteredOutput[idx + HadronOutputSize * par] = dnnx[par * _Nout + (idx + HadronSizeOffset)];
+                }
             }
-          }
 
           return FilteredOutput;
         };

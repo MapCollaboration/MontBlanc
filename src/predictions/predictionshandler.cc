@@ -14,7 +14,7 @@
 // Compiler guard to avoid warnings in the use of the SOURCE_DIR
 // The variable SOURCE_DIR is defined during the CMake configuration
 #ifndef SOURCE_DIR
-  #error "SOURCE_DIR is not defined!"
+#error "SOURCE_DIR is not defined!"
 #endif //TABLE_DIR
 
 namespace MontBlanc
@@ -294,7 +294,7 @@ namespace MontBlanc
 
           // Functions that multiply FT and FL
           const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const&) -> double{ return fact * 2 * ( 1 - pow(Q / Vs, 2) / x ) / x; };
-	  const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const&) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
+          const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const&) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
 
           // Transverse
           apfel::DoubleOperator OTns   = OT0ns;
@@ -457,9 +457,9 @@ namespace MontBlanc
               const apfel::DistributionOperator CT_qpq_3 = OTqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i);
               const apfel::DistributionOperator CL_qpq_3 = OLqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i);
               KiMap.insert({i, funcT * ( CT_qq_NS + CT_qg + CT_qq_ps + CT_qbq + CT_qpq_1 + CT_qpq_2 + CT_qpq_3) + funcL * (CL_qq_NS + CL_qg + CL_qq_ps + CL_qbq + CL_qpq_1 + CL_qpq_2 + CL_qpq_3 )});
-	    }
+            }
 
-	  return apfel::Set<apfel::DistributionOperator>{KiMap};
+          return apfel::Set<apfel::DistributionOperator>{KiMap};
         };
 
         // Tabulate semi-inclusive cross sections in Q

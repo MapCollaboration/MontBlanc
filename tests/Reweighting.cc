@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
   const std::string InputCardPath = argv[2];
   const std::string DataFolder = (std::string) argv[3] + "/";
 
-  std::cout << "WARNING: this module does not handle multiple hadrons. If the more than one hadrons are ";
-  std::cout << "provided in the runcard, the result will be undefined behaviour.\n";  
+  std::cout << "WARNING: this module does not handle multiple hadrons. If the more than one hadrons are "
+            << "provided in the runcard, the result will be undefined behaviour.\n";
 
   // Timer
   apfel::Timer t;
