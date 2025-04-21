@@ -90,10 +90,10 @@ int main(int argc, char *argv[])
   // Get LHAPDF set
   std::unordered_map<std::string, LHAPDF::PDF*> LHAPDFSets;
   for (auto const& FlavMap : config["NNAD"]["flavour maps"])
-  {
-    std::vector<LHAPDF::PDF*> sets = LHAPDF::mkPDFs(FlavMap["SetName"].as<std::string>());
-    LHAPDFSets.insert({FlavMap["hadron"].as<std::string>(), sets[0]});
-  }
+    {
+      std::vector<LHAPDF::PDF*> sets = LHAPDF::mkPDFs(FlavMap["SetName"].as<std::string>());
+      LHAPDFSets.insert({FlavMap["hadron"].as<std::string>(), sets[0]});
+    }
   std::shared_ptr<MontBlanc::LHAPDFparameterisation> FFset = std::make_shared<MontBlanc::LHAPDFparameterisation>(LHAPDFSets, gz);
 
   // Run over the experiments, compute central values and standard
@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
                 << std::setw(30) << std::right << "(legacy - new) / legacy"
                 << std::setw(15) << std::right << "legacy / new"
                 << std::endl;
-      std::cout << std::setw(110) << std::setfill('-') << "" << std::setfill(' ') << std::endl;  
+      std::cout << std::setw(110) << std::setfill('-') << "" << std::setfill(' ') << std::endl;
 
       auto kin_bins = DSVect_legacy[iexp].first->GetBinning();
       for (int i = 0; i < (int) bins.size(); i++)
@@ -137,8 +137,8 @@ int main(int argc, char *argv[])
                     << std::setw(10) << std::right << kin_bins[i].Qav << " | " << kin_bins[i].xav << " | " << kin_bins[i].zav
                     << std::setw(15) << std::right << prds_legacy[i]
                     << std::setw(15) << std::right << prds_new[i]
-                    << std::setw(20) << std::right << (prds_legacy[i] - prds_new[i]) / prds_legacy[i] 
-                    << std::setw(20) << std::right << prds_legacy[i] / prds_new[i] 
+                    << std::setw(20) << std::right << (prds_legacy[i] - prds_new[i]) / prds_legacy[i]
+                    << std::setw(20) << std::right << prds_legacy[i] / prds_new[i]
                     << std::endl;
         }
     }

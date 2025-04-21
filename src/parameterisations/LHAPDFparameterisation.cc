@@ -15,7 +15,7 @@ namespace MontBlanc
               _cmap(apfel::DiagonalBasis{13})
   {
     for (auto const& name : names)
-        _MapFFs.insert({name.first, LHAPDF::mkPDF(name.second, members.at(name.first))});
+      _MapFFs.insert({name.first, LHAPDF::mkPDF(name.second, members.at(name.first))});
   }
 
   //_________________________________________________________________________

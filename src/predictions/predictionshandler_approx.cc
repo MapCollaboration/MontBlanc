@@ -268,12 +268,12 @@ namespace MontBlanc
           // NLO gq for F2 and FL
           apfel::DoubleObject<apfel::Distribution, apfel::Operator> D0t{{{1.0, apfel::Distribution {*_gx, [] (double const&) -> double { return 0.0; }}, apfel::Operator {*_gz, apfel::Null{}}}}};
           if (PerturbativeOrder >= 1)
-           {
-             for (auto const& t: so.C21gq.GetTerms())
-               D0t.AddTerm({as * t.coefficient, func2 * ( t.object1 * eqfq ), t.object2});
-             for (auto const& t: so.CL1gq.GetTerms())
-               D0t.AddTerm({as * t.coefficient, funcL * ( t.object1 * eqfq ), t.object2});
-           }
+            {
+              for (auto const& t: so.C21gq.GetTerms())
+                D0t.AddTerm({as * t.coefficient, func2 * ( t.object1 * eqfq ), t.object2});
+              for (auto const& t: so.CL1gq.GetTerms())
+                D0t.AddTerm({as * t.coefficient, funcL * ( t.object1 * eqfq ), t.object2});
+            }
           KiMap.insert({0, D0t});
 
           // Now run over the quark evolution basis
@@ -537,7 +537,7 @@ namespace MontBlanc
 
   //_________________________________________________________________________
   std::vector<double> PredictionsHandlerApprox::GetPredictions(std::function<double(double const&, double const&, double const&)> const&,
-                                                         std::function<double(double const&, double const&, double const&)> const&) const
+                                                               std::function<double(double const&, double const&, double const&)> const&) const
   {
     return PredictionsHandlerApprox::GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
   }
@@ -550,7 +550,7 @@ namespace MontBlanc
 
   //_________________________________________________________________________
   std::vector<double> PredictionsHandlerApprox::GetPredictions(std::function<double(double const&, double const&, double const&, int const&)> const&,
-                                                         std::function<double(double const&, double const&, double const&, int const&)> const&) const
+                                                               std::function<double(double const&, double const&, double const&, int const&)> const&) const
   {
     return PredictionsHandlerApprox::GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
   }
