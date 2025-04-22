@@ -248,10 +248,10 @@ void fillEvSet(NNxFunc& NNfunc,
         auto nnx = NNfunc(x, p);
 
         // Selects the specific hadron output
-        nnad::Matrix<double> SplittedOutput = SplitMatrix * nnad::Matrix(nnx.size(), 1, nnx);
+        nnad::Matrix<double> SplitOutput = SplitMatrix * nnad::Matrix(nnx.size(), 1, nnx);
 
         // Rotate into the evolution basis
-        const nnad::Matrix<double> nnv = FlavRoatation * SplittedOutput;
+        const nnad::Matrix<double> nnv = FlavRoatation * SplitOutput;
 
         // Fill in map
         for (int i = 0; i < 13; i++)
@@ -276,10 +276,10 @@ void fillEvSet(NNxFunc& NNfunc,
       auto nnx = NNfunc(x, p);
 
       // Selects the specific hadron output
-      nnad::Matrix<double> SplittedOutput = SplitMatrix * nnad::Matrix(nnx.size(), 1, nnx);
+      nnad::Matrix<double> SplitOutput = SplitMatrix * nnad::Matrix(nnx.size(), 1, nnx);
 
       // Rotate into the evolution basis
-      const nnad::Matrix<double> nnv = FlavRoatation * SplittedOutput;
+      const nnad::Matrix<double> nnv = FlavRoatation * SplitOutput;
 
       // Fill in map (ignoring top)
       for (int i = 0; i < 13; i++)
