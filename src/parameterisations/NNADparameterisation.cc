@@ -88,8 +88,8 @@ namespace MontBlanc
             std::transform(nnx.begin(), nnx.end(), nnx.begin(), nnx.begin(), std::multiplies<double>());
 
           // Selects the specific hadron output
-          nnad::Matrix<double> SplittedOutput = _SplitMatrices.at(RotationMap.first) * nnad::Matrix(nnx.size(), 1, nnx);
-          return SplittedOutput.GetVector();
+          nnad::Matrix<double> SplitOutput = _SplitMatrices.at(RotationMap.first) * nnad::Matrix(nnx.size(), 1, nnx);
+          return SplitOutput.GetVector();
         };
 
         // Create a apfel::Set of apfe::Distribution which contains all the final hadrons.
