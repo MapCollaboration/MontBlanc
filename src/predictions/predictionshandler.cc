@@ -345,6 +345,12 @@ namespace MontBlanc
                 Qmin = _bins[i].Qmin;
                 Qmax = _bins[i].Qmax;
               }
+            //dsigma/dz: Integrate in the whole range of Q 
+            else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
+              {
+                Qmin = DH.GetKinematics().var1b.first;
+                Qmax = DH.GetKinematics().var1b.second;
+              }
             else
               throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
 
@@ -387,6 +393,12 @@ namespace MontBlanc
                       xbmax = std::min(std::min(xbmax, pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
                     }
                 }
+              //dsigma/dz: Integrate in the whole range of x 
+              else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
+              {
+                xbmin = DH.GetKinematics().var2b.first;
+                xbmax = DH.GetKinematics().var2b.second;
+              }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
               return (_bins[i].Intx ? TabIncXSecQ.Evaluate(Q).Integrate(xbmin, xbmax) : TabIncXSecQ.Evaluate(Q).Evaluate(_bins[i].xav));
@@ -415,6 +427,12 @@ namespace MontBlanc
                       xbmax = std::min(std::min(xbmax, pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
                     }
                 }
+              //dsigma/dz: Integrate in the whole range of x 
+              else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
+              {
+                xbmin = DH.GetKinematics().var2b.first;
+                xbmax = DH.GetKinematics().var2b.second;
+              }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
 
@@ -428,7 +446,7 @@ namespace MontBlanc
                   apfel::Operator cumulant = Zero;
                   for (auto const& t : tms.second.GetTerms())
                     cumulant += t.coefficient * (_bins[i].Intx ? t.object1.Integrate(xbmin, xbmax) : t.object1.Evaluate(_bins[i].xav)) * t.object2;
-
+                  
                   IntKi.insert({tms.first, cumulant});
                 };
 
@@ -463,6 +481,11 @@ namespace MontBlanc
 
             xl = _bins[i].xmin;
             xu = _bins[i].xmax;
+            if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
+             {
+              xl = DH.GetKinematics().var2b.first;
+              xu = DH.GetKinematics().var2b.second;
+             }
             xc = _bins[i].xav;
             Ql = Qmin;
             Qu = Qmax;
