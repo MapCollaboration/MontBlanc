@@ -396,8 +396,8 @@ namespace MontBlanc
               //dsigma/dz: Integrate in the whole range of x 
               else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
               {
-                xbmin = DH.GetKinematics().var2b.first;
-                xbmax = DH.GetKinematics().var2b.second;
+                xbmin = _bins[i].xmin;
+                xbmax = _bins[i].xmax;
               }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
@@ -430,8 +430,8 @@ namespace MontBlanc
               //dsigma/dz: Integrate in the whole range of x 
               else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
               {
-                xbmin = DH.GetKinematics().var2b.first;
-                xbmax = DH.GetKinematics().var2b.second;
+                xbmin = _bins[i].xmin;
+                xbmax = _bins[i].xmax;
               }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
@@ -446,7 +446,6 @@ namespace MontBlanc
                   apfel::Operator cumulant = Zero;
                   for (auto const& t : tms.second.GetTerms())
                     cumulant += t.coefficient * (_bins[i].Intx ? t.object1.Integrate(xbmin, xbmax) : t.object1.Evaluate(_bins[i].xav)) * t.object2;
-                  
                   IntKi.insert({tms.first, cumulant});
                 };
 
@@ -474,18 +473,28 @@ namespace MontBlanc
             TabSemiIncQIntegrand = std::unique_ptr<apfel::TabulateObject<apfel::Set<apfel::Operator>>>
                                    (new apfel::TabulateObject<apfel::Set<apfel::Operator>> {Nj, 50, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds});
             // Push back multiplicities
-            if (_bins[i].IntQ)
-              _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax) / TabIncQIntegrand->Integrate(Qmin, Qmax)});
+            if (!DH.GetNormalised())
+              {
+                if (_bins[i].IntQ)
+                  _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax)});
+                else
+                  _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav)});
+              }
             else
-              _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav) / TabIncQIntegrand->Evaluate(_bins[i].Qav)});
+              {
+                if (_bins[i].IntQ)
+                  _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax) / TabIncQIntegrand->Integrate(Qmin, Qmax)});
+                else
+                  _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav) / TabIncQIntegrand->Evaluate(_bins[i].Qav)});
+              }
 
             xl = _bins[i].xmin;
             xu = _bins[i].xmax;
-            if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
-             {
-              xl = DH.GetKinematics().var2b.first;
-              xu = DH.GetKinematics().var2b.second;
-             }
+            //if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
+            // {
+            //  xl = DH.GetKinematics().var2b.first;
+            //  xu = DH.GetKinematics().var2b.second;
+            // }
             xc = _bins[i].xav;
             Ql = Qmin;
             Qu = Qmax;
