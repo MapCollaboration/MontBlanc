@@ -49,7 +49,7 @@ independent_variables:
       - {high: 1, low: 0.003}
   - header: {name: Q2}
     values:
+      - {high: 60, low: 9, value: 25}
       - {high: 60, low: 9, value: 30}
-      - {high: 60, low: 9, value: 30}
-      - {high: 60, low: 9, value: 30}
-      - {high: 60, low: 9, value: 30}
+      - {high: 60, low: 9, value: 35}
+      - {high: 60, low: 9, value: 40}

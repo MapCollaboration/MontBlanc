@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "E665, Lambda Multiplicity", titlepy: "E665, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N}\\frac{dN}{dz}$"}
+  - header: {title: "E665, Lambdabar Multiplicity", titlepy: "E665, Lambdabar Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N}\\frac{dN}{dz}$"}
     qualifiers:
       - {name: process, value: SIDIS}
       - {name: target_isoscalarity, value: 1}
@@ -10,44 +10,44 @@ dependent_variables:
       - {name: z, low: 0, high: 1, integrate: true}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
-      - {name: observable, value: dsigma/dxdQdz}    
+      - {name: observable, value: dsigma/dxdQdz}
     values:
       - errors:
-          - {label: unc, value: 0.017}
+          - {label: unc, value: 0.026}
           - {label: add, value: 0.13}
-        value: 0.033
+        value: 0.0869
       - errors:
-          - {label: unc, value: 0.038}
+          - {label: unc, value: 0.0164}
           - {label: add, value: 0.13}
-        value: 0.068
+        value: 0.0663
       - errors:
-          - {label: unc, value: 0.041}
+          - {label: unc, value: 0.0076}
           - {label: add, value: 0.13}
-        value: 0.079
+        value: 0.0325
       - errors:
-          - {label: unc, value: 0.03}
+          - {label: unc, value: 0.0017}
           - {label: add, value: 0.13}
-        value: 0.094
+        value: 0.0026
 independent_variables:
-  - header: {name: z}
+  - header: {name: "z"}
     values:
       - {high: 0.1, low: 0, value: 0.05}
       - {high: 0.2, low: 0.1, value: 0.15}
       - {high: 0.4, low: 0.2, value: 0.3}
       - {high: 0.7, low: 0.4, value: 0.55}
-  - header: {name: xF}
+  - header: {name: "xF"}
     values:
       - {high: 0.1, low: 0, value: 0.05}
       - {high: 0.2, low: 0.1, value: 0.15}
       - {high: 0.4, low: 0.2, value: 0.3}
       - {high: 0.7, low: 0.4, value: 0.55}
-  - header: {name: x}
+  - header: {name: "x"}
     values:
       - {high: 1, low: 0.003}
       - {high: 1, low: 0.003}
       - {high: 1, low: 0.003}
       - {high: 1, low: 0.003}
-  - header: {name: Q2}
+  - header: {name: "Q2"}
     values:
       - {high: 60, low: 9, value: 30}
       - {high: 60, low: 9, value: 30}

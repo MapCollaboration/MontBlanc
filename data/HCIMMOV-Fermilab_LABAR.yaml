@@ -2,13 +2,13 @@ dependent_variables:
   - header: {title: "HCIMMOV Collaboration at Fermilab, Lambdabar Multiplicity", titlepy: "HCIMMOV Collaboration at Fermilab, Lambdabar Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N#mu}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N\\mu}\\frac{dN}{dz}$"}
     qualifiers:
       - {name: process, value: SIDIS}
+      - {name: observable, value: dsigma/dxdQdz}
       - {name: Vs, value: 20.567, units: GeV}
-      - {name: nu, value: 20. TO 210., units: GeV}
-      - {name: p_mu, value: 225.0, units: GeV}
-      - {name: Q2, value: 0.4 TO 50., units: GeV^2}
+      - {name: Q, low: 2, high: 7.0710678, integrate: true}
+      - {name: x, low: 0.001, high: 1, integrate: true}
+      - {name: z, low: 0, high: 1, integrate: true}
       - {name: prefactor, value: 1}
-      - {name: z, low: 0.05, high: 0.6, integrate: false}
-      - {name: hadron, value: LABAR}
+      - {name: hadron, value: LA}
       - {name: charge, value: 0}
     values:
       - errors:
@@ -44,3 +44,19 @@ independent_variables:
       - {high: 0.4, low: 0.3, value: 0.35}
       - {high: 0.5, low: 0.4, value: 0.45}
       - {high: 0.6, low: 0.5, value: 0.55}
+  - header: {name: "Q2"}
+    values:
+      - {high: 50, low: 9, value: 30}
+      - {high: 50, low: 9, value: 30}
+      - {high: 50, low: 9, value: 30}
+      - {high: 50, low: 9, value: 30}
+      - {high: 50, low: 9, value: 30}
+      - {high: 50, low: 9, value: 30}
+  - header: {name: "x"}
+    values:
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}

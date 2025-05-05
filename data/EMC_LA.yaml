@@ -1,0 +1,51 @@
+dependent_variables:
+  - header: {title: "EMC, Lambda Multiplicity", titlepy: "EMC, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIDIS}
+      - {name: target_isoscalarity, value: 1}
+      - {name: prefactor, value: 1}
+      - {name: Vs, value: 23.46231, units: GeV}
+      - {name: Q, low: 2, high: 15, integrate: true}
+      - {name: x, low: 0.02, high: 1, integrate: true}
+      - {name: z, low: 0, high: 1, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+      - {name: observable, value: dsigma/dxdQdz}
+    values:
+      - errors:
+          - {label: unc, value: 0.05}
+        value: 0.0594
+      - errors:
+          - {label: unc, value: 0.03}
+        value: 0.0392
+      - errors:
+          - {label: unc, value: 0.03}
+        value: 0.0848
+      - errors:
+          - {label: unc, value: 0.042}
+        value: 0.152
+independent_variables:
+  - header: {name: z}
+    values:
+      - {value: 0.05}
+      - {value: 0.15}
+      - {value: 0.3}
+      - {value: 0.5}
+  - header: {name: xF}
+    values:
+      - {value: 0.05}
+      - {value: 0.15}
+      - {value: 0.3}
+      - {value: 0.5}
+  - header: {name: x}
+    values:
+      - {high: 1, low: 0.02}
+      - {high: 1, low: 0.02}
+      - {high: 1, low: 0.02}
+      - {high: 1, low: 0.02}
+  - header: {name: Q2}
+    values:
+      - {high: 60, low: 9, value: 30}
+      - {high: 60, low: 9, value: 30}
+      - {high: 60, low: 9, value: 30}
+      - {high: 60, low: 9, value: 30}

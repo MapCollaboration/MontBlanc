@@ -1,0 +1,47 @@
+dependent_variables:
+  - header: {title: "H1, Lambda0 Multiplicity", titlepy: "H1, Lambda0 Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIDIS}
+      - {name: target_isoscalarity, value: 1}
+      - {name: prefactor, value: 1}
+      - {name: Vs, value: 300, units: GeV}
+      - {name: Q, low: 3.1622777, high: 8.3666003, integrate: true}
+      - {name: x, low: 0.001, high: 0.1, integrate: true}
+      - {name: z, low: 0, high: 1, integrate: true}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+      - {name: observable, value: dsigma/dxdQdz}
+    values:
+      - errors:
+          - {label: unc, value: 0.1}
+          - {label: unc, value: 0.1}
+        value: 0.46
+      - errors:
+          - {label: unc, value: 0.05}
+          - {label: unc, value: 0.03}
+        value: 0.13
+      - errors:
+          - {label: unc, value: 0.03}
+          - {label: unc, value: 0.04}
+        value: 0.12
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.15, low: 0.05, value: 0.1}
+      - {high: 0.25, low: 0.15, value: 0.2}
+      - {high: 0.45, low: 0.25, value: 0.35}
+  - header: {name: "xF"}
+    values:
+      - {high: 0.15, low: 0.05, value: 0.1}
+      - {high: 0.25, low: 0.15, value: 0.2}
+      - {high: 0.45, low: 0.25, value: 0.35}
+  - header: {name: "x"}
+    values:
+      - {high: 0.1, low: 0.0001}
+      - {high: 0.1, low: 0.0001}
+      - {high: 0.1, low: 0.0001}
+  - header: {name: "Q2"}
+    values:
+      - {high: 70, low: 10, value: 30}
+      - {high: 70, low: 10, value: 30}
+      - {high: 70, low: 10, value: 30}
