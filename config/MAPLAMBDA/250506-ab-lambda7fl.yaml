@@ -46,7 +46,7 @@ NNAD:
   # Initialisation seed
   seed: 4
   # Architecture
-  architecture: [1, 20, 6]
+  architecture: [1, 20, 7]
   # The output function can be either the activation function of the
   # NN (0), or linear (1), or quadratic (2). If this entry is absent a
   # linear function is assumed.
@@ -101,7 +101,7 @@ Data:
   - {name: "HCIMMOV $\\Lambdabar$",    file: "HCIMMOV-Fermilab_LABAR.yaml",    cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
   - {name: "ALEPH $\\Lambda \\bar{\\Lambda}$", file: "ALEPH_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
   - {name: "ARGUS $\\Lambda \\bar{\\Lambda}$", file: "ARGUS_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
-  - {name: "BELLE $\\Lambda \\bar{\\Lambda}$", file: "BELLE_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "BELLE $\\Lambda \\bar{\\Lambda}$", file: "BELLE_LA_LABAR_wrc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
   - {name: "CELLO $\\Lambda \\bar{\\Lambda}$", file: "CELLO_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
   - {name: "Delphi 91.2 GeV $\\Lambda \\bar{\\Lambda}$", file: "DELPHI_91.2_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
   - {name: "Delphi 183 GeV $\\Lambda \\bar{\\Lambda}$", file: "DELPHI_183_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
