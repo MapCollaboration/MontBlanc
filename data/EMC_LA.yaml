@@ -9,7 +9,7 @@ dependent_variables:
       - {name: x, low: 0.02, high: 1, integrate: true}
       - {name: z, low: 0, high: 1, integrate: false}
       - {name: hadron, value: LA}
-      - {name: charge, value: 0}
+      - {name: charge, value: 1}
       - {name: observable, value: dsigma/dxdQdz}
     values:
       - errors:
@@ -45,7 +45,7 @@ independent_variables:
       - {high: 1, low: 0.02}
   - header: {name: Q2}
     values:
-      - {high: 60, low: 9, value: 30}
-      - {high: 60, low: 9, value: 30}
-      - {high: 60, low: 9, value: 30}
-      - {high: 60, low: 9, value: 30}
+      - {high: 100, low: 4}
+      - {high: 100, low: 4}
+      - {high: 100, low: 4}
+      - {high: 100, low: 4}

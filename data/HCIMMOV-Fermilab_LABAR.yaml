@@ -9,7 +9,7 @@ dependent_variables:
       - {name: z, low: 0, high: 1, integrate: true}
       - {name: prefactor, value: 1}
       - {name: hadron, value: LA}
-      - {name: charge, value: 0}
+      - {name: charge, value: -1}
     values:
       - errors:
           - {label: unc, value: 0.035}
@@ -46,12 +46,12 @@ independent_variables:
       - {high: 0.6, low: 0.5, value: 0.55}
   - header: {name: "Q2"}
     values:
-      - {high: 50, low: 9, value: 30}
-      - {high: 50, low: 9, value: 30}
-      - {high: 50, low: 9, value: 30}
-      - {high: 50, low: 9, value: 30}
-      - {high: 50, low: 9, value: 30}
-      - {high: 50, low: 9, value: 30}
+      - {high: 50, low: 4}
+      - {high: 50, low: 4}
+      - {high: 50, low: 4}
+      - {high: 50, low: 4}
+      - {high: 50, low: 4}
+      - {high: 50, low: 4}
   - header: {name: "x"}
     values:
       - {high: 1, low: 0.001}
