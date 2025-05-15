@@ -5,7 +5,7 @@ dependent_variables:
       - {name: target_isoscalarity, value: 1}
       - {name: prefactor, value: 1}
       - {name: Vs, value: 23.46231, units: GeV}
-      - {name: Q, low: 2, high: 16, integrate: true}
+      - {name: Q, low: 2, high: 13.6, integrate: true}
       - {name: x, low: 0.02, high: 1, integrate: true}
       - {name: z, low: 0.09, high: 0.9, integrate: false}
       - {name: PS_reduction, W: 4, ymin: 0.07, ymax: 0.9}
@@ -52,7 +52,7 @@ independent_variables:
       - {high: 0.9, low: 0.07} 
   - header: {name: "Q2"}
     values:
-      - {high: 256, low: 4}
-      - {high: 256, low: 4}
-      - {high: 256, low: 4}
-      - {high: 256, low: 4}
+      - {high: 185, low: 4}
+      - {high: 185, low: 4}
+      - {high: 185, low: 4}
+      - {high: 185, low: 4}
