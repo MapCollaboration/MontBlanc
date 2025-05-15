@@ -4,7 +4,7 @@ dependent_variables:
       - {name: process, value: SIDIS}
       - {name: observable, value: dsigma/dxdQdz}
       - {name: Vs, value: 20.567, units: GeV}
-      - {name: Q, low: 2, high: 7.0710678, integrate: true}
+      - {name: Q, low: 1, high: 7.0710678, integrate: true}
       - {name: x, low: 0.001, high: 1, integrate: true}
       - {name: z, low: 0, high: 1, integrate: true}
       - {name: prefactor, value: 1}
@@ -46,17 +46,17 @@ independent_variables:
       - {high: 0.6, low: 0.5, value: 0.55}
   - header: {name: "Q2"}
     values:
-      - {high: 50, low: 4}
-      - {high: 50, low: 4}
-      - {high: 50, low: 4}
-      - {high: 50, low: 4}
-      - {high: 50, low: 4}
-      - {high: 50, low: 4}
+      - {high: 50, low: 1.1}
+      - {high: 50, low: 1.1}
+      - {high: 50, low: 1.1}
+      - {high: 50, low: 1.1}
+      - {high: 50, low: 1.1}
+      - {high: 50, low: 1.1}
   - header: {name: "x"}
     values:
-      - {high: 1, low: 0.001}
-      - {high: 1, low: 0.001}
-      - {high: 1, low: 0.001}
-      - {high: 1, low: 0.001}
-      - {high: 1, low: 0.001}
-      - {high: 1, low: 0.001}
+      - {high: 0.9, low: 0.001}
+      - {high: 0.9, low: 0.001}
+      - {high: 0.9, low: 0.001}
+      - {high: 0.9, low: 0.001}
+      - {high: 0.9, low: 0.001}
+      - {high: 0.9, low: 0.001}

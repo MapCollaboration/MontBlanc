@@ -345,12 +345,6 @@ namespace MontBlanc
                 Qmin = _bins[i].Qmin;
                 Qmax = _bins[i].Qmax;
               }
-            //dsigma/dz: Integrate in the whole range of Q 
-            else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
-              {
-                Qmin = DH.GetKinematics().var1b.first;
-                Qmax = DH.GetKinematics().var1b.second;
-              }
             else
               throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
 
@@ -392,13 +386,8 @@ namespace MontBlanc
                       xbmin = std::max(xbmin, pow(Q / Vs, 2) / DH.GetKinematics().etaRange.second);
                       xbmax = std::min(std::min(xbmax, pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
                     }
+
                 }
-              //dsigma/dz: Integrate in the whole range of x 
-              else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
-              {
-                xbmin = _bins[i].xmin;
-                xbmax = _bins[i].xmax;
-              }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
               return (_bins[i].Intx ? TabIncXSecQ.Evaluate(Q).Integrate(xbmin, xbmax) : TabIncXSecQ.Evaluate(Q).Evaluate(_bins[i].xav));
@@ -427,26 +416,20 @@ namespace MontBlanc
                       xbmax = std::min(std::min(xbmax, pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
                     }
                 }
-              //dsigma/dz: Integrate in the whole range of x 
-              else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
-              {
-                xbmin = _bins[i].xmin;
-                xbmax = _bins[i].xmax;
-              }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
 
               // Get Ki objects at the scale Q
               const std::map<int, apfel::DoubleObject<apfel::Distribution, apfel::Operator>> Ki = TabKi.Evaluate(Q).GetObjects();
-
               // Compute integral of Ki in x and construct a set
               std::map<int, apfel::Operator> IntKi;
               for (auto const& tms : Ki)
                 {
                   apfel::Operator cumulant = Zero;
                   for (auto const& t : tms.second.GetTerms())
-                    cumulant += t.coefficient * (_bins[i].Intx ? t.object1.Integrate(xbmin, xbmax) : t.object1.Evaluate(_bins[i].xav)) * t.object2;
-                  IntKi.insert({tms.first, cumulant});
+                    if (xbmin < xbmax)
+			cumulant += t.coefficient * (_bins[i].Intx ? t.object1.Integrate(xbmin, xbmax) : t.object1.Evaluate(_bins[i].xav)) * t.object2;
+              IntKi.insert({tms.first, cumulant});
                 };
 
               // Get evolution operator
@@ -469,9 +452,9 @@ namespace MontBlanc
             };
 
             // Tabulate cross section
-            TabIncQIntegrand = std::unique_ptr<apfel::TabulateObject<double>> {new apfel::TabulateObject<double> {IncQIntegrand, 50, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds}};
+            TabIncQIntegrand = std::unique_ptr<apfel::TabulateObject<double>> {new apfel::TabulateObject<double> {IncQIntegrand, 50, 0.9 * Qmin, 1.5 * Qmax, 3, _Thresholds}};
             TabSemiIncQIntegrand = std::unique_ptr<apfel::TabulateObject<apfel::Set<apfel::Operator>>>
-                                   (new apfel::TabulateObject<apfel::Set<apfel::Operator>> {Nj, 50, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds});
+                                   (new apfel::TabulateObject<apfel::Set<apfel::Operator>> {Nj, 50, 0.9 * Qmin, 1.5 * Qmax, 3, _Thresholds});
             // Push back multiplicities
             if (!DH.GetNormalised())
               {

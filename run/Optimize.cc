@@ -201,7 +201,7 @@ int main(int argc, char *argv[])
         }
 
       // Compute training and validation cuts
-      NangaParbat::TrainingCut *TrainingCut = new NangaParbat::TrainingCut{*DH, cuts, TrainingFraction, rng};
+      NangaParbat::TrainingCut *TrainingCut = new NangaParbat::TrainingCut{*DH, cuts, TrainingFraction, rng, 0};
       NangaParbat::TrainingCut *ValidationCut = new NangaParbat::TrainingCut{*TrainingCut, true, cuts};
 
       // Push back DataHandler-PredictionHandler pair of objects using
