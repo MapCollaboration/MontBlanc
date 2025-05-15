@@ -399,7 +399,7 @@ namespace MontBlanc
               // Integration bounds in x
               double xbmin;
               double xbmax;
-              if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
+              if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)  
                 {
                   xbmin = std::max(_bins[i].xmin, pow(Q / Vs, 2) / _bins[i].ymax);
                   xbmax = std::min(_bins[i].xmax, pow(Q / Vs, 2) / _bins[i].ymin);
@@ -428,8 +428,8 @@ namespace MontBlanc
                   apfel::Operator cumulant = Zero;
                   for (auto const& t : tms.second.GetTerms())
                     if (xbmin < xbmax)
-			cumulant += t.coefficient * (_bins[i].Intx ? t.object1.Integrate(xbmin, xbmax) : t.object1.Evaluate(_bins[i].xav)) * t.object2;
-              IntKi.insert({tms.first, cumulant});
+			                cumulant += t.coefficient * (_bins[i].Intx ? t.object1.Integrate(xbmin, xbmax) : t.object1.Evaluate(_bins[i].xav)) * t.object2;
+                    IntKi.insert({tms.first, cumulant});
                 };
 
               // Get evolution operator
@@ -473,11 +473,6 @@ namespace MontBlanc
 
             xl = _bins[i].xmin;
             xu = _bins[i].xmax;
-            //if (_obs == NangaParbat::DataHandler::Observable::dsigma_dz)
-            // {
-            //  xl = DH.GetKinematics().var2b.first;
-            //  xu = DH.GetKinematics().var2b.second;
-            // }
             xc = _bins[i].xav;
             Ql = Qmin;
             Qu = Qmax;

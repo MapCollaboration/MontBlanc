@@ -7,7 +7,7 @@ dependent_variables:
       - {name: Vs, value: 300, units: GeV}
       - {name: Q, low: 3.1622777, high: 8.3666003, integrate: true}
       - {name: x, low: 0.001, high: 0.02, integrate: true}
-      - {name: z, low: 0, high: 1, integrate: true}
+      - {name: z, low: 0.09, high: 0.9, integrate: true}
       - {name: PS_reduction, W: 0, ymin: 0.05, ymax: 0.6}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
