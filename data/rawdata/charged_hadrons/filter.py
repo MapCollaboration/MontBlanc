@@ -48,11 +48,6 @@ def filter_TASSO14_HA():
             factor = 1.
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], factor), file=f)
-        print('- header: {name: "xp"}', file=f)
-        print('  values:', file=f)
-        for i in range(ndata):
-            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
 
 # TASSO22 - inclusive
 def filter_TASSO22_HA():
@@ -97,11 +92,6 @@ def filter_TASSO22_HA():
             factor = 1.
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], factor), file=f)
-        print('- header: {name: "xp"}', file=f)
-        print('  values:', file=f)
-        for i in range(ndata):
-            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
 
 # TASSO35 - inclusive
 def filter_TASSO35_HA():
@@ -146,11 +136,6 @@ def filter_TASSO35_HA():
             factor = 1.
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], factor), file=f)
-        print('- header: {name: "xp"}', file=f)
-        print('  values:', file=f)
-        for i in range(ndata):
-            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
 
 # TASSO44 - inclusive
 def filter_TASSO44_HA():
@@ -195,11 +180,6 @@ def filter_TASSO44_HA():
             factor = 1.
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], factor), file=f)
-        print('- header: {name: "xp"}', file=f)
-        print('  values:', file=f)
-        for i in range(ndata):
-            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
             
 # TPC - inclusive
 def filter_TPC_KA():
@@ -244,11 +224,6 @@ def filter_TPC_KA():
             factor = 1.
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], 1./factor), file=f)
-        print('- header: {name: "xp"}', file=f)
-        print('  values:', file=f)
-        for i in range(ndata):
-            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
              
 # ALEPH - inclusive
 def filter_ALEPH_HA():
@@ -294,11 +269,51 @@ def filter_ALEPH_HA():
             factor = 1.
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], 1./factor), file=f)
-        print('- header: {name: "xp"}', file=f)
+
+# ALEPH - inclusive longitudinal
+def filter_ALEPH_HA_L():
+    nameexp = 'ALEPH_HA_L_PLUS_MINUS'
+    infile  = 'ALEPH/HEPData-ins398195-v1-Table_3.csv'
+    ndata   = 21
+    cme     = 91.20 #GeV
+    zmin    = 0.01
+    zmax    = 0.90
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        skiprows=11,
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5,6,7,8],
+        engine='python')
+    
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "ALEPH longitudinal $h^\\\\pm$ Multiplicity"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIA}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: prefactor, value: 1}', file=f)
+        print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
+        print('  - {name: hadron, value: HA}', file=f)
+        print('  - {name: charge, value: 0}', file=f)
         print('  values:', file=f)
+        
         for i in range(ndata):
-            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,4]**2.+data.iloc[i,6]**2.)), file=f)
+            print('    - {label: mult, value: 0.01}', file=f)
+            print('    value: ', data.iloc[i,3], file=f)
+            
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+
+        for i in range(ndata):
+            factor = 1.
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
+                  % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], 1./factor), file=f)
 
 # DELPHI - inclusive
 def filter_DELPHI_HA():
@@ -348,6 +363,54 @@ def filter_DELPHI_HA():
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
 
+# DELPHI - inclusive longitudinal
+def filter_DELPHI_HA_L():
+    nameexp = 'DELPHI_HA_L_PLUS_MINUS'
+    infile  = 'DELPHI/HEPData-ins448370-v1-Table_2.csv'
+    ndata   = 22
+    cme     = 91.20 #GeV
+    zmin    = 0.005
+    zmax    = 0.900
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        skiprows=13,
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5,6,7],
+        engine='python')
+
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "DELPHI longitudinal $h^\\\\pm$ Multiplicity"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIA}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: prefactor, value: 1}', file=f)
+        print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
+        print('  - {name: hadron, value: HA}', file=f)
+        print('  - {name: charge, value: 0}', file=f)
+        print('  values:', file=f)
+        
+        for i in range(ndata):
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,4]**2.+data.iloc[i,6]**2.)), file=f)
+            print('    value: ', data.iloc[i,3], file=f)
+            
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            factor = 1.
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
+                  % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
+        print('- header: {name: "ph"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
+            
 # DELPHI - uds tagged
 def filter_DELPHI_HA_UDS():
     nameexp = 'DELPHI_HA_PLUS_MINUS_UDS'
@@ -396,7 +459,51 @@ def filter_DELPHI_HA_UDS():
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
+
+# DELPHI - uds tagged longitudinal
+def filter_DELPHI_HA_L_UDS():
+    nameexp = 'DELPHI_HA_L_PLUS_MINUS_UDS'
+    infile  = 'DELPHI/HEPData-ins448370-v1-Table_8.csv'
+    ndata   = 22
+    cme     = 91.20 #GeV
+    zmin    = 0.005
+    zmax    = 0.900
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        skiprows=40,
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5,6,7],
+        engine='python')
+
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "DELPHI longitudinal $h^\\\\pm$ Multiplicity uds-tag"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIA}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: prefactor, value: 1}', file=f)
+        print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
+        print('  - {name: hadron, value: HA}', file=f)
+        print('  - {name: charge, value: 0}', file=f)
+        print('  - {name: tagging, value: [u,d,s]}', file=f)
+        print('  values:', file=f)
+        
+        for i in range(ndata):
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,4]**2.+data.iloc[i,6]**2.)), file=f)
+            print('    value: ', data.iloc[i,3], file=f)
             
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            factor = 1.
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
+                  % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], factor), file=f)
+       
 # DELPHI - b tagged
 def filter_DELPHI_HA_B():
     nameexp = 'DELPHI_HA_PLUS_MINUS_B'
@@ -446,6 +553,50 @@ def filter_DELPHI_HA_B():
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
 
+# DELPHI - b tagged
+def filter_DELPHI_HA_L_B():
+    nameexp = 'DELPHI_HA_L_PLUS_MINUS_B'
+    infile  = 'DELPHI/HEPData-ins448370-v1-Table_7.csv'
+    ndata   = 22
+    cme     = 91.20 #GeV
+    zmin    = 0.005
+    zmax    = 0.900
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        skiprows=40,
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5,6,7],
+        engine='python')
+
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "DELPHI longitudinal $h^\\\\pm$ Multiplicity b-tag"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIA}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: prefactor, value: 1}', file=f)
+        print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
+        print('  - {name: hadron, value: HA}', file=f)
+        print('  - {name: charge, value: 0}', file=f)
+        print('  - {name: tagging, value: [b]}', file=f)
+        print('  values:', file=f)
+        
+        for i in range(ndata):
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,4]**2.+data.iloc[i,6]**2.)), file=f)
+            print('    value: ', data.iloc[i,3], file=f)
+            
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            factor = 1.
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
+                  % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], factor), file=f)
+            
 # OPAL - inclusive
 def filter_OPAL_HA():
     nameexp = 'OPAL_HA_PLUS_MINUS'
@@ -467,6 +618,49 @@ def filter_OPAL_HA():
     with open(nameexp + '.yaml', 'w') as f:
         print('dependent_variables:', file=f)
         print('- header: {title: "OPAL $h^\\\\pm$ Multiplicity"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIA}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: prefactor, value: 1}', file=f)
+        print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
+        print('  - {name: hadron, value: HA}', file=f)
+        print('  - {name: charge, value: 0}', file=f)
+        print('  values:', file=f)
+        
+        for i in range(ndata):
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,4]**2.+data.iloc[i,6]**2.)), file=f)
+            print('    value: ', data.iloc[i,3], file=f)
+            
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            factor = 1
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
+                  % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], factor), file=f)
+
+# OPAL - inclusive longitudinal
+def filter_OPAL_HA_L():
+    nameexp = 'OPAL_HA_L_PLUS_MINUS'
+    infile  = 'OPAL/HEPData-ins395450-v1-Table_2.csv'
+    ndata   = 22
+    cme     = 91.20 #GeV
+    zmin    = 0.005
+    zmax    = 0.900
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        skiprows=12,
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5,6,7],
+        engine='python')
+
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "OPAL longitudinal $h^\\\\pm$ Multiplicity"}', file=f)
         print('  qualifiers:', file=f)
         print('  - {name: process, value: SIA}', file=f)
         print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
@@ -814,10 +1008,15 @@ filter_TPC_KA()
 filter_TASSO35_HA()
 filter_TASSO44_HA()
 filter_ALEPH_HA()
+filter_ALEPH_HA_L()
 filter_DELPHI_HA()
+filter_DELPHI_HA_L()
 filter_DELPHI_HA_UDS()
+filter_DELPHI_HA_L_UDS()
 filter_DELPHI_HA_B()
+filter_DELPHI_HA_L_B()
 filter_OPAL_HA()
+filter_OPAL_HA_L()
 filter_SLD_HA()
 filter_SLD_HA_UDS()
 filter_SLD_HA_C()

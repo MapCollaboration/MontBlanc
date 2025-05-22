@@ -1,0 +1,118 @@
+dependent_variables:
+- header: {title: "ALEPH longitudinal $h^\\pm$ Multiplicity"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value:  91.2 , units: GeV}
+  - {name: prefactor, value: 1}
+  - {name: z, low:  0.01 , high:  0.9 , integrate: false}
+  - {name: hadron, value: HA}
+  - {name: charge, value: 0}
+  values:
+  - errors:
+    - {label: unc, value: 16.40762}
+    - {label: mult, value: 0.01}
+    value:  123.6
+  - errors:
+    - {label: unc, value: 2.81603}
+    - {label: mult, value: 0.01}
+    value:  77.2
+  - errors:
+    - {label: unc, value: 1.61245}
+    - {label: mult, value: 0.01}
+    value:  40.6
+  - errors:
+    - {label: unc, value: 1.20416}
+    - {label: mult, value: 0.01}
+    value:  21.1
+  - errors:
+    - {label: unc, value: 0.81884}
+    - {label: mult, value: 0.01}
+    value:  12.42
+  - errors:
+    - {label: unc, value: 0.58856}
+    - {label: mult, value: 0.01}
+    value:  8.0
+  - errors:
+    - {label: unc, value: 0.41000}
+    - {label: mult, value: 0.01}
+    value:  5.4
+  - errors:
+    - {label: unc, value: 0.32016}
+    - {label: mult, value: 0.01}
+    value:  3.81
+  - errors:
+    - {label: unc, value: 0.21190}
+    - {label: mult, value: 0.01}
+    value:  2.74
+  - errors:
+    - {label: unc, value: 0.20881}
+    - {label: mult, value: 0.01}
+    value:  2.1
+  - errors:
+    - {label: unc, value: 0.14560}
+    - {label: mult, value: 0.01}
+    value:  1.43
+  - errors:
+    - {label: unc, value: 0.10440}
+    - {label: mult, value: 0.01}
+    value:  0.9
+  - errors:
+    - {label: unc, value: 0.06539}
+    - {label: mult, value: 0.01}
+    value:  0.569
+  - errors:
+    - {label: unc, value: 0.08544}
+    - {label: mult, value: 0.01}
+    value:  0.393
+  - errors:
+    - {label: unc, value: 0.03890}
+    - {label: mult, value: 0.01}
+    value:  0.259
+  - errors:
+    - {label: unc, value: 0.02530}
+    - {label: mult, value: 0.01}
+    value:  0.115
+  - errors:
+    - {label: unc, value: 0.01393}
+    - {label: mult, value: 0.01}
+    value:  0.055
+  - errors:
+    - {label: unc, value: 0.00825}
+    - {label: mult, value: 0.01}
+    value:  0.0293
+  - errors:
+    - {label: unc, value: 0.00240}
+    - {label: mult, value: 0.01}
+    value:  0.0067
+  - errors:
+    - {label: unc, value: 0.00096}
+    - {label: mult, value: 0.01}
+    value:  0.00041
+  - errors:
+    - {label: unc, value: 0.00112}
+    - {label: mult, value: 0.01}
+    value:  -0.0002
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {high: 0.01200, low: 0.00800, value: 0.01000, factor: 1.00000}
+  - {high: 0.02000, low: 0.01200, value: 0.01600, factor: 1.00000}
+  - {high: 0.03000, low: 0.02000, value: 0.02500, factor: 1.00000}
+  - {high: 0.04000, low: 0.03000, value: 0.03500, factor: 1.00000}
+  - {high: 0.05000, low: 0.04000, value: 0.04500, factor: 1.00000}
+  - {high: 0.06000, low: 0.05000, value: 0.05500, factor: 1.00000}
+  - {high: 0.07000, low: 0.06000, value: 0.06500, factor: 1.00000}
+  - {high: 0.08000, low: 0.07000, value: 0.07500, factor: 1.00000}
+  - {high: 0.09000, low: 0.08000, value: 0.08500, factor: 1.00000}
+  - {high: 0.10000, low: 0.09000, value: 0.09500, factor: 1.00000}
+  - {high: 0.12000, low: 0.10000, value: 0.11000, factor: 1.00000}
+  - {high: 0.14000, low: 0.12000, value: 0.13000, factor: 1.00000}
+  - {high: 0.16000, low: 0.14000, value: 0.15000, factor: 1.00000}
+  - {high: 0.18000, low: 0.16000, value: 0.17000, factor: 1.00000}
+  - {high: 0.22500, low: 0.18000, value: 0.20250, factor: 1.00000}
+  - {high: 0.27500, low: 0.22500, value: 0.25000, factor: 1.00000}
+  - {high: 0.32500, low: 0.27500, value: 0.30000, factor: 1.00000}
+  - {high: 0.40000, low: 0.32500, value: 0.36250, factor: 1.00000}
+  - {high: 0.60000, low: 0.40000, value: 0.50000, factor: 1.00000}
+  - {high: 0.80000, low: 0.60000, value: 0.70000, factor: 1.00000}
+  - {high: 1.00000, low: 0.80000, value: 0.90000, factor: 1.00000}
