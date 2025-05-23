@@ -1229,6 +1229,128 @@ def filter_COMPASS_PI_MINUS():
             print('  - {value: %7.5f}'
                   % (data.iloc[i,6]) , file=f)
 
+# COMPASS - SIDIS, PI+ 2024
+def filter_COMPASS_PI_PLUS_2024():
+    nameexp = 'COMPASS_PI_PLUS_2024'
+    infile  = 'COMPASS_2024/Table_PI.csv'
+    ndata   = 302
+    cme     = 17.34 #GeV
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        skiprows=1,
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+        engine='python')
+    
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "COMPASS 2024 $\pi^+$ Multiplicities"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIDIS}', file=f)
+        print('  - {name: observable, value: dsigma/dxdydz}', file=f)
+        print('  - {name: target_isoscalarity, value: 1.0}', file=f)
+        print('  - {name: prefactor, value: 1}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: Q, low: 1, high: 7.745966692414834, integrate: true}', file=f)
+        print('  - {name: x, low: 0.004, high: 0.4, integrate: true}', file=f)
+        print('  - {name: z, low: 0.2, high: 0.85, integrate: true}', file=f)
+        print('  - {name: PS_reduction, W: 5, ymin: 0.1, ymax: 0.7}', file=f)
+        print('  - {name: hadron, value: PI}', file=f)
+        print('  - {name: charge, value: 1}', file=f)
+        print('  values:', file=f)
+        
+        for i in range(ndata):
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,7]**2+(0.6*data.iloc[i,8])**2)), file=f)
+            print('    - {label: add, value: %7.5f}' % (0.8*data.iloc[i,8]/data.iloc[i,6]), file=f)
+            print('    value: ', data.iloc[i,6], file=f)
+            
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]-data.iloc[i,4])/2.)), file=f)
+        print('- header: {name: "x"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]-data.iloc[i,0])/2.)) , file=f)
+        print('- header: {name: "y"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]-data.iloc[i,2])/2.)) , file=f)
+        print('- header: {name: "Q2"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {value: %7.5f}'
+                  % ((data.iloc[i,1]-data.iloc[i,0])/2.*(data.iloc[i,3]-data.iloc[i,2])/2.*cme**2.) , file=f)
+
+# COMPASS - SIDIS, PI- 2024
+def filter_COMPASS_PI_MINUS_2024():
+    nameexp = 'COMPASS_PI_MINUS_2024'
+    infile  = 'COMPASS_2024/Table_PI.csv'
+    ndata   = 302
+    cme     = 17.34 #GeV
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        skiprows=1,
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+        engine='python')
+    
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "COMPASS 2024 $\pi^-$ Multiplicities"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIDIS}', file=f)
+        print('  - {name: observable, value: dsigma/dxdydz}', file=f)
+        print('  - {name: target_isoscalarity, value: 1.0}', file=f)
+        print('  - {name: prefactor, value: 1}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: Q, low: 1, high: 7.745966692414834, integrate: true}', file=f)
+        print('  - {name: x, low: 0.004, high: 0.4, integrate: true}', file=f)
+        print('  - {name: z, low: 0.2, high: 0.85, integrate: true}', file=f)
+        print('  - {name: PS_reduction, W: 5, ymin: 0.1, ymax: 0.7}', file=f)
+        print('  - {name: hadron, value: PI}', file=f)
+        print('  - {name: charge, value: -1}', file=f)
+        print('  values:', file=f)
+        
+        for i in range(ndata):
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,10]**2+(0.6*data.iloc[i,11])**2)), file=f)
+            print('    - {label: add, value: %7.5f}' % (0.8*data.iloc[i,11]/data.iloc[i,9]), file=f)
+            print('    value: ', data.iloc[i,9], file=f)
+            
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]-data.iloc[i,4])/2.)), file=f)
+        print('- header: {name: "x"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]-data.iloc[i,0])/2.)) , file=f)
+        print('- header: {name: "y"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]-data.iloc[i,2])/2.)) , file=f)
+        print('- header: {name: "Q2"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {value: %7.5f}'
+                  % ((data.iloc[i,1]-data.iloc[i,0])/2.*(data.iloc[i,3]-data.iloc[i,2])/2.*cme**2.) , file=f)
+            
 # Filter data
 #filter_BELLE_KA()
 #filter_BABAR_KA_CONVENTIONAL()
@@ -1250,5 +1372,7 @@ def filter_COMPASS_PI_MINUS():
 #filter_SLD_KA_UDS()
 #filter_SLD_KA_C()
 #filter_SLD_KA_B()
-filter_COMPASS_PI_PLUS()
-filter_COMPASS_PI_MINUS()
+#filter_COMPASS_PI_PLUS()
+#filter_COMPASS_PI_MINUS()
+filter_COMPASS_PI_PLUS_2024()
+filter_COMPASS_PI_MINUS_2024()
