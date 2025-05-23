@@ -1000,6 +1000,127 @@ def filter_SLD_HA_B():
             print('  - {value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,0], 1./factor), file=f)           
 
+# COMPASS - SIDIS, h+
+def filter_COMPASS_HA_PLUS():
+    nameexp = 'COMPASS_HA_PLUS'
+    infile  = 'COMPASS/HEPData-ins1444985-v1-Table_3.csv'
+    ndata   = 311
+    cme     = 17.34 #GeV
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        skiprows=14,
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],
+        engine='python')
+    
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "COMPASS $h^+$ Multiplicities"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIDIS}', file=f)
+        print('  - {name: observable, value: dsigma/dxdydz}', file=f)
+        print('  - {name: target_isoscalarity, value: 0.5}', file=f)
+        print('  - {name: prefactor, value: 1}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: Q, low: 1, high: 7.745966692414834, integrate: true}', file=f)
+        print('  - {name: x, low: 0.004, high: 0.4, integrate: true}', file=f)
+        print('  - {name: z, low: 0.2, high: 0.85, integrate: true}', file=f)
+        print('  - {name: PS_reduction, W: 5, ymin: 0.1, ymax: 0.7}', file=f)
+        print('  - {name: hadron, value: HA}', file=f)
+        print('  - {name: charge, value: 1}', file=f)
+        print('  values:', file=f)
+        
+        for i in range(ndata):
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,11]**2+(0.6*data.iloc[i,13])**2)), file=f)
+            print('    - {label: add, value: %7.5f}' % (0.8*data.iloc[i,13]/data.iloc[i,10]), file=f)
+            print('    value: ', data.iloc[i,10], file=f)
+            
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,9], data.iloc[i,8], data.iloc[i,7]), file=f)
+        print('- header: {name: "x"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
+        print('- header: {name: "y"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,5], data.iloc[i,4], data.iloc[i,3]) , file=f)
+        print('- header: {name: "Q2"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {value: %7.5f}'
+                  % (data.iloc[i,6]) , file=f)
+
+# COMPASS - SIDIS, h-
+def filter_COMPASS_HA_MINUS():
+    nameexp = 'COMPASS_HA_MINUS'
+    infile  = 'COMPASS/HEPData-ins1444985-v1-Table_4.csv'
+    ndata   = 311
+    cme     = 17.34 #GeV
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        skiprows=14,
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],
+        engine='python')
+    
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "COMPASS $K^-$ Multiplicities"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIDIS}', file=f)
+        print('  - {name: observable, value: dsigma/dxdydz}', file=f)
+        print('  - {name: target_isoscalarity, value: 0.5}', file=f)
+        print('  - {name: prefactor, value: 1}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: Q, low: 1, high: 7.745966692414834, integrate: true}', file=f)
+        print('  - {name: x, low: 0.004, high: 0.4, integrate: true}', file=f)
+        print('  - {name: z, low: 0.2, high: 0.85, integrate: true}', file=f)
+        print('  - {name: PS_reduction, W: 5, ymin: 0.1, ymax: 0.7}', file=f)
+        print('  - {name: hadron, value: KA}', file=f)
+        print('  - {name: charge, value: -1}', file=f)
+        print('  values:', file=f)
+        
+        for i in range(ndata):
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,11]**2+(0.6*data.iloc[i,13])**2)), file=f)
+            print('    - {label: add, value: %7.5f}' % (0.8*data.iloc[i,13]/data.iloc[i,10]), file=f)
+            print('    value: ', data.iloc[i,10], file=f)
+            
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,9], data.iloc[i,8], data.iloc[i,7]), file=f)
+        print('- header: {name: "x"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
+        print('- header: {name: "y"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,5], data.iloc[i,4], data.iloc[i,3]) , file=f)
+        print('- header: {name: "Q2"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            print('  - {value: %7.5f}'
+                  % (data.iloc[i,6]) , file=f)
 
 # Filter data
 filter_TASSO14_HA()
@@ -1021,3 +1142,5 @@ filter_SLD_HA()
 filter_SLD_HA_UDS()
 filter_SLD_HA_C()
 filter_SLD_HA_B()
+filter_COMPASS_HA_PLUS()
+filter_COMPASS_HA_MINUS()
