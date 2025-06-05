@@ -150,7 +150,7 @@ dependent_variables:
     - {label: mult, value: 0.01}
     value:  -0.001
   - errors:
-    - {label: unc, value: 0.00000}
+    - {label: unc, value: 0.00100}
     - {label: mult, value: 0.01}
     value:  0.0
 independent_variables:
