@@ -37,7 +37,7 @@ std::string i_to_fixed_length_str(int value, int digits_count)
 
 int main(int argc, char *argv[])
 {
-  LHAPDF::setVerbosity(0);
+  //LHAPDF::setVerbosity(0);
   const char* const short_opts = "ai";
   const option long_opts[] =
   {

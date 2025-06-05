@@ -152,7 +152,8 @@ int main(int argc, char *argv[])
           std::vector<double> av2(bins.size(), 0);
           std::vector<double> avor2(bins.size(), 0);
           // Run over replicas
-          const int nrep = MapLHAPDFsets.at(config["NNAD"]["flavour maps"][0]["hadron"].as<std::string>()).size() - 1;
+          const int nrep = MapLHAPDFsets.at(DSVect[iexp].first->GetHadron()).size() - 1;
+
           for (int irep = 1; irep <= nrep; irep++)
             {
               for (auto const& FlavMap : config["NNAD"]["flavour maps"])

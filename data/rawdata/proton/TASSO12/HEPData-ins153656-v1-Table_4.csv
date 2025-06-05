@@ -1,0 +1,29 @@
+#: table_doi: 10.17182/hepdata.27192.v1/t4
+#: name: Table 4
+#: description: No description provided.
+#: data_file: Table4.yaml
+#: keyword reactions: E+ E- --> PBAR X | E+ E- --> P X
+#: keyword observables: DSIG/DP | DSIG/DX
+#: keyword phrases: Inclusive | Single Differential Cross Section | E+ E- Scattering
+#: keyword cmenergies: 12.0
+#: RE,E+ E- --> (P + PBAR) X
+#: SQRT(S) [GeV],12.0,,,,
+P(P=3) [GEV],D(SIG)/DP(P=3) [NB/GEV],error +,error -,"sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY +","sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY -"
+0.6,0.71,2.8,-2.8,20.0%,-20.0%
+0.85,0.8,0.34,-0.34,20.0%,-20.0%
+1.575,0.16,0.12,-0.12,20.0%,-20.0%
+
+#: RE,E+ E- --> (P + PBAR) X
+#: SQRT(S) [GeV],12.0,,,,
+P(P=3) [GEV],(S/BETA)*D(SIG)/DX [MUB/GEV**2],error +,error -,"sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY +","sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY -"
+0.6,2.1,0.8,-0.8,20.0%,-20.0%
+0.85,1.5,0.7,-0.7,20.0%,-20.0%
+1.575,0.185,0.135,-0.135,20.0%,-20.0%
+
+#: RE,E+ E- --> (P + PBAR) X
+#: SQRT(S) [GeV],12.0,,,,
+P(P=3) [GEV],(E(P=3)/(4*PI*P(P=3)**2))*D(SIG)/DP(P=3),error +,error -,"sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY +","sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY -"
+0.6,0.17,0.07,-0.07,20.0%,-20.0%
+0.85,0.11,0.05,-0.05,20.0%,-20.0%
+1.575,0.0094,0.0071,-0.0071,20.0%,-20.0%
+

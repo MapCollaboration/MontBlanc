@@ -1,0 +1,21 @@
+#: table_doi: 10.17182/hepdata.2143.v1/t3
+#: name: Table 3
+#: description: No description provided.
+#: data_file: Table3.yaml
+#: keyword reactions: E+ E- --> PBAR X | E+ E- --> P X
+#: keyword observables: DSIG/DP
+#: keyword phrases: Inclusive | Single Differential Cross Section | E+ E- Scattering
+#: keyword cmenergies: 14.0
+#: RE,,,E+ E- --> (P + PBAR) X
+#: SQRT(S) [GeV],,,14.0,,
+P(P=3) [GEV],P(P=3) [GEV] LOW,P(P=3) [GEV] HIGH,D(SIG)/D(P) [NB/GEV],error +,error -
+0.45,0.4,0.5,0.21,0.07,-0.07
+0.55,0.5,0.6,0.21,0.07,-0.07
+0.6499999999999999,0.6,0.7,0.35,0.09,-0.09
+0.75,0.7,0.8,0.5,0.12,-0.12
+0.9,0.8,1.0,0.47,0.1,-0.1
+1.1,1.0,1.2,0.54,0.16,-0.16
+1.4,1.2,1.6,0.35,0.12,-0.12
+1.8,1.6,2.0,0.16,0.09,-0.09
+3.8,3.0,4.6,0.073,0.033,-0.033
+

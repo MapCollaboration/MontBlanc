@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
   //TODO backwards compatibility
   std::string TokenOutName = "LHAPDFSet_";
-  if (argc >= 4)
+  if (argc >= 3)
     TokenOutName = argv[2];
 
   // Read Input Card
@@ -66,9 +66,9 @@ int main(int argc, char *argv[])
   sort(AllPars.begin(), AllPars.end(), wayToSort);
 
   int Nmembers = 0;
-  if (argc >= 5)
+  if (argc >= 4)
     {
-      Nmembers = std::stoi(argv[4]);
+      Nmembers = std::stoi(argv[3]);
       std::cout << "Nmembers requested = " << Nmembers << std::endl;
     }
   else
@@ -248,10 +248,10 @@ void fillEvSet(NNxFunc& NNfunc,
         auto nnx = NNfunc(x, p);
 
         // Selects the specific hadron output
-        nnad::Matrix<double> SplittedOutput = SplitMatrix * nnad::Matrix(nnx.size(), 1, nnx);
+        nnad::Matrix<double> SplitOutput = SplitMatrix * nnad::Matrix(nnx.size(), 1, nnx);
 
         // Rotate into the evolution basis
-        const nnad::Matrix<double> nnv = FlavRoatation * SplittedOutput;
+        const nnad::Matrix<double> nnv = FlavRoatation * SplitOutput;
 
         // Fill in map
         for (int i = 0; i < 13; i++)
@@ -276,10 +276,10 @@ void fillEvSet(NNxFunc& NNfunc,
       auto nnx = NNfunc(x, p);
 
       // Selects the specific hadron output
-      nnad::Matrix<double> SplittedOutput = SplitMatrix * nnad::Matrix(nnx.size(), 1, nnx);
+      nnad::Matrix<double> SplitOutput = SplitMatrix * nnad::Matrix(nnx.size(), 1, nnx);
 
       // Rotate into the evolution basis
-      const nnad::Matrix<double> nnv = FlavRoatation * SplittedOutput;
+      const nnad::Matrix<double> nnv = FlavRoatation * SplitOutput;
 
       // Fill in map (ignoring top)
       for (int i = 0; i < 13; i++)
