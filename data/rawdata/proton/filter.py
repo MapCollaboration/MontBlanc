@@ -537,7 +537,7 @@ def filter_ALEPH_PR():
 # DELPHI - inclusive
 def filter_DELPHI_PR():
     nameexp = 'DELPHI_PR_PLUS_MINUS'
-    infile  = 'DELPHI/HEPData-ins473409-v1-Table_6.csv'
+    infile  = 'DELPHI/HEPData-ins473409-v1-Table_22.csv'
     ndata   = 23
     cme     = 91.20 #GeV
     zmin    = 0.011
@@ -585,7 +585,7 @@ def filter_DELPHI_PR():
 # DELPHI - uds tagged
 def filter_DELPHI_PR_UDS():
     nameexp = 'DELPHI_PR_PLUS_MINUS_UDS'
-    infile  = 'DELPHI/HEPData-ins473409-v1-Table_14.csv'
+    infile  = 'DELPHI/HEPData-ins473409-v1-Table_38.csv'
     ndata   = 23
     cme     = 91.20 #GeV
     zmin    = 0.011
@@ -634,7 +634,7 @@ def filter_DELPHI_PR_UDS():
 # DELPHI - b tagged
 def filter_DELPHI_PR_B():
     nameexp = 'DELPHI_PR_PLUS_MINUS_B'
-    infile  = 'DELPHI/HEPData-ins473409-v1-Table_10.csv'
+    infile  = 'DELPHI/HEPData-ins473409-v1-Table_30.csv'
     ndata   = 23
     cme     = 91.20 #GeV
     zmin    = 0.011

@@ -676,7 +676,7 @@ def filter_ALEPH_KA():
 # DELPHI - inclusive
 def filter_DELPHI_KA():
     nameexp = 'DELPHI_KA_PLUS_MINUS'
-    infile  = 'DELPHI/HEPData-ins473409-v1-Table_5.csv'
+    infile  = 'DELPHI/HEPData-ins473409-v1-Table_20.csv'
     ndata   = 23
     cme     = 91.20 #GeV
     zmin    = 0.011
@@ -724,7 +724,7 @@ def filter_DELPHI_KA():
 # DELPHI - uds tagged
 def filter_DELPHI_KA_UDS():
     nameexp = 'DELPHI_KA_PLUS_MINUS_UDS'
-    infile  = 'DELPHI/HEPData-ins473409-v1-Table_13.csv'
+    infile  = 'DELPHI/HEPData-ins473409-v1-Table_36.csv'
     ndata   = 23
     cme     = 91.20 #GeV
     zmin    = 0.011
@@ -773,7 +773,7 @@ def filter_DELPHI_KA_UDS():
 # DELPHI - b tagged
 def filter_DELPHI_KA_B():
     nameexp = 'DELPHI_KA_PLUS_MINUS_B'
-    infile  = 'DELPHI/HEPData-ins473409-v1-Table_9.csv'
+    infile  = 'DELPHI/HEPData-ins473409-v1-Table_28.csv'
     ndata   = 23
     cme     = 91.20 #GeV
     zmin    = 0.011
