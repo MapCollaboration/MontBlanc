@@ -1,16 +1,16 @@
-#: table_doi: 10.17182/hepdata.22177.v1/t7
-#: name: Table 7
-#: description: Differential production rates of charged protons plus antiprotons per Z0 decay into light (u,d,s) and c and b quarks. The errors are combined statistical and systematic.
-
-#: data_file: Table7.yaml
-#: keyword reactions: E+ E- --> PBAR X | E+ E- --> P X | E+ E- --> Z0
-#: keyword observables: DN/DX
-#: keyword phrases: Inclusive | Exclusive | Single Differential Distribution | E+ E- Scattering
-#: keyword cmenergies: 91.28
-#: RE(Q=PPBAR),E+ E- --> (P + PBAR) X
-#: RE(Q=ZB),E+ E- --> Z0 < BQUARK BQUARKBAR >
-#: RE(Q=ZC),E+ E- --> Z0 < CQUARK CQUARKBAR >
-#: RE(Q=ZL),E+ E- --> Z0 < LQUARK LQUARKBAR >
+#: table_doi: 10.17182/hepdata.22177.v1/t7,,,
+#: name: Table 7,,,
+#: description: Differential production rates of charged protons plus antiprotons per Z0 decay into light (u,d,s) and c and b quarks. The errors are combined statistical and systematic.,
+,,,
+#: data_file: Table7.yaml,,,
+#: keyword reactions: E+ E- --> PBAR X | E+ E- --> P X | E+ E- --> Z0,,,
+#: keyword observables: DN/DX,,,
+#: keyword phrases: Inclusive | Exclusive | Single Differential Distribution | E+ E- Scattering,,,
+#: keyword cmenergies: 91.28,,,
+#: RE(Q=PPBAR),E+ E- --> (P + PBAR) X,,
+#: RE(Q=ZB),E+ E- --> Z0 < BQUARK BQUARKBAR >,,
+#: RE(Q=ZC),E+ E- --> Z0 < CQUARK CQUARKBAR >,,
+#: RE(Q=ZL),E+ E- --> Z0 < LQUARK LQUARKBAR >,,
 #: SQRT(S) [GeV],91.28,,
 X(DEF=2*P(P=3)/SQRT(S)),(1/N(Q=ZL))*D(N(Q=PBAR))/DX,error +,error -
 0.0153,13.98,0.99,-0.99
@@ -50,11 +50,11 @@ X(DEF=2*P(P=3)/SQRT(S)),(1/N(Q=ZL))*D(N(Q=PBAR))/DX,error +,error -
 0.7047,0.013,0.002,-0.002
 0.8383,0.003,0.001,-0.001
 -,1.008,0.038,-0.038
-
-#: RE(Q=PPBAR),E+ E- --> (P + PBAR) X
-#: RE(Q=ZB),E+ E- --> Z0 < BQUARK BQUARKBAR >
-#: RE(Q=ZC),E+ E- --> Z0 < CQUARK CQUARKBAR >
-#: RE(Q=ZL),E+ E- --> Z0 < LQUARK LQUARKBAR >
+,,,
+#: RE(Q=PPBAR),E+ E- --> (P + PBAR) X,,
+#: RE(Q=ZB),E+ E- --> Z0 < BQUARK BQUARKBAR >,,
+#: RE(Q=ZC),E+ E- --> Z0 < CQUARK CQUARKBAR >,,
+#: RE(Q=ZL),E+ E- --> Z0 < LQUARK LQUARKBAR >,,
 #: SQRT(S) [GeV],91.28,,
 X(DEF=2*P(P=3)/SQRT(S)),(1/N(Q=ZC))*D(N(Q=PBAR))/DX,error +,error -
 0.0153,13.28,2.94,-2.94
@@ -94,11 +94,11 @@ X(DEF=2*P(P=3)/SQRT(S)),(1/N(Q=ZC))*D(N(Q=PBAR))/DX,error +,error -
 0.7047,0.015,0.005,-0.005
 0.8383,0.001,0.002,-0.002
 -,0.93,0.056,-0.056
-
-#: RE(Q=PPBAR),E+ E- --> (P + PBAR) X
-#: RE(Q=ZB),E+ E- --> Z0 < BQUARK BQUARKBAR >
-#: RE(Q=ZC),E+ E- --> Z0 < CQUARK CQUARKBAR >
-#: RE(Q=ZL),E+ E- --> Z0 < LQUARK LQUARKBAR >
+,,,
+#: RE(Q=PPBAR),E+ E- --> (P + PBAR) X,,
+#: RE(Q=ZB),E+ E- --> Z0 < BQUARK BQUARKBAR >,,
+#: RE(Q=ZC),E+ E- --> Z0 < CQUARK CQUARKBAR >,,
+#: RE(Q=ZL),E+ E- --> Z0 < LQUARK LQUARKBAR >,,
 #: SQRT(S) [GeV],91.28,,
 X(DEF=2*P(P=3)/SQRT(S)),(1/N(Q=ZB))*D(N(Q=PBAR))/DX,error +,error -
 0.0153,13.79,1.49,-1.49
@@ -136,6 +136,5 @@ X(DEF=2*P(P=3)/SQRT(S)),(1/N(Q=ZB))*D(N(Q=PBAR))/DX,error +,error -
 0.547,-0.003,0.003,-0.003
 0.6083,0.004,0.002,-0.002
 0.7047,-0.001,0.001,-0.001
-0.8383,0.0,0.0,-0.0
--,0.909,0.037,-0.037
-
+0.8383,0.909,0.037,-0.037
+-,,,
