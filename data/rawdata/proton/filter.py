@@ -887,7 +887,7 @@ def filter_SLD_PR_C():
 def filter_SLD_PR_B():
     nameexp = 'SLD_PR_PLUS_MINUS_B'
     infile  = 'SLD/HEPData-ins630327-v1-Table_7.csv'
-    ndata   = 36
+    ndata   = 35
     cme     = 91.20 #GeV
     zmin    = 0.011
     zmax    = 0.800
