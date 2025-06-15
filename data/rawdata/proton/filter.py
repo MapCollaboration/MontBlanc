@@ -5,6 +5,72 @@ import numpy as np
 
 mPR = 0.9382720813 # GeV
 
+# BELLE - inclusive
+def filter_BELLE_PR():
+    nameexp = 'BELLE_PR_PLUS_MINUS'
+    infile  = 'BELLE/cross_sections.csv'
+    ndata   = 29
+    cme     = 10.58 #GeV
+    zmin    = 0.175
+    zmax    = 0.875
+
+    data = pd.read_csv(
+        infile,
+        dtype={"user_ld": float},
+        sep=',',
+        header=None,
+        usecols=[0,1,2,3,4,5],
+        engine='python')
+
+    delta = (data.loc[:,4]+data.loc[:,5])/2.
+    DELTA = (data.loc[:,4]-data.loc[:,5])/2.
+    
+    with open(nameexp + '.yaml', 'w') as f:
+        print('dependent_variables:', file=f)
+        print('- header: {title: "BELLE $p+\\\\bar{p}$ Multiplicity"}', file=f)
+        print('  qualifiers:', file=f)
+        print('  - {name: process, value: SIA}', file=f)
+        print('  - {name: Vs, value: ', cme, ', units: GeV}', file=f)
+        print('  - {name: prefactor, value: 0.65e+6}', file=f)
+        print('  - {name: normalised, value: false}', file=f)
+        print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
+        print('  - {name: hadron, value: PR}', file=f)
+        print('  - {name: charge, value: 0}', file=f)
+        print('  - {name: tagging, value: [u,d,s,c]}', file=f)
+        print('  values:', file=f)
+        
+        for i in range(ndata):
+            print('  - errors:', file=f)
+            print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,3]**2. + DELTA.iloc[i]**2. + 2.*delta.iloc[i]**2.)), file=f)
+            print('    - {label: mult, value: 0.014}', file=f)
+            print('    value: %7.1f' % (data.iloc[i,2]+delta.iloc[i]), file=f)
+            
+        print('independent_variables:', file=f)
+        print('- header: {name: "z"}', file=f)
+        print('  values:', file=f)
+        for i in range(ndata):
+            factor = 1.
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
+                  % (factor * data.iloc[i,1], factor * data.iloc[i,0], factor * ( data.iloc[i,0] + data.iloc[i,1]) / 2., 1./factor), file=f)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
 # BABAR - conventional inclusive
 def filter_BABAR_PR_CONVENTIONAL():
     nameexp = 'BABAR_PR_PLUS_MINUS_CONVENTIONAL'
@@ -40,6 +106,7 @@ def filter_BABAR_PR_CONVENTIONAL():
         print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
         print('  - {name: hadron, value: PR}', file=f)
         print('  - {name: charge, value: 0}', file=f)
+        print('  - {name: tagging, value: [u,d,s,c]}', file=f)
         print('  values:', file=f)
         
         for i in range(ndata):
@@ -102,6 +169,7 @@ def filter_BABAR_PR_PROMPT():
         print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
         print('  - {name: hadron, value: PR}', file=f)
         print('  - {name: charge, value: 0}', file=f)
+        print('  - {name: tagging, value: [u,d,s,c]}', file=f)
         print('  values:', file=f)
         
         for i in range(ndata):
@@ -795,7 +863,7 @@ def filter_SLD_PR_UDS():
         sep=',',
         header=None,
         usecols=[0,1,2,3],
-        skipfooter=90,
+        skipfooter=89,
         engine='python')
     
     with open(nameexp + '.yaml', 'w') as f:
@@ -847,7 +915,7 @@ def filter_SLD_PR_C():
         sep=',',
         header=None,
         usecols=[0,1,2,3],
-        skipfooter=46,
+        skipfooter=45,
         engine='python')
     
     with open(nameexp + '.yaml', 'w') as f:
@@ -936,6 +1004,7 @@ def filter_SLD_PR_B():
                   % (data.iloc[i,0]) , file=f)
     
 # Filter data
+filter_BELLE_PR()
 filter_BABAR_PR_CONVENTIONAL()
 filter_BABAR_PR_PROMPT()
 filter_TASSO12_PR()
