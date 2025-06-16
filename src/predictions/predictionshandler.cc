@@ -112,10 +112,14 @@ namespace MontBlanc
         std::map<int, apfel::Operator> Gammaij = TabGammaij->Evaluate(Vs).GetObjects();
 
         // Get F2 objects at the scale Vs
-        const apfel::StructureFunctionObjects F2Obj = apfel::InitializeF2NCObjectsZMT(*_gz, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
+        apfel::StructureFunctionObjects FObj;
+	if (_obs == NangaParbat::DataHandler::Observable::FL)
+	  FObj = apfel::InitializeFLNCObjectsZMT(*_gz, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
+	else
+	  FObj = apfel::InitializeF2NCObjectsZMT(*_gz, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
 
         // Get skip vector
-        const std::vector<int> skip = F2Obj.skip;
+        const std::vector<int> skip = FObj.skip;
 
         // Intialise container for the FK table
         std::map<int, apfel::Operator> Cj;
@@ -130,11 +134,11 @@ namespace MontBlanc
           {
             // Combine perturbative contributions to the coefficient
             // functions
-            apfel::Set<apfel::Operator> Ki = F2Obj.C0.at(comp);
+            apfel::Set<apfel::Operator> Ki = FObj.C0.at(comp);
             if (PerturbativeOrder > 0)
-              Ki += ( as / apfel::FourPi ) * F2Obj.C1.at(comp);
+              Ki += ( as / apfel::FourPi ) * FObj.C1.at(comp);
             if (PerturbativeOrder > 1)
-              Ki += pow(as / apfel::FourPi, 2) * F2Obj.C2.at(comp);
+              Ki += pow(as / apfel::FourPi, 2) * FObj.C2.at(comp);
 
             // Convolute coefficient functions with the evolution
             // operators
@@ -148,7 +152,7 @@ namespace MontBlanc
                     gj.insert({i, Gammaij.at(apfel::Gkj.at({i, j}))});
 
                 // Convolute distributions, combine them and return.
-                Cj.at(j) += (Ki * apfel::Set<apfel::Operator> {F2Obj.ConvBasis.at(comp), gj}).Combine();
+                Cj.at(j) += (Ki * apfel::Set<apfel::Operator> {FObj.ConvBasis.at(comp), gj}).Combine();
               }
 
             // Update total cross sections

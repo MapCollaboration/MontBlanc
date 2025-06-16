@@ -1,7 +1,8 @@
 dependent_variables:
 - header: {title: "DELPHI longitudinal $h^\\pm$ Multiplicity b-tag"}
   qualifiers:
-  - {name: process, value: SIA_L}
+  - {name: process, value: SIA}
+  - {name: observable, value: FL}
   - {name: Vs, value:  91.2 , units: GeV}
   - {name: prefactor, value: 1}
   - {name: z, low:  0.005 , high:  0.9 , integrate: false}
