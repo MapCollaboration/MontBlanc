@@ -5,6 +5,150 @@ import numpy as np
 
 mKA = 0.493677 # GeV
 
+# BESIII - inclusive KA+
+def filter_BESIII_KAp():
+    nameexps = ['BESIII_KA_PLUS_2p0000',
+                 'BESIII_KA_PLUS_2p2000',
+                 'BESIII_KA_PLUS_2p3960',
+                 'BESIII_KA_PLUS_2p6444',
+                 'BESIII_KA_PLUS_2p9000',
+                 'BESIII_KA_PLUS_3p0500',
+                 'BESIII_KA_PLUS_3p5000',
+                 'BESIII_KA_PLUS_3p6710']
+    infile  = 'BESIII/Table_KAp.csv'
+    ndata   = [12, 14, 17, 18, 22, 21, 21, 23]
+    cme     = [2.0000, 2.2000, 2.3960, 2.6444, 2.9000, 3.0500, 3.5000, 3.6710] #GeV
+    zmin    = 0.011 # to be checked
+    zmax    = 0.800 # to be checked 
+
+    l = 0
+    i = 2
+    j = 3
+    k = 4
+    
+    for nameexp in nameexps:
+        
+        data = pd.read_csv(
+            infile,
+            dtype={"user_ld": float},
+            skiprows=2,
+            sep=',',
+            header=None,
+            usecols=[0,1,i,j,k],
+            engine='python')
+
+        data = data.drop(data[data[i] == 0.].index)
+        cval = data[i]
+        stat = data[j]
+        syst = data[k]
+        
+        with open(nameexp + '.yaml', 'w') as f:
+            print('dependent_variables:', file=f)
+            print('- header: {title: "BESIII $K^+$ Multiplicity"}', file=f)
+            print('  qualifiers:', file=f)
+            print('  - {name: process, value: SIA}', file=f)
+            print('  - {name: Vs, value: ', cme[l], ', units: GeV}', file=f)
+            print('  - {name: prefactor, value: 1}', file=f)
+            print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
+            print('  - {name: hadron, value: KA}', file=f)
+            print('  - {name: charge, value: +1}', file=f)
+            print('  values:', file=f)
+            
+            for p in range(ndata[l]):
+                print('  - errors:', file=f)
+                print('    - {label: unc, value: %7.5f}' % (np.sqrt(stat.iloc[p]**2. + syst.iloc[p]**2.)), file=f)
+                print('    value: %7.5f' % (cval.iloc[p]), file=f)
+
+            print('independent_variables:', file=f)
+            print('- header: {name: "z"}', file=f)
+            print('  values:', file=f)
+            for p in range(ndata[l]):
+                factor = np.sqrt(1. + mKA**2./((data.iloc[p,0] + data.iloc[p,1])/2.)**2.)
+                print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
+                      % (2./cme[l] * factor * data.iloc[p,1], 2./cme[l] * factor * data.iloc[p,0], 2./cme[l] * factor * (data.iloc[p,0] + data.iloc[p,1])/2., 2./cme[l]/factor), file=f)
+            print('- header: {name: "ph"}', file=f)
+            print('  values:', file=f)
+            for p in range(ndata[l]):
+                print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                      % (data.iloc[p,1], data.iloc[p,0], (data.iloc[p,0]+data.iloc[p,1])/2.) , file=f)
+                        
+        l = l + 1
+        i = i + 3
+        j = j + 3
+        k = k + 3
+
+# BESIII - inclusive KA-
+def filter_BESIII_KAm():
+    nameexps = ['BESIII_KA_MINUS_2p0000',
+                 'BESIII_KA_MINUS_2p2000',
+                 'BESIII_KA_MINUS_2p3960',
+                 'BESIII_KA_MINUS_2p6444',
+                 'BESIII_KA_MINUS_2p9000',
+                 'BESIII_KA_MINUS_3p0500',
+                 'BESIII_KA_MINUS_3p5000',
+                 'BESIII_KA_MINUS_3p6710']
+    infile  = 'BESIII/Table_KAm.csv'
+    ndata   = [12, 14, 17, 18, 22, 21, 21, 23]
+    cme     = [2.0000, 2.2000, 2.3960, 2.6444, 2.9000, 3.0500, 3.5000, 3.6710] #GeV
+    zmin    = 0.011 # to be checked
+    zmax    = 0.800 # to be checked 
+
+    l = 0
+    i = 2
+    j = 3
+    k = 4
+    
+    for nameexp in nameexps:
+        
+        data = pd.read_csv(
+            infile,
+            dtype={"user_ld": float},
+            skiprows=2,
+            sep=',',
+            header=None,
+            usecols=[0,1,i,j,k],
+            engine='python')
+
+        data = data.drop(data[data[i] == 0.].index)
+        cval = data[i]
+        stat = data[j]
+        syst = data[k]
+        
+        with open(nameexp + '.yaml', 'w') as f:
+            print('dependent_variables:', file=f)
+            print('- header: {title: "BESIII $K^-$ Multiplicity"}', file=f)
+            print('  qualifiers:', file=f)
+            print('  - {name: process, value: SIA}', file=f)
+            print('  - {name: Vs, value: ', cme[l], ', units: GeV}', file=f)
+            print('  - {name: prefactor, value: 1}', file=f)
+            print('  - {name: z, low: ', zmin, ', high: ',zmax, ', integrate: false}', file=f)
+            print('  - {name: hadron, value: KA}', file=f)
+            print('  - {name: charge, value: -1}', file=f)
+            print('  values:', file=f)
+            
+            for p in range(ndata[l]):
+                print('  - errors:', file=f)
+                print('    - {label: unc, value: %7.5f}' % (np.sqrt(stat.iloc[p]**2. + syst.iloc[p]**2.)), file=f)
+                print('    value: %7.5f' % (cval.iloc[p]), file=f)
+
+            print('independent_variables:', file=f)
+            print('- header: {name: "z"}', file=f)
+            print('  values:', file=f)
+            for p in range(ndata[l]):
+                factor = np.sqrt(1. + mKA**2./((data.iloc[p,0] + data.iloc[p,1])/2.)**2.)
+                print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
+                      % (2./cme[l] * factor * data.iloc[p,1], 2./cme[l] * factor * data.iloc[p,0], 2./cme[l] * factor * (data.iloc[p,0] + data.iloc[p,1])/2., 2./cme[l]/factor), file=f)
+            print('- header: {name: "ph"}', file=f)
+            print('  values:', file=f)
+            for p in range(ndata[l]):
+                print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                      % (data.iloc[p,1], data.iloc[p,0], (data.iloc[p,0]+data.iloc[p,1])/2.) , file=f)
+                        
+        l = l + 1
+        i = i + 3
+        j = j + 3
+        k = k + 3
+        
 # BELLE - inclusive
 def filter_BELLE_KA():
     nameexp = 'BELLE_KA_PLUS_MINUS'
@@ -115,12 +259,7 @@ def filter_BABAR_KA_CONVENTIONAL():
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
-
-
-
-
-
-
+            
 # BABAR - conventional inclusive (uncorrelated)
 def filter_BABAR_KA_CONVENTIONAL_UNCORR():
     nameexp = 'BABAR_KA_PLUS_MINUS_CONVENTIONAL_UNCORR'
@@ -184,33 +323,7 @@ def filter_BABAR_KA_CONVENTIONAL_UNCORR():
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+          
 # BABAR - prompt inclusive
 def filter_BABAR_KA_PROMPT():
     nameexp = 'BABAR_KA_PLUS_MINUS_PROMPT'
@@ -1352,6 +1465,8 @@ def filter_COMPASS_KA_MINUS_2024():
                   % ((data.iloc[i,1]-data.iloc[i,0])/2.*(data.iloc[i,3]-data.iloc[i,2])/2.*cme**2.) , file=f)
       
 # Filter data
+filter_BESIII_KAp()
+filter_BESIII_KAm()
 filter_BELLE_KA()
 filter_BABAR_KA_CONVENTIONAL()
 filter_BABAR_KA_CONVENTIONAL_UNCORR()
