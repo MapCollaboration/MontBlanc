@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "TASSO at 34 GeV, Lambda Multiplicity", titlepy: "TASSO at 34 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [nb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{nb GeV^{2}}]$"}
+  - header: {title: "TASSO at 34 GeV, Lambda Multiplicity", titlepy: "TASSO at 34 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [mub GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{mub GeV^{2}}]$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 34, units: GeV}
@@ -40,10 +40,10 @@ dependent_variables:
 independent_variables:
   - header: {name: "z"}
     values:
-      - {high: 0.09, low: 0.075, value: 0.0825, factor: 1907.77}
-      - {high: 0.11, low: 0.09, value: 0.1, factor: 1532.13}
-      - {high: 0.15, low: 0.11, value: 0.13, factor: 1339.1844}
-      - {high: 0.2, low: 0.15, value: 0.175, factor: 1247.0138}
-      - {high: 0.3, low: 0.2, value: 0.25, factor: 1198.0179}
-      - {high: 0.4, low: 0.3, value: 0.35, factor: 1176.8752}
-      - {high: 0.6, low: 0.4, value: 0.5, factor: 1166.0888}
+      - {high: 0.09, low: 0.075, value: 0.0825, factor: 1156}
+      - {high: 0.11, low: 0.09, value: 0.1, factor: 1156}
+      - {high: 0.15, low: 0.11, value: 0.13, factor: 1156}
+      - {high: 0.2, low: 0.15, value: 0.175, factor: 1156}
+      - {high: 0.3, low: 0.2, value: 0.25, factor: 1156}
+      - {high: 0.4, low: 0.3, value: 0.35, factor: 1156}
+      - {high: 0.6, low: 0.4, value: 0.5, factor: 1156}

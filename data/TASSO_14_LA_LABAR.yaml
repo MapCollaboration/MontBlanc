@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "TASSO at 14 GeV, Lambda Multiplicity", titlepy: "TASSO at 14 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [nb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{nb GeV^{2}}]$"}
+  - header: {title: "TASSO at 14 GeV, Lambda Multiplicity", titlepy: "TASSO at 14 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [mub GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{mub GeV^{2}}]$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 14, units: GeV}
@@ -24,6 +24,6 @@ dependent_variables:
 independent_variables:
   - header: {name: "z"}
     values:
-      - {high: 0.3, low: 0.22, value: 0.26, factor: 248.08059}
-      - {high: 0.4, low: 0.3, value: 0.35, factor: 220.15219}
-      - {high: 0.6, low: 0.4, value: 0.5, factor: 206.78778}
+      - {high: 0.3, low: 0.22, value: 0.26, factor: 196}
+      - {high: 0.4, low: 0.3, value: 0.35, factor: 196}
+      - {high: 0.6, low: 0.4, value: 0.5, factor: 196}

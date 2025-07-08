@@ -4,7 +4,7 @@ dependent_variables:
       - {name: process, value: SIA}
       - {name: Vs, value: 91.2, units: GeV}
       - {name: prefactor, value: 1}
-      - {name: z, low: 0.027251408, high: 0.9, integrate: false}
+      - {name: z, low: 0.012, high: 0.9, integrate: false}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
     values:
@@ -110,33 +110,6 @@ dependent_variables:
         value: 0.0026
 independent_variables:
   - header: {name: "z"}
-    values:
-      - {high: 0.028189346, low: 0.027251408, value: 0.027706303, factor: 0.46920731}
-      - {high: 0.029234214, low: 0.028189346, value: 0.028699116, factor: 0.52266419}
-      - {high: 0.030374977, low: 0.029234214, value: 0.029793275, factor: 0.57059856}
-      - {high: 0.031601254, low: 0.030374977, value: 0.030978044, factor: 0.61333762}
-      - {high: 0.034980555, low: 0.031601254, value: 0.033239874, factor: 0.67689787}
-      - {high: 0.038712262, low: 0.034980555, value: 0.03680882, factor: 0.74710354}
-      - {high: 0.042704089, low: 0.038712262, value: 0.04068033, factor: 0.79891191}
-      - {high: 0.04688965, low: 0.042704089, value: 0.04477599, factor: 0.83750243}
-      - {high: 0.055665422, low: 0.04688965, value: 0.051133641, factor: 0.8780912}
-      - {high: 0.064796908, low: 0.055665422, value: 0.060105318, factor: 0.91339672}
-      - {high: 0.08365787, low: 0.064796908, value: 0.073680996, factor: 0.94325543}
-      - {high: 0.10294969, low: 0.08365787, value: 0.092880564, factor: 0.96467975}
-      - {high: 0.12246893, low: 0.10294969, value: 0.11229781, factor: 0.97597625}
-      - {high: 0.14212192, low: 0.12246893, value: 0.13198761, factor: 0.98266799}
-      - {high: 0.16185994, low: 0.14212192, value: 0.15168629, factor: 0.98690531}
-      - {high: 0.18165528, low: 0.16185994, value: 0.17145474, factor: 0.98976556}
-      - {high: 0.20149104, low: 0.18165528, value: 0.19127135, factor: 0.99178471}
-      - {high: 0.25119443, low: 0.20149104, value: 0.22453703, factor: 0.99404538}
-      - {high: 0.30099608, low: 0.25119443, value: 0.27429342, factor: 0.99601369}
-      - {high: 0.35085416, low: 0.30099608, value: 0.32432422, factor: 0.99715032}
-      - {high: 0.4007476, low: 0.35085416, value: 0.37420075, factor: 0.99786011}
-      - {high: 0.50059828, low: 0.4007476, value: 0.44457378, factor: 0.99848443}
-      - {high: 0.60049866, low: 0.50059828, value: 0.54445004, factor: 0.99898973}
-      - {high: 0.70042747, low: 0.60049866, value: 0.6440649, factor: 0.99927817}
-      - {high: 0.90033252, low: 0.70042747, value: 0.76898934, factor: 0.9994937}
-  - header: {name: "xp"}
     values:
       - {high: 0.014, low: 0.012, value: 0.013}
       - {high: 0.016, low: 0.014, value: 0.015}

@@ -1,0 +1,64 @@
+dependent_variables:
+  - header: {title: "SLD at 91.2 GeV, Lambda Multiplicity b-tag", titlepy: "SLD at 91.2 GeV, Lambda Multiplicity b-tag", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma}#frac{d#it{#sigma}}{d#it{z}}", ylabelpy: "$\\frac{1}{\\sigma}\\frac{d\\sigma}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 91.2, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.026826093, high: 0.9, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+      - {name: tagging, value: [b]}
+    values:
+      - errors:
+          - {label: unc, value: 1.2}
+          - {label: add, value: 0.034}
+        value: 2.8
+      - errors:
+          - {label: unc, value: 0.79}
+          - {label: add, value: 0.034}
+        value: 4.19
+      - errors:
+          - {label: unc, value: 0.5}
+          - {label: add, value: 0.034}
+        value: 2.39
+      - errors:
+          - {label: unc, value: 0.34}
+          - {label: add, value: 0.034}
+        value: 2.47
+      - errors:
+          - {label: unc, value: 0.25}
+          - {label: add, value: 0.034}
+        value: 1.44
+      - errors:
+          - {label: unc, value: 0.17}
+          - {label: add, value: 0.034}
+        value: 1.1
+      - errors:
+          - {label: unc, value: 0.09}
+          - {label: add, value: 0.034}
+        value: 0.6
+      - errors:
+          - {label: unc, value: 0.04}
+          - {label: add, value: 0.034}
+        value: 0.2
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.031601254, low: 0.026826093, value: 0.029234214, factor: 0.54730393}
+      - {high: 0.038712262, low: 0.031601254, value: 0.034980555, factor: 0.71468277}
+      - {high: 0.051221472, low: 0.038712262, value: 0.045195567, factor: 0.84079043}
+      - {high: 0.071327689, low: 0.051221472, value: 0.061111695, factor: 0.91635488}
+      - {high: 0.10294969, low: 0.071327689, value: 0.085572421, factor: 0.95825266}
+      - {high: 0.15198236, low: 0.10294969, value: 0.12442925, factor: 0.98047683}
+      - {high: 0.24820886, low: 0.15198236, value: 0.19057712, factor: 0.9917245}
+      - {high: 0.49760189, low: 0.24820886, value: 0.31993693, factor: 0.99707152}
+  - header: {name: "xp"}
+    values:
+      - {high: 0.02, low: 0.011, value: 0.016}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.045, low: 0.03, value: 0.038}
+      - {high: 0.067, low: 0.045, value: 0.056}
+      - {high: 0.1, low: 0.067, value: 0.082}
+      - {high: 0.15, low: 0.1, value: 0.122}
+      - {high: 0.247, low: 0.15, value: 0.189}
+      - {high: 0.497, low: 0.247, value: 0.319}

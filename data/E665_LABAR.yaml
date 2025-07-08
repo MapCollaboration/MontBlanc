@@ -36,12 +36,6 @@ independent_variables:
       - {high: 0.2, low: 0.1, value: 0.15}
       - {high: 0.4, low: 0.2, value: 0.3}
       - {high: 0.7, low: 0.4, value: 0.55}
-  - header: {name: "xF"}
-    values:
-      - {high: 0.1, low: 0, value: 0.05}
-      - {high: 0.2, low: 0.1, value: 0.15}
-      - {high: 0.4, low: 0.2, value: 0.3}
-      - {high: 0.7, low: 0.4, value: 0.55}
   - header: {name: "x"}
     values:
       - {high: 1, low: 0.003}

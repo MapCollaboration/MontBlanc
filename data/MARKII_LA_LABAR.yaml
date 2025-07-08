@@ -57,18 +57,18 @@ dependent_variables:
 independent_variables:
   - header: {name: "z"}
     values:
-      - {value: 0.088, factor: 1733.1117}
-      - {value: 0.098, factor: 1357.9761}
-      - {value: 0.116, factor: 1123.8236}
-      - {value: 0.143, factor: 997.75001}
-      - {value: 0.173, factor: 938.98714}
-      - {value: 0.205, factor: 907.33827}
-      - {value: 0.237, factor: 889.16594}
-      - {value: 0.27, factor: 877.38222}
-      - {value: 0.303, factor: 869.50309}
-      - {value: 0.337, factor: 863.81734}
-      - {value: 0.387, factor: 858.1324}
-      - {value: 0.455, factor: 853.2897}
-      - {value: 0.523, factor: 850.25215}
-      - {value: 0.591, factor: 848.21962}
-      - {value: 0.66, factor: 846.7742}
+      - {value: 0.088, factor: 841}
+      - {value: 0.098, factor: 841}
+      - {value: 0.116, factor: 841}
+      - {value: 0.143, factor: 841}
+      - {value: 0.173, factor: 841}
+      - {value: 0.205, factor: 841}
+      - {value: 0.237, factor: 841}
+      - {value: 0.27, factor: 841}
+      - {value: 0.303, factor: 841}
+      - {value: 0.337, factor: 841}
+      - {value: 0.387, factor: 841}
+      - {value: 0.455, factor: 841}
+      - {value: 0.523, factor: 841}
+      - {value: 0.591, factor: 841}
+      - {value: 0.66, factor: 841}

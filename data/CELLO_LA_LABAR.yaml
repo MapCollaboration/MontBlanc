@@ -32,10 +32,10 @@ dependent_variables:
 independent_variables:
   - header: {name: "z"}
     values:
-      - {value: 0.076, factor: 1.8371261}
-      - {value: 0.094, factor: 1.3608346}
-      - {value: 0.117, factor: 1.1926122}
-      - {value: 0.153, factor: 1.1000537}
-      - {value: 0.222, factor: 1.0439763}
-      - {value: 0.358, factor: 1.0162445}
-      - {value: 0.585, factor: 1.0059919}
+      - {value: 0.076, factor: 1}
+      - {value: 0.094, factor: 1}
+      - {value: 0.117, factor: 1}
+      - {value: 0.153, factor: 1}
+      - {value: 0.222, factor: 1}
+      - {value: 0.358, factor: 1}
+      - {value: 0.585, factor: 1}

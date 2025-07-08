@@ -4,7 +4,7 @@ dependent_variables:
       - {name: process, value: SIA}
       - {name: Vs, value: 91.2, units: GeV}
       - {name: prefactor, value: 1}
-      - {name: z, low: 0.026826093, high: 0.9, integrate: false}
+      - {name: z, low: 0.011, high: 0.9, integrate: false}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
       - {name: tagging, value: [c]}
@@ -43,16 +43,6 @@ dependent_variables:
         value: -0.13
 independent_variables:
   - header: {name: "z"}
-    values:
-      - {high: 0.031601254, low: 0.026826093, value: 0.029234214, factor: 0.54730393}
-      - {high: 0.038712262, low: 0.031601254, value: 0.034980555, factor: 0.71468277}
-      - {high: 0.051221472, low: 0.038712262, value: 0.045195567, factor: 0.84079043}
-      - {high: 0.071327689, low: 0.051221472, value: 0.061111695, factor: 0.91635488}
-      - {high: 0.10294969, low: 0.071327689, value: 0.085572421, factor: 0.95825266}
-      - {high: 0.15198236, low: 0.10294969, value: 0.12442925, factor: 0.98047683}
-      - {high: 0.24820886, low: 0.15198236, value: 0.19057712, factor: 0.9917245}
-      - {high: 0.49760189, low: 0.24820886, value: 0.31993693, factor: 0.99707152}
-  - header: {name: "xp"}
     values:
       - {high: 0.02, low: 0.011, value: 0.016}
       - {high: 0.03, low: 0.02, value: 0.025}

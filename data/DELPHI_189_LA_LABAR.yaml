@@ -4,7 +4,7 @@ dependent_variables:
       - {name: process, value: SIA}
       - {name: Vs, value: 189, units: GeV}
       - {name: prefactor, value: 1}
-      - {name: z, low: 0.30142552, high: 0.9, integrate: false}
+      - {name: z, low: 0.30119421, high: 0.9, integrate: false}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
     values:
@@ -35,21 +35,11 @@ dependent_variables:
 independent_variables:
   - header: {name: "z"}
     values:
-      - {high: 0.30142552, low: 0.16571998, value: 0.22344229, factor: 0.22281846}
-      - {high: 0.16571998, low: 0.091482987, value: 0.12302425, factor: 0.12189122}
-      - {high: 0.091482987, low: 0.051167783, value: 0.068234675, factor: 0.066191873}
-      - {high: 0.051167783, low: 0.029765344, value: 0.038726708, factor: 0.035127386}
-      - {high: 0.029765344, low: 0.019085523, value: 0.023433413, factor: 0.017485075}
-      - {high: 0.019085523, low: 0.014391616, value: 0.016211098, factor: 0.0076126742}
-      - {high: 0.014391616, low: 0.012640783, value: 0.013287596, factor: 0.0027973698}
-      - {high: 0.012640783, low: 0.012063751, value: 0.012271323, factor: 0.00091232909}
-  - header: {name: "xip"}
-    values:
-      - {high: 1.2, low: 1.8, value: 1.5}
-      - {high: 1.8, low: 2.4, value: 2.1}
-      - {high: 2.4, low: 3, value: 2.7}
-      - {high: 3, low: 3.6, value: 3.3}
-      - {high: 3.6, low: 4.2, value: 3.9}
-      - {high: 4.2, low: 4.8, value: 4.5}
-      - {high: 4.8, low: 5.4, value: 5.1}
-      - {high: 5.4, low: 6, value: 5.7}
+      - {high: 0.30119421, low: 0.16529889, value: 0.22313016, factor: 0.22313016}
+      - {high: 0.16529889, low: 0.090717953, value: 0.12245643, factor: 0.12245643}
+      - {high: 0.090717953, low: 0.049787068, value: 0.067205513, factor: 0.067205513}
+      - {high: 0.049787068, low: 0.027323722, value: 0.036883167, factor: 0.036883167}
+      - {high: 0.027323722, low: 0.014995577, value: 0.020241911, factor: 0.020241911}
+      - {high: 0.014995577, low: 0.008229747, value: 0.011108997, factor: 0.011108997}
+      - {high: 0.008229747, low: 0.0045165809, value: 0.0060967466, factor: 0.0060967466}
+      - {high: 0.0045165809, low: 0.0024787522, value: 0.0033459655, factor: 0.0033459655}

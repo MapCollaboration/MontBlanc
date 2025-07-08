@@ -1,11 +1,11 @@
 dependent_variables:
-  - header: {title: "BELLE at 10.52 GeV, Lambda Multiplicity", titlepy: "BELLE at 10.52 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{d#it{#sigma}}{d#it{z}} [nb]", ylabelpy: "$\\frac{d\\sigma}{dz}[nb]$"}
+  - header: {title: "TASSO at 33 GeV, Lambda Multiplicity", titlepy: "BELLE at 10.52 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{d#it{#sigma}}{d#it{z}} [pb]", ylabelpy: "$\\frac{d\\sigma}{dz}[pb]$"}
     qualifiers:
       - {name: process, value: SIA}
       - {name: Vs, value: 33.3, units: GeV}
       - {name: prefactor, value: 1000}
       - {name: normalised, value: false}
-      - {name: z, low: 0.089985655, high: 0.9, integrate: false}
+      - {name: z, low: 0.06006006, high: 0.9, integrate: false}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
     values:
@@ -32,15 +32,8 @@ dependent_variables:
 independent_variables:
   - header: {name: "z"}
     values:
-      - {high: 0.13754654, low: 0.089985655, value: 0.11227837, factor: 0.048191084}
-      - {high: 0.19223711, low: 0.13754654, value: 0.16442407, factor: 0.054846149}
-      - {high: 0.30768568, low: 0.19223711, value: 0.24941047, factor: 0.057851796}
-      - {high: 0.42572707, low: 0.30768568, value: 0.36653758, factor: 0.059047874}
-      - {high: 0.60432714, low: 0.42572707, value: 0.51488949, factor: 0.059549267}
-  - header: {name: "p"}
-    values:
-      - {high: 2, low: 1, value: 1.5}
-      - {high: 3, low: 2, value: 2.5}
-      - {high: 5, low: 3, value: 4}
-      - {high: 7, low: 5, value: 6}
-      - {high: 10, low: 7, value: 8.5}
+      - {high: 0.12012012, low: 0.06006006, value: 0.09009009, factor: 0.06006006}
+      - {high: 0.18018018, low: 0.12012012, value: 0.15015015, factor: 0.06006006}
+      - {high: 0.3003003, low: 0.18018018, value: 0.24024024, factor: 0.06006006}
+      - {high: 0.42042042, low: 0.3003003, value: 0.36036036, factor: 0.06006006}
+      - {high: 0.6006006, low: 0.42042042, value: 0.51051051, factor: 0.06006006}
