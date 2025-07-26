@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "COMPASS 2024 $\pi^+$ Multiplicities"}
+- header: {title: "COMPASS 2024 $\\pi^+$ Multiplicities"}
   qualifiers:
   - {name: process, value: SIDIS}
   - {name: observable, value: dsigma/dxdydz}

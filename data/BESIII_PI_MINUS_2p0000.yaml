@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "BESIII $\pi^-$ Multiplicity"}
+- header: {title: "BESIII $\\pi^-$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  2.0 , units: GeV}
@@ -56,21 +56,21 @@ dependent_variables:
 independent_variables:
 - header: {name: "z"}
   values:
-  - {high: 0.60281, low: 0.48225, value: 0.54253, factor: 0.41472}
-  - {high: 0.61648, low: 0.51373, value: 0.56510, factor: 0.48664}
-  - {high: 0.63652, low: 0.54559, value: 0.59105, factor: 0.54987}
-  - {high: 0.66128, low: 0.57862, value: 0.61995, factor: 0.60488}
-  - {high: 0.68973, low: 0.61310, value: 0.65142, factor: 0.65243}
-  - {high: 0.72114, low: 0.64903, value: 0.68509, factor: 0.69334}
-  - {high: 0.75497, low: 0.68634, value: 0.72065, factor: 0.72851}
-  - {high: 0.79080, low: 0.72490, value: 0.75785, factor: 0.75872}
-  - {high: 0.82831, low: 0.76460, value: 0.79646, factor: 0.78473}
-  - {high: 0.86724, low: 0.80529, value: 0.83627, factor: 0.80716}
-  - {high: 0.90737, low: 0.84688, value: 0.87712, factor: 0.82657}
-  - {high: 0.94852, low: 0.88924, value: 0.91888, factor: 0.84342}
-  - {high: 0.99056, low: 0.93229, value: 0.96143, factor: 0.85810}
-  - {high: 1.03336, low: 0.97596, value: 1.00466, factor: 0.87094}
-  - {high: 1.07683, low: 1.02016, value: 1.04850, factor: 0.88222}
+  - {high: 0.29421, low: 0.23537, value: 0.26479, factor: 0.84973}
+  - {high: 0.33644, low: 0.28037, value: 0.30840, factor: 0.89169}
+  - {high: 0.38092, low: 0.32650, value: 0.35371, factor: 0.91882}
+  - {high: 0.42682, low: 0.37347, value: 0.40014, factor: 0.93717}
+  - {high: 0.47365, low: 0.42103, value: 0.44734, factor: 0.95006}
+  - {high: 0.52115, low: 0.46903, value: 0.49509, factor: 0.95942}
+  - {high: 0.56911, low: 0.51737, value: 0.54324, factor: 0.96642}
+  - {high: 0.61743, low: 0.56598, value: 0.59170, factor: 0.97177}
+  - {high: 0.66602, low: 0.61478, value: 0.64040, factor: 0.97595}
+  - {high: 0.71481, low: 0.66376, value: 0.68928, factor: 0.97928}
+  - {high: 0.76378, low: 0.71286, value: 0.73832, factor: 0.98196}
+  - {high: 0.81287, low: 0.76207, value: 0.78747, factor: 0.98416}
+  - {high: 0.86208, low: 0.81137, value: 0.83673, factor: 0.98598}
+  - {high: 0.91138, low: 0.86075, value: 0.88607, factor: 0.98751}
+  - {high: 0.96076, low: 0.91019, value: 0.93547, factor: 0.98880}
 - header: {name: "ph"}
   values:
   - {high: 0.25000, low: 0.20000, value: 0.22500}

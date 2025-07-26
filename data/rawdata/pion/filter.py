@@ -3,7 +3,7 @@ import pandas as pd
 import yaml
 import numpy as np
 
-mKA = 0.493677 # GeV
+mPI = 0.1396 # GeV
 
 # BESIII - inclusive PI+
 def filter_BESIII_PIp():
@@ -44,7 +44,7 @@ def filter_BESIII_PIp():
         
         with open(nameexp + '.yaml', 'w') as f:
             print('dependent_variables:', file=f)
-            print('- header: {title: "BESIII $\pi^+$ Multiplicity"}', file=f)
+            print('- header: {title: "BESIII $\\pi^+$ Multiplicity"}', file=f)
             print('  qualifiers:', file=f)
             print('  - {name: process, value: SIA}', file=f)
             print('  - {name: Vs, value: ', cme[l], ', units: GeV}', file=f)
@@ -63,7 +63,7 @@ def filter_BESIII_PIp():
             print('- header: {name: "z"}', file=f)
             print('  values:', file=f)
             for p in range(ndata[l]):
-                factor = np.sqrt(1. + mKA**2./((data.iloc[p,0] + data.iloc[p,1])/2.)**2.)
+                factor = np.sqrt(1. + mPI**2./((data.iloc[p,0] + data.iloc[p,1])/2.)**2.)
                 print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                       % (2./cme[l] * factor * data.iloc[p,1], 2./cme[l] * factor * data.iloc[p,0], 2./cme[l] * factor * (data.iloc[p,0] + data.iloc[p,1])/2., 2./cme[l]/factor), file=f)
             print('- header: {name: "ph"}', file=f)
@@ -116,7 +116,7 @@ def filter_BESIII_PIm():
         
         with open(nameexp + '.yaml', 'w') as f:
             print('dependent_variables:', file=f)
-            print('- header: {title: "BESIII $\pi^-$ Multiplicity"}', file=f)
+            print('- header: {title: "BESIII $\\pi^-$ Multiplicity"}', file=f)
             print('  qualifiers:', file=f)
             print('  - {name: process, value: SIA}', file=f)
             print('  - {name: Vs, value: ', cme[l], ', units: GeV}', file=f)
@@ -135,7 +135,7 @@ def filter_BESIII_PIm():
             print('- header: {name: "z"}', file=f)
             print('  values:', file=f)
             for p in range(ndata[l]):
-                factor = np.sqrt(1. + mKA**2./((data.iloc[p,0] + data.iloc[p,1])/2.)**2.)
+                factor = np.sqrt(1. + mPI**2./((data.iloc[p,0] + data.iloc[p,1])/2.)**2.)
                 print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                       % (2./cme[l] * factor * data.iloc[p,1], 2./cme[l] * factor * data.iloc[p,0], 2./cme[l] * factor * (data.iloc[p,0] + data.iloc[p,1])/2., 2./cme[l]/factor), file=f)
             print('- header: {name: "ph"}', file=f)
@@ -251,7 +251,7 @@ def filter_BABAR_KA_CONVENTIONAL():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -259,11 +259,6 @@ def filter_BABAR_KA_CONVENTIONAL():
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (data.iloc[i,2], data.iloc[i,1], data.iloc[i,0]) , file=f)
-
-
-
-
-
 
 # BABAR - conventional inclusive (uncorrelated)
 def filter_BABAR_KA_CONVENTIONAL_UNCORR():
@@ -320,7 +315,7 @@ def filter_BABAR_KA_CONVENTIONAL_UNCORR():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -410,7 +405,7 @@ def filter_BABAR_KA_PROMPT():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -460,7 +455,7 @@ def filter_TASSO12_KA():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -509,7 +504,7 @@ def filter_TASSO14_KA():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -558,7 +553,7 @@ def filter_TASSO22_KA():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -608,7 +603,7 @@ def filter_TPC_KA():
         print('  values:', file=f)
 
         for i in range(ndata):
-            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mKA**2./cme**2.)
+            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mPI**2./cme**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], 1./factor), file=f)
         print('- header: {name: "xp"}', file=f)
@@ -658,7 +653,7 @@ def filter_TASSO30_KA():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -708,7 +703,7 @@ def filter_TASSO34_KA():
         print('  values:', file=f)
 
         for i in range(ndata):
-            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mKA**2./cme**2.)
+            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mPI**2./cme**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], 1./factor), file=f)
         print('- header: {name: "xp"}', file=f)
@@ -758,7 +753,7 @@ def filter_TASSO44_KA():
         print('  values:', file=f)
 
         for i in range(ndata):
-            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mKA**2./cme**2.)
+            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mPI**2./cme**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], 1./factor), file=f)
         print('- header: {name: "xp"}', file=f)
@@ -808,7 +803,7 @@ def filter_ALEPH_KA():
         print('  values:', file=f)
 
         for i in range(ndata):
-            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mKA**2./cme**2.)
+            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mPI**2./cme**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], 1./factor), file=f)
         print('- header: {name: "xp"}', file=f)
@@ -856,7 +851,7 @@ def filter_DELPHI_KA():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -905,7 +900,7 @@ def filter_DELPHI_KA_UDS():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -954,7 +949,7 @@ def filter_DELPHI_KA_B():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -1002,7 +997,7 @@ def filter_OPAL_KA():
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            factor = np.sqrt(1. + mKA**2./data.iloc[i,0]**2.)
+            factor = np.sqrt(1. + mPI**2./data.iloc[i,0]**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (2./cme * factor * data.iloc[i,2], 2./cme * factor * data.iloc[i,1], 2./cme * factor * data.iloc[i,0], 2./cme/factor), file=f)
         print('- header: {name: "ph"}', file=f)
@@ -1053,7 +1048,7 @@ def filter_SLD_KA():
         print('  values:', file=f)
 
         for i in range(ndata):
-            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mKA**2./cme**2.)
+            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mPI**2./cme**2.)
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], 1./factor), file=f)
         print('- header: {name: "xp"}', file=f)
@@ -1116,7 +1111,7 @@ def filter_SLD_KA_UDS():
         print('  values:', file=f)
 
         for i in range(ndata):
-            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mKA**2./cme**2.)
+            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mPI**2./cme**2.)
             print('  - {value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,0], 1./factor), file=f)
         print('- header: {name: "xp"}', file=f)
@@ -1179,7 +1174,7 @@ def filter_SLD_KA_C():
         print('  values:', file=f)
 
         for i in range(ndata):
-            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mKA**2./cme**2.)
+            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mPI**2./cme**2.)
             print('  - {value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,0], 1./factor), file=f)
         print('- header: {name: "xp"}', file=f)
@@ -1242,7 +1237,7 @@ def filter_SLD_KA_B():
         print('  values:', file=f)
 
         for i in range(ndata):
-            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mKA**2./cme**2.)
+            factor = np.sqrt(1. + 4./data.iloc[i,0]**2. * mPI**2./cme**2.)
             print('  - {value: %7.5f, factor: %7.5f}'
                   % (factor * data.iloc[i,0], 1./factor), file=f)
         print('- header: {name: "xp"}', file=f)

@@ -1,5 +1,5 @@
 dependent_variables:
-- header: {title: "BESIII $\pi^+$ Multiplicity"}
+- header: {title: "BESIII $\\pi^+$ Multiplicity"}
   qualifiers:
   - {name: process, value: SIA}
   - {name: Vs, value:  3.671 , units: GeV}
@@ -86,31 +86,31 @@ dependent_variables:
 independent_variables:
 - header: {name: "z"}
   values:
-  - {high: 0.32842, low: 0.26274, value: 0.29558, factor: 0.22594}
-  - {high: 0.33586, low: 0.27989, value: 0.30787, factor: 0.26512}
-  - {high: 0.34678, low: 0.29724, value: 0.32201, factor: 0.29957}
-  - {high: 0.36027, low: 0.31524, value: 0.33776, factor: 0.32955}
-  - {high: 0.37577, low: 0.33402, value: 0.35490, factor: 0.35545}
-  - {high: 0.39289, low: 0.35360, value: 0.37324, factor: 0.37774}
-  - {high: 0.41132, low: 0.37392, value: 0.39262, factor: 0.39690}
-  - {high: 0.43084, low: 0.39494, value: 0.41289, factor: 0.41336}
-  - {high: 0.45127, low: 0.41656, value: 0.43392, factor: 0.42753}
-  - {high: 0.47248, low: 0.43873, value: 0.45561, factor: 0.43975}
-  - {high: 0.49434, low: 0.46139, value: 0.47787, factor: 0.45032}
-  - {high: 0.51676, low: 0.48447, value: 0.50062, factor: 0.45950}
-  - {high: 0.53967, low: 0.50792, value: 0.52380, factor: 0.46750}
-  - {high: 0.56299, low: 0.53171, value: 0.54735, factor: 0.47450}
-  - {high: 0.58667, low: 0.55579, value: 0.57123, factor: 0.48064}
-  - {high: 0.61067, low: 0.58013, value: 0.59540, factor: 0.48606}
-  - {high: 0.63494, low: 0.60471, value: 0.61983, factor: 0.49085}
-  - {high: 0.65947, low: 0.62949, value: 0.64448, factor: 0.49510}
-  - {high: 0.68420, low: 0.65445, value: 0.66933, factor: 0.49889}
-  - {high: 0.70913, low: 0.67959, value: 0.69436, factor: 0.50228}
-  - {high: 0.73424, low: 0.70487, value: 0.71955, factor: 0.50532}
-  - {high: 0.75949, low: 0.73028, value: 0.74489, factor: 0.50806}
-  - {high: 0.78489, low: 0.75582, value: 0.77035, factor: 0.51053}
-  - {high: 0.81041, low: 0.78146, value: 0.79594, factor: 0.51276}
-  - {high: 0.83604, low: 0.80721, value: 0.82162, factor: 0.51479}
+  - {high: 0.16029, low: 0.12823, value: 0.14426, factor: 0.46294}
+  - {high: 0.18330, low: 0.15275, value: 0.16802, factor: 0.48580}
+  - {high: 0.20753, low: 0.17788, value: 0.19271, factor: 0.50058}
+  - {high: 0.23253, low: 0.20347, value: 0.21800, factor: 0.51058}
+  - {high: 0.25805, low: 0.22938, value: 0.24372, factor: 0.51760}
+  - {high: 0.28393, low: 0.25553, value: 0.26973, factor: 0.52270}
+  - {high: 0.31006, low: 0.28187, value: 0.29596, factor: 0.52651}
+  - {high: 0.33638, low: 0.30835, value: 0.32237, factor: 0.52943}
+  - {high: 0.36285, low: 0.33494, value: 0.34890, factor: 0.53171}
+  - {high: 0.38944, low: 0.36162, value: 0.37553, factor: 0.53352}
+  - {high: 0.41611, low: 0.38837, value: 0.40224, factor: 0.53498}
+  - {high: 0.44286, low: 0.41518, value: 0.42902, factor: 0.53618}
+  - {high: 0.46967, low: 0.44204, value: 0.45586, factor: 0.53717}
+  - {high: 0.49653, low: 0.46895, value: 0.48274, factor: 0.53801}
+  - {high: 0.52343, low: 0.49588, value: 0.50966, factor: 0.53871}
+  - {high: 0.55037, low: 0.52285, value: 0.53661, factor: 0.53931}
+  - {high: 0.57733, low: 0.54984, value: 0.56359, factor: 0.53983}
+  - {high: 0.60432, low: 0.57685, value: 0.59059, factor: 0.54027}
+  - {high: 0.63134, low: 0.60389, value: 0.61761, factor: 0.54066}
+  - {high: 0.65837, low: 0.63094, value: 0.64465, factor: 0.54101}
+  - {high: 0.68542, low: 0.65800, value: 0.67171, factor: 0.54131}
+  - {high: 0.71249, low: 0.68508, value: 0.69878, factor: 0.54157}
+  - {high: 0.73957, low: 0.71217, value: 0.72587, factor: 0.54181}
+  - {high: 0.76666, low: 0.73928, value: 0.75297, factor: 0.54202}
+  - {high: 0.79376, low: 0.76639, value: 0.78007, factor: 0.54222}
 - header: {name: "ph"}
   values:
   - {high: 0.25000, low: 0.20000, value: 0.22500}
