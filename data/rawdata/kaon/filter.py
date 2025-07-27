@@ -1438,30 +1438,40 @@ def filter_COMPASS_KA_MINUS_2024():
         print('  values:', file=f)
         
         for i in range(ndata):
+            if (data.iloc[i,9] < 1e-8):
+                continue
             print('  - errors:', file=f)
             print('    - {label: unc, value: %7.5f}' % (np.sqrt(data.iloc[i,10]**2+(0.6*data.iloc[i,11])**2)), file=f)
             print('    - {label: add, value: %7.5f}' % (0.8*data.iloc[i,11]/data.iloc[i,9]), file=f)
             print('    value: ', data.iloc[i,9], file=f)
-            
+
         print('independent_variables:', file=f)
         print('- header: {name: "z"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
+            if (data.iloc[i,9] < 1e-8):
+                continue
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]+data.iloc[i,4])/2.)), file=f)
         print('- header: {name: "x"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
+            if (data.iloc[i,9] < 1e-8):
+                continue
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]+data.iloc[i,0])/2.)) , file=f)
         print('- header: {name: "y"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
+            if (data.iloc[i,9] < 1e-8):
+                continue
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]+data.iloc[i,2])/2.)) , file=f)
         print('- header: {name: "Q2"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
+            if (data.iloc[i,9] < 1e-8):
+                continue
             Q2av = (data.iloc[i,1]+data.iloc[i,0])/2.*(data.iloc[i,3]+data.iloc[i,2])/2.*cme**2.
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
                   % (Q2av, Q2av, Q2av) , file=f)

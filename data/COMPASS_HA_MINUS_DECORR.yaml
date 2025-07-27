@@ -10,7 +10,7 @@ dependent_variables:
   - {name: x, low: 0.004, high: 0.4, integrate: true}
   - {name: z, low: 0.2, high: 0.85, integrate: true}
   - {name: PS_reduction, W: 5, ymin: 0.1, ymax: 0.7}
-  - {name: hadron, value: KA}
+  - {name: hadron, value: HA}
   - {name: charge, value: -1}
   values:
   - errors:

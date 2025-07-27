@@ -180,7 +180,7 @@ def filter_TASSO44_HA():
                   % (factor * data.iloc[i,2], factor * data.iloc[i,1], factor * data.iloc[i,0], factor), file=f)
             
 # TPC - inclusive
-def filter_TPC_KA():
+def filter_TPC_HA():
     nameexp = 'TPC_HA_PLUS_MINUS'
     infile  = 'TPC/HEPData-ins262143-v1-Table_1.csv'
     ndata   = 34
@@ -1093,7 +1093,7 @@ def filter_COMPASS_HA_MINUS():
         print('  - {name: x, low: 0.004, high: 0.4, integrate: true}', file=f)
         print('  - {name: z, low: 0.2, high: 0.85, integrate: true}', file=f)
         print('  - {name: PS_reduction, W: 5, ymin: 0.1, ymax: 0.7}', file=f)
-        print('  - {name: hadron, value: KA}', file=f)
+        print('  - {name: hadron, value: HA}', file=f)
         print('  - {name: charge, value: -1}', file=f)
         print('  values:', file=f)
         
@@ -1252,7 +1252,7 @@ def filter_COMPASS_HA_MINUS_2024():
 # Filter data
 filter_TASSO14_HA()
 filter_TASSO22_HA()
-filter_TPC_KA()
+filter_TPC_HA()
 filter_TASSO35_HA()
 filter_TASSO44_HA()
 filter_ALEPH_HA()
@@ -1264,6 +1264,9 @@ filter_DELPHI_HA_L_UDS()
 filter_DELPHI_HA_B()
 filter_DELPHI_HA_L_B()
 filter_OPAL_HA()
+filter_OPAL_HA_UDS()
+filter_OPAL_HA_C()
+filter_OPAL_HA_B()
 filter_OPAL_HA_L()
 filter_SLD_HA()
 filter_SLD_HA_UDS()

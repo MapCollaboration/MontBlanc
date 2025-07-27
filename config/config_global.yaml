@@ -51,7 +51,7 @@ NNAD:
   # Initialisation seed
   seed: 4
   # Architecture
-  architecture: [1, 25, 23]
+  architecture: [1, 25, 24]
   # The output function can be either the activation function of the
   # NN (0), or linear (1), or quadratic (2). If this entry is absent a
   # linear function is assumed.
@@ -87,7 +87,7 @@ NNAD:
              0,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0, # - u
              0,  0,  0,  1,  0,  0,  0,  0,  0,  1,  0,  0,  0, # - s+
              0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0, # - c+
-             0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0
+             0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0  # - b+
             #tb  bb  cb  sb  ub  db  g   d   u   s   c   b   t
               ],
        SetName: LHAPDFSet_PI}
@@ -100,7 +100,7 @@ NNAD:
 #            #tb  bb  cb  sb  ub  db  g   d   u   s   c   b   t
 #              ],
 #       SetName: LHAPDFSet_PR}
-#    - {hadron: H,
+#    - {hadron: HA,
 #       map: [0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0, # - g
 #             0,  0,  0,  0,  1,  0,  0,  0,  1,  0,  0,  0,  0, # - u+,
 #             0,  0,  0,  1,  0,  1,  0,  1,  0,  1,  0,  0,  0, # - d++s+
@@ -129,8 +129,8 @@ Data:
 #    - {name: "HERMES $K^-$ proton",         file: "HERMES_KA_MINUS_PROTON.yaml",           cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
 #    - {name: "HERMES $K^+$ deuteron",       file: "HERMES_KA_PLUS_DEUTERON.yaml",          cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
 #    - {name: "HERMES $K^+$ proton",         file: "HERMES_KA_PLUS_PROTON.yaml",            cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
-#    - {name: "COMPASS $K^-$",               file: "COMPASS_KA_MINUS_DECORR.yaml",          cuts: [{name: Qcut, min: 2.0, max: 50}], training fraction: 0.5}
-#    - {name: "COMPASS $K^+$",               file: "COMPASS_KA_PLUS_DECORR.yaml",           cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+#    - {name: "COMPASS $K^-$ deuteron",      file: "COMPASS_KA_MINUS_DECORR.yaml",          cuts: [{name: Qcut, min: 2.0, max: 50}], training fraction: 0.5}
+#    - {name: "COMPASS $K^+$ deuteron",      file: "COMPASS_KA_PLUS_DECORR.yaml",           cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
 #    - {name: "COMPASS $K^-$ proton",        file: "COMPASS_KA_MINUS_2024.yaml",            cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
 #    - {name: "COMPASS $K^+$ proton",        file: "COMPASS_KA_PLUS_2024.yaml",             cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
 #    - {name: "BESIII $K^-$ 2 GeV",          file: "BESIII_KA_MINUS_2p0000.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
