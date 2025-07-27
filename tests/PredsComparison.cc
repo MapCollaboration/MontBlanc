@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 {
   if ((argc - optind) < 1)
     {
-      std::cerr << "Usage: " << argv[0] << " <path to fit folder> [<set name> (default: LHAPDFSet)]" << std::endl;
+      std::cerr << "Usage: " << argv[0] << " <path to fit folder>" << std::endl;
       exit(-1);
     }
 
@@ -38,9 +38,6 @@ int main(int argc, char *argv[])
   // Input information
   const std::string InputCardPath = ResultFolder + "/config.yaml";
   const std::string datafolder    = ResultFolder + "/data/";
-  std::string LHAPDFSet = "LHAPDFSet";
-  if (argc - optind >= 2)
-    LHAPDFSet = argv[optind + 1];
 
   // Timer
   apfel::Timer t;
@@ -91,8 +88,13 @@ int main(int argc, char *argv[])
     }
 
   // Get LHAPDF set
-  std::vector<LHAPDF::PDF*> sets = LHAPDF::mkPDFs(LHAPDFSet);
-  std::shared_ptr<MontBlanc::LHAPDFparameterisation> FFset = std::make_shared<MontBlanc::LHAPDFparameterisation>(sets[0], gz);
+  std::unordered_map<std::string, LHAPDF::PDF*> LHAPDFSets;
+  for (auto const& FlavMap : config["NNAD"]["flavour maps"])
+    {
+      std::vector<LHAPDF::PDF*> sets = LHAPDF::mkPDFs(FlavMap["SetName"].as<std::string>());
+      LHAPDFSets.insert({FlavMap["hadron"].as<std::string>(), sets[0]});
+    }
+  std::shared_ptr<MontBlanc::LHAPDFparameterisation> FFset = std::make_shared<MontBlanc::LHAPDFparameterisation>(LHAPDFSets, gz);
 
   // Run over the experiments, compute central values and standard
   // deviations (of the shifted predictions) over the replicas.
@@ -114,8 +116,8 @@ int main(int argc, char *argv[])
       std::vector<double> avor_legacy(bins.size(), 0);
       std::vector<double> avor_new(bins.size(), 0);
 
-      DSVect_legacy[iexp].second->SetInputFFs(FFset->DistributionFunction());
-      DSVect_new[iexp].second->SetInputFFs(FFset->DistributionFunction());
+      DSVect_legacy[iexp].second->SetInputFFs(FFset->DistributionFunction(DSVect_legacy[iexp].first->GetHadron()));
+      DSVect_new[iexp].second->SetInputFFs(FFset->DistributionFunction(DSVect_legacy[iexp].first->GetHadron()));
       const std::vector<double> prds_legacy = DSVect_legacy[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
       const std::vector<double> prds_new    = DSVect_new[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
@@ -126,7 +128,7 @@ int main(int argc, char *argv[])
                 << std::setw(30) << std::right << "(legacy - new) / legacy"
                 << std::setw(15) << std::right << "legacy / new"
                 << std::endl;
-      std::cout << std::setw(110) << std::setfill('-') << "" << std::setfill(' ') << std::endl;  
+      std::cout << std::setw(110) << std::setfill('-') << "" << std::setfill(' ') << std::endl;
 
       auto kin_bins = DSVect_legacy[iexp].first->GetBinning();
       for (int i = 0; i < (int) bins.size(); i++)
@@ -135,8 +137,8 @@ int main(int argc, char *argv[])
                     << std::setw(10) << std::right << kin_bins[i].Qav << " | " << kin_bins[i].xav << " | " << kin_bins[i].zav
                     << std::setw(15) << std::right << prds_legacy[i]
                     << std::setw(15) << std::right << prds_new[i]
-                    << std::setw(20) << std::right << (prds_legacy[i] - prds_new[i]) / prds_legacy[i] 
-                    << std::setw(20) << std::right << prds_legacy[i] / prds_new[i] 
+                    << std::setw(20) << std::right << (prds_legacy[i] - prds_new[i]) / prds_legacy[i]
+                    << std::setw(20) << std::right << prds_legacy[i] / prds_new[i]
                     << std::endl;
         }
     }

@@ -16,7 +16,18 @@ namespace MontBlanc
     NangaParbat::ChiSquare({}, FFs)
   {
     for (auto const &ds : DSVect)
-      ds.second->SetInputFFs(FFs->DistributionFunction());
+      {
+        try
+          {
+            ds.second->SetInputFFs(FFs->DistributionFunction(ds.first->GetHadron()));
+          }
+        catch (std::exception const &e)
+          {
+            std::cerr << e.what() << std::endl;
+            std::cerr << "... " << ds.first->GetName() << std::endl;
+            exit(1);
+          }
+      }
 
     for (auto const &ds : DSVect)
       AddBlock(ds);
@@ -37,8 +48,7 @@ namespace MontBlanc
   //_________________________________________________________________________
   AnalyticChiSquare::AnalyticChiSquare(NangaParbat::Parameterisation * FFs):
     AnalyticChiSquare::AnalyticChiSquare({}, FFs)
-  {
-  }
+  {}
 
   //_________________________________________________________________________
   void AnalyticChiSquare::SetParameters(std::vector<double> const &pars)
@@ -46,14 +56,14 @@ namespace MontBlanc
     _NPFunc->SetParameters(pars);
     _NPFunc->EvaluateOnGrid();
     for (int ids = 0; ids < (int) _ndata.size(); ids++)
-      _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction());
+      _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction(_DSVect[ids].first->GetHadron()));
   }
 
   //_________________________________________________________________________________
   void AnalyticChiSquare::AddBlock(std::pair<NangaParbat::DataHandler*, NangaParbat::ConvolutionTable*> DSBlock)
   {
     // Push "DataHandler-ConvolutionTable" back
-    DSBlock.second->SetInputFFs(_NPFunc->DistributionFunction());
+    DSBlock.second->SetInputFFs(_NPFunc->DistributionFunction(DSBlock.first->GetHadron()));
     _DSVect.push_back(DSBlock);
     _ndata.push_back(DSBlock.first->GetKinematics().ndata);
     const std::valarray<bool> cm = DSBlock.second->GetCutMask();
@@ -81,7 +91,7 @@ namespace MontBlanc
             if (ids != 0)
               acc += _ndata[ids-1];
 
-            _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction());
+            _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction(_DSVect[ids].first->GetHadron()));
             std::vector<double> resids = GetResiduals(ids);
 
             for (int id = 0; id < _ndata[ids]; id++)
@@ -92,7 +102,7 @@ namespace MontBlanc
                 if (jacobians[ip] == nullptr)
                   continue;
 
-                _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionDerivative(ip));
+                _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionDerivative(ip, _DSVect[ids].first->GetHadron()));
                 std::vector<double> jacobs = GetResidualDerivatives(ids, 0);
 
                 for (int id = 0; id < _ndata[ids]; id++)
@@ -110,7 +120,7 @@ namespace MontBlanc
             if (ids != 0)
               acc += _ndata[ids - 1];
 
-            _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction());
+            _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction(_DSVect[ids].first->GetHadron()));
             std::vector<double> resids = GetResiduals(ids);
 
             for (int id = 0; id < _ndata[ids]; id++)
@@ -135,7 +145,7 @@ namespace MontBlanc
 
     for (int ids = 0; ids < (int) _ndata.size(); ids++)
       {
-        _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction());
+        _DSVect[ids].second->SetInputFFs(_NPFunc->DistributionFunction(_DSVect[ids].first->GetHadron()));
         std::vector<double> resids = GetResiduals(ids);
 
         for (int id = 0; id < (int) _ndata[ids]; id++)

@@ -17,36 +17,42 @@ namespace MontBlanc
   class LHAPDFparameterisation: public NangaParbat::Parameterisation
   {
   public:
-    /**
-     * @brief The "LHAPDFparameterisation" constructor
-     */
-    LHAPDFparameterisation(std::string const &name, std::shared_ptr<const apfel::Grid> g, int const& member = 0);
 
     /**
      * @brief The "LHAPDFparameterisation" constructor
      */
-    LHAPDFparameterisation(LHAPDF::PDF* set, std::shared_ptr<const apfel::Grid> g);
+    LHAPDFparameterisation(std::unordered_map<std::string, std::string> const &names, std::shared_ptr<const apfel::Grid> g, std::unordered_map<std::string, int> const& members);
 
     /**
      * @brief The "LHAPDFparameterisation" constructor
      */
-    LHAPDFparameterisation(std::vector<LHAPDF::PDF*> sets, std::shared_ptr<const apfel::Grid> g, int const& member = 0);
+    LHAPDFparameterisation(std::unordered_map<std::string, LHAPDF::PDF*> MapSet, std::shared_ptr<const apfel::Grid> g);
+
+    /**
+     * @brief The "LHAPDFparameterisation" constructor
+     */
+    LHAPDFparameterisation(std::unordered_map<std::string, std::vector<LHAPDF::PDF*>> MapSets, std::shared_ptr<const apfel::Grid> g, std::unordered_map<std::string, int> const& MapMember = {});
 
     /**
      * @brief The "LHAPDFparameterisation" destructor
      */
-    ~LHAPDFparameterisation() { delete _FFs; };
+    ~LHAPDFparameterisation()
+    {
+      for (auto const& p : _MapFFs)
+        delete p.second;
+    }
 
     /**
      * @brief Function that returns the parametrisation in the form of
      * a std::function.
      */
-    std::function<apfel::Set<apfel::Distribution>(double const&)> DistributionFunction() const;
+    std::function<apfel::Set<apfel::Distribution>(double const&)> DistributionFunction(std::string const&) const;
+
 
   private:
-    LHAPDF::PDF                       *_FFs;
-    std::shared_ptr<const apfel::Grid> _g;
-    apfel::ConvolutionMap              _cmap;
+    std::unordered_map<std::string, LHAPDF::PDF*>        _MapFFs;
+    std::shared_ptr<const apfel::Grid>                   _g;
+    apfel::ConvolutionMap                                _cmap;
   };
 
 }

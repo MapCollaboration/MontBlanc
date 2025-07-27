@@ -34,8 +34,8 @@ namespace MontBlanc
     void EvaluateOnGrid();
     void DeriveOnGrid();
 
-    std::function<apfel::Set<apfel::Distribution>(double const&)> DistributionFunction() const;
-    std::function<apfel::Set<apfel::Distribution>(double const&)> DistributionDerivative(int ipar) const;
+    std::function<apfel::Set<apfel::Distribution>(double const&)> DistributionFunction(std::string const& hadron) const;
+    std::function<apfel::Set<apfel::Distribution>(double const&)> DistributionDerivative(int ipar, std::string const& hadron) const;
 
   private:
     std::vector<int>                             _NNarchitecture;
@@ -44,7 +44,9 @@ namespace MontBlanc
     int                                          _Np;
     int                                          _OutputFunction;
     std::shared_ptr<const apfel::Grid>           _g;
-    nnad::Matrix<double>                         _Rotation;
-    std::vector<apfel::Set<apfel::Distribution>> _NNderivativeSets;
+    std::map<std::string, nnad::Matrix<double>>  _Rotations;
+    std::map<std::string, nnad::Matrix<double>>  _SplitMatrices;
+    std::map<std::string, std::vector<apfel::Set<apfel::Distribution>>> _NNderivativeSets;
+    std::map<std::string, int> _HadronOutputSizeMap;
   };
 }

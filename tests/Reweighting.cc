@@ -35,6 +35,9 @@ int main(int argc, char *argv[])
   const std::string InputCardPath = argv[2];
   const std::string DataFolder = (std::string) argv[3] + "/";
 
+  std::cout << "WARNING: this module does not handle multiple hadrons. If the more than one hadrons are "
+            << "provided in the runcard, the result will be undefined behaviour.\n";
+
   // Timer
   apfel::Timer t;
 
@@ -91,11 +94,13 @@ int main(int argc, char *argv[])
   LHAPDF::setPaths(GetCurrentWorkingDir() + "/" + LHAPDFSetLoc + "/");
 
   // Load LHAPDF set to get the number of members
-  const LHAPDF::PDFSet ffset("LHAPDFSet");
+  const std::string SetName = config["NNAD"]["flavour maps"][0]["SetName"].as<std::string>();
+  const std::string hadron = config["NNAD"]["flavour maps"][0]["hadron"].as<std::string>();
+  const LHAPDF::PDFSet ffset(SetName);
   for (int irep = 1; irep < ffset.get_entry_as<int>("NumMembers"); irep++)
     {
       // Initialiase chi2 object LHAPDF Parameterisation
-      NangaParbat::ChiSquare *chi2 = new MontBlanc::AnalyticChiSquare{DSVect, new MontBlanc::LHAPDFparameterisation("LHAPDFSet", gz, irep)};
+      NangaParbat::ChiSquare *chi2 = new MontBlanc::AnalyticChiSquare{DSVect, new MontBlanc::LHAPDFparameterisation({{hadron, SetName}}, gz, {{hadron, irep}})};
 
       // Compute weight
       const int    np = chi2->GetDataPointNumber();

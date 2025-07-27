@@ -14,7 +14,7 @@
 // Compiler guard to avoid warnings in the use of the SOURCE_DIR
 // The variable SOURCE_DIR is defined during the CMake configuration
 #ifndef SOURCE_DIR
-  #error "SOURCE_DIR is not defined!"
+#error "SOURCE_DIR is not defined!"
 #endif //TABLE_DIR
 
 namespace MontBlanc
@@ -112,10 +112,14 @@ namespace MontBlanc
         std::map<int, apfel::Operator> Gammaij = TabGammaij->Evaluate(Vs).GetObjects();
 
         // Get F2 objects at the scale Vs
-        const apfel::StructureFunctionObjects F2Obj = apfel::InitializeF2NCObjectsZMT(*_gz, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
+        apfel::StructureFunctionObjects FObj;
+	if (_obs == NangaParbat::DataHandler::Observable::FL)
+	  FObj = apfel::InitializeFLNCObjectsZMT(*_gz, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
+	else
+	  FObj = apfel::InitializeF2NCObjectsZMT(*_gz, _Thresholds)(Vs, apfel::ElectroWeakCharges(Vs, true));
 
         // Get skip vector
-        const std::vector<int> skip = F2Obj.skip;
+        const std::vector<int> skip = FObj.skip;
 
         // Intialise container for the FK table
         std::map<int, apfel::Operator> Cj;
@@ -130,11 +134,11 @@ namespace MontBlanc
           {
             // Combine perturbative contributions to the coefficient
             // functions
-            apfel::Set<apfel::Operator> Ki = F2Obj.C0.at(comp);
+            apfel::Set<apfel::Operator> Ki = FObj.C0.at(comp);
             if (PerturbativeOrder > 0)
-              Ki += ( as / apfel::FourPi ) * F2Obj.C1.at(comp);
+              Ki += ( as / apfel::FourPi ) * FObj.C1.at(comp);
             if (PerturbativeOrder > 1)
-              Ki += pow(as / apfel::FourPi, 2) * F2Obj.C2.at(comp);
+              Ki += pow(as / apfel::FourPi, 2) * FObj.C2.at(comp);
 
             // Convolute coefficient functions with the evolution
             // operators
@@ -148,7 +152,7 @@ namespace MontBlanc
                     gj.insert({i, Gammaij.at(apfel::Gkj.at({i, j}))});
 
                 // Convolute distributions, combine them and return.
-                Cj.at(j) += (Ki * apfel::Set<apfel::Operator> {F2Obj.ConvBasis.at(comp), gj}).Combine();
+                Cj.at(j) += (Ki * apfel::Set<apfel::Operator> {FObj.ConvBasis.at(comp), gj}).Combine();
               }
 
             // Update total cross sections
@@ -294,7 +298,7 @@ namespace MontBlanc
 
           // Functions that multiply FT and FL
           const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const&) -> double{ return fact * 2 * ( 1 - pow(Q / Vs, 2) / x ) / x; };
-	  const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const&) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
+          const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const&) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
 
           // Transverse
           apfel::DoubleOperator OTns   = OT0ns;
@@ -457,9 +461,9 @@ namespace MontBlanc
               const apfel::DistributionOperator CT_qpq_3 = OTqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i);
               const apfel::DistributionOperator CL_qpq_3 = OLqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i);
               KiMap.insert({i, funcT * ( CT_qq_NS + CT_qg + CT_qq_ps + CT_qbq + CT_qpq_1 + CT_qpq_2 + CT_qpq_3) + funcL * (CL_qq_NS + CL_qg + CL_qq_ps + CL_qbq + CL_qpq_1 + CL_qpq_2 + CL_qpq_3 )});
-	    }
+            }
 
-	  return apfel::Set<apfel::DistributionOperator>{KiMap};
+          return apfel::Set<apfel::DistributionOperator>{KiMap};
         };
 
         // Tabulate semi-inclusive cross sections in Q

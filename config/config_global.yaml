@@ -1,0 +1,257 @@
+#################################
+# Predictions
+#################################
+Predictions:
+  # Perturbative order, 0: LO, 1: NLO
+  perturbative order: 2
+
+  # Initial scale in GeV to be used for the DGLAP evolution of the FFs.
+  mu0: 5
+
+  # Quark thresholds
+  thresholds: [0, 0, 0, 1.51, 4.92]
+
+  # Strong coupling
+  alphas:
+    aref: 0.118
+    Qref: 91.1876
+
+  # Fine-structure constant
+  alphaem:
+    aref: 0.00776578395589
+    Qref: 91.1876
+
+  # APFEL++ grid
+  xgrid:
+   - [100, 0.001, 3]
+   - [33, 0.1023293, 3]
+   - [48, 0.81283052, 3]
+
+  zgrid:
+   - [100, 0.01, 3]
+   - [34, 0.20892961, 3]
+   - [48, 0.83176377, 3]
+
+  # PDF set
+  pdfset:
+    name: NNPDF31_nnlo_pch_as_0118
+    member: -1 #N>=0 for a specific member (0 for central) ; N<0 for all members to be used randomly(flat dist)
+    
+#################################
+# Optimiser
+#################################
+# Parameters of the optimiser managed by ceres-solver
+Optimizer:
+  max_num_iterations: 3000
+  chi2_tolerance: 3
+#################################
+# NNAD
+#################################
+NNAD:
+  # Initialisation seed
+  seed: 4
+  # Architecture
+  architecture: [1, 25, 24]
+  # The output function can be either the activation function of the
+  # NN (0), or linear (1), or quadratic (2). If this entry is absent a
+  # linear function is assumed.
+  output function: 2
+  # The flavour map gives the the specific combinations of
+  # distributions in the physical-basis (d, u, s, ..) to be fitted to
+  # the data. The number of combinations has to match the number of
+  # nodes of the output layer of the NN given in the
+  # architecture. When defining the flavour map, one should keep in
+  # mind that the code computes predictions using the QCD-evolution
+  # basis (Sigma, V, T3, ...). Therefore, in general,
+  # QCD-evolution-like combinations should be preferred. Moreover, the
+  # distributions are assumed to be for the positive charge of the a
+  # given hadronic species. The negative distributions are derived
+  # using charge conjugation (q->qbar).
+
+  flavour maps: 
+#    - {hadron: KA,
+#       map: [0,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0, # - sb
+#             0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0, # - g
+#             0,  0,  0,  0,  1,  0,  0,  0,  0,  1,  0,  0,  0, # - s = ubar
+#             0,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0, # - u
+#             0,  0,  0,  0,  0,  1,  0,  1,  0,  0,  0,  0,  0, # - d+
+#             0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0, # - c+
+#             0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0  # - b+
+#            #tb  bb  cb  sb  ub  db  g   d   u   s   c   b   t
+#              ],
+#       SetName: LHAPDFSet_KA}
+    - {hadron: PI,
+       map: [0,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0, # - db
+             0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0, # - g
+             0,  0,  0,  0,  1,  0,  0,  1,  0,  0,  0,  0,  0, # - d = ubar
+             0,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0, # - u
+             0,  0,  0,  1,  0,  0,  0,  0,  0,  1,  0,  0,  0, # - s+
+             0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0, # - c+
+             0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0  # - b+
+            #tb  bb  cb  sb  ub  db  g   d   u   s   c   b   t
+              ],
+       SetName: LHAPDFSet_PI}
+#    - {hadron: PR,
+#       map: [0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0, # - g
+#             0,  0,  0,  0,  1,  0,  0,  0,  1,  0,  0,  0,  0, # - u+,
+#             0,  0,  0,  1,  0,  1,  0,  1,  0,  1,  0,  0,  0, # - d++s+
+#             0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0, # - c+
+#             0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0  # - b+
+#            #tb  bb  cb  sb  ub  db  g   d   u   s   c   b   t
+#              ],
+#       SetName: LHAPDFSet_PR}
+#    - {hadron: HA,
+#       map: [0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0, # - g
+#             0,  0,  0,  0,  1,  0,  0,  0,  1,  0,  0,  0,  0, # - u+,
+#             0,  0,  0,  1,  0,  1,  0,  1,  0,  1,  0,  0,  0, # - d++s+
+#             0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0, # - c+
+#             0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0  # - b+
+#            #tb  bb  cb  sb  ub  db  g   d   u   s   c   b   t
+#              ],
+#       SetName: NNFF11_HadronSum_nlo}
+#  combine: true
+#################################
+# Data
+#################################
+Data:
+  # Seed used for the replica generation and the splitting between
+  # training and validation (do not use a too large number here in
+  # order to avoid correlation in the replica generation).
+  seed: 0
+
+  # Datasets to be included in the fit along with specific cuts and
+  # traning fraction. Each single dataset can implement an arbitrary
+  # number of cuts determined by the name of the appropriate function
+  # (e.g. zcut) and the allowed range.
+  sets:
+  # KAONS
+#    - {name: "HERMES $K^-$ deuteron",       file: "HERMES_KA_MINUS_DEUTERON.yaml",         cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+#    - {name: "HERMES $K^-$ proton",         file: "HERMES_KA_MINUS_PROTON.yaml",           cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+#    - {name: "HERMES $K^+$ deuteron",       file: "HERMES_KA_PLUS_DEUTERON.yaml",          cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+#    - {name: "HERMES $K^+$ proton",         file: "HERMES_KA_PLUS_PROTON.yaml",            cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+#    - {name: "COMPASS $K^-$ deuteron",      file: "COMPASS_KA_MINUS_DECORR.yaml",          cuts: [{name: Qcut, min: 2.0, max: 50}], training fraction: 0.5}
+#    - {name: "COMPASS $K^+$ deuteron",      file: "COMPASS_KA_PLUS_DECORR.yaml",           cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+#    - {name: "COMPASS $K^-$ proton",        file: "COMPASS_KA_MINUS_2024.yaml",            cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+#    - {name: "COMPASS $K^+$ proton",        file: "COMPASS_KA_PLUS_2024.yaml",             cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+#    - {name: "BESIII $K^-$ 2 GeV",          file: "BESIII_KA_MINUS_2p0000.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $K^-$ 2.2 GeV",        file: "BESIII_KA_MINUS_2p0000.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $K^-$ 2.39 GeV",       file: "BESIII_KA_MINUS_2p3960.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $K^-$ 2.64 GeV",       file: "BESIII_KA_MINUS_2p6444.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $K^-$ 2.90 GeV",       file: "BESIII_KA_MINUS_2p9000.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $K^-$ 3.05 GeV",       file: "BESIII_KA_MINUS_3p0500.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $K^-$ 3.50 GeV",       file: "BESIII_KA_MINUS_3p5000.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $K^-$ 3.67 GeV",       file: "BESIII_KA_MINUS_3p6710.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $K^+$ 2 GeV",          file: "BESIII_KA_PLUS_2p0000.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}],  training fraction: 0.5}
+#    - {name: "BESIII $K^+$ 2.2 GeV",        file: "BESIII_KA_PLUS_2p0000.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}],  training fraction: 0.5}
+#    - {name: "BESIII $K^+$ 2.39 GeV",       file: "BESIII_KA_PLUS_2p3960.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}],  training fraction: 0.5}
+#    - {name: "BESIII $K^+$ 2.64 GeV",       file: "BESIII_KA_PLUS_2p6444.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}],  training fraction: 0.5}
+#    - {name: "BESIII $K^+$ 2.90 GeV",       file: "BESIII_KA_PLUS_2p9000.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}],  training fraction: 0.5}
+#    - {name: "BESIII $K^+$ 3.05 GeV",       file: "BESIII_KA_PLUS_3p0500.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}],  training fraction: 0.5}
+#    - {name: "BESIII $K^+$ 3.50 GeV",       file: "BESIII_KA_PLUS_3p5000.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}],  training fraction: 0.5}
+#    - {name: "BESIII $K^+$ 3.67 GeV",       file: "BESIII_KA_PLUS_3p6710.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}],  training fraction: 0.5}      
+#    - {name: "BELLE $K^\\pm$",              file: "BELLE_KA_PLUS_MINUS.yaml",              cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BABAR conventional $K^\\pm$", file: "BABAR_KA_PLUS_MINUS_CONVENTIONAL.yaml", cuts: [{name: zcut, min: 0.2, max: 0.9}],   training fraction: 0.5}
+#    - {name: "TASSO 12 GeV $K^\\pm$",       file: "TASSO_12_KA_PLUS_MINUS.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 14 GeV $K^\\pm$",       file: "TASSO_14_KA_PLUS_MINUS.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 22 GeV $K^\\pm$",       file: "TASSO_22_KA_PLUS_MINUS.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TPC $K^\\pm$",                file: "TPC_KA_PLUS_MINUS.yaml",                cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 30 GeV $K^\\pm$",       file: "TASSO_30_KA_PLUS_MINUS.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 34 GeV $K^\\pm$",       file: "TASSO_34_KA_PLUS_MINUS.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 44 GeV $K^\\pm$",       file: "TASSO_44_KA_PLUS_MINUS.yaml",           cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TOPAZ $K^\\pm$",              file: "TOPAZ_KA_PLUS_MINUS.yaml",              cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "ALEPH $K^\\pm$",              file: "ALEPH_KA_PLUS_MINUS.yaml",              cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "DELPHI total $K^\\pm$",       file: "DELPHI_KA_PLUS_MINUS.yaml",             cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "DELPHI $uds$ $K^\\pm$",       file: "DELPHI_KA_PLUS_MINUS_UDS.yaml",         cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "DELPHI bottom $K^\\pm$",      file: "DELPHI_KA_PLUS_MINUS_B.yaml",           cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "OPAL $K^\\pm$",               file: "OPAL_KA_PLUS_MINUS.yaml",               cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "SLD total $K^\\pm$",          file: "SLD_KA_PLUS_MINUS.yaml",                cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "SLD $uds$ $K^\\pm$",          file: "SLD_KA_PLUS_MINUS_UDS.yaml",            cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "SLD bottom $K^\\pm$",         file: "SLD_KA_PLUS_MINUS_B.yaml",              cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+  # PIONS
+    - {name: "HERMES $\\pi^-$ deuteron",  file: "HERMES_PI_MINUS_DEUTERON.yaml",   cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+    - {name: "HERMES $\\pi^-$ proton",    file: "HERMES_PI_MINUS_PROTON.yaml",     cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+    - {name: "HERMES $\\pi^+$ deuteron",  file: "HERMES_PI_PLUS_DEUTERON.yaml",    cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+    - {name: "HERMES $\\pi^+$ proton",    file: "HERMES_PI_PLUS_PROTON.yaml",      cuts: [{name: Qcut, min: 2.0, max: 50}, {name: zcut, min: 0.2, max: 0.8}], training fraction: 0.5}
+    - {name: "COMPASS $\\pi^-$",          file: "COMPASS_PI_MINUS_DECORR.yaml",    cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+    - {name: "COMPASS $\\pi^+$",          file: "COMPASS_PI_PLUS_DECORR.yaml",     cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+    - {name: "COMPASS $\\pi^-$ proton",   file: "COMPASS_PI_MINUS_2024.yaml",      cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+    - {name: "COMPASS $\\pi^+$ proton",   file: "COMPASS_PI_PLUS_2024.yaml",       cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+#    - {name: "BESIII $\\pi^-$ 2 GeV",     file: "BESIII_PI_MINUS_2p0000.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $\\pi^-$ 2.2 GeV",   file: "BESIII_PI_MINUS_2p2000.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $\\pi^-$ 2.39 GeV",  file: "BESIII_PI_MINUS_2p3960.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $\\pi^-$ 2.64 GeV",  file: "BESIII_PI_MINUS_2p6444.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $\\pi^-$ 2.90 GeV",  file: "BESIII_PI_MINUS_2p9000.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "BESIII $\\pi^-$ 3.05 GeV",  file: "BESIII_PI_MINUS_3p0500.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "BESIII $\\pi^-$ 3.50 GeV",  file: "BESIII_PI_MINUS_3p5000.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "BESIII $\\pi^-$ 3.67 GeV",  file: "BESIII_PI_MINUS_3p6710.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $\\pi^+$ 2 GeV",     file: "BESIII_PI_PLUS_2p0000.yaml",      cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $\\pi^+$ 2.2 GeV",   file: "BESIII_PI_PLUS_2p2000.yaml",      cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $\\pi^+$ 2.39 GeV",  file: "BESIII_PI_PLUS_2p3960.yaml",      cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $\\pi^+$ 2.64 GeV",  file: "BESIII_PI_PLUS_2p6444.yaml",      cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "BESIII $\\pi^+$ 2.90 GeV",  file: "BESIII_PI_PLUS_2p9000.yaml",      cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "BESIII $\\pi^+$ 3.05 GeV",  file: "BESIII_PI_PLUS_3p0500.yaml",      cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "BESIII $\\pi^+$ 3.50 GeV",  file: "BESIII_PI_PLUS_3p5000.yaml",      cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "BESIII $\\pi^+$ 3.67 GeV",  file: "BESIII_PI_PLUS_3p6710.yaml",      cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}             
+    - {name: "BELLE $\\pi^\\pm$",         file: "BELLE_PI_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "BABAR prompt $\\pi^\\pm$",  file: "BABAR_PI_PLUS_MINUS_PROMPT.yaml", cuts: [{name: zcut, min: 0.076, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 12 GeV $\\pi^\\pm$",  file: "TASSO_12_PI_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 14 GeV $\\pi^\\pm$",  file: "TASSO_14_PI_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 22 GeV $\\pi^\\pm$",  file: "TASSO_22_PI_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TPC $\\pi^\\pm$",           file: "TPC_PI_PLUS_MINUS.yaml",          cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 30 GeV $\\pi^\\pm$",  file: "TASSO_30_PI_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 34 GeV $\\pi^\\pm$",  file: "TASSO_34_PI_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TASSO 44 GeV $\\pi^\\pm$",  file: "TASSO_44_PI_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "TOPAZ $\\pi^\\pm$",         file: "TOPAZ_PI_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+    - {name: "ALEPH $\\pi^\\pm$",         file: "ALEPH_PI_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+    - {name: "DELPHI total $\\pi^\\pm$",  file: "DELPHI_PI_PLUS_MINUS.yaml",       cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+    - {name: "DELPHI $uds$ $\\pi^\\pm$",  file: "DELPHI_PI_PLUS_MINUS_UDS.yaml",   cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+    - {name: "DELPHI bottom $\\pi^\\pm$", file: "DELPHI_PI_PLUS_MINUS_B.yaml",     cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+    - {name: "OPAL $\\pi^\\pm$",          file: "OPAL_PI_PLUS_MINUS.yaml",         cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+    - {name: "SLD total $\\pi^\\pm$",     file: "SLD_PI_PLUS_MINUS.yaml",          cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+    - {name: "SLD $uds$ $\\pi^\\pm$",     file: "SLD_PI_PLUS_MINUS_UDS.yaml",      cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+    - {name: "SLD bottom $\\pi^\\pm$",    file: "SLD_PI_PLUS_MINUS_B.yaml",        cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+ # PROTONS
+#    - {name: "BABAR prompt $p/\\overline{p}$",  file: "BABAR_PR_PLUS_MINUS_PROMPT.yaml", cuts: [{name: zcut, min: 0.076, max: 0.9}], training fraction: 0.5}
+#    - {name: "BELLE $p/\\overline{p}$",         file: "BELLE_PR_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.076, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 12 GeV $p/\\overline{p}$",  file: "TASSO_12_PR_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 14 GeV $p/\\overline{p}$",  file: "TASSO_14_PR_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 22 GeV $p/\\overline{p}$",  file: "TASSO_22_PR_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TPC $p/\\overline{p}$",           file: "TPC_PR_PLUS_MINUS.yaml",          cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 30 GeV $p/\\overline{p}$",  file: "TASSO_30_PR_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 34 GeV $p/\\overline{p}$",  file: "TASSO_34_PR_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 44 GeV $p/\\overline{p}$",  file: "TASSO_44_PR_PLUS_MINUS.yaml",     cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "ALEPH $p/\\overline{p}$",         file: "ALEPH_PR_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+#    - {name: "DELPHI total $p/\\overline{p}$",  file: "DELPHI_PR_PLUS_MINUS.yaml",       cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+#    - {name: "DELPHI $uds$ $p/\\overline{p}$",  file: "DELPHI_PR_PLUS_MINUS_UDS.yaml",   cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+#    - {name: "DELPHI bottom $p/\\overline{p}$", file: "DELPHI_PR_PLUS_MINUS_B.yaml",     cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+#    - {name: "SLD total $p/\\overline{p}$",     file: "SLD_PR_PLUS_MINUS.yaml",          cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+#    - {name: "SLD $uds$ $p/\\overline{p}$",     file: "SLD_PR_PLUS_MINUS_UDS.yaml",      cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+#    - {name: "SLD charm $p/\\overline{p}$",     file: "SLD_PR_PLUS_MINUS_C.yaml",        cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+#    - {name: "SLD bottom $p/\\overline{p}$",    file: "SLD_PR_PLUS_MINUS_B.yaml",        cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+# # HADRONS
+#    - {name: "COMPASS $h^-$",          file: "COMPASS_HA_MINUS_DECORR.yaml",              cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+#    - {name: "COMPASS $h^+$",          file: "COMPASS_HA_PLUS_DECORR.yaml",               cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+#    - {name: "COMPASS $h^-$ proton",   file: "COMPASS_HA_MINUS_2024.yaml",         cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5}
+#    - {name: "COMPASS $h^+$ proton",   file: "COMPASS_HA_PLUS_2024.yaml",          cuts: [{name: Qcut, min: 2.0, max: 50}],    training fraction: 0.5} 
+#    - {name: "TASSO 14 GeV $h^\\pm$",  file: "TASSO_14_HA_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 22 GeV $h^\\pm$",  file: "TASSO_22_HA_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TPC $h^\\pm$",           file: "TPC_HA_PLUS_MINUS.yaml",             cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 35 GeV $h^\\pm$",  file: "TASSO_35_HA_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "TASSO 44 GeV $h^\\pm$",  file: "TASSO_44_HA_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+#    - {name: "ALEPH $h^\\pm$",         file: "ALEPH_HA_PLUS_MINUS.yaml",           cuts: [{name: zcut, min: 0.02,  max: 0.9}], training fraction: 0.5}
+#    - {name: "ALEPH L $h^\\pm$",       file: "ALEPH_HA_L_PLUS_MINUS.yaml",         cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+#    - {name: "DELPHI total $h^\\pm$",  file: "DELPHI_HA_PLUS_MINUS.yaml",          cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "DELPHI $uds$ $h^\\pm$",  file: "DELPHI_HA_PLUS_MINUS_UDS.yaml",      cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "DELPHI bottom $h^\\pm$", file: "DELPHI_HA_PLUS_MINUS_B.yaml",        cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}   
+#    - {name: "DELPHI L $h^\\pm$",      file: "DELPHI_HA_L_PLUS_MINUS.yaml",        cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+#    - {name: "DELPHI L B $h^\\pm$",    file: "DELPHI_HA_L_PLUS_MINUS_B.yaml",      cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+#    - {name: "DELPHI L uds $h^\\pm$",  file: "DELPHI_HA_L_PLUS_MINUS_UDS.yaml",    cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+#    - {name: "OPAL total $h^\\pm$",    file: "OPAL_HA_PLUS_MINUS.yaml",            cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "OPAL $uds$ $h^\\pm$",    file: "OPAL_HA_PLUS_MINUS_UDS.yaml",        cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "OPAL charm $h^\\pm$",    file: "OPAL_HA_PLUS_MINUS_UDS.yaml",        cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "OPAL bottom $h^\\pm$",   file: "OPAL_HA_PLUS_MINUS_B.yaml",          cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}     
+#    - {name: "OPAL L $h^\\pm$",        file: "OPAL_HA_L_PLUS_MINUS.yaml",          cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+#    - {name: "SLD total $h^\\pm$",     file: "SLD_HA_PLUS_MINUS.yaml",             cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "SLD $uds$ $h^\\pm$",     file: "SLD_HA_PLUS_MINUS_UDS.yaml",         cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "SLD charm $h^\\pm$",     file: "SLD_HA_PLUS_MINUS_UDS.yaml",         cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}
+#    - {name: "SLD bottom $h^\\pm$",    file: "SLD_HA_PLUS_MINUS_B.yaml",           cuts: [{name: zcut, min: 0.02, max: 0.9}],  training fraction: 0.5}   
