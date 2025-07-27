@@ -1005,7 +1005,7 @@ def filter_SLD_HA_B():
 
 # COMPASS - SIDIS, h+
 def filter_COMPASS_HA_PLUS():
-    nameexp = 'COMPASS_HA_PLUS'
+    nameexp = 'COMPASS_HA_PLUS_DECORR'
     infile  = 'COMPASS/HEPData-ins1444985-v1-Table_3.csv'
     ndata   = 311
     cme     = 17.34 #GeV
@@ -1061,12 +1061,12 @@ def filter_COMPASS_HA_PLUS():
         print('- header: {name: "Q2"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            print('  - {value: %7.5f}'
-                  % (data.iloc[i,6]) , file=f)
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,6], data.iloc[i,6], data.iloc[i,6]) , file=f)
 
 # COMPASS - SIDIS, h-
 def filter_COMPASS_HA_MINUS():
-    nameexp = 'COMPASS_HA_MINUS'
+    nameexp = 'COMPASS_HA_MINUS_DECORR'
     infile  = 'COMPASS/HEPData-ins1444985-v1-Table_4.csv'
     ndata   = 311
     cme     = 17.34 #GeV
@@ -1122,8 +1122,8 @@ def filter_COMPASS_HA_MINUS():
         print('- header: {name: "Q2"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            print('  - {value: %7.5f}'
-                  % (data.iloc[i,6]) , file=f)
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,6], data.iloc[i,6], data.iloc[i,6]) , file=f)
 
 # COMPASS - SIDIS, h+ 2024
 def filter_COMPASS_HA_PLUS_2024():
@@ -1169,22 +1169,23 @@ def filter_COMPASS_HA_PLUS_2024():
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]-data.iloc[i,4])/2.)), file=f)
+                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]+data.iloc[i,4])/2.)), file=f)
         print('- header: {name: "x"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]-data.iloc[i,0])/2.)) , file=f)
+                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]+data.iloc[i,0])/2.)) , file=f)
         print('- header: {name: "y"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]-data.iloc[i,2])/2.)) , file=f)
+                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]+data.iloc[i,2])/2.)) , file=f)
         print('- header: {name: "Q2"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            print('  - {value: %7.5f}'
-                  % ((data.iloc[i,1]-data.iloc[i,0])/2.*(data.iloc[i,3]-data.iloc[i,2])/2.*cme**2.) , file=f)
+            Q2av = (data.iloc[i,1]+data.iloc[i,0])/2.*(data.iloc[i,3]+data.iloc[i,2])/2.*cme**2.
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (Q2av, Q2av, Q2av) , file=f)
 
 # COMPASS - SIDIS, h- 2024
 def filter_COMPASS_HA_MINUS_2024():
@@ -1230,22 +1231,23 @@ def filter_COMPASS_HA_MINUS_2024():
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]-data.iloc[i,4])/2.)), file=f)
+                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]+data.iloc[i,4])/2.)), file=f)
         print('- header: {name: "x"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]-data.iloc[i,0])/2.)) , file=f)
+                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]+data.iloc[i,0])/2.)) , file=f)
         print('- header: {name: "y"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]-data.iloc[i,2])/2.)) , file=f)
+                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]+data.iloc[i,2])/2.)) , file=f)
         print('- header: {name: "Q2"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            print('  - {value: %7.5f}'
-                  % ((data.iloc[i,1]-data.iloc[i,0])/2.*(data.iloc[i,3]-data.iloc[i,2])/2.*cme**2.) , file=f)
+            Q2av = (data.iloc[i,1]+data.iloc[i,0])/2.*(data.iloc[i,3]+data.iloc[i,2])/2.*cme**2.
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (Q2av, Q2av, Q2av) , file=f)
             
 # Filter data
 filter_TASSO14_HA()

@@ -44,7 +44,7 @@ def filter_BESIII_PIp():
         
         with open(nameexp + '.yaml', 'w') as f:
             print('dependent_variables:', file=f)
-            print('- header: {title: "BESIII $\\pi^+$ Multiplicity"}', file=f)
+            print('- header: {title: "BESIII $\\\\pi^+$ Multiplicity"}', file=f)
             print('  qualifiers:', file=f)
             print('  - {name: process, value: SIA}', file=f)
             print('  - {name: Vs, value: ', cme[l], ', units: GeV}', file=f)
@@ -116,7 +116,7 @@ def filter_BESIII_PIm():
         
         with open(nameexp + '.yaml', 'w') as f:
             print('dependent_variables:', file=f)
-            print('- header: {title: "BESIII $\\pi^-$ Multiplicity"}', file=f)
+            print('- header: {title: "BESIII $\\\\pi^-$ Multiplicity"}', file=f)
             print('  qualifiers:', file=f)
             print('  - {name: process, value: SIA}', file=f)
             print('  - {name: Vs, value: ', cme[l], ', units: GeV}', file=f)
@@ -1248,7 +1248,7 @@ def filter_SLD_KA_B():
 
 # COMPASS - SIDIS, pi+
 def filter_COMPASS_PI_PLUS():
-    nameexp = 'COMPASS_PI_PLUS'
+    nameexp = 'COMPASS_PI_PLUS_DECORR'
     infile  = 'COMPASS/HEPData-ins1444985-v1-Table_1.csv'
     ndata   = 311
     cme     = 17.34 #GeV
@@ -1264,7 +1264,7 @@ def filter_COMPASS_PI_PLUS():
     
     with open(nameexp + '.yaml', 'w') as f:
         print('dependent_variables:', file=f)
-        print('- header: {title: "COMPASS $\pi^+$ Multiplicities"}', file=f)
+        print('- header: {title: "COMPASS $\\\\pi^+$ Multiplicities"}', file=f)
         print('  qualifiers:', file=f)
         print('  - {name: process, value: SIDIS}', file=f)
         print('  - {name: observable, value: dsigma/dxdydz}', file=f)
@@ -1304,12 +1304,12 @@ def filter_COMPASS_PI_PLUS():
         print('- header: {name: "Q2"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            print('  - {value: %7.5f}'
-                  % (data.iloc[i,6]) , file=f)
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,6], data.iloc[i,6], data.iloc[i,6]) , file=f)
 
 # COMPASS - SIDIS, pi-
 def filter_COMPASS_PI_MINUS():
-    nameexp = 'COMPASS_PI_MINUS'
+    nameexp = 'COMPASS_PI_MINUS_DECORR'
     infile  = 'COMPASS/HEPData-ins1444985-v1-Table_2.csv'
     ndata   = 311
     cme     = 17.34 #GeV
@@ -1325,7 +1325,7 @@ def filter_COMPASS_PI_MINUS():
     
     with open(nameexp + '.yaml', 'w') as f:
         print('dependent_variables:', file=f)
-        print('- header: {title: "COMPASS $\pi^-$ Multiplicities"}', file=f)
+        print('- header: {title: "COMPASS $\\\\pi^-$ Multiplicities"}', file=f)
         print('  qualifiers:', file=f)
         print('  - {name: process, value: SIDIS}', file=f)
         print('  - {name: observable, value: dsigma/dxdydz}', file=f)
@@ -1365,8 +1365,8 @@ def filter_COMPASS_PI_MINUS():
         print('- header: {name: "Q2"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            print('  - {value: %7.5f}'
-                  % (data.iloc[i,6]) , file=f)
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (data.iloc[i,6], data.iloc[i,6], data.iloc[i,6]) , file=f)
 
 # COMPASS - SIDIS, PI+ 2024
 def filter_COMPASS_PI_PLUS_2024():
@@ -1386,7 +1386,7 @@ def filter_COMPASS_PI_PLUS_2024():
     
     with open(nameexp + '.yaml', 'w') as f:
         print('dependent_variables:', file=f)
-        print('- header: {title: "COMPASS 2024 $\pi^+$ Multiplicities"}', file=f)
+        print('- header: {title: "COMPASS 2024 $\\\\pi^+$ Multiplicities"}', file=f)
         print('  qualifiers:', file=f)
         print('  - {name: process, value: SIDIS}', file=f)
         print('  - {name: observable, value: dsigma/dxdydz}', file=f)
@@ -1412,22 +1412,23 @@ def filter_COMPASS_PI_PLUS_2024():
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]-data.iloc[i,4])/2.)), file=f)
+                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]+data.iloc[i,4])/2.)), file=f)
         print('- header: {name: "x"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]-data.iloc[i,0])/2.)) , file=f)
+                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]+data.iloc[i,0])/2.)) , file=f)
         print('- header: {name: "y"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]-data.iloc[i,2])/2.)) , file=f)
+                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]+data.iloc[i,2])/2.)) , file=f)
         print('- header: {name: "Q2"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            print('  - {value: %7.5f}'
-                  % ((data.iloc[i,1]-data.iloc[i,0])/2.*(data.iloc[i,3]-data.iloc[i,2])/2.*cme**2.) , file=f)
+            Q2av = (data.iloc[i,1]+data.iloc[i,0])/2.*(data.iloc[i,3]+data.iloc[i,2])/2.*cme**2.
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (Q2av, Q2av, Q2av) , file=f)
 
 # COMPASS - SIDIS, PI- 2024
 def filter_COMPASS_PI_MINUS_2024():
@@ -1447,7 +1448,7 @@ def filter_COMPASS_PI_MINUS_2024():
     
     with open(nameexp + '.yaml', 'w') as f:
         print('dependent_variables:', file=f)
-        print('- header: {title: "COMPASS 2024 $\pi^-$ Multiplicities"}', file=f)
+        print('- header: {title: "COMPASS 2024 $\\\\pi^-$ Multiplicities"}', file=f)
         print('  qualifiers:', file=f)
         print('  - {name: process, value: SIDIS}', file=f)
         print('  - {name: observable, value: dsigma/dxdydz}', file=f)
@@ -1473,22 +1474,23 @@ def filter_COMPASS_PI_MINUS_2024():
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]-data.iloc[i,4])/2.)), file=f)
+                  % (data.iloc[i,5], data.iloc[i,4], ((data.iloc[i,5]+data.iloc[i,4])/2.)), file=f)
         print('- header: {name: "x"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]-data.iloc[i,0])/2.)) , file=f)
+                  % (data.iloc[i,1], data.iloc[i,0], ((data.iloc[i,1]+data.iloc[i,0])/2.)) , file=f)
         print('- header: {name: "y"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
             print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
-                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]-data.iloc[i,2])/2.)) , file=f)
+                  % (data.iloc[i,3], data.iloc[i,2], ((data.iloc[i,3]+data.iloc[i,2])/2.)) , file=f)
         print('- header: {name: "Q2"}', file=f)
         print('  values:', file=f)
         for i in range(ndata):
-            print('  - {value: %7.5f}'
-                  % ((data.iloc[i,1]-data.iloc[i,0])/2.*(data.iloc[i,3]-data.iloc[i,2])/2.*cme**2.) , file=f)
+            Q2av = (data.iloc[i,1]+data.iloc[i,0])/2.*(data.iloc[i,3]+data.iloc[i,2])/2.*cme**2.
+            print('  - {high: %7.5f, low: %7.5f, value: %7.5f}'
+                  % (Q2av, Q2av, Q2av) , file=f)
             
 # Filter data
 #filter_BELLE_KA()
@@ -1511,9 +1513,9 @@ def filter_COMPASS_PI_MINUS_2024():
 #filter_SLD_KA_UDS()
 #filter_SLD_KA_C()
 #filter_SLD_KA_B()
-#filter_COMPASS_PI_PLUS()
-#filter_COMPASS_PI_MINUS()
-#filter_COMPASS_PI_PLUS_2024()
-#filter_COMPASS_PI_MINUS_2024()
+filter_COMPASS_PI_PLUS()
+filter_COMPASS_PI_MINUS()
+filter_COMPASS_PI_PLUS_2024()
+filter_COMPASS_PI_MINUS_2024()
 filter_BESIII_PIp()
 filter_BESIII_PIm()
