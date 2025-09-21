@@ -125,11 +125,18 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
   // Set silent mode for APFEL++
   apfel::SetVerbosityLevel(0);
 
-  // APFEL++ x-space grid
-  std::vector<apfel::SubGrid> vsg;
-  for (auto const& sg : config["Predictions"]["xgrid"])
-    vsg.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
-  const std::shared_ptr<const apfel::Grid> g(new const apfel::Grid{vsg});
+// APFEL++ x-space and z-space grids
+  std::vector<apfel::SubGrid> vsgx, vsgz;
+  const auto config_xgrid = config["Predictions"]["xgrid"];
+  const auto config_zgrid = (config["Predictions"]["zgrid"] ? config["Predictions"]["zgrid"] : config_xgrid);
+  // Grid for x
+  for (auto const &sgx : config_xgrid)
+    vsgx.push_back({sgx[0].as<int>(), sgx[1].as<double>(), sgx[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gx(new const apfel::Grid{vsgx});
+  // Grid for z
+  for (auto const &sgz : config_zgrid)
+    vsgz.push_back({sgz[0].as<int>(), sgz[1].as<double>(), sgz[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gz(new const apfel::Grid{vsgz});
 
   // Include new search path in LHAPDF
   if (ResultFolder[0]=='/')
@@ -138,7 +145,7 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
     LHAPDF::pathsPrepend(GetCurrentWorkingDir() + "/" + ResultFolder + "/");
 
   // LHAPDF Parameterisation
-  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(LHAPDFSet, g, member_index);
+  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(LHAPDFSet, gz, member_index);
 
   // Initialiase chi2 object
   NangaParbat::ChiSquare *chi2 = new MontBlanc::AnalyticChiSquare{LHAPDF_FFs};
@@ -166,7 +173,7 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
                                                             (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double> {})));
 
       // Predictions
-      NangaParbat::ConvolutionTable *PH = new MontBlanc::PredictionsHandler{config["Predictions"], *DH, g, cuts};
+      NangaParbat::ConvolutionTable *PH = new MontBlanc::PredictionsHandler{config["Predictions"], *DH, gx, gz, cuts};
 
       // Add block to the chi2
       chi2->AddBlock(std::make_pair(DH, PH));

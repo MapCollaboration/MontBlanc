@@ -9,37 +9,34 @@
 #include <NangaParbat/convolutiontable.h>
 #include <NangaParbat/datahandler.h>
 #include <NangaParbat/cut.h>
+
 #include <yaml-cpp/yaml.h>
 #include <apfel/apfelxx.h>
 
 namespace MontBlanc
 {
   /**
-   * @brief The "PredictionsHandler" class provides an interface to
+   * @brief The "PredictionsHandlerApprox" class provides an interface to
    * the theorerical predictions.
-   *
-   * @note `final` keyword only for efficient resource management
-   * in runtime polymorphism in Optimize. This can be safely removed
-   * once PredictionsHandlerApprox is removed as well.
    */
-  class PredictionsHandler final: public NangaParbat::ConvolutionTable
+  class PredictionsHandlerApprox final: public NangaParbat::ConvolutionTable
   {
   public:
     /**
-     * @brief The "PredictionsHandler" constructor
+     * @brief The "PredictionsHandlerApprox" constructor
      */
-    PredictionsHandler(YAML::Node                                     const& config,
-                       NangaParbat::DataHandler                       const& DH,
-                       std::shared_ptr<const apfel::Grid>             const& gx,
-                       std::shared_ptr<const apfel::Grid>             const& gz,
-                       std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts = {});
+    PredictionsHandlerApprox(YAML::Node                                     const& config,
+                             NangaParbat::DataHandler                       const& DH,
+                             std::shared_ptr<const apfel::Grid>             const& gx,
+                             std::shared_ptr<const apfel::Grid>             const& gz,
+                             std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts = {});
 
     /**
-     * @brief The "PredictionsHandler" copy constructor with possibly
+     * @brief The "PredictionsHandlerApprox" copy constructor with possibly
      * additional cuts
      */
-    PredictionsHandler(PredictionsHandler                             const& DH,
-                       std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts = {});
+    PredictionsHandlerApprox(PredictionsHandlerApprox                       const& DH,
+                             std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts = {});
 
     /**
      * @brief Function that sets the input set of FFs at the initial scale
