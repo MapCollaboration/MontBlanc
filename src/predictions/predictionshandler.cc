@@ -8,6 +8,7 @@
 
 #include <apfel/apfelxx.h>
 #include <apfel/sidiscoefficientfunctionsunp.h>
+#include <apfel/sidiscoefficientfunctionsew.h>
 #include <LHAPDF/LHAPDF.h>
 #include <numeric>
 
@@ -101,7 +102,7 @@ namespace MontBlanc
     const double pref = DH.GetPrefactor();
 
     if (DH.GetProcess() == NangaParbat::DataHandler::Process::SIA)
-      {
+    {
         // Get the strong coupling
         const double as = Alphas(Vs);
 
@@ -171,9 +172,9 @@ namespace MontBlanc
           else
             _FKt.push_back(apfel::Set<apfel::Operator>
             {(pref * apfel::GetSIATotalCrossSection(0, Vs, as, aem, _Thresholds, apfel::QuarkFlavour::TOTAL, true) / xsec ) * apfel::Set<apfel::Operator>{_cmap, Cj}});
-      }
+    }
     else if (DH.GetProcess() == NangaParbat::DataHandler::Process::SIDIS)
-      {
+    {
         // PDF set
         const LHAPDF::PDF* PDFs = LHAPDF::mkPDF(config["pdfset"]["name"].as<std::string>(), config["pdfset"]["member"].as<int>());
 
@@ -294,7 +295,7 @@ namespace MontBlanc
 
           // Functions that multiply FT and FL
           const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const&) -> double{ return fact * 2 * ( 1 - pow(Q / Vs, 2) / x ) / x; };
-	  const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const&) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
+	        const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const&) -> double{ return fact * ( 1 + pow(1 - pow(Q / Vs, 2) / x, 2) ) / x; };
 
           // Transverse
           apfel::DoubleOperator OTns   = OT0ns;
@@ -457,9 +458,9 @@ namespace MontBlanc
               const apfel::DistributionOperator CT_qpq_3 = OTqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i);
               const apfel::DistributionOperator CL_qpq_3 = OLqpq3.MultiplyFirstBy(eq1eq2fq2Tq1i);
               KiMap.insert({i, funcT * ( CT_qq_NS + CT_qg + CT_qq_ps + CT_qbq + CT_qpq_1 + CT_qpq_2 + CT_qpq_3) + funcL * (CL_qq_NS + CL_qg + CL_qq_ps + CL_qbq + CL_qpq_1 + CL_qpq_2 + CL_qpq_3 )});
-	    }
+	          }
 
-	  return apfel::Set<apfel::DistributionOperator>{KiMap};
+	      return apfel::Set<apfel::DistributionOperator>{KiMap};
         };
 
         // Tabulate semi-inclusive cross sections in Q
@@ -614,7 +615,657 @@ namespace MontBlanc
             Qu = Qmax;
             Qc = _bins[i].Qav;
           }
-      }
+     }
+    if (DH.GetProcess() == NangaParbat::DataHandler::Process::SIDIS_nu || DH.GetProcess() == NangaParbat::DataHandler::Process::SIDIS_nubar) 
+     {
+      // PDF set
+        const LHAPDF::PDF* PDFs = LHAPDF::mkPDF(config["pdfset"]["name"].as<std::string>(), config["pdfset"]["member"].as<int>());
+
+        // Target isoscalarity
+        const double iso = DH.GetTargetIsoscalarity();
+
+        // Adjust PDFs to account for the isoscalarity
+        const std::function<std::map<int, double>(double const&, double const&)> tPDFs = [&] (double const& x, double const& Q) -> std::map<int, double>
+        {
+          const std::map<int, double> pr = PDFs->xfxQ(x, Q);
+          std::map<int, double> tg = pr;
+          tg.at(1)  = iso * pr.at(1)  + ( 1 - iso ) * pr.at(2);
+          tg.at(2)  = iso * pr.at(2)  + ( 1 - iso ) * pr.at(1);
+          tg.at(-1) = iso * pr.at(-1) + ( 1 - iso ) * pr.at(-2);
+          tg.at(-2) = iso * pr.at(-2) + ( 1 - iso ) * pr.at(-1);
+          return tg;
+        };
+
+        // Rotate input PDF set into the QCD evolution basis
+        const auto RotPDFs = [=] (double const& x, double const& mu) -> std::map<int, double> { return apfel::PhysToQCDEv(tPDFs(x, mu)); };
+
+        // CKM matrix elements
+        std::function<std::vector<double>(double const&)> fCKM = [] (double const&) -> std::vector<double> { return apfel::CKM2; }; 
+
+        // Check if it is nu or nubar 
+        const int sign = (DH.GetProcess() == NangaParbat::DataHandler::Process::SIDIS_nu) ? +1 : -1;
+
+        // Initialise inclusive structure functions
+        const auto IF2p = BuildStructureFunctions(InitializeF2CCPlusObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fCKM);
+        const auto IF2m = BuildStructureFunctions(InitializeF2CCMinusObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fCKM);
+
+        const auto IFLp = BuildStructureFunctions(InitializeFLCCPlusObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fCKM);
+        const auto IFLm = BuildStructureFunctions(InitializeFLCCMinusObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fCKM);
+        
+        const auto IF3p = BuildStructureFunctions(InitializeF3CCPlusObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fCKM);
+        const auto IF3m = BuildStructureFunctions(InitializeF3CCMinusObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fCKM);
+
+        // Inclusive cross section differential in x and Q as a
+        // distribution function of Q
+        const std::function<apfel::Distribution(double const&)> IncXSecQ = [&] (double const& Q) -> apfel::Distribution
+        {
+          const double etaW = pow( (apfel::GFermi * pow(apfel::WMass * Q, 2)) / (4 * M_PI * Alphaem(Q) * ( pow(Q, 2) + pow(apfel::WMass, 2) ) ) , 2) / 2;
+          const double fact = ( 4 * M_PI * (pow(Alphaem(Q), 2) / pow(Q, 3)) ) * 4 * etaW;
+
+          // Functions that multiply F2 and FL
+          const std::function<double(double const&)> func2 = [=] (double const& x) -> double
+          { 
+            const double y = pow(Q / Vs, 2) / x ;
+            return fact * ( 1 + pow(1 - y, 2) ) / x; 
+          };
+          const std::function<double(double const&)> funcL = [=] (double const& x) -> double
+          { 
+            const double y = pow(Q / Vs, 2) / x;
+            return - fact * pow(y, 2) / x; 
+          };
+          const std::function<double(double const&)> func3 = [=] (double const& x) -> double
+          { 
+            const double y = pow(Q / Vs, 2) / x ;
+            return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x; 
+          };  
+
+          // Return cross section 
+          return func2 * ( IF2p.at(0).Evaluate(Q) + sign * IF2m.at(0).Evaluate(Q) ) + funcL * ( IFLp.at(0).Evaluate(Q) + sign * IFLm.at(0).Evaluate(Q) ) + func3 * ( IF3p.at(0).Evaluate(Q) + sign * IF3m.at(0).Evaluate(Q) );
+        };
+
+        // Tabulate total inclusive cross sections in Q
+        const apfel::TabulateObject<apfel::Distribution> TabIncXSecQ{IncXSecQ, 100, 1, 10, 3, _Thresholds};
+
+        // Path to SIDIS tables 
+        std::string SIDISTablePath = SOURCE_DIR + std::string("/") + (config["SIDIS tables"] ? config["SIDIS tables"].as<std::string>() : std::string("tables_ew"));
+        
+        // -- LO
+        const apfel::DoubleOperator O0qq{YAML::LoadFile(SIDISTablePath + "/DoubleIdentity.yaml"), *_gx, *_gz, apfel::DoubleIdentity{}};
+
+        // -- NLO
+        // Transverse
+        const apfel::DoubleOperator OT1qq{YAML::LoadFile(SIDISTablePath + "/FTC1q2qM.yaml"), *_gx, *_gz, apfel::FTC1q2qM{}};
+        const apfel::DoubleOperator OT1gq{YAML::LoadFile(SIDISTablePath + "/FTC1q2gM.yaml"), *_gx, *_gz, apfel::FTC1q2gM{}};
+        const apfel::DoubleOperator OT1qg{YAML::LoadFile(SIDISTablePath + "/FTC1g2qM.yaml"), *_gx, *_gz, apfel::FTC1g2qM{}};
+        // Longitudinal
+        const apfel::DoubleOperator OL1qq{YAML::LoadFile(SIDISTablePath + "/FLC1q2qM.yaml"), *_gx, *_gz, apfel::FLC1q2qM{}};
+        const apfel::DoubleOperator OL1gq{YAML::LoadFile(SIDISTablePath + "/FLC1q2gM.yaml"), *_gx, *_gz, apfel::FLC1q2gM{}};
+        const apfel::DoubleOperator OL1qg{YAML::LoadFile(SIDISTablePath + "/FLC1g2qM.yaml"), *_gx, *_gz, apfel::FLC1g2qM{}};
+        // F3
+        const apfel::DoubleOperator O31qq{YAML::LoadFile(SIDISTablePath + "/F3C1q2qM.yaml"), *_gx, *_gz, apfel::F3C1q2qM{}};
+        const apfel::DoubleOperator O31gq{YAML::LoadFile(SIDISTablePath + "/F3C1q2gM.yaml"), *_gx, *_gz, apfel::F3C1q2gM{}};
+        const apfel::DoubleOperator O31qg{YAML::LoadFile(SIDISTablePath + "/F3C1g2qM.yaml"), *_gx, *_gz, apfel::F3C1g2qM{}};
+
+        // -- NNLO
+        // Transverse
+        const apfel::DoubleOperator OT2qq_nf3{YAML::LoadFile(SIDISTablePath + "/FTC2q2qM_nf3.yaml"), *_gx, *_gz, apfel::FTC2q2qM{3}};
+        const apfel::DoubleOperator OT2qq_nf4{YAML::LoadFile(SIDISTablePath + "/FTC2q2qM_nf4.yaml"), *_gx, *_gz, apfel::FTC2q2qM{4}};
+        const apfel::DoubleOperator OT2qq_nf5{YAML::LoadFile(SIDISTablePath + "/FTC2q2qM_nf5.yaml"), *_gx, *_gz, apfel::FTC2q2qM{5}};
+        const apfel::DoubleOperator OT2gq{YAML::LoadFile(SIDISTablePath + "/FTC2q2gM.yaml"), *_gx, *_gz, apfel::FTC2q2gM{}};
+        const apfel::DoubleOperator OT2qg{YAML::LoadFile(SIDISTablePath + "/FTC2g2qM.yaml"), *_gx, *_gz, apfel::FTC2g2qM{}};
+        const apfel::DoubleOperator OT2gg{YAML::LoadFile(SIDISTablePath + "/FTC2g2gM.yaml"), *_gx, *_gz, apfel::FTC2g2gM{}};
+        const apfel::DoubleOperator OT2qqFcon2{YAML::LoadFile(SIDISTablePath + "/FTC2q2qMFcon2.yaml"), *_gx, *_gz, apfel::FTC2q2qMFcon2{}};
+        const apfel::DoubleOperator OT2qbq{YAML::LoadFile(SIDISTablePath + "/FTC2q2qbM.yaml"), *_gx, *_gz, apfel::FTC2q2qbM{}};
+        const apfel::DoubleOperator OT2qqFcon1{YAML::LoadFile(SIDISTablePath + "/FTC2q2qMFcon1.yaml"), *_gx, *_gz, apfel::FTC2q2qMFcon1{}};
+        const apfel::DoubleOperator OT2qbqFcon{YAML::LoadFile(SIDISTablePath + "/FTC2q2qbMFcon.yaml"), *_gx, *_gz, apfel::FTC2q2qbMFcon{}};
+        const apfel::DoubleOperator OT2qpq1{YAML::LoadFile(SIDISTablePath + "/FTC2q2qpM1.yaml"), *_gx, *_gz, apfel::FTC2q2qpM1{}};
+        const apfel::DoubleOperator OT2qpq2{YAML::LoadFile(SIDISTablePath + "/FTC2q2qpM2.yaml"), *_gx, *_gz, apfel::FTC2q2qpM2{}};
+        // Longitudinal
+        const apfel::DoubleOperator OL2qq_nf3{YAML::LoadFile(SIDISTablePath + "/FLC2q2qM_nf3.yaml"), *_gx, *_gz, apfel::FLC2q2qM{3}};
+        const apfel::DoubleOperator OL2qq_nf4{YAML::LoadFile(SIDISTablePath + "/FLC2q2qM_nf4.yaml"), *_gx, *_gz, apfel::FLC2q2qM{4}};
+        const apfel::DoubleOperator OL2qq_nf5{YAML::LoadFile(SIDISTablePath + "/FLC2q2qM_nf5.yaml"), *_gx, *_gz, apfel::FLC2q2qM{5}};
+        const apfel::DoubleOperator OL2gq{YAML::LoadFile(SIDISTablePath + "/FLC2q2gM.yaml"), *_gx, *_gz, apfel::FLC2q2gM{}};
+        const apfel::DoubleOperator OL2qg{YAML::LoadFile(SIDISTablePath + "/FLC2g2qM.yaml"), *_gx, *_gz, apfel::FLC2g2qM{}};
+        const apfel::DoubleOperator OL2gg{YAML::LoadFile(SIDISTablePath + "/FLC2g2gM.yaml"), *_gx, *_gz, apfel::FLC2g2gM{}};
+        const apfel::DoubleOperator OL2qqFcon2{YAML::LoadFile(SIDISTablePath + "/FLC2q2qMFcon2.yaml"), *_gx, *_gz, apfel::FLC2q2qMFcon2{}};
+        const apfel::DoubleOperator OL2qbq{YAML::LoadFile(SIDISTablePath + "/FLC2q2qbM.yaml"), *_gx, *_gz, apfel::FLC2q2qbM{}};
+        const apfel::DoubleOperator OL2qqFcon1{YAML::LoadFile(SIDISTablePath + "/FLC2q2qMFcon1.yaml"), *_gx, *_gz, apfel::FLC2q2qMFcon1{}};
+        const apfel::DoubleOperator OL2qbqFcon{YAML::LoadFile(SIDISTablePath + "/FLC2q2qbMFcon.yaml"), *_gx, *_gz, apfel::FLC2q2qbMFcon{}};
+        const apfel::DoubleOperator OL2qpq1{YAML::LoadFile(SIDISTablePath + "/FLC2q2qpM1.yaml"), *_gx, *_gz, apfel::FLC2q2qpM1{}};
+        const apfel::DoubleOperator OL2qpq2{YAML::LoadFile(SIDISTablePath + "/FLC2q2qpM2.yaml"), *_gx, *_gz, apfel::FLC2q2qpM2{}};
+        // F3
+        const apfel::DoubleOperator O32qq_nf3{YAML::LoadFile(SIDISTablePath + "/F3C2q2qM_nf3.yaml"), *_gx, *_gz, apfel::F3C2q2qM{3}};
+        const apfel::DoubleOperator O32qq_nf4{YAML::LoadFile(SIDISTablePath + "/F3C2q2qM_nf4.yaml"), *_gx, *_gz, apfel::F3C2q2qM{4}};
+        const apfel::DoubleOperator O32qq_nf5{YAML::LoadFile(SIDISTablePath + "/F3C2q2qM_nf5.yaml"), *_gx, *_gz, apfel::F3C2q2qM{5}};
+        const apfel::DoubleOperator O32gq{YAML::LoadFile(SIDISTablePath + "/F3C2q2gM.yaml"), *_gx, *_gz, apfel::F3C2q2gM{}};
+        const apfel::DoubleOperator O32qg{YAML::LoadFile(SIDISTablePath + "/F3C2g2qM.yaml"), *_gx, *_gz, apfel::F3C2g2qM{}};
+        const apfel::DoubleOperator O32qbq{YAML::LoadFile(SIDISTablePath + "/F3C2q2qbM.yaml"), *_gx, *_gz, apfel::F3C2q2qbM{}};
+        const apfel::DoubleOperator O32qqFcon1{YAML::LoadFile(SIDISTablePath + "/F3C2q2qMFcon1.yaml"), *_gx, *_gz, apfel::F3C2q2qMFcon1{}};
+        const apfel::DoubleOperator O32qbqFcon{YAML::LoadFile(SIDISTablePath + "/F3C2q2qbMFcon.yaml"), *_gx, *_gz, apfel::F3C2q2qbMFcon{}};
+        const apfel::DoubleOperator O32qpq1{YAML::LoadFile(SIDISTablePath + "/F3C2q2qpM1.yaml"), *_gx, *_gz, apfel::F3C2q2qpM1{}};
+        const apfel::DoubleOperator O32qpq2{YAML::LoadFile(SIDISTablePath + "/F3C2q2qpM2.yaml"), *_gx, *_gz, apfel::F3C2q2qpM2{}};
+        
+        const apfel::DoubleOperator OZero{*_gx, *_gz, apfel::DoubleNull{}};
+
+        // Rotation Matrix from evolution to physical basis
+        std::map<int, std::map<int, double>> Tqi;
+        for (int q = -6; q <= 6; q++)
+          {
+            if (q == 0)
+              continue;
+            Tqi.insert({q, std::map<int, double>{}});
+            for (int j = 1; j <= 12; j++)
+              Tqi[q].insert({j, apfel::RotQCDEvToPhysFull[q+6][j]});
+          }
+
+        // Defining the quark hard x-sec
+        const std::function<apfel::Set<apfel::DistributionOperator>(double const&)> Ki = [&] (double const& Q) -> apfel::Set<apfel::DistributionOperator>
+        {
+          // Coupling constant at NLO
+          const double as  = Alphas(Q) / apfel::FourPi;
+          const double as2  = as * as;
+
+          // Number of active flavours
+          const int nf = apfel::NF(Q, _Thresholds);
+
+          // Get charges
+          double V2[3][3];
+          std::copy(apfel::CKM2.begin(), apfel::CKM2.end(), &V2[0][0]);
+
+          // Overall Q-dependent factor of the cross section
+          const double etaW = pow( (apfel::GFermi * pow(apfel::WMass * Q, 2)) / (4 * M_PI * Alphaem(Q) * ( pow(Q, 2) + pow(apfel::WMass, 2) ) ) , 2) / 2;
+          const double fact = ( 4 * M_PI * (pow(Alphaem(Q), 2) / pow(Q, 3)) ) * 4 * etaW;
+
+          // Functions that multiply FT, FL and F3
+	        const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const&) -> double
+          { 
+            const double y = pow(Q / Vs, 2) / x ;
+	          return fact * ( 1 + pow(1 - y, 2) ) / x;
+          };  
+          const std::function<double(double const&, double const&)> func3 = [=] (double const& x, double const&) -> double
+          { 
+            const double y = pow(Q / Vs, 2) / x ;
+	          return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x;
+          };
+
+          const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const&) -> double
+	        {
+	          const double y = pow(Q / Vs, 2) / x ;
+	          return fact * 2 * ( 1 - y ) / x;
+	        };
+
+          // Transverse
+          apfel::DoubleOperator OTqq      = O0qq;
+          apfel::DoubleOperator OTgq      = OZero;
+          apfel::DoubleOperator OTqg      = OZero;
+          apfel::DoubleOperator OTgg      = OZero;
+          apfel::DoubleOperator OTqbq     = OZero;
+          apfel::DoubleOperator OTqpq1    = OZero;
+          apfel::DoubleOperator OTqpq2    = OZero;
+          apfel::DoubleOperator OTqqFcon2 = OZero;
+          apfel::DoubleOperator OTqqFcon1 = OZero;
+          apfel::DoubleOperator OTqbqFcon = OZero;
+
+          // Longitudinal
+          apfel::DoubleOperator OLqq      = OZero;
+          apfel::DoubleOperator OLgq      = OZero;
+          apfel::DoubleOperator OLqg      = OZero;
+          apfel::DoubleOperator OLgg      = OZero;
+          apfel::DoubleOperator OLqbq     = OZero;
+          apfel::DoubleOperator OLqpq1    = OZero;
+          apfel::DoubleOperator OLqpq2    = OZero;
+          apfel::DoubleOperator OLqqFcon2 = OZero;
+          apfel::DoubleOperator OLqqFcon1 = OZero;
+          apfel::DoubleOperator OLqbqFcon = OZero;
+
+          // 3 
+          apfel::DoubleOperator O3qq      = O0qq;
+          apfel::DoubleOperator O3gq      = OZero;
+          apfel::DoubleOperator O3qg      = OZero;
+          apfel::DoubleOperator O3qbq     = OZero;
+          apfel::DoubleOperator O3qqFcon1 = OZero;
+          apfel::DoubleOperator O3qbqFcon = OZero;
+          apfel::DoubleOperator O3qpq1    = OZero;
+          apfel::DoubleOperator O3qpq2    = OZero;
+
+          // Define operators that multiply all channels
+          if (PerturbativeOrder >= 1)
+            {
+              OTqq += as * OT1qq;
+              OTgq += as * OT1gq;
+              OTqg += as * OT1qg;
+
+              OLqq += as * OL1qq;
+              OLgq += as * OL1gq;
+              OLqg += as * OL1qg;
+
+              O3qq += as * O31qq;
+              O3gq += as * O31gq;
+              O3qg += as * O31qg;
+            }
+            if (PerturbativeOrder >= 2)
+            {
+              if (nf == 3)
+                {
+                  OTqq += as2 * OT2qq_nf3;
+                  OLqq += as2 * OL2qq_nf3;
+                  O3qq += as2 * O32qq_nf3;
+                }
+              else if (nf == 4)
+                {
+                  OTqq += as2 * OT2qq_nf4;
+                  OLqq += as2 * OL2qq_nf4;
+                  O3qq += as2 * O32qq_nf4;
+                }
+              else if (nf == 5)
+                {
+                  OTqq += as2 * OT2qq_nf5;
+                  OLqq += as2 * OL2qq_nf5;
+                  O3qq += as2 * O32qq_nf5;
+                }
+              else
+                throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown number of active flavours.");
+
+              OTgq      += as2 * OT2gq;
+              OTqg      += as2 * OT2qg;
+              OTgg      += as2 * OT2gg;
+              OTqbq     += as2 * OT2qbq;
+              OTqpq1    += as2 * OT2qpq1;
+              OTqpq2    += as2 * OT2qpq2;
+              OTqbqFcon += as2 * OT2qbqFcon;
+              OTqqFcon1 += as2 * OT2qqFcon1;
+              OTqqFcon2 += as2 * OT2qqFcon2;
+
+              OLgq      += as2 * OL2gq;
+              OLqg      += as2 * OL2qg;
+              OLgg      += as2 * OL2gg;
+              OLqbq     += as2 * OL2qbq;
+              OLqpq1    += as2 * OL2qpq1;
+              OLqpq2    += as2 * OL2qpq2;
+              OLqbqFcon += as2 * OL2qbqFcon;
+              OLqqFcon1 += as2 * OL2qqFcon1;
+              OLqqFcon2 += as2 * OL2qqFcon2;
+
+              O3gq      += as2 * O32gq;
+              O3qg      += as2 * O32qg;
+              O3qbq     += as2 * O32qbq;
+              O3qpq1    += as2 * O32qpq1;
+              O3qpq2    += as2 * O32qpq2;
+              O3qqFcon1 += as2 * O32qqFcon1;
+              O3qbqFcon += as2 * O32qbqFcon;
+              
+            }
+          // Produce a map of distributions out of the PDFs in the physical basis
+          // This line envelops the PDFs into a map of apfel::Distribution objects. These
+          // objects will then be convoluted.
+          const std::map<int, apfel::Distribution> DistPDFs = apfel::DistributionMap(*_gx, tPDFs, Q);
+
+          // Initialise a map of double objects to be used to construct
+          // a set
+          std::map<int, apfel::DistributionOperator> KiMap;
+
+          // Define vectors to pair the CC contributions for the quarks 
+          std::vector<int> U = {2, 4, 6};
+          std::vector<int> D = {1, 3, 5};  
+
+          // gq channel (NLO / NNLO)
+          // -----------------------
+          apfel::Distribution Vqfq{*_gx, [] (double const&) -> double { return 0.0; }};
+          apfel::Distribution Vqfq_3{*_gx, [] (double const&) -> double { return 0.0; }};
+
+          for (int k = 0; k < 3; k++)
+            for (int j = 0; j < 3; j++)
+            {
+              int alpha = U[k];
+              int beta  = D[j];   
+              if (beta > nf || alpha > nf )
+		             continue;               
+              Vqfq   += V2[k][j] *             ( DistPDFs.at((- sign) * alpha) + DistPDFs.at((- sign) * - beta));
+              Vqfq_3 += V2[k][j] *  (- sign) * ( DistPDFs.at((- sign) * alpha) - DistPDFs.at((- sign) * - beta));
+            }
+
+          const apfel::DistributionOperator CT_gq_DO = OTgq.MultiplyFirstBy(Vqfq);
+          const apfel::DistributionOperator CL_gq_DO = OLgq.MultiplyFirstBy(Vqfq);
+          const apfel::DistributionOperator C3_gq_DO = O3gq.MultiplyFirstBy(Vqfq_3);
+
+          // gg channel (NNLO)
+          // -----------------
+          double SumV2 = 0;
+	        for (int i = 0; i < 3; i++)
+	        for (int j = 0; j < 3; j++)
+	        {
+		      const int alpha = U[i];
+		      const int beta  = D[j];
+
+		      if (beta > nf || alpha > nf)
+		        continue;
+
+          SumV2 += V2[i][j];
+          }
+          const apfel::Distribution VqfgTgi = SumV2 * DistPDFs.at(21);
+          const apfel::DistributionOperator CT_gg_DO = OTgg.MultiplyFirstBy(VqfgTgi);
+          const apfel::DistributionOperator CL_gg_DO = OLgg.MultiplyFirstBy(VqfgTgi);
+
+          // Sum the gg and gq channels and insert into Ki map
+          KiMap.insert({0,  funcT * ( CT_gg_DO + CT_gq_DO )
+                          + funcL * ( CL_gg_DO + CL_gq_DO ) 
+                          + func3 * ( C3_gq_DO ) 
+                      });
+
+          // Construct the other channels
+          for (int i = 1; i < 13; i++) 
+            {
+              // Distribution for qq channel NS (LO / NLO / NNLO)
+              // ------------------------------------------------
+              apfel::Distribution VqfqTqi{*_gx, [] (double const&) -> double { return 0.0; }};
+              apfel::Distribution VqfqTqi_3{*_gx, [] (double const&) -> double { return 0.0; }};            
+              for (int k = 0; k < 3; k++)
+	              for (int j = 0; j < 3; j++)
+	              {
+                int alpha = U[k];
+                int beta  = D[j];   
+                if (beta > nf || alpha > nf )
+		             continue;   
+
+                VqfqTqi   += V2[k][j] *            ( DistPDFs.at((- sign) * alpha) * Tqi.at((- sign) * beta).at(i) 
+                                                      + DistPDFs.at((- sign) * (- beta)) * Tqi.at((- sign) * (- alpha)).at(i) );
+                VqfqTqi_3 += V2[k][j] * (- sign) * ( DistPDFs.at((- sign) * alpha) * Tqi.at((- sign) * beta).at(i) 
+                                                      - DistPDFs.at((- sign) * (- beta)) * Tqi.at((- sign) * (- alpha)).at(i) );
+                }
+              const apfel::DistributionOperator CT_qq = OTqq.MultiplyFirstBy(VqfqTqi);
+              const apfel::DistributionOperator CL_qq = OLqq.MultiplyFirstBy(VqfqTqi);
+              const apfel::DistributionOperator C3_qq = O3qq.MultiplyFirstBy(VqfqTqi_3);
+
+              // Distribution for qg channel (NLO / NNLO)
+              // ----------------------------------------
+              double VqTqi = 0;
+              double VqTqi_3 = 0;
+              
+              for (int k = 0; k < 3; k++)
+	             for (int j = 0; j < 3; j++)
+	             {
+                int alpha = U[k];
+                int beta  = D[j];   
+                if (beta > nf || alpha > nf )
+		             continue; 
+                  VqTqi   += V2[k][j] *            ( Tqi.at((- sign) * beta ).at(i) + Tqi.at( (- sign) * (- alpha) ).at(i) );
+                  VqTqi_3 += V2[k][j] * (- sign) * ( Tqi.at((- sign) * beta ).at(i) - Tqi.at( (- sign) * (- alpha) ).at(i) );
+               }
+              const apfel::Distribution fgVqTqi = VqTqi * DistPDFs.at(21);
+              const apfel::Distribution fgVqTqi_3 = VqTqi_3 * DistPDFs.at(21);
+
+              const apfel::DistributionOperator CT_qg = OTqg.MultiplyFirstBy(fgVqTqi);
+              const apfel::DistributionOperator CL_qg = OLqg.MultiplyFirstBy(fgVqTqi);
+              const apfel::DistributionOperator C3_qg = O3qg.MultiplyFirstBy(fgVqTqi_3);
+
+              // Distribution for \bar{q}q and \bar{q}qFcon channel (NNLO)
+              // ---------------------------------------------------------
+              apfel::Distribution VqfmqTqi{*_gx, [] (double const&) -> double { return 0.0; }};
+              apfel::Distribution VqfmqTqi_3{*_gx, [] (double const&) -> double { return 0.0; }};
+              
+              apfel::Distribution VqfmqTqiFcon{*_gx, [] (double const&) -> double { return 0.0; }};
+              apfel::Distribution VqfmqTqiFcon_3{*_gx, [] (double const&) -> double { return 0.0; }};
+
+              for (int k = 0; k < 3; k++)
+	              for (int j = 0; j < 3; j++)
+	             {
+                int alpha = U[k];
+                int beta  = D[j];   
+                if (beta > nf || alpha > nf )
+		             continue; 
+                  VqfmqTqi       += V2[k][j] *            ( DistPDFs.at((- sign) * alpha) * Tqi.at(- (- sign) * beta).at(i) + DistPDFs.at(- (- sign) * beta) * Tqi.at((- sign) * alpha).at(i) );
+                  VqfmqTqi_3     += V2[k][j] * (- sign) * ( DistPDFs.at((- sign) * alpha) * Tqi.at(- (- sign) * beta).at(i) - DistPDFs.at(- (- sign) * beta) * Tqi.at((- sign) * alpha).at(i) );
+
+                  VqfmqTqiFcon   += V2[k][j] *            ( DistPDFs.at((- sign) * alpha) * Tqi.at(- (- sign) * alpha).at(i) + DistPDFs.at(- (- sign) * beta) * Tqi.at((- sign) * beta).at(i) );
+                  VqfmqTqiFcon_3 += V2[k][j] * (- sign) * ( DistPDFs.at((- sign) * alpha) * Tqi.at(- (- sign) * alpha).at(i) - DistPDFs.at(- (- sign) * beta) * Tqi.at((- sign) * beta).at(i) );
+               }
+              const apfel::DistributionOperator CT_qbq = OTqbq.MultiplyFirstBy(VqfmqTqi);
+              const apfel::DistributionOperator CL_qbq = OLqbq.MultiplyFirstBy(VqfmqTqi);
+              const apfel::DistributionOperator C3_qbq = O3qbq.MultiplyFirstBy(VqfmqTqi_3);
+
+              const apfel::DistributionOperator CT_qbqFcon = OTqbqFcon.MultiplyFirstBy(VqfmqTqiFcon);
+              const apfel::DistributionOperator CL_qbqFcon = OLqbqFcon.MultiplyFirstBy(VqfmqTqiFcon);
+              const apfel::DistributionOperator C3_qbqFcon = O3qbqFcon.MultiplyFirstBy(VqfmqTqiFcon_3);
+
+            // Distribution Fcon1 for qq (NNLO)
+              // -----------------------------------------  
+              apfel::Distribution VqfqTqiFcon1{*_gx, [] (double const&) -> double { return 0.0; }};
+              apfel::Distribution VqfqTqiFcon1_3{*_gx, [] (double const&) -> double { return 0.0; }};           
+
+              for (int k = 0; k < 3; k++)
+	              for (int j = 0; j < 3; j++)
+	             {
+                int alpha = U[k];
+                int beta  = D[j];   
+                if (beta > nf || alpha > nf )
+		             continue; 
+                  VqfqTqiFcon1   += V2[k][j] *            ( DistPDFs.at((- sign) * alpha) * Tqi.at((- sign) * alpha).at(i) + DistPDFs.at(- (- sign) * beta) * Tqi.at(- (- sign) * beta).at(i) );
+                  VqfqTqiFcon1_3 += V2[k][j] * (- sign) * ( DistPDFs.at((- sign) * alpha) * Tqi.at((- sign) * alpha).at(i) - DistPDFs.at(- (- sign) * beta) * Tqi.at(- (- sign) * beta).at(i) );
+                }
+
+              const apfel::DistributionOperator CT_qqFcon1 = OTqqFcon1.MultiplyFirstBy(VqfqTqiFcon1);
+              const apfel::DistributionOperator CL_qqFcon1 = OLqqFcon1.MultiplyFirstBy(VqfqTqiFcon1);
+              const apfel::DistributionOperator C3_qqFcon1 = O3qqFcon1.MultiplyFirstBy(VqfqTqiFcon1_3);
+
+              // Distribution Fcon2 for qq (NNLO) 
+              // --------------------------------  
+              apfel::Distribution VqFcon2{*_gx, [] (double const&) -> double { return 0.0; }};
+
+              for (int f=1; f <= nf; f++)
+                VqFcon2 += SumV2 * ( DistPDFs.at(- (- sign) * f) * Tqi.at(- (- sign) * f).at(i) + DistPDFs.at((- sign) * f) * Tqi.at((- sign) * f).at(i) );
+
+              const apfel::DistributionOperator CT_qqFcon2 = OTqqFcon2.MultiplyFirstBy(VqFcon2);
+              const apfel::DistributionOperator CL_qqFcon2 = OLqqFcon2.MultiplyFirstBy(VqFcon2);
+
+            
+              // Distribution (1) and (2) for q'q channel (NNLO)
+              // ------------------------------------------------
+              apfel::Distribution VqfqpTqi1{*_gx, [] (double const&) -> double { return 0.0; }};
+              apfel::Distribution VqfqpTqi2{*_gx, [] (double const&) -> double { return 0.0; }};
+
+              apfel::Distribution VqfqpTqi1_3{*_gx, [] (double const&) -> double { return 0.0; }};
+              apfel::Distribution VqfqpTqi2_3{*_gx, [] (double const&) -> double { return 0.0; }};
+
+              for (int f=1; f <= nf; f++)
+              for (int k = 0; k < 3; k++)
+	            for (int j = 0; j < 3; j++)
+	            {
+                int alpha = U[k];
+                int beta  = D[j];   
+                if (beta > nf || alpha > nf )
+		             continue; 
+                    VqfqpTqi1   += V2[k][j] *            ( DistPDFs.at((- sign) * alpha) + DistPDFs.at(- (- sign) * beta)) * ( Tqi.at(f).at(i) + Tqi.at(-f).at(i) );
+                    VqfqpTqi1_3 += V2[k][j] * (- sign) * ( DistPDFs.at((- sign) * alpha) - DistPDFs.at(- (- sign) * beta)) * ( Tqi.at(f).at(i) + Tqi.at(-f).at(i) );
+
+                    VqfqpTqi2   += V2[k][j] *            ( DistPDFs.at(f) + DistPDFs.at(-f) ) * (Tqi.at( (- sign) * beta ).at(i) + Tqi.at(- (- sign) * alpha).at(i));
+                    VqfqpTqi2_3 += V2[k][j] * (- sign) * ( DistPDFs.at(f) + DistPDFs.at(-f) ) * (Tqi.at( (- sign) * beta ).at(i) - Tqi.at(- (- sign) * alpha).at(i));
+              }
+                
+              const apfel::DistributionOperator CT_qpq1 = OTqpq1.MultiplyFirstBy(VqfqpTqi1);
+              const apfel::DistributionOperator CL_qpq1 = OLqpq1.MultiplyFirstBy(VqfqpTqi1);
+              const apfel::DistributionOperator C3_qpq1 = O3qpq1.MultiplyFirstBy(VqfqpTqi1_3);
+
+              const apfel::DistributionOperator CT_qpq2 = OTqpq2.MultiplyFirstBy(VqfqpTqi2);
+              const apfel::DistributionOperator CL_qpq2 = OLqpq2.MultiplyFirstBy(VqfqpTqi2);
+              const apfel::DistributionOperator C3_qpq2 = O3qpq2.MultiplyFirstBy(VqfqpTqi2_3);
+
+              KiMap.insert({i,  funcT * ( CT_qq + CT_qg + CT_qbq + CT_qbqFcon + CT_qqFcon1 + CT_qqFcon2 + CT_qpq1 + CT_qpq2 ) 
+                              + funcL * ( CL_qq + CL_qg + CL_qbq + CL_qbqFcon + CL_qqFcon1 + CL_qqFcon2 + CL_qpq1 + CL_qpq2 ) 
+                              + func3 * ( C3_qq + C3_qg + C3_qbq + C3_qbqFcon + C3_qqFcon1 +              C3_qpq1 + C3_qpq2 ) 
+                            });
+            }
+
+	      return apfel::Set<apfel::DistributionOperator>{KiMap};
+        };
+
+        // Tabulate semi-inclusive cross sections in Q
+        const apfel::TabulateObject<apfel::Set<apfel::DistributionOperator>> TabKi{Ki, 100, 1, 10, 3, _Thresholds};
+
+        // Pointers to the tabulated functions
+        std::unique_ptr<apfel::TabulateObject<double>> TabIncQIntegrand;
+        std::unique_ptr<apfel::TabulateObject<apfel::Set<apfel::Operator>>> TabSemiIncQIntegrand;
+
+        // Keep track of the integration bounds to avoid unneeded
+        // computations
+        double xl = -1;
+        double xu = -1;
+        double xc = -1;
+        double Ql = -1;
+        double Qu = -1;
+        double Qc = -1;
+
+        // Integrate inclusive cross sections and store them
+        for (int i = 0; i < (int) _bins.size(); i++)
+          {
+            double Qmin;
+            double Qmax;
+            if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
+              {
+                Qmin = std::max(sqrt(_bins[i].xmin * _bins[i].ymin) * Vs, DH.GetKinematics().var1b.first);
+                Qmax = sqrt(_bins[i].xmax * _bins[i].ymax) * Vs;
+              }
+            else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz)
+              {
+                Qmin = _bins[i].Qmin;
+                Qmax = _bins[i].Qmax;
+              }
+            else
+              throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
+
+            // If the point does not obey the cut, set FK table to zero and continue
+            if (!_cutmask[i])
+              {
+                _FKt.push_back(apfel::Set<apfel::Operator> {_cmap, std::map<int, apfel::Operator>{}});
+                continue;
+              }
+
+            // If the integration bounds in x and Q are the same, no need
+            // to redo the computation.
+            if ((_bins[i].Intx ? xl == _bins[i].xmin && xu == _bins[i].xmax : xc == _bins[i].xav) &&
+                (_bins[i].IntQ ? Ql == Qmin && Qu == Qmax : Qc == _bins[i].Qav))
+              {
+                _FKt.push_back(_FKt.back());
+                continue;
+              }
+
+            // Tabulate Q integrand for the inclusive cross section
+            const std::function<double(double const&)> IncQIntegrand = [=] (double const& Q) -> double
+            {
+              // Integration bounds in x
+              double xbmin;
+              double xbmax;
+              if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
+                {
+                  xbmax = std::min(std::min(_bins[i].xmax, pow(Q / Vs, 2) / _bins[i].ymin), 1.0);
+                  if (DH.GetKinematics().PSRed)
+                    xbmax = std::min(xbmax, 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
+
+                  xbmin = std::min( xbmax, std::max(_bins[i].xmin, pow(Q / Vs, 2) / _bins[i].ymax));
+                }
+              else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz)
+                {
+                  xbmin = _bins[i].xmin;
+                  xbmax = _bins[i].xmax;
+                  if (DH.GetKinematics().PSRed)
+                  {
+                    xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
+                                                          pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
+                    xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );    
+                  }
+                }
+              else
+                throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
+              return (_bins[i].Intx ? TabIncXSecQ.Evaluate(Q).Integrate(xbmin, xbmax) : TabIncXSecQ.Evaluate(Q).Evaluate(_bins[i].xav));
+            };
+
+            // Tabulate Q integrand for the semi-inclusive cross section
+            const std::function<apfel::Set<apfel::Operator>(double const&)> Nj = [&] (double const& Q) -> apfel::Set<apfel::Operator>
+            {
+              // Integration bounds in x
+              double xbmin;
+              double xbmax;
+              if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
+              {
+                xbmax = std::min(std::min(_bins[i].xmax, pow(Q / Vs, 2) / _bins[i].ymin), 1.0);
+                if (DH.GetKinematics().PSRed)
+                  xbmax = std::min(xbmax, 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
+                    
+                xbmin = std::min( xbmax, std::max(_bins[i].xmin, pow(Q / Vs, 2) / _bins[i].ymax));
+              }
+              else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz)
+              {
+                  xbmin = _bins[i].xmin;
+                  xbmax = _bins[i].xmax;
+                  if (DH.GetKinematics().PSRed)
+                    {
+                      //other cases outside?
+                      xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
+                                                          pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
+                      xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );    
+                    }
+              }
+              else
+                throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
+
+              // Get Ki_map objects at the scale Q
+              const std::map<int, apfel::DistributionOperator> Ki_map = TabKi.Evaluate(Q).GetObjects();
+
+              // Compute integral of Ki in x and construct a set
+              std::map<int, apfel::Operator> IntKi;
+              for (auto const& tms : Ki_map)
+                {
+                  apfel::Operator cumulant = (_bins[i].Intx ? tms.second.Integrate(xbmin, xbmax) : tms.second.Evaluate(_bins[i].xav));
+                  IntKi.insert({tms.first, cumulant});                
+                };
+
+              // Get evolution operator
+              apfel::Set<apfel::Operator> Gammaij = TabGammaij->Evaluate(Q);
+
+              // Intialise container for the FK table
+              std::map<int, apfel::Operator> Nj_map;
+              for (int j = 0; j < 13; j++)
+                Nj_map.insert({j, Zero});
+
+              // Compute the product of Ki and Gammaij and adjust the
+              // convolution basis
+              for (int j = 0; j < 13; j++)
+                for (int i = 0; i < 13; i++)
+                  if (apfel::Gkj.count({i, j}) != 0)
+                    Nj_map.at(j) += IntKi.at(i) * Gammaij.at(apfel::Gkj.at({i, j}));
+
+              // Return the result
+              return apfel::Set<apfel::Operator> {_cmap, Nj_map};
+            };
+
+            // Tabulate cross section
+            TabIncQIntegrand = std::unique_ptr<apfel::TabulateObject<double>> {new apfel::TabulateObject<double> {IncQIntegrand, 100, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds}};
+            TabSemiIncQIntegrand = std::unique_ptr<apfel::TabulateObject<apfel::Set<apfel::Operator>>>
+                                   (new apfel::TabulateObject<apfel::Set<apfel::Operator>> {Nj, 100, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds});
+            // Push back multiplicities
+            if (!DH.GetNormalised())
+            {
+              if (_bins[i].IntQ)
+                _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax)});
+              else
+                _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav)});
+            }
+            else 
+            {
+              if (_bins[i].IntQ)
+              _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax) / TabIncQIntegrand->Integrate(Qmin, Qmax)});
+            else
+              _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav) / TabIncQIntegrand->Evaluate(_bins[i].Qav)});
+            }
+            
+
+            xl = _bins[i].xmin;
+            xu = _bins[i].xmax;
+            xc = _bins[i].xav;
+            Ql = Qmin;
+            Qu = Qmax;
+            Qc = _bins[i].Qav;
+          }      
+     }
     else
       throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Process.");
   }
