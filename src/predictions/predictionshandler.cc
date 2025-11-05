@@ -676,7 +676,7 @@ namespace MontBlanc
           const std::function<double(double const&)> func3 = [=] (double const& x) -> double
           { 
             const double y = pow(Q / Vs, 2) / x ;
-            return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x; 
+            return (sign) * fact * x * ( 1 - pow(1 - y, 2) ) / x; 
           };  
 
           // Return cross section 
@@ -1027,7 +1027,7 @@ namespace MontBlanc
               const apfel::DistributionOperator CL_qbqFcon = OLqbqFcon.MultiplyFirstBy(VqfmqTqiFcon);
               const apfel::DistributionOperator C3_qbqFcon = O3qbqFcon.MultiplyFirstBy(VqfmqTqiFcon_3);
 
-            // Distribution Fcon1 for qq (NNLO)
+              // Distribution Fcon1 for qq (NNLO)
               // -----------------------------------------  
               apfel::Distribution VqfqTqiFcon1{*_gx, [] (double const&) -> double { return 0.0; }};
               apfel::Distribution VqfqTqiFcon1_3{*_gx, [] (double const&) -> double { return 0.0; }};           
@@ -1194,15 +1194,14 @@ namespace MontBlanc
               }
               else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz)
               {
-                  xbmin = _bins[i].xmin;
-                  xbmax = _bins[i].xmax;
-                  if (DH.GetKinematics().PSRed)
-                    {
-                      //other cases outside?
-                      xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
+                xbmin = _bins[i].xmin;
+                xbmax = _bins[i].xmax;
+                if (DH.GetKinematics().PSRed)
+                  {
+                    xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
                                                           pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
-                      xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );    
-                    }
+                    xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );   
+                  }
               }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
@@ -1215,7 +1214,7 @@ namespace MontBlanc
               for (auto const& tms : Ki_map)
                 {
                   apfel::Operator cumulant = (_bins[i].Intx ? tms.second.Integrate(xbmin, xbmax) : tms.second.Evaluate(_bins[i].xav));
-                  IntKi.insert({tms.first, cumulant});                
+                  IntKi.insert({tms.first, cumulant});  
                 };
 
               // Get evolution operator
@@ -1320,7 +1319,6 @@ namespace MontBlanc
                      / ( _bins[id].zmax - _bins[id].zmin ) * _qTfact[id] : 0);
       else
         preds[id] = (_cutmask[id] ? (_FKt[id] * _D).Combine().Evaluate(_bins[id].zav) / _bins[id].zav * _qTfact[id] : 0);
-
     return preds;
   }
 
