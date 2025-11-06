@@ -785,7 +785,7 @@ namespace MontBlanc
           const std::function<double(double const&, double const&)> func3 = [=] (double const& x, double const&) -> double
           { 
             const double y = pow(Q / Vs, 2) / x ;
-	          return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x;
+	          return (sign) * fact * x * ( 1 - pow(1 - y, 2) ) / x;
           };
 
           const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const&) -> double
