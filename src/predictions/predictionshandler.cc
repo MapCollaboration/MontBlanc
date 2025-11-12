@@ -676,7 +676,7 @@ namespace MontBlanc
           const std::function<double(double const&)> func3 = [=] (double const& x) -> double
           { 
             const double y = pow(Q / Vs, 2) / x ;
-            return (sign) * x * fact * ( 1 - pow(1 - y, 2) ) / x; 
+            return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x;
           };  
 
           // Return cross section 
