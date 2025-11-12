@@ -1,0 +1,73 @@
+dependent_variables:
+  - header: {title: "benchmark", titlepy: "benchmark", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N#nu}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N\\nu}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIDIS_nu}
+      - {name: target_isoscalarity, value: 1}
+      - {name: prefactor, value: 1}
+      - {name: Vs, value: 9.03, units: GeV}
+      - {name: Q, low: 1, high: 9.03, integrate: true}
+      - {name: x, low: 0.01, high: 1, integrate: true}
+      - {name: z, low: 0.05, high: 1, integrate: false}
+      - {name: PS_reduction, W: 2, ymin: 0, ymax: 0.93}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+      - {name: observable, value: dsigma/dxdQdz}
+    values:
+      - errors:
+          - {label: unc, value: 0.012}
+        value: 0.092
+      - errors:
+          - {label: unc, value: 0.015}
+        value: 0.11
+      - errors:
+          - {label: unc, value: 0.014}
+        value: 0.08
+      - errors:
+          - {label: unc, value: 0.012}
+        value: 0.074
+      - errors:
+          - {label: unc, value: 0.01}
+        value: 0.035
+      - errors:
+          - {label: unc, value: 0.009}
+        value: 0.031
+      - errors:
+          - {label: unc, value: 0.005}
+        value: 0.012
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {value: 0.05}
+      - {value: 0.15}
+      - {value: 0.25}
+      - {value: 0.35}
+      - {value: 0.45}
+      - {value: 0.55}
+      - {value: 0.65}
+  - header: {name: "y"}
+    values:
+      - {high: 0.93, low: 0}
+      - {high: 0.93, low: 0}
+      - {high: 0.93, low: 0}
+      - {high: 0.93, low: 0}
+      - {high: 0.93, low: 0}
+      - {high: 0.93, low: 0}
+      - {high: 0.93, low: 0}
+  - header: {name: "x"}
+    values:
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+  - header: {name: "Q2"}
+    values:
+      - {high: 81.5409, low: 1}
+      - {high: 81.5409, low: 1}
+      - {high: 81.5409, low: 1}
+      - {high: 81.5409, low: 1}
+      - {high: 81.5409, low: 1}
+      - {high: 81.5409, low: 1}
+      - {high: 81.5409, low: 1}
