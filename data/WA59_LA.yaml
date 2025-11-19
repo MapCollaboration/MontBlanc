@@ -2,13 +2,14 @@ dependent_variables:
   - header: {title: "WA59, Lambda Multiplicity", titlepy: "WA59, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N}\\frac{dN}{dz}$"}
     qualifiers:
       - {name: process, value: SIDIS_nubar}
-      - {name: target_isoscalarity, value: 0}
-      - {name: prefactor, value: 1}
-      - {name: Vs, value: 9.15, units: GeV}   
-      - {name: Q, low: 1.14, high: 7.09, integrate: true}
+      - {name: target_isoscalarity, value: 0.5} 
+      - {name: prefactor, value: 4.34539}
+      - {name: shape_normalised, value: true}
+      - {name: Vs, value: 9.154, units: GeV}   
+      - {name: Q, low: 1, high: 9.154, integrate: true}
       - {name: x, low: 0.01, high: 1, integrate: true}
       - {name: z, low: 0.09, high: 0.9, integrate: true}
-      - {name: PS_reduction, W: 2.24, ymin: 0.01, ymax: 0.79}  
+      - {name: PS_reduction, W: 2.24, ymin: 0, ymax: 0.89}   
       - {name: hadron, value: LA}
       - {name: charge, value: 1}
       - {name: observable, value: dsigma/dxdQdz}
@@ -60,21 +61,21 @@ independent_variables:
       - {high: 1, low: 0.01}
   - header: {name: "y"}
     values:
-      - {high: 0.79, low: 0.01}
-      - {high: 0.79, low: 0.01}
-      - {high: 0.79, low: 0.01}
-      - {high: 0.79, low: 0.01}   
-      - {high: 0.79, low: 0.01}
-      - {high: 0.79, low: 0.01}
-      - {high: 0.79, low: 0.01}
-      - {high: 0.79, low: 0.01} 
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}   
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0} 
   - header: {name: "Q2"}
     values:
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}      
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
+      - {high: 83.799044, low: 1}
+      - {high: 83.799044, low: 1}
+      - {high: 83.799044, low: 1}
+      - {high: 83.799044, low: 1}
+      - {high: 83.799044, low: 1}      
+      - {high: 83.799044, low: 1}
+      - {high: 83.799044, low: 1}
+      - {high: 83.799044, low: 1}
