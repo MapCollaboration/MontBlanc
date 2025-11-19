@@ -1,5 +1,5 @@
 dependent_variables:
-  - header: {title: "benchmark", titlepy: "benchmark", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N#nu}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N\\nu}\\frac{dN}{dz}$"}
+  - header: {title: "ABCMO, Lambda Multiplicity", titlepy: "ABCMO, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N#nu}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N\\nu}\\frac{dN}{dz}$"}
     qualifiers:
       - {name: process, value: SIDIS_nu}
       - {name: target_isoscalarity, value: 1}
@@ -8,7 +8,7 @@ dependent_variables:
       - {name: Q, low: 1, high: 9.03, integrate: true}
       - {name: x, low: 0.01, high: 1, integrate: true}
       - {name: z, low: 0.05, high: 1, integrate: false}
-      - {name: PS_reduction, W: 2, ymin: 0, ymax: 0.93}
+      - {name: PS_reduction, W: 3, ymin: 0, ymax: 0.93}
       - {name: hadron, value: LA}
       - {name: charge, value: 0}
       - {name: observable, value: dsigma/dxdQdz}
