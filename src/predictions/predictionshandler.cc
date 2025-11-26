@@ -34,7 +34,8 @@ namespace MontBlanc
     _obs(DH.GetObservable()),
     _bins(DH.GetBinning()),
     _qTfact(DH.GetKinematics().qTfact),
-    _cmap(apfel::DiagonalBasis{13})
+    _cmap(apfel::DiagonalBasis{13}),
+    _shapenormalised(DH.GetShapeNormalised())
   {
     // Set silent mode for both apfel=+ and LHAPDF;
     apfel::SetVerbosityLevel(0);
@@ -100,6 +101,27 @@ namespace MontBlanc
 
     // Overall prefactor
     const double pref = DH.GetPrefactor();
+
+    _ShapeNorm_data = 0.0;
+    if(DH.GetShapeNormalised())
+      {
+        _values = DH.GetMeanValues();
+        for (size_t i = 0; i < _bins.size(); ++i) 
+        {
+          if(_bins[i].Intz)
+          {
+            if ( _cutmask[i])
+              _ShapeNorm_data += _values[i] * (_bins[i].zmax - _bins[i].zmin);
+          }
+          else 
+            throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Shape normalisation only implemented for z-integrated observables.");
+        }  
+      }
+
+    //Define number of points and Q range for tabulation
+    int nQ_tab = 100;
+    double Qmin_tab = 1;
+    double Qmax_tab = 10;
 
     if (DH.GetProcess() == NangaParbat::DataHandler::Process::SIA)
     {
@@ -222,7 +244,7 @@ namespace MontBlanc
         };
 
         // Tabulate total inclusive cross sections in Q
-        const apfel::TabulateObject<apfel::Distribution> TabIncXSecQ{IncXSecQ, 100, 1, 10, 3, _Thresholds};
+        const apfel::TabulateObject<apfel::Distribution> TabIncXSecQ{IncXSecQ, nQ_tab, Qmin_tab, Qmax_tab, 3, _Thresholds};
 
         // Path to SIDIS tables
         std::string SIDISTablePath = SOURCE_DIR + std::string("/") + (config["SIDIS tables"] ? config["SIDIS tables"].as<std::string>() : std::string("tables"));
@@ -464,7 +486,7 @@ namespace MontBlanc
         };
 
         // Tabulate semi-inclusive cross sections in Q
-        const apfel::TabulateObject<apfel::Set<apfel::DistributionOperator>> TabKi{Ki, 100, 1, 10, 3, _Thresholds};
+        const apfel::TabulateObject<apfel::Set<apfel::DistributionOperator>> TabKi{Ki, nQ_tab, Qmin_tab, Qmax_tab, 3, _Thresholds};
 
         // Pointers to the tabulated functions
         std::unique_ptr<apfel::TabulateObject<double>> TabIncQIntegrand;
@@ -496,6 +518,9 @@ namespace MontBlanc
               }
             else
               throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
+
+            if(Qmin < Qmin_tab || Qmax > Qmax_tab)
+              throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Qmin or Qmax are outside tabulation range in Q.");
 
             // If the point does not obey the cut, set FK table to zero and continue
             if (!_cutmask[i])
@@ -560,9 +585,10 @@ namespace MontBlanc
                   xbmax = _bins[i].xmax;
                   if (DH.GetKinematics().PSRed)
                     {
-                      xbmin = std::max(xbmin, pow(Q / Vs, 2) / DH.GetKinematics().etaRange.second);
-                      xbmax = std::min(std::min(xbmax, pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
-                    }
+                      xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
+                                                          pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
+                      xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );    
+                  }
                 }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
@@ -616,7 +642,7 @@ namespace MontBlanc
             Qc = _bins[i].Qav;
           }
      }
-    if (DH.GetProcess() == NangaParbat::DataHandler::Process::SIDIS_nu || DH.GetProcess() == NangaParbat::DataHandler::Process::SIDIS_nubar) 
+    else if (DH.GetProcess() == NangaParbat::DataHandler::Process::SIDIS_nu || DH.GetProcess() == NangaParbat::DataHandler::Process::SIDIS_nubar) 
      {
       // PDF set
         const LHAPDF::PDF* PDFs = LHAPDF::mkPDF(config["pdfset"]["name"].as<std::string>(), config["pdfset"]["member"].as<int>());
@@ -684,7 +710,7 @@ namespace MontBlanc
         };
 
         // Tabulate total inclusive cross sections in Q
-        const apfel::TabulateObject<apfel::Distribution> TabIncXSecQ{IncXSecQ, 100, 1, 10, 3, _Thresholds};
+        const apfel::TabulateObject<apfel::Distribution> TabIncXSecQ{IncXSecQ, nQ_tab, Qmin_tab, Qmax_tab, 3, _Thresholds};
 
         // Path to SIDIS tables 
         std::string SIDISTablePath = SOURCE_DIR + std::string("/") + (config["SIDIS tables"] ? config["SIDIS tables"].as<std::string>() : std::string("tables_ew"));
@@ -1099,7 +1125,7 @@ namespace MontBlanc
         };
 
         // Tabulate semi-inclusive cross sections in Q
-        const apfel::TabulateObject<apfel::Set<apfel::DistributionOperator>> TabKi{Ki, 100, 1, 10, 3, _Thresholds};
+        const apfel::TabulateObject<apfel::Set<apfel::DistributionOperator>> TabKi{Ki, nQ_tab, Qmin_tab, Qmax_tab, 3, _Thresholds};
 
         // Pointers to the tabulated functions
         std::unique_ptr<apfel::TabulateObject<double>> TabIncQIntegrand;
@@ -1131,6 +1157,9 @@ namespace MontBlanc
               }
             else
               throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
+
+            if(Qmin < Qmin_tab || Qmax > Qmax_tab)
+              throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Qmin or Qmax are outside tabulation range in Q.");
 
             // If the point does not obey the cut, set FK table to zero and continue
             if (!_cutmask[i])
@@ -1199,7 +1228,7 @@ namespace MontBlanc
                 if (DH.GetKinematics().PSRed)
                   {
                     xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
-                                                          pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
+                                                          pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 0.93);
                     xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );   
                   }
               }
@@ -1255,7 +1284,6 @@ namespace MontBlanc
             else
               _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav) / TabIncQIntegrand->Evaluate(_bins[i].Qav)});
             }
-            
 
             xl = _bins[i].xmin;
             xu = _bins[i].xmax;
@@ -1281,7 +1309,9 @@ namespace MontBlanc
     _bins(PH._bins),
     _qTfact(PH._qTfact),
     _cmap(PH._cmap),
-    _ChargeMap(PH._ChargeMap)
+    _ChargeMap(PH._ChargeMap),
+    _values(PH._values),
+    _shapenormalised(PH._shapenormalised)
   {
     // Set cuts in the mather class
     _cuts = PH._cuts;
@@ -1295,6 +1325,20 @@ namespace MontBlanc
     _FKt.resize(_bins.size());
     for (int i = 0; i < (int) _bins.size(); i++)
       _FKt[i] = (_cutmask[i] ? PH._FKt[i] : apfel::Set<apfel::Operator> {_cmap, std::map<int, apfel::Operator>{}});
+          
+    //Compute shape normalised integral with the new cuts
+    _ShapeNorm_data = 0.0;
+    if(_shapenormalised)
+    {
+      for (int i = 0; i < (int) _bins.size(); i++)
+      if(_bins[i].Intz) 
+      {
+        if (_cutmask[i])
+          _ShapeNorm_data += _values[i] * ( _bins[i].zmax - _bins[i].zmin );
+      }
+      else
+        throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Shape normalisation only implemented for z-integrated observables.");
+    }
   }
 
   //_________________________________________________________________________
@@ -1309,16 +1353,37 @@ namespace MontBlanc
   {
     // Initialise vector of predictions
     std::vector<double> preds(_bins.size());
-
+    double ShapeNorm_pred = 0.0;
+  
     // Compute predictions by convoluting the precomputed kernels with
     // the initial-scale FFs and then perform the integration in
     // z. Finally Divide by the bin width in z.
     for (int id = 0; id < (int) _bins.size(); id++)
-      if (_bins[id].Intz)
-        preds[id] = (_cutmask[id] ? ((_FKt[id] * _D).Combine() * [] (double const& z) -> double{ return 1 / z; }).Integrate(_bins[id].zmin, _bins[id].zmax)
+      {
+        if (_bins[id].Intz)
+          {
+            preds[id] = (_cutmask[id] ? ((_FKt[id] * _D).Combine() * [] (double const& z) -> double{ return 1 / z; }).Integrate(_bins[id].zmin, _bins[id].zmax)
                      / ( _bins[id].zmax - _bins[id].zmin ) * _qTfact[id] : 0);
-      else
-        preds[id] = (_cutmask[id] ? (_FKt[id] * _D).Combine().Evaluate(_bins[id].zav) / _bins[id].zav * _qTfact[id] : 0);
+            
+            // Accumulate N_pred if shape-normalised
+            if (_shapenormalised ) 
+              ShapeNorm_pred += preds[id] * (_bins[id].zmax - _bins[id].zmin); 
+          }
+        else
+          {
+            preds[id] = (_cutmask[id] ? (_FKt[id] * _D).Combine().Evaluate(_bins[id].zav) / _bins[id].zav * _qTfact[id] : 0);
+            
+            if (_shapenormalised) 
+              throw std::runtime_error("[PredictionsHandler::GetPredictions]: Shape normalisation only implemented for z-integrated observables.");
+          }
+      }
+    
+    if (_shapenormalised )
+    {
+      std::cout << "ShapeNorm data = " << _ShapeNorm_data << std::endl; 
+      std::cout << "ShapeNorm pred =  " << ShapeNorm_pred << std::endl; 
+      std::cout << "ShapeNorm data / ShapeNorm pred = " << _ShapeNorm_data / ShapeNorm_pred << std::endl;
+    }
     return preds;
   }
 
