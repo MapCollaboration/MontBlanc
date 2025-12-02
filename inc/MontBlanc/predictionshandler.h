@@ -69,5 +69,9 @@ namespace MontBlanc
     std::vector<double>                                  _ChargeMap;
     std::vector<apfel::Set<apfel::Operator>>             _FKt;
     apfel::Set<apfel::Distribution>                      _D;
+    double                                               _ShapeNorm_data;  
+    std::vector<double>                                  _values;
+    std::vector<double>                                  _preds; 
+    bool                                                 _shapenormalised;
   };
 }
