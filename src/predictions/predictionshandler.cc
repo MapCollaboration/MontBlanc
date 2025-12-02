@@ -519,8 +519,8 @@ namespace MontBlanc
             else
               throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
 
-            if(Qmin < Qmin_tab || Qmax > Qmax_tab)
-              throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Qmin or Qmax are outside tabulation range in Q.");
+            if(Qmin < Qmin_tab)
+              throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Qmin is outside tabulation range in Q.");
 
             // If the point does not obey the cut, set FK table to zero and continue
             if (!_cutmask[i])
