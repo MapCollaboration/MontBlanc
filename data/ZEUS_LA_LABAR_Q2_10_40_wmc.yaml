@@ -6,7 +6,7 @@ dependent_variables:
       - {name: prefactor, value: 1}
       - {name: Vs, value: 318, units: GeV}
       - {name: Q, low: 3.1622777, high: 6.3245553, integrate: true}
-      - {name: x, low: 0.0001, high: 0.75, integrate: true}
+      - {name: x, low: 0.001, high: 0.75, integrate: true}
       - {name: z, low: 0.09, high: 0.9, integrate: true}
       - {name: PS_reduction, W: 0, ymin: 0.04, ymax: 0.95}
       - {name: hadron, value: LA}
@@ -56,12 +56,12 @@ independent_variables:
       - {high: 1, low: 0.6, value: 0.8}
   - header: {name: "x"}
     values:
-      - {high: 0.75, low: 0.0001}
-      - {high: 0.75, low: 0.0001}
-      - {high: 0.75, low: 0.0001}
-      - {high: 0.75, low: 0.0001}
-      - {high: 0.75, low: 0.0001}
-      - {high: 0.75, low: 0.0001}
+      - {high: 0.75, low: 0.001}
+      - {high: 0.75, low: 0.001}
+      - {high: 0.75, low: 0.001}
+      - {high: 0.75, low: 0.001}
+      - {high: 0.75, low: 0.001}
+      - {high: 0.75, low: 0.001}
   - header: {name: "y"}
     values:
       - {high: 0.95, low: 0.04}

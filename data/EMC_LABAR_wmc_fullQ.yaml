@@ -4,11 +4,11 @@ dependent_variables:
       - {name: process, value: SIDIS}
       - {name: target_isoscalarity, value: 1}
       - {name: prefactor, value: 1}
-      - {name: Vs, value: 20.567, units: GeV}
-      - {name: Q, low: 2, high: 20.567, integrate: true}
+      - {name: Vs, value: 22.938, units: GeV}
+      - {name: Q, low: 2, high: 22.938, integrate: true}
       - {name: x, low: 0.02, high: 1, integrate: true}
       - {name: z, low: 0.09, high: 0.9, integrate: false}
-      - {name: PS_reduction, W: 4, ymin: 0.089, ymax: 0.933}
+      - {name: PS_reduction, W: 4, ymin: 0.07, ymax: 0.93}
       - {name: hadron, value: LA}
       - {name: charge, value: -1}
       - {name: observable, value: dsigma/dxdQdz}
@@ -45,6 +45,6 @@ independent_variables:
       - {high: 0.933, low: 0.089}
   - header: {name: "Q2"}
     values:
-      - {high: 185, low: 4}
-      - {high: 185, low: 4}
-      - {high: 185, low: 4}
+      - {high: 526.2, low: 4}
+      - {high: 526.2, low: 4}
+      - {high: 526.2, low: 4}

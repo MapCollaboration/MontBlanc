@@ -36,7 +36,7 @@ independent_variables:
       - {high: 0.15, low: 0.05, value: 0.1}
       - {high: 0.25, low: 0.15, value: 0.2}
       - {high: 0.45, low: 0.25, value: 0.35}
-  - header: {name: "x"}
+  - header: {name: x}
     values:
       - {high: 0.01, low: 0.0001}
       - {high: 0.01, low: 0.0001}

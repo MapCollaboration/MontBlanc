@@ -9,7 +9,7 @@ dependent_variables:
       - {name: Q, low: 1, high: 9.266, integrate: true}
       - {name: x, low: 0.01, high: 1, integrate: true}
       - {name: z, low: 0.05, high: 0.9, integrate: true}
-      - {name: PS_reduction, W: 2, ymin: 0, ymax: 0.8896}
+      - {name: PS_reduction, W: 1.414, ymin: 0, ymax: 0.8896}
       - {name: hadron, value: LA}
       - {name: charge, value: -1}
       - {name: observable, value: dsigma/dxdQdz}

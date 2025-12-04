@@ -47,17 +47,17 @@ independent_variables:
       - {high: 0.6, low: 0.5, value: 0.55}
   - header: {name: "Q2"}
     values:
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
-      - {high: 50, low: 1.2}
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
   - header: {name: "x"}
     values:
-      - {high: 0.9, low: 0.001}
-      - {high: 0.9, low: 0.001}
-      - {high: 0.9, low: 0.001}
-      - {high: 0.9, low: 0.001}
-      - {high: 0.9, low: 0.001}
-      - {high: 0.9, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
