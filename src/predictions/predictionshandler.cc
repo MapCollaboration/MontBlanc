@@ -121,7 +121,7 @@ namespace MontBlanc
     //Define number of points and Q range for tabulation
     int nQ_tab = 100;
     double Qmin_tab = 1;
-    double Qmax_tab = 10;
+    double Qmax_tab = 60;
 
     if (DH.GetProcess() == NangaParbat::DataHandler::Process::SIA)
     {
@@ -586,7 +586,7 @@ namespace MontBlanc
                   if (DH.GetKinematics().PSRed)
                     {
                       xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
-                                                          pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
+                                                      pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
                       xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );    
                   }
                 }
@@ -713,7 +713,7 @@ namespace MontBlanc
         const apfel::TabulateObject<apfel::Distribution> TabIncXSecQ{IncXSecQ, nQ_tab, Qmin_tab, Qmax_tab, 3, _Thresholds};
 
         // Path to SIDIS tables 
-        std::string SIDISTablePath = SOURCE_DIR + std::string("/") + (config["SIDIS tables"] ? config["SIDIS tables"].as<std::string>() : std::string("tables_ew"));
+        std::string SIDISTablePath = SOURCE_DIR + std::string("/") + (config["SIDIS tables ew"] ? config["SIDIS tables ew"].as<std::string>() : std::string("tables_ew"));
         
         // -- LO
         const apfel::DoubleOperator O0qq{YAML::LoadFile(SIDISTablePath + "/DoubleIdentity.yaml"), *_gx, *_gz, apfel::DoubleIdentity{}};
@@ -1228,7 +1228,7 @@ namespace MontBlanc
                 if (DH.GetKinematics().PSRed)
                   {
                     xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
-                                                          pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 0.93);
+                                                          pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
                     xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );   
                   }
               }
@@ -1380,9 +1380,16 @@ namespace MontBlanc
     
     if (_shapenormalised )
     {
+      //avoid multiple printing
+      static bool printed = false;
+      if(!printed)
+      {
+      //Offline computation to add as prefactor for shape-normalised data
       std::cout << "ShapeNorm data = " << _ShapeNorm_data << std::endl; 
       std::cout << "ShapeNorm pred =  " << ShapeNorm_pred << std::endl; 
       std::cout << "ShapeNorm data / ShapeNorm pred = " << _ShapeNorm_data / ShapeNorm_pred << std::endl;
+      printed = true;
+      }
     }
     return preds;
   }
