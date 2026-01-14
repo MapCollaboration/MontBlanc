@@ -587,7 +587,7 @@ namespace MontBlanc
                     {
                       xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
                                                       pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
-                      xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );    
+                      xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) ); 
                   }
                 }
               else
@@ -629,10 +629,20 @@ namespace MontBlanc
                                    (new apfel::TabulateObject<apfel::Set<apfel::Operator>> {Nj, 50, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds});
 
             // Push back multiplicities
-            if (_bins[i].IntQ)
-              _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax) / TabIncQIntegrand->Integrate(Qmin, Qmax)});
-            else
-              _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav) / TabIncQIntegrand->Evaluate(_bins[i].Qav)});
+            if (!DH.GetNormalised())
+            {
+              if (_bins[i].IntQ)
+                _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax)});
+              else
+                _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav)});
+            }
+            else 
+            {
+              if (_bins[i].IntQ)
+                _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax) / TabIncQIntegrand->Integrate(Qmin, Qmax)});
+              else
+                _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav) / TabIncQIntegrand->Evaluate(_bins[i].Qav)});
+            }
 
             xl = _bins[i].xmin;
             xu = _bins[i].xmax;
@@ -1280,9 +1290,9 @@ namespace MontBlanc
             else 
             {
               if (_bins[i].IntQ)
-              _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax) / TabIncQIntegrand->Integrate(Qmin, Qmax)});
-            else
-              _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav) / TabIncQIntegrand->Evaluate(_bins[i].Qav)});
+                _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Integrate(Qmin, Qmax) / TabIncQIntegrand->Integrate(Qmin, Qmax)});
+              else
+                _FKt.push_back(apfel::Set<apfel::Operator> {pref * TabSemiIncQIntegrand->Evaluate(_bins[i].Qav) / TabIncQIntegrand->Evaluate(_bins[i].Qav)});
             }
 
             xl = _bins[i].xmin;
@@ -1350,7 +1360,7 @@ namespace MontBlanc
 
   //_________________________________________________________________________
   std::vector<double> PredictionsHandler::GetPredictions(std::function<double(double const&, double const&, double const&)> const&) const
-  {
+  {    
     // Initialise vector of predictions
     std::vector<double> preds(_bins.size());
     double ShapeNorm_pred = 0.0;
