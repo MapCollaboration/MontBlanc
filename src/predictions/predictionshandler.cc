@@ -546,20 +546,22 @@ namespace MontBlanc
               double xbmax;
               if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
                 {
-                  xbmin = std::max(_bins[i].xmin, pow(Q / Vs, 2) / _bins[i].ymax);
-                  xbmax = std::min(_bins[i].xmax, pow(Q / Vs, 2) / _bins[i].ymin);
+                  xbmax = std::min(std::min(_bins[i].xmax, pow(Q / Vs, 2) / _bins[i].ymin), 1.0);
                   if (DH.GetKinematics().PSRed)
                     xbmax = std::min(xbmax, 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
+
+                  xbmin = std::min( xbmax, std::max(_bins[i].xmin, pow(Q / Vs, 2) / _bins[i].ymax));
                 }
               else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz)
                 {
                   xbmin = _bins[i].xmin;
                   xbmax = _bins[i].xmax;
                   if (DH.GetKinematics().PSRed)
-                    {
-                      xbmin = std::max(xbmin, pow(Q / Vs, 2) / DH.GetKinematics().etaRange.second);
-                      xbmax = std::min(std::min(xbmax, pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
-                    }
+                  {
+                    xbmax = std::min(std::min(std::min( xbmax, 1.0 / ( 1.0 + pow(DH.GetKinematics().pTMin / Q, 2)) ) , 
+                                                          pow(Q / Vs, 2) / DH.GetKinematics().etaRange.first), 1.0);
+                    xbmin = std::min( xbmax, std::max(xbmin, pow(Q / Vs, 2)/ DH.GetKinematics().etaRange.second ) );    
+                  }
                 }
               else
                 throw std::runtime_error("[PredictionsHandler::PredictionsHandler]: Unknown Observable.");
@@ -574,10 +576,11 @@ namespace MontBlanc
               double xbmax;
               if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdydz)
                 {
-                  xbmin = std::max(_bins[i].xmin, pow(Q / Vs, 2) / _bins[i].ymax);
-                  xbmax = std::min(_bins[i].xmax, pow(Q / Vs, 2) / _bins[i].ymin);
+                  xbmax = std::min(std::min(_bins[i].xmax, pow(Q / Vs, 2) / _bins[i].ymin), 1.0);
                   if (DH.GetKinematics().PSRed)
                     xbmax = std::min(xbmax, 1 / ( 1 + pow(DH.GetKinematics().pTMin / Q, 2) ));
+                    
+                  xbmin = std::min( xbmax, std::max(_bins[i].xmin, pow(Q / Vs, 2) / _bins[i].ymax));
                 }
               else if (_obs == NangaParbat::DataHandler::Observable::dsigma_dxdQdz)
                 {
@@ -712,7 +715,7 @@ namespace MontBlanc
           const std::function<double(double const&)> func3 = [=] (double const& x) -> double
           { 
             const double y = pow(Q / Vs, 2) / x ;
-            return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x;
+            return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x; 
           };  
 
           // Return cross section 
@@ -821,7 +824,7 @@ namespace MontBlanc
           const std::function<double(double const&, double const&)> func3 = [=] (double const& x, double const&) -> double
           { 
             const double y = pow(Q / Vs, 2) / x ;
-	          return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x;
+	          return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x; 
           };
 
           const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const&) -> double
@@ -1276,9 +1279,9 @@ namespace MontBlanc
             };
 
             // Tabulate cross section
-            TabIncQIntegrand = std::unique_ptr<apfel::TabulateObject<double>> {new apfel::TabulateObject<double> {IncQIntegrand, 100, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds}};
+            TabIncQIntegrand = std::unique_ptr<apfel::TabulateObject<double>> {new apfel::TabulateObject<double> {IncQIntegrand, 50, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds}};
             TabSemiIncQIntegrand = std::unique_ptr<apfel::TabulateObject<apfel::Set<apfel::Operator>>>
-                                   (new apfel::TabulateObject<apfel::Set<apfel::Operator>> {Nj, 100, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds});
+                                   (new apfel::TabulateObject<apfel::Set<apfel::Operator>> {Nj, 50, 0.9 * Qmin, 1.1 * Qmax, 3, _Thresholds});
             // Push back multiplicities
             if (!DH.GetNormalised())
             {
@@ -1400,6 +1403,7 @@ namespace MontBlanc
       std::cout << "ShapeNorm data / ShapeNorm pred = " << _ShapeNorm_data / ShapeNorm_pred << std::endl;
       printed = true;
       }
+    //printed = false;
     }
     return preds;
   }
