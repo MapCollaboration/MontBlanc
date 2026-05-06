@@ -83,11 +83,6 @@ dependent_variables:
           - {label: unc, value: 0.03}
           - {label: add, value: 0.034}
         value: 0.15
-      - errors:
-          - {label: unc, value: 0.01}
-          - {label: unc, value: 0.02}
-          - {label: add, value: 0.034}
-        value: 0.37
 independent_variables:
   - header: {name: "z"}
     values:
@@ -106,7 +101,6 @@ independent_variables:
       - {high: 0.23627027, low: 0.18462838, value: 0.20645493, factor: 0.99295278}
       - {high: 0.30199278, low: 0.23627027, value: 0.26313996, factor: 0.99566785}
       - {high: 0.49760189, low: 0.30199278, value: 0.36881247, factor: 0.99779706}
-      - {high: 0.49760189, low: 0.028189346, value: 0.25666883, factor: 0.99544615}
   - header: {name: "xp"}
     values:
       - {high: 0.018, low: 0.014, value: 0.015}
@@ -124,4 +118,3 @@ independent_variables:
       - {high: 0.235, low: 0.183, value: 0.205}
       - {high: 0.301, low: 0.235, value: 0.262}
       - {high: 0.497, low: 0.301, value: 0.368}
-      - {high: 0.497, low: 0.014, value: 0.2555}

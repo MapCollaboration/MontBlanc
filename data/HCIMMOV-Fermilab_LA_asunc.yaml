@@ -14,27 +14,27 @@ dependent_variables:
     values:
       - errors:
           - {label: unc, value: 0.034}
-          - {label: unc, value: 0.25}
+          - {label: unc, value: 0.046}
         value: 0.184
       - errors:
           - {label: unc, value: 0.031}
-          - {label: unc, value: 0.25}
+          - {label: unc, value: 0.038}
         value: 0.152
       - errors:
           - {label: unc, value: 0.027}
-          - {label: unc, value: 0.25}
+          - {label: unc, value: 0.029}
         value: 0.117
       - errors:
           - {label: unc, value: 0.013}
-          - {label: unc, value: 0.25}
+          - {label: unc, value: 0.0065}
         value: 0.026
       - errors:
           - {label: unc, value: 0.014}
-          - {label: unc, value: 0.25}
+          - {label: unc, value: 0.00775}
         value: 0.031
       - errors:
           - {label: unc, value: 0.011}
-          - {label: unc, value: 0.25}
+          - {label: unc, value: 0.00375}
         value: 0.015
 independent_variables:
   - header: {name: "z"}
@@ -61,3 +61,11 @@ independent_variables:
       - {high: 50, low: 1}
       - {high: 50, low: 1}
       - {high: 50, low: 1}
+  - header: {name: "y"}
+    values:
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}

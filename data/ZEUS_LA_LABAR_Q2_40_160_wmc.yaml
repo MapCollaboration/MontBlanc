@@ -45,7 +45,7 @@ independent_variables:
       - {high: 0.33694348, low: 0.24982612, value: 0.29254959, factor: 0.87302389}
       - {high: 0.42901499, low: 0.33694348, value: 0.38254003, factor: 0.92160541}
       - {high: 0.62007478, low: 0.42901499, value: 0.52376608, factor: 0.95659419}
-      - {high: 1.0122967, low: 0.62007478, value: 0.81526843, factor: 0.9816162}
+      - {high: 1, low: 0.62007478, value: 0.81526843, factor: 0.9816162}
   - header: {name: "xP"}
     values:
       - {high: 0.1, low: 0, value: 0.05}

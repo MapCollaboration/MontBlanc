@@ -223,8 +223,6 @@ namespace MontBlanc
         std::function<std::vector<double>(double const&)> fBq = [=] (double const& Q) -> std::vector<double> { return apfel::ElectroWeakCharges(Q, false); };
 
         // Initialise inclusive structure functions
-        // TODO
-        // Is _gx correct here?
         const auto IF2 = BuildStructureFunctions(InitializeF2NCObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
         const auto IFL = BuildStructureFunctions(InitializeFLNCObjectsZM(*_gx, _Thresholds), RotPDFs, PerturbativeOrder, Alphas, fBq);
 
@@ -699,9 +697,9 @@ namespace MontBlanc
         const std::function<apfel::Distribution(double const&)> IncXSecQ = [&] (double const& Q) -> apfel::Distribution
         {
           const double etaW = pow( (apfel::GFermi * pow(apfel::WMass * Q, 2)) / (4 * M_PI * Alphaem(Q) * ( pow(Q, 2) + pow(apfel::WMass, 2) ) ) , 2) / 2;
-          const double fact = ( 4 * M_PI * (pow(Alphaem(Q), 2) / pow(Q, 3)) ) * 4 * etaW;
+          const double fact = 2 * ( 4 * M_PI * (pow(Alphaem(Q), 2) / pow(Q, 3)) ) * 4 * etaW;
 
-          // Functions that multiply F2 and FL
+          // Functions that multiply F2, FL and F3
           const std::function<double(double const&)> func2 = [=] (double const& x) -> double
           { 
             const double y = pow(Q / Vs, 2) / x ;
@@ -813,7 +811,7 @@ namespace MontBlanc
 
           // Overall Q-dependent factor of the cross section
           const double etaW = pow( (apfel::GFermi * pow(apfel::WMass * Q, 2)) / (4 * M_PI * Alphaem(Q) * ( pow(Q, 2) + pow(apfel::WMass, 2) ) ) , 2) / 2;
-          const double fact = ( 4 * M_PI * (pow(Alphaem(Q), 2) / pow(Q, 3)) ) * 4 * etaW;
+          const double fact = 2 * ( 4 * M_PI * (pow(Alphaem(Q), 2) / pow(Q, 3)) ) * 4 * etaW;
 
           // Functions that multiply FT, FL and F3
 	        const std::function<double(double const&, double const&)> funcT = [=] (double const& x, double const&) -> double
@@ -826,7 +824,6 @@ namespace MontBlanc
             const double y = pow(Q / Vs, 2) / x ;
 	          return (sign) * fact * ( 1 - pow(1 - y, 2) ) / x; 
           };
-
           const std::function<double(double const&, double const&)> funcL = [=] (double const& x, double const&) -> double
 	        {
 	          const double y = pow(Q / Vs, 2) / x ;
@@ -1403,7 +1400,6 @@ namespace MontBlanc
       std::cout << "ShapeNorm data / ShapeNorm pred = " << _ShapeNorm_data / ShapeNorm_pred << std::endl;
       printed = true;
       }
-    //printed = false;
     }
     return preds;
   }
