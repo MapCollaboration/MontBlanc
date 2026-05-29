@@ -13,7 +13,7 @@ The FF sets in the LHAPDF format for both positive and negative pions as well as
 In order for the code to pe compiled, the following dependencies need to be preinstalled:
 
 - [`NangaParbat`](https://github.com/vbertone/NangaParbat)
-- [`apfelxx`](https://github.com/vbertone/apfelxx)
+- [`apfelxx`](https://github.com/vbertone/apfelxx) (branch `QED`)
 - [`NNAD`](https://github.com/rabah-khalek/NNAD)
 - [`ceres-solver`](http://ceres-solver.org)
 - [`LHAPDF`](https://lhapdf.hepforge.org)
