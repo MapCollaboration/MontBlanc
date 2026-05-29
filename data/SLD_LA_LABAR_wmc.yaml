@@ -1,0 +1,120 @@
+dependent_variables:
+  - header: {title: "SLD at 91.2 GeV, Lambda Multiplicity ", titlepy: "SLD at 91.2 GeV, Lambda Multiplicity ", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma}#frac{d#it{#sigma}}{d#it{z}}", ylabelpy: "$\\frac{1}{\\sigma}\\frac{d\\sigma}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 91.2, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.028189346, high: 0.9, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.45}
+          - {label: unc, value: 1.22}
+          - {label: add, value: 0.034}
+        value: 2.99
+      - errors:
+          - {label: unc, value: 0.42}
+          - {label: unc, value: 0.58}
+          - {label: add, value: 0.034}
+        value: 3.9
+      - errors:
+          - {label: unc, value: 0.3}
+          - {label: unc, value: 0.23}
+          - {label: add, value: 0.034}
+        value: 4.1
+      - errors:
+          - {label: unc, value: 0.23}
+          - {label: unc, value: 0.16}
+          - {label: add, value: 0.034}
+        value: 3.54
+      - errors:
+          - {label: unc, value: 0.2}
+          - {label: unc, value: 0.14}
+          - {label: add, value: 0.034}
+        value: 3.34
+      - errors:
+          - {label: unc, value: 0.14}
+          - {label: unc, value: 0.13}
+          - {label: add, value: 0.034}
+        value: 2.86
+      - errors:
+          - {label: unc, value: 0.11}
+          - {label: unc, value: 0.13}
+          - {label: add, value: 0.034}
+        value: 2.39
+      - errors:
+          - {label: unc, value: 0.1}
+          - {label: unc, value: 0.09}
+          - {label: add, value: 0.034}
+        value: 2.2
+      - errors:
+          - {label: unc, value: 0.08}
+          - {label: unc, value: 0.06}
+          - {label: add, value: 0.034}
+        value: 1.63
+      - errors:
+          - {label: unc, value: 0.08}
+          - {label: unc, value: 0.08}
+          - {label: add, value: 0.034}
+        value: 1.31
+      - errors:
+          - {label: unc, value: 0.06}
+          - {label: unc, value: 0.05}
+          - {label: add, value: 0.034}
+        value: 0.98
+      - errors:
+          - {label: unc, value: 0.05}
+          - {label: unc, value: 0.04}
+          - {label: add, value: 0.034}
+        value: 0.68
+      - errors:
+          - {label: unc, value: 0.05}
+          - {label: unc, value: 0.04}
+          - {label: add, value: 0.034}
+        value: 0.51
+      - errors:
+          - {label: unc, value: 0.04}
+          - {label: unc, value: 0.04}
+          - {label: add, value: 0.034}
+        value: 0.3
+      - errors:
+          - {label: unc, value: 0.02}
+          - {label: unc, value: 0.03}
+          - {label: add, value: 0.034}
+        value: 0.15
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.030374977, low: 0.028189346, value: 0.028699116, factor: 0.52266419}
+      - {high: 0.032903484, low: 0.030374977, value: 0.031601254, factor: 0.63288628}
+      - {high: 0.036436784, low: 0.032903484, value: 0.034980555, factor: 0.71468277}
+      - {high: 0.041080887, low: 0.036436784, value: 0.038712262, factor: 0.77494826}
+      - {high: 0.047745568, low: 0.041080887, value: 0.04435808, factor: 0.83412087}
+      - {high: 0.055665422, low: 0.047745568, value: 0.051221472, factor: 0.87853781}
+      - {high: 0.065723962, low: 0.055665422, value: 0.060196671, factor: 0.91367178}
+      - {high: 0.077939972, low: 0.065723962, value: 0.071327689, factor: 0.93932666}
+      - {high: 0.094231838, low: 0.077939972, value: 0.085572421, factor: 0.95825266}
+      - {high: 0.11366459, low: 0.094231838, value: 0.10294969, factor: 0.97134821}
+      - {high: 0.14409247, low: 0.11366459, value: 0.12737205, factor: 0.98137699}
+      - {high: 0.18462838, low: 0.14409247, value: 0.16185994, factor: 0.98850897}
+      - {high: 0.23627027, low: 0.18462838, value: 0.20645493, factor: 0.99295278}
+      - {high: 0.30199278, low: 0.23627027, value: 0.26313996, factor: 0.99566785}
+      - {high: 0.49760189, low: 0.30199278, value: 0.36881247, factor: 0.99779706}
+  - header: {name: "xp"}
+    values:
+      - {high: 0.018, low: 0.014, value: 0.015}
+      - {high: 0.022, low: 0.018, value: 0.02}
+      - {high: 0.027, low: 0.022, value: 0.025}
+      - {high: 0.033, low: 0.027, value: 0.03}
+      - {high: 0.041, low: 0.033, value: 0.037}
+      - {high: 0.05, low: 0.041, value: 0.045}
+      - {high: 0.061, low: 0.05, value: 0.055}
+      - {high: 0.074, low: 0.061, value: 0.067}
+      - {high: 0.091, low: 0.074, value: 0.082}
+      - {high: 0.111, low: 0.091, value: 0.1}
+      - {high: 0.142, low: 0.111, value: 0.125}
+      - {high: 0.183, low: 0.142, value: 0.16}
+      - {high: 0.235, low: 0.183, value: 0.205}
+      - {high: 0.301, low: 0.235, value: 0.262}
+      - {high: 0.497, low: 0.301, value: 0.368}

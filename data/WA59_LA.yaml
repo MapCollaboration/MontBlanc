@@ -1,0 +1,80 @@
+dependent_variables:
+  - header: {title: "WA59, Lambda Multiplicity", titlepy: "WA59, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIDIS_nubar}
+      - {name: target_isoscalarity, value: 0.5}
+      - {name: prefactor, value: 1}
+      - {name: Vs, value: 9.1542, units: GeV}
+      - {name: Q, low: 1, high: 9.1542, integrate: true}
+      - {name: x, low: 0.01, high: 1, integrate: true}
+      - {name: z, low: 0.09, high: 0.9, integrate: true}
+      - {name: PS_reduction, W: 2.24, ymin: 0, ymax: 0.89}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 1}
+      - {name: observable, value: dsigma/dxdQdz}
+    values:
+      - errors:
+          - {label: unc, value: 0.0233}
+        value: 0.2402
+      - errors:
+          - {label: unc, value: 0.0218}
+        value: 0.2219
+      - errors:
+          - {label: unc, value: 0.019}
+        value: 0.1684
+      - errors:
+          - {label: unc, value: 0.0137}
+        value: 0.0882
+      - errors:
+          - {label: unc, value: 0.0137}
+        value: 0.0789
+      - errors:
+          - {label: unc, value: 0.0099}
+        value: 0.0455
+      - errors:
+          - {label: unc, value: 0.0028}
+        value: 0.004
+      - errors:
+          - {label: unc, value: 0.0066}
+        value: 0.0116
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.1, low: 0, value: 0.05}
+      - {high: 0.2, low: 0.1, value: 0.15}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.4, low: 0.3, value: 0.35}
+      - {high: 0.5, low: 0.4, value: 0.45}
+      - {high: 0.6, low: 0.5, value: 0.55}
+      - {high: 0.7, low: 0.6, value: 0.65}
+      - {high: 0.8, low: 0.7, value: 0.75}
+  - header: {name: "x"}
+    values:
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+  - header: {name: "y"}
+    values:
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+      - {high: 0.89, low: 0}
+  - header: {name: "Q2"}
+    values:
+      - {high: 83.799378, low: 1}
+      - {high: 83.799378, low: 1}
+      - {high: 83.799378, low: 1}
+      - {high: 83.799378, low: 1}
+      - {high: 83.799378, low: 1}
+      - {high: 83.799378, low: 1}
+      - {high: 83.799378, low: 1}
+      - {high: 83.799378, low: 1}

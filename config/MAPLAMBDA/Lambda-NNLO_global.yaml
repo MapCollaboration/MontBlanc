@@ -1,0 +1,136 @@
+#################################
+# Predictions
+#################################
+Predictions:
+  # Perturbative order, 0: LO, 1: NLO, 2: NNLO
+  perturbative order: 2
+
+  # Initial scale in GeV to be used for the DGLAP evolution of the FFs.
+  mu0: 5
+
+  # Quark thresholds
+  thresholds: [0, 0, 0, 1.51, 4.92]
+
+  # Strong coupling
+  alphas:
+    aref: 0.118
+    Qref: 91.1876
+
+  # Fine-structure constant
+  alphaem:
+    aref: 0.00776578395589
+    Qref: 91.1876
+
+  # APFEL++ grid
+  xgrid:
+  - [100, 0.0001, 3]
+  - [93, 0.057543994, 3]
+  - [8, 0.94044485, 3]
+  zgrid:
+  - [100, 0.01, 3]
+  - [99, 0.21877616, 3]
+  - [66, 0.71340038, 3]
+
+  #SIDIS tables for NNLO calculation 
+  SIDIS tables: "tables_0412"
+  SIDIS tables ew: "tables_ew_0412"
+
+  # PDF set
+  pdfset:
+    name: NNPDF31_nnlo_pch_as_0118
+    member: -1 #N>=0 for a specific member (0 for central) ; N<0 for all members to be used randomly(flat dist)
+  
+#################################
+# Optimiser
+#################################
+# Parameters of the optimiser managed by ceres-solver
+Optimizer:
+  max_num_iterations: 3000
+  chi2_tolerance: 3
+#################################
+# NNAD
+#################################
+NNAD:
+  # Initialisation seed
+  seed: 4
+  # Architecture
+  architecture: [1, 10, 7]
+  # The output function can be either the activation function of the
+  # NN (0), or linear (1), or quadratic (2). If this entry is absent a
+  # linear function is assumed.
+  output function: 1
+  # The flavour map gives the the specific combinations of
+  # distributions in the physical-basis (d, u, s, ..) to be fitted to
+  # the data. The number of combinations has to match the number of
+  # nodes of the output layer of the NN given in the
+  # architecture. When defining the flavour map, one should keep in
+  # mind that the code computes predictions using the QCD-evolution
+  # basis (Sigma, V, T3, ...). Therefore, in general,
+  # QCD-evolution-like combinations should be preferred. Moreover, the
+  # distributions are assumed to be for the positive charge of the a
+  # given hadronic species. The negative distributions are derived
+  # using charge conjugation (q->qbar).
+
+  #             tb bb cb sb ub db g  d  u  s  c  b  t  # Combinations to be fitted (i.e. output of the NN):
+  flavour map: [
+                0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, # - u
+                0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, # - d
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, # - s
+                0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, # - ub=db=sb
+                0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, # - c+
+                0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, # - b+
+                0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, # - g
+               #tb bb cb sb ub db g  d  u  s  c  b  t
+               ]
+  combine: true
+#################################
+# Data
+#################################
+Data:
+  # Seed used for the replica generation and the splitting between
+  # training and validation (do not use a too large number here in
+  # order to avoid correlation in the replica generation).
+  seed: 0
+  # Hadronic species being fitted. This is used to make sure that all
+  # data sets included in the fit actually refer to the correct
+  # species.
+  hadron: LA
+  # Datasets to be included in the fit along with specific cuts and
+  # traning fraction. Each single dataset can implement an arbitrary
+  # number of cuts determined by the name of the appropriate function
+  # (e.g. zcut) and the allowed range.
+  sets:
+  - {name: "E665 $\\Lambda$", file: "E665_LA_wmc_fullQ.yaml", cuts: [{name: zcut, min: 0.1, max: 0.9}], training fraction: 0.5}
+  - {name: "E665 $\\bar{\\Lambda}$", file: "E665_LABAR_wmc_fullQ.yaml", cuts: [{name: zcut, min: 0.1, max: 0.9}], training fraction: 0.5}
+  - {name: "EMC $\\Lambda$",    file: "EMC_LA_wmc_fullQ.yaml",    cuts: [{name: zcut, min: 0.1, max: 0.9}], training fraction: 0.5}
+  - {name: "EMC $\\bar{\\Lambda}$",    file: "EMC_LABAR_wmc_fullQ.yaml",    cuts: [{name: zcut, min: 0.1, max: 0.9}], training fraction: 0.5}
+  - {name: "H1 $\\Lambda \\bar{\\Lambda}$",    file: "H1_LA_LABAR_wmc.yaml",    cuts: [{name: zcut, min: 0.1, max: 0.9}], training fraction: 0.5}
+  - {name: "CHIO $\\Lambda$",    file: "CHIO-Fermilab_LA_asunc.yaml",    cuts: [{name: zcut, min: 0.29, max: 0.9}], training fraction: 0.5}
+  - {name: "CHIO $\\bar{\\Lambda}$",    file: "CHIO-Fermilab_LABAR_asunc.yaml",    cuts: [ {name: zcut, min: 0.19, max: 0.9}], training fraction: 0.5}
+  - {name: "ZEUS 10-40 $GeV^2 \\Lambda \\bar{\\Lambda}$",    file: "ZEUS_LA_LABAR_Q2_10_40_wmc.yaml",    cuts: [{name: zcut, min: 0.42, max: 0.8}], training fraction: 0.5}
+  - {name: "ZEUS 40-160 $GeV^2 \\Lambda \\bar{\\Lambda}$",    file: "ZEUS_LA_LABAR_Q2_40_160_wmc.yaml",    cuts: [{name: zcut, min: 0.3, max: 0.8}], training fraction: 0.5}
+  - {name: "ZEUS 160-640 $GeV^2 \\Lambda \\bar{\\Lambda}$",    file: "ZEUS_LA_LABAR_Q2_160_640_wmc.yaml",    cuts: [{name: zcut, min: 0.1, max: 0.8}], training fraction: 0.5}
+  - {name: "ZEUS 640-2560 $GeV^2 \\Lambda \\bar{\\Lambda}$",    file: "ZEUS_LA_LABAR_Q2_640_2560_wmc.yaml",    cuts: [{name: zcut, min: 0.1, max: 0.8}], training fraction: 0.5}
+  - {name: "ZEUS 2560-10240 $GeV^2 \\Lambda \\bar{\\Lambda}$",    file: "ZEUS_LA_LABAR_Q2_2560_10240_wmc.yaml",    cuts: [{name: zcut, min: 0.1, max: 0.8}], training fraction: 0.5}  
+  - {name: "NOMAD $\\Lambda$", file: "NOMAD_LA_n.yaml", cuts: [{name: zcut, min: 0.29, max: 0.91}], training fraction: 0.5}
+  - {name: "NOMAD $\\bar\\Lambda$", file: "NOMAD_LABAR_n.yaml", cuts: [{name: zcut, min: 0.19, max: 0.91}], training fraction: 0.5}
+  - {name: "WA59 $\\Lambda$ wmc", file: "WA59_LA_wmc.yaml",  cuts: [{name: zcut, min: 0.1, max: 0.9}], training fraction: 0.5}
+  - {name: "ABCMO $\\Lambda$", file: "ABCMO_LA.yaml",  cuts: [{name: zcut, min: 0.3, max: 0.9}], training fraction: 0.5}
+  - {name: "ALEPH $\\Lambda \\bar{\\Lambda}$", file: "ALEPH_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+  - {name: "ARGUS $\\Lambda \\bar{\\Lambda}$", file: "ARGUS_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "BELLE $\\Lambda \\bar{\\Lambda}$", file: "BELLE_LA_LABAR_wrc_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "CELLO $\\Lambda \\bar{\\Lambda}$", file: "CELLO_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "Delphi 91.2 GeV $\\Lambda \\bar{\\Lambda}$", file: "DELPHI_91.2_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.03, max: 0.9}], training fraction: 0.5}
+  - {name: "HRS $\\Lambda \\bar{\\Lambda}$", file: "HRS_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "MARK II $\\Lambda \\bar{\\Lambda}$", file: "MARKII_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.1, max: 0.9}], training fraction: 0.5}
+  - {name: "OPAL $\\Lambda \\bar{\\Lambda}$", file: "OPAL_LA_LABAR.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+  - {name: "SLD B $\\Lambda \\bar{\\Lambda}$", file: "SLD_LA_LABAR_B_wmc.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+  - {name: "SLD C $\\Lambda \\bar{\\Lambda}$", file: "SLD_LA_LABAR_C_wmc.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+  - {name: "SLD UDS $\\Lambda \\bar{\\Lambda}$", file: "SLD_LA_LABAR_UDS_wmc.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+  - {name: "SLD $\\Lambda \\bar{\\Lambda}$", file: "SLD_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.02, max: 0.9}], training fraction: 0.5}
+  - {name: "TASSO 14 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_14_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "TASSO 22 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_22_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "TASSO 33 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_33_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "TASSO 34 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_34_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "TASSO 34.8 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_34.8_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}
+  - {name: "TASSO 42.1 GeV $\\Lambda \\bar{\\Lambda}$", file: "TASSO_42.1_LA_LABAR_wmc.yaml", cuts: [{name: zcut, min: 0.075, max: 0.9}], training fraction: 0.5}

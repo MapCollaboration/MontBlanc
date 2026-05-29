@@ -1,0 +1,74 @@
+dependent_variables:
+  - header: {title: "TASSO at 34.8 GeV, Lambda Multiplicity", titlepy: "TASSO at 34.8 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [nb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{nb GeV^{2}}]$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 34.8, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: normalised, value: false}
+      - {name: z, low: 0.069, high: 1, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 145.06206}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 1109
+      - errors:
+          - {label: unc, value: 68.058798}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 566
+      - errors:
+          - {label: unc, value: 56.017854}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 459
+      - errors:
+          - {label: unc, value: 37.506666}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 281.5
+      - errors:
+          - {label: unc, value: 46.505376}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 365.5
+      - errors:
+          - {label: unc, value: 35.02856}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 233
+      - errors:
+          - {label: unc, value: 23.510636}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 140.5
+      - errors:
+          - {label: unc, value: 25.039968}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 143
+      - errors:
+          - {label: unc, value: 18.05547}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 95
+      - errors:
+          - {label: unc, value: 3}
+          - {label: add, value: 0.05}
+          - {label: add, value: 0.09}
+        value: 14
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.092, low: 0.069, value: 0.0805, factor: 2003.048}
+      - {high: 0.109, low: 0.092, value: 0.1005, factor: 1572.7334}
+      - {high: 0.126, low: 0.109, value: 0.1175, factor: 1445.1975}
+      - {high: 0.148, low: 0.126, value: 0.137, factor: 1370.4038}
+      - {high: 0.169, low: 0.148, value: 0.1585, factor: 1324.2397}
+      - {high: 0.192, low: 0.169, value: 0.1805, factor: 1295.5411}
+      - {high: 0.229, low: 0.192, value: 0.2105, factor: 1271.4641}
+      - {high: 0.278, low: 0.229, value: 0.2535, factor: 1251.7448}
+      - {high: 0.343, low: 0.278, value: 0.3105, factor: 1237.7191}
+      - {high: 1, low: 0.343, value: 0.6715, factor: 1216.5992}

@@ -1,0 +1,41 @@
+dependent_variables:
+  - header: {title: "DELPHI at 183 GeV, Lambda Multiplicity", titlepy: "DELPHI at 183 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 183, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.30119421, high: 0.9, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.027}
+        value: 0.034
+      - errors:
+          - {label: unc, value: 0.023}
+        value: 0.05
+      - errors:
+          - {label: unc, value: 0.024}
+        value: 0.1
+      - errors:
+          - {label: unc, value: 0.029}
+        value: 0.157
+      - errors:
+          - {label: unc, value: 0.021}
+        value: 0.081
+      - errors:
+          - {label: unc, value: 0.023}
+        value: 0.056
+      - errors:
+          - {label: unc, value: 0.027}
+        value: 0.034
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.30119421, low: 0.16529889, value: 0.22313016, factor: 0.22313016}
+      - {high: 0.16529889, low: 0.090717953, value: 0.12245643, factor: 0.12245643}
+      - {high: 0.090717953, low: 0.049787068, value: 0.067205513, factor: 0.067205513}
+      - {high: 0.049787068, low: 0.027323722, value: 0.036883167, factor: 0.036883167}
+      - {high: 0.027323722, low: 0.014995577, value: 0.020241911, factor: 0.020241911}
+      - {high: 0.014995577, low: 0.008229747, value: 0.011108997, factor: 0.011108997}
+      - {high: 0.008229747, low: 0.0045165809, value: 0.0060967466, factor: 0.0060967466}

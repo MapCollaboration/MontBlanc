@@ -1,0 +1,89 @@
+dependent_variables:
+  - header: {title: "NOMAD, Lambdabar Multiplicity", titlepy: "NOMAD, Lambdabar Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N#nu}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N\\nu}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIDIS_nu}
+      - {name: target_isoscalarity, value: 0.5}
+      - {name: prefactor, value: 1.1876e+10}
+      - {name: normalised, value: false}
+      - {name: shape_normalised, value: true}
+      - {name: Vs, value: 9.266, units: GeV}
+      - {name: Q, low: 1, high: 9.266, integrate: true}
+      - {name: x, low: 0.01, high: 1, integrate: true}
+      - {name: z, low: 0.05, high: 0.9, integrate: true}
+      - {name: PS_reduction, W: 1.414, ymin: 0, ymax: 0.8896}
+      - {name: hadron, value: LA}
+      - {name: charge, value: -1}
+      - {name: observable, value: dsigma/dxdQdz}
+    values:
+      - errors:
+          - {label: unc, value: 0.00537}
+        value: 0.00809
+      - errors:
+          - {label: unc, value: 0.02858}
+        value: 0.20266
+      - errors:
+          - {label: unc, value: 0.03643}
+        value: 0.33587
+      - errors:
+          - {label: unc, value: 0.03013}
+        value: 0.2425
+      - errors:
+          - {label: unc, value: 0.01883}
+        value: 0.11271
+      - errors:
+          - {label: unc, value: 0.01415}
+        value: 0.06672
+      - errors:
+          - {label: unc, value: 0.00777}
+        value: 0.02346
+      - errors:
+          - {label: unc, value: 0.00339}
+        value: 0.00653
+      - errors:
+          - {label: unc, value: 0.0012}
+        value: 0.00145
+independent_variables:
+  - header: {name: z}
+    values:
+      - {high: 0.1, low: 0, value: 0.05}
+      - {high: 0.2, low: 0.1, value: 0.15}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.4, low: 0.3, value: 0.35}
+      - {high: 0.5, low: 0.4, value: 0.45}
+      - {high: 0.6, low: 0.5, value: 0.55}
+      - {high: 0.7, low: 0.6, value: 0.65}
+      - {high: 0.8, low: 0.7, value: 0.75}
+      - {high: 0.9, low: 0.8, value: 0.85}
+  - header: {name: x}
+    values:
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+      - {high: 1, low: 0.01}
+  - header: {name: y}
+    values:
+      - {high: 0.8896, low: 0}
+      - {high: 0.8896, low: 0}
+      - {high: 0.8896, low: 0}
+      - {high: 0.8896, low: 0}
+      - {high: 0.8896, low: 0}
+      - {high: 0.8896, low: 0}
+      - {high: 0.8896, low: 0}
+      - {high: 0.8896, low: 0}
+      - {high: 0.8896, low: 0}
+  - header: {name: Q2}
+    values:
+      - {high: 85.858756, low: 1}
+      - {high: 85.858756, low: 1}
+      - {high: 85.858756, low: 1}
+      - {high: 85.858756, low: 1}
+      - {high: 85.858756, low: 1}
+      - {high: 85.858756, low: 1}
+      - {high: 85.858756, low: 1}
+      - {high: 85.858756, low: 1}
+      - {high: 85.858756, low: 1}

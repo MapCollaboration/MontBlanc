@@ -1,0 +1,54 @@
+dependent_variables:
+  - header: {title: "SLD at 91.2 GeV, Lambda Multiplicity c-tag", titlepy: "SLD at 91.2 GeV, Lambda Multiplicity c-tag", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma}#frac{d#it{#sigma}}{d#it{z}}", ylabelpy: "$\\frac{1}{\\sigma}\\frac{d\\sigma}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 91.2, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.011, high: 0.9, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+      - {name: tagging, value: [c]}
+    values:
+      - errors:
+          - {label: unc, value: 3.3}
+          - {label: add, value: 0.034}
+        value: 1.5
+      - errors:
+          - {label: unc, value: 2}
+          - {label: add, value: 0.034}
+        value: 2.5
+      - errors:
+          - {label: unc, value: 1.5}
+          - {label: add, value: 0.034}
+        value: 4.5
+      - errors:
+          - {label: unc, value: 0.97}
+          - {label: add, value: 0.034}
+        value: 3.56
+      - errors:
+          - {label: unc, value: 0.72}
+          - {label: add, value: 0.034}
+        value: 2.89
+      - errors:
+          - {label: unc, value: 0.54}
+          - {label: add, value: 0.034}
+        value: 0.54
+      - errors:
+          - {label: unc, value: 0.32}
+          - {label: add, value: 0.034}
+        value: 0.56
+      - errors:
+          - {label: unc, value: 0.19}
+          - {label: add, value: 0.034}
+        value: -0.13
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.02, low: 0.011, value: 0.016}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.045, low: 0.03, value: 0.038}
+      - {high: 0.067, low: 0.045, value: 0.056}
+      - {high: 0.1, low: 0.067, value: 0.082}
+      - {high: 0.15, low: 0.1, value: 0.122}
+      - {high: 0.247, low: 0.15, value: 0.189}
+      - {high: 0.497, low: 0.247, value: 0.319}

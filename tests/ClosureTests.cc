@@ -33,14 +33,21 @@ int main(int argc, char *argv[])
   // Set silent mode for APFEL++
   apfel::SetVerbosityLevel(0);
 
-  // APFEL++ x-space grid
-  std::vector<apfel::SubGrid> vsg;
-  for (auto const& sg : config["Predictions"]["xgrid"])
-    vsg.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
-  const std::shared_ptr<const apfel::Grid> g(new const apfel::Grid{vsg});
+// APFEL++ x-space and z-space grids
+  std::vector<apfel::SubGrid> vsgx, vsgz;
+  const auto config_xgrid = config["Predictions"]["xgrid"];
+  const auto config_zgrid = (config["Predictions"]["zgrid"] ? config["Predictions"]["zgrid"] : config_xgrid);
+  // Grid for x
+  for (auto const &sgx : config_xgrid)
+    vsgx.push_back({sgx[0].as<int>(), sgx[1].as<double>(), sgx[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gx(new const apfel::Grid{vsgx});
+  // Grid for z
+  for (auto const &sgz : config_zgrid)
+    vsgz.push_back({sgz[0].as<int>(), sgz[1].as<double>(), sgz[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gz(new const apfel::Grid{vsgz});
 
   // LHAPDF Parameterisation
-  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation("NNFF10_PIsum_nlo", g);
+  NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation("NNFF10_PIsum_nlo", gz);
 
   // Initialise GSL random-number generator
   gsl_rng *rng = gsl_rng_alloc(gsl_rng_ranlxs2);
@@ -62,7 +69,7 @@ int main(int argc, char *argv[])
         cuts.push_back(NangaParbat::CutFactory::GetInstance(*(DHVect[0].back()), c["name"].as<std::string>(), c["min"].as<double>(), c["max"].as<double>()));
 
       // Predictions
-      CTVect.push_back(new MontBlanc::PredictionsHandler{config["Predictions"], *(DHVect[0].back()), g, cuts});
+      CTVect.push_back(new MontBlanc::PredictionsHandler{config["Predictions"], *(DHVect[0].back()), gx, gz, cuts});
       chi2s.insert({ds["name"].as<std::string>(), {}});
     }
 

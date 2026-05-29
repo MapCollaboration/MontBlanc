@@ -44,11 +44,18 @@ int main(int argc, char *argv[])
   // Set silent mode for APFEL++
   apfel::SetVerbosityLevel(0);
 
-  // APFEL++ x-space grid
-  std::vector<apfel::SubGrid> vsg;
-  for (auto const& sg : config["Predictions"]["xgrid"])
-    vsg.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
-  const std::shared_ptr<const apfel::Grid> g(new const apfel::Grid{vsg});
+// APFEL++ x-space and z-space grids
+  std::vector<apfel::SubGrid> vsgx, vsgz;
+  const auto config_xgrid = config["Predictions"]["xgrid"];
+  const auto config_zgrid = (config["Predictions"]["zgrid"] ? config["Predictions"]["zgrid"] : config_xgrid);
+  // Grid for x
+  for (auto const &sgx : config_xgrid)
+    vsgx.push_back({sgx[0].as<int>(), sgx[1].as<double>(), sgx[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gx(new const apfel::Grid{vsgx});
+  // Grid for z
+  for (auto const &sgz : config_zgrid)
+    vsgz.push_back({sgz[0].as<int>(), sgz[1].as<double>(), sgz[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gz(new const apfel::Grid{vsgz});
 
   // Initialise GSL random-number generator
   gsl_rng *rng = gsl_rng_alloc(gsl_rng_ranlxs2);
@@ -74,7 +81,7 @@ int main(int argc, char *argv[])
         cuts.push_back(NangaParbat::CutFactory::GetInstance(*DH, c["name"].as<std::string>(), c["min"].as<double>(), c["max"].as<double>()));
 
       // Predictions
-      NangaParbat::ConvolutionTable *PH = new MontBlanc::PredictionsHandler{config["Predictions"], *DH, g, cuts};
+      NangaParbat::ConvolutionTable *PH = new MontBlanc::PredictionsHandler{config["Predictions"], *DH, gx, gz, cuts};
 
       // Push back block
       DSVect.push_back(std::make_pair(DH, PH));
@@ -88,7 +95,7 @@ int main(int argc, char *argv[])
   for (int irep = 1; irep < ffset.get_entry_as<int>("NumMembers"); irep++)
     {
       // Initialiase chi2 object LHAPDF Parameterisation
-      NangaParbat::ChiSquare *chi2 = new MontBlanc::AnalyticChiSquare{DSVect, new MontBlanc::LHAPDFparameterisation("LHAPDFSet", g, irep)};
+      NangaParbat::ChiSquare *chi2 = new MontBlanc::AnalyticChiSquare{DSVect, new MontBlanc::LHAPDFparameterisation("LHAPDFSet", gz, irep)};
 
       // Compute weight
       const int    np = chi2->GetDataPointNumber();

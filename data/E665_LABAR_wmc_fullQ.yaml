@@ -1,0 +1,62 @@
+dependent_variables:
+  - header: {title: "E665, Lambdabar Multiplicity", titlepy: "E665, Lambdabar Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIDIS}
+      - {name: target_isoscalarity, value: 1}
+      - {name: prefactor, value: 1}
+      - {name: Vs, value: 30.334, units: GeV}
+      - {name: Q, low: 1, high: 30.334, integrate: true}
+      - {name: x, low: 0.003, high: 1, integrate: true}
+      - {name: z, low: 0.09, high: 0.9, integrate: true}
+      - {name: PS_reduction, W: 10, ymin: 0.1, ymax: 0.85}
+      - {name: hadron, value: LA}
+      - {name: charge, value: -1}
+      - {name: observable, value: dsigma/dxdQdz}
+    values:
+      - errors:
+          - {label: unc, value: 0.026}
+          - {label: add, value: 0.13}
+        value: 0.0869
+      - errors:
+          - {label: unc, value: 0.0164}
+          - {label: add, value: 0.13}
+        value: 0.0663
+      - errors:
+          - {label: unc, value: 0.0076}
+          - {label: add, value: 0.13}
+        value: 0.0325
+      - errors:
+          - {label: unc, value: 0.0017}
+          - {label: add, value: 0.13}
+        value: 0.0026
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.12224223, low: 0.052143451, value: 0.082826806, factor: 0.71616272}
+      - {high: 0.21277828, low: 0.12224223, value: 0.16634517, factor: 0.91053075}
+      - {high: 0.40668561, low: 0.21277828, value: 0.30880472, factor: 0.97227815}
+      - {high: 0.70386288, low: 0.40668561, value: 0.55489987, factor: 0.99124709}
+  - header: {name: "xF"}
+    values:
+      - {high: 0.1, low: 0, value: 0.05}
+      - {high: 0.2, low: 0.1, value: 0.15}
+      - {high: 0.4, low: 0.2, value: 0.3}
+      - {high: 0.7, low: 0.4, value: 0.55}
+  - header: {name: "x"}
+    values:
+      - {high: 1, low: 0.003}
+      - {high: 1, low: 0.003}
+      - {high: 1, low: 0.003}
+      - {high: 1, low: 0.003}
+  - header: {name: "y"}
+    values:
+      - {high: 0.85, low: 0.1}
+      - {high: 0.85, low: 0.1}
+      - {high: 0.85, low: 0.1}
+      - {high: 0.85, low: 0.1}
+  - header: {name: "Q2"}
+    values:
+      - {high: 920.15156, low: 1}
+      - {high: 920.15156, low: 1}
+      - {high: 920.15156, low: 1}
+      - {high: 920.15156, low: 1}

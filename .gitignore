@@ -55,3 +55,6 @@ inc/MontBlanc/version.h
 # Intermediary results
 testruns/
 fits/
+
+# macOS auxiliary folder
+.DS_Store
