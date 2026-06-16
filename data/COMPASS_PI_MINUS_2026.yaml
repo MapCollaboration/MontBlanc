@@ -1,0 +1,2472 @@
+dependent_variables:
+  - header: {title: COMPASS $pi^-$ Multiplicities}
+    qualifiers:
+      - {name: process, value: SIDIS}
+      - {name: observable, value: dsigma/dxdydz}
+      - {name: target_isoscalarity, value: 0.5}
+      - {name: prefactor, value: 1}
+      - {name: Vs, value: 17.35}
+      - {name: Q, low: 0.9, high: 6.0, integrate: true}
+      - {name: x, low: 0.004, high: 0.4, integrate: true}
+      - {name: z, low: 0.2, high: 0.85, integrate: true}
+      - {name: PS_reduction, W: 5, ymin: 0.1, ymax: 0.7}
+      - {name: hadron, value: PI}
+      - {name: charge, value: -1}
+    values:
+      - errors:
+          - {label: unc, value: 0.05544}
+          - {label: add, value: 0.03678}
+        value: 1.9161
+      - errors:
+          - {label: unc, value: 0.03857}
+          - {label: add, value: 0.03663}
+        value: 1.3126
+      - errors:
+          - {label: unc, value: 0.0269}
+          - {label: add, value: 0.03658}
+        value: 0.8879
+      - errors:
+          - {label: unc, value: 0.02033}
+          - {label: add, value: 0.03661}
+        value: 0.6447
+      - errors:
+          - {label: unc, value: 0.01648}
+          - {label: add, value: 0.03712}
+        value: 0.4936
+      - errors:
+          - {label: unc, value: 0.0132}
+          - {label: add, value: 0.03814}
+        value: 0.3587
+      - errors:
+          - {label: unc, value: 0.01195}
+          - {label: add, value: 0.03903}
+        value: 0.2685
+      - errors:
+          - {label: unc, value: 0.01307}
+          - {label: add, value: 0.04486}
+        value: 0.2051
+      - errors:
+          - {label: unc, value: 0.01815}
+          - {label: add, value: 0.05634}
+        value: 0.1789
+      - errors:
+          - {label: unc, value: 0.0215}
+          - {label: add, value: 0.07687}
+        value: 0.0947
+      - errors:
+          - {label: unc, value: 0.05238}
+          - {label: add, value: 0.03659}
+        value: 1.8713
+      - errors:
+          - {label: unc, value: 0.03565}
+          - {label: add, value: 0.03648}
+        value: 1.2609
+      - errors:
+          - {label: unc, value: 0.02618}
+          - {label: add, value: 0.03662}
+        value: 0.9067
+      - errors:
+          - {label: unc, value: 0.02017}
+          - {label: add, value: 0.03701}
+        value: 0.6484
+      - errors:
+          - {label: unc, value: 0.01822}
+          - {label: add, value: 0.0371}
+        value: 0.4765
+      - errors:
+          - {label: unc, value: 0.02924}
+          - {label: add, value: 0.03722}
+        value: 0.5373
+      - errors:
+          - {label: unc, value: 0.01895}
+          - {label: add, value: 0.03749}
+        value: 0.3777
+      - errors:
+          - {label: unc, value: 0.01689}
+          - {label: add, value: 0.03882}
+        value: 0.3029
+      - errors:
+          - {label: unc, value: 0.0142}
+          - {label: add, value: 0.04724}
+        value: 0.21
+      - errors:
+          - {label: unc, value: 0.01288}
+          - {label: add, value: 0.0495}
+        value: 0.1713
+      - errors:
+          - {label: unc, value: 0.01231}
+          - {label: add, value: 0.06235}
+        value: 0.1373
+      - errors:
+          - {label: unc, value: 0.0112}
+          - {label: add, value: 0.06719}
+        value: 0.1143
+      - errors:
+          - {label: unc, value: 0.00746}
+          - {label: add, value: 0.09753}
+        value: 0.0689
+      - errors:
+          - {label: unc, value: 0.02858}
+          - {label: add, value: 0.03705}
+        value: 0.9478
+      - errors:
+          - {label: unc, value: 0.01996}
+          - {label: add, value: 0.03701}
+        value: 0.6679
+      - errors:
+          - {label: unc, value: 0.01531}
+          - {label: add, value: 0.03715}
+        value: 0.5039
+      - errors:
+          - {label: unc, value: 0.01135}
+          - {label: add, value: 0.03753}
+        value: 0.3602
+      - errors:
+          - {label: unc, value: 0.00926}
+          - {label: add, value: 0.03897}
+        value: 0.2751
+      - errors:
+          - {label: unc, value: 0.00772}
+          - {label: add, value: 0.04147}
+        value: 0.2122
+      - errors:
+          - {label: unc, value: 0.007}
+          - {label: add, value: 0.04684}
+        value: 0.1691
+      - errors:
+          - {label: unc, value: 0.00623}
+          - {label: add, value: 0.05004}
+        value: 0.1391
+      - errors:
+          - {label: unc, value: 0.00617}
+          - {label: add, value: 0.06337}
+        value: 0.1111
+      - errors:
+          - {label: unc, value: 0.005}
+          - {label: add, value: 0.08652}
+        value: 0.0712
+      - errors:
+          - {label: unc, value: 0.05383}
+          - {label: add, value: 0.03691}
+        value: 1.9053
+      - errors:
+          - {label: unc, value: 0.03683}
+          - {label: add, value: 0.03677}
+        value: 1.3119
+      - errors:
+          - {label: unc, value: 0.02592}
+          - {label: add, value: 0.03672}
+        value: 0.9171
+      - errors:
+          - {label: unc, value: 0.01891}
+          - {label: add, value: 0.0367}
+        value: 0.6627
+      - errors:
+          - {label: unc, value: 0.01354}
+          - {label: add, value: 0.0367}
+        value: 0.4665
+      - errors:
+          - {label: unc, value: 0.01044}
+          - {label: add, value: 0.03713}
+        value: 0.349
+      - errors:
+          - {label: unc, value: 0.00805}
+          - {label: add, value: 0.03785}
+        value: 0.2536
+      - errors:
+          - {label: unc, value: 0.007}
+          - {label: add, value: 0.03931}
+        value: 0.2035
+      - errors:
+          - {label: unc, value: 0.00614}
+          - {label: add, value: 0.04368}
+        value: 0.152
+      - errors:
+          - {label: unc, value: 0.00607}
+          - {label: add, value: 0.0498}
+        value: 0.1221
+      - errors:
+          - {label: unc, value: 0.00573}
+          - {label: add, value: 0.0642}
+        value: 0.081
+      - errors:
+          - {label: unc, value: 0.05201}
+          - {label: add, value: 0.03676}
+        value: 1.8498
+      - errors:
+          - {label: unc, value: 0.03535}
+          - {label: add, value: 0.03666}
+        value: 1.2459
+      - errors:
+          - {label: unc, value: 0.02546}
+          - {label: add, value: 0.03664}
+        value: 0.8822
+      - errors:
+          - {label: unc, value: 0.01862}
+          - {label: add, value: 0.0367}
+        value: 0.6126
+      - errors:
+          - {label: unc, value: 0.01604}
+          - {label: add, value: 0.03855}
+        value: 0.442
+      - errors:
+          - {label: unc, value: 0.0126}
+          - {label: add, value: 0.04672}
+        value: 0.2072
+      - errors:
+          - {label: unc, value: 0.00953}
+          - {label: add, value: 0.04521}
+        value: 0.1734
+      - errors:
+          - {label: unc, value: 0.00842}
+          - {label: add, value: 0.05619}
+        value: 0.1324
+      - errors:
+          - {label: unc, value: 0.00825}
+          - {label: add, value: 0.06755}
+        value: 0.1137
+      - errors:
+          - {label: unc, value: 0.00636}
+          - {label: add, value: 0.08323}
+        value: 0.0817
+      - errors:
+          - {label: unc, value: 0.0219}
+          - {label: add, value: 0.03716}
+        value: 0.5124
+      - errors:
+          - {label: unc, value: 0.01314}
+          - {label: add, value: 0.03766}
+        value: 0.3717
+      - errors:
+          - {label: unc, value: 0.01031}
+          - {label: add, value: 0.03861}
+        value: 0.2942
+      - errors:
+          - {label: unc, value: 0.00841}
+          - {label: add, value: 0.0414}
+        value: 0.2203
+      - errors:
+          - {label: unc, value: 0.0076}
+          - {label: add, value: 0.04623}
+        value: 0.1765
+      - errors:
+          - {label: unc, value: 0.00652}
+          - {label: add, value: 0.05103}
+        value: 0.1364
+      - errors:
+          - {label: unc, value: 0.00605}
+          - {label: add, value: 0.05978}
+        value: 0.1084
+      - errors:
+          - {label: unc, value: 0.00507}
+          - {label: add, value: 0.08627}
+        value: 0.0714
+      - errors:
+          - {label: unc, value: 0.02891}
+          - {label: add, value: 0.0371}
+        value: 0.9187
+      - errors:
+          - {label: unc, value: 0.02113}
+          - {label: add, value: 0.03693}
+        value: 0.6954
+      - errors:
+          - {label: unc, value: 0.01498}
+          - {label: add, value: 0.03695}
+        value: 0.4871
+      - errors:
+          - {label: unc, value: 0.01138}
+          - {label: add, value: 0.03699}
+        value: 0.359
+      - errors:
+          - {label: unc, value: 0.00875}
+          - {label: add, value: 0.0373}
+        value: 0.2638
+      - errors:
+          - {label: unc, value: 0.00727}
+          - {label: add, value: 0.03828}
+        value: 0.2069
+      - errors:
+          - {label: unc, value: 0.00595}
+          - {label: add, value: 0.04046}
+        value: 0.1562
+      - errors:
+          - {label: unc, value: 0.00529}
+          - {label: add, value: 0.04357}
+        value: 0.1267
+      - errors:
+          - {label: unc, value: 0.00483}
+          - {label: add, value: 0.0503}
+        value: 0.1002
+      - errors:
+          - {label: unc, value: 0.00423}
+          - {label: add, value: 0.07326}
+        value: 0.0688
+      - errors:
+          - {label: unc, value: 0.05557}
+          - {label: add, value: 0.03694}
+        value: 1.9252
+      - errors:
+          - {label: unc, value: 0.03726}
+          - {label: add, value: 0.03694}
+        value: 1.2995
+      - errors:
+          - {label: unc, value: 0.02607}
+          - {label: add, value: 0.03689}
+        value: 0.8977
+      - errors:
+          - {label: unc, value: 0.01889}
+          - {label: add, value: 0.03671}
+        value: 0.6386
+      - errors:
+          - {label: unc, value: 0.01413}
+          - {label: add, value: 0.03673}
+        value: 0.4661
+      - errors:
+          - {label: unc, value: 0.01055}
+          - {label: add, value: 0.03675}
+        value: 0.3352
+      - errors:
+          - {label: unc, value: 0.0081}
+          - {label: add, value: 0.03688}
+        value: 0.2386
+      - errors:
+          - {label: unc, value: 0.00702}
+          - {label: add, value: 0.03776}
+        value: 0.1843
+      - errors:
+          - {label: unc, value: 0.00611}
+          - {label: add, value: 0.03853}
+        value: 0.1391
+      - errors:
+          - {label: unc, value: 0.00581}
+          - {label: add, value: 0.0429}
+        value: 0.1063
+      - errors:
+          - {label: unc, value: 0.00624}
+          - {label: add, value: 0.05042}
+        value: 0.0825
+      - errors:
+          - {label: unc, value: 0.05318}
+          - {label: add, value: 0.03692}
+        value: 1.8245
+      - errors:
+          - {label: unc, value: 0.03646}
+          - {label: add, value: 0.0368}
+        value: 1.2195
+      - errors:
+          - {label: unc, value: 0.02634}
+          - {label: add, value: 0.03681}
+        value: 0.8454
+      - errors:
+          - {label: unc, value: 0.02085}
+          - {label: add, value: 0.03778}
+        value: 0.5992
+      - errors:
+          - {label: unc, value: 0.01844}
+          - {label: add, value: 0.03918}
+        value: 0.4084
+      - errors:
+          - {label: unc, value: 0.0131}
+          - {label: add, value: 0.04074}
+        value: 0.2278
+      - errors:
+          - {label: unc, value: 0.00876}
+          - {label: add, value: 0.04413}
+        value: 0.1704
+      - errors:
+          - {label: unc, value: 0.00694}
+          - {label: add, value: 0.0491}
+        value: 0.1336
+      - errors:
+          - {label: unc, value: 0.00664}
+          - {label: add, value: 0.06327}
+        value: 0.11
+      - errors:
+          - {label: unc, value: 0.00527}
+          - {label: add, value: 0.08438}
+        value: 0.0749
+      - errors:
+          - {label: unc, value: 0.02482}
+          - {label: add, value: 0.03739}
+        value: 0.4771
+      - errors:
+          - {label: unc, value: 0.01519}
+          - {label: add, value: 0.03762}
+        value: 0.3785
+      - errors:
+          - {label: unc, value: 0.01059}
+          - {label: add, value: 0.03775}
+        value: 0.2776
+      - errors:
+          - {label: unc, value: 0.00844}
+          - {label: add, value: 0.03896}
+        value: 0.2033
+      - errors:
+          - {label: unc, value: 0.00716}
+          - {label: add, value: 0.04077}
+        value: 0.1609
+      - errors:
+          - {label: unc, value: 0.00607}
+          - {label: add, value: 0.04545}
+        value: 0.1197
+      - errors:
+          - {label: unc, value: 0.00596}
+          - {label: add, value: 0.05019}
+        value: 0.1068
+      - errors:
+          - {label: unc, value: 0.00448}
+          - {label: add, value: 0.07262}
+        value: 0.0683
+      - errors:
+          - {label: unc, value: 0.03026}
+          - {label: add, value: 0.03736}
+        value: 0.9165
+      - errors:
+          - {label: unc, value: 0.02101}
+          - {label: add, value: 0.03732}
+        value: 0.6581
+      - errors:
+          - {label: unc, value: 0.01539}
+          - {label: add, value: 0.03718}
+        value: 0.4777
+      - errors:
+          - {label: unc, value: 0.0116}
+          - {label: add, value: 0.03708}
+        value: 0.343
+      - errors:
+          - {label: unc, value: 0.00892}
+          - {label: add, value: 0.03735}
+        value: 0.2506
+      - errors:
+          - {label: unc, value: 0.00729}
+          - {label: add, value: 0.03744}
+        value: 0.1923
+      - errors:
+          - {label: unc, value: 0.00603}
+          - {label: add, value: 0.03866}
+        value: 0.149
+      - errors:
+          - {label: unc, value: 0.00515}
+          - {label: add, value: 0.04121}
+        value: 0.1126
+      - errors:
+          - {label: unc, value: 0.00457}
+          - {label: add, value: 0.04569}
+        value: 0.0893
+      - errors:
+          - {label: unc, value: 0.00326}
+          - {label: add, value: 0.0586}
+        value: 0.0587
+      - errors:
+          - {label: unc, value: 0.05658}
+          - {label: add, value: 0.03735}
+        value: 1.8936
+      - errors:
+          - {label: unc, value: 0.03686}
+          - {label: add, value: 0.03733}
+        value: 1.2472
+      - errors:
+          - {label: unc, value: 0.02635}
+          - {label: add, value: 0.0372}
+        value: 0.8753
+      - errors:
+          - {label: unc, value: 0.01938}
+          - {label: add, value: 0.0371}
+        value: 0.6275
+      - errors:
+          - {label: unc, value: 0.01399}
+          - {label: add, value: 0.03703}
+        value: 0.4343
+      - errors:
+          - {label: unc, value: 0.01078}
+          - {label: add, value: 0.03713}
+        value: 0.3167
+      - errors:
+          - {label: unc, value: 0.0089}
+          - {label: add, value: 0.03714}
+        value: 0.2391
+      - errors:
+          - {label: unc, value: 0.00722}
+          - {label: add, value: 0.03741}
+        value: 0.1668
+      - errors:
+          - {label: unc, value: 0.00648}
+          - {label: add, value: 0.03851}
+        value: 0.1288
+      - errors:
+          - {label: unc, value: 0.00629}
+          - {label: add, value: 0.0442}
+        value: 0.0923
+      - errors:
+          - {label: unc, value: 0.0066}
+          - {label: add, value: 0.04486}
+        value: 0.0749
+      - errors:
+          - {label: unc, value: 0.05579}
+          - {label: add, value: 0.0372}
+        value: 1.815
+      - errors:
+          - {label: unc, value: 0.03962}
+          - {label: add, value: 0.03711}
+        value: 1.233
+      - errors:
+          - {label: unc, value: 0.03004}
+          - {label: add, value: 0.03705}
+        value: 0.8787
+      - errors:
+          - {label: unc, value: 0.0229}
+          - {label: add, value: 0.03747}
+        value: 0.5722
+      - errors:
+          - {label: unc, value: 0.02383}
+          - {label: add, value: 0.03991}
+        value: 0.433
+      - errors:
+          - {label: unc, value: 0.01129}
+          - {label: add, value: 0.03822}
+        value: 0.2072
+      - errors:
+          - {label: unc, value: 0.00757}
+          - {label: add, value: 0.03995}
+        value: 0.1582
+      - errors:
+          - {label: unc, value: 0.00625}
+          - {label: add, value: 0.04658}
+        value: 0.1271
+      - errors:
+          - {label: unc, value: 0.00529}
+          - {label: add, value: 0.05048}
+        value: 0.1046
+      - errors:
+          - {label: unc, value: 0.00428}
+          - {label: add, value: 0.07596}
+        value: 0.0674
+      - errors:
+          - {label: unc, value: 0.02143}
+          - {label: add, value: 0.03754}
+        value: 0.4539
+      - errors:
+          - {label: unc, value: 0.0128}
+          - {label: add, value: 0.03746}
+        value: 0.3374
+      - errors:
+          - {label: unc, value: 0.00967}
+          - {label: add, value: 0.03736}
+        value: 0.2677
+      - errors:
+          - {label: unc, value: 0.00776}
+          - {label: add, value: 0.03787}
+        value: 0.2028
+      - errors:
+          - {label: unc, value: 0.00636}
+          - {label: add, value: 0.03866}
+        value: 0.1552
+      - errors:
+          - {label: unc, value: 0.00504}
+          - {label: add, value: 0.03979}
+        value: 0.1146
+      - errors:
+          - {label: unc, value: 0.0047}
+          - {label: add, value: 0.04576}
+        value: 0.0944
+      - errors:
+          - {label: unc, value: 0.00341}
+          - {label: add, value: 0.05814}
+        value: 0.0633
+      - errors:
+          - {label: unc, value: 0.02806}
+          - {label: add, value: 0.03763}
+        value: 0.8717
+      - errors:
+          - {label: unc, value: 0.02001}
+          - {label: add, value: 0.03764}
+        value: 0.6419
+      - errors:
+          - {label: unc, value: 0.01409}
+          - {label: add, value: 0.03759}
+        value: 0.4469
+      - errors:
+          - {label: unc, value: 0.01065}
+          - {label: add, value: 0.03757}
+        value: 0.3258
+      - errors:
+          - {label: unc, value: 0.00814}
+          - {label: add, value: 0.03769}
+        value: 0.2377
+      - errors:
+          - {label: unc, value: 0.00643}
+          - {label: add, value: 0.03782}
+        value: 0.1777
+      - errors:
+          - {label: unc, value: 0.00517}
+          - {label: add, value: 0.0381}
+        value: 0.1365
+      - errors:
+          - {label: unc, value: 0.00448}
+          - {label: add, value: 0.03927}
+        value: 0.11
+      - errors:
+          - {label: unc, value: 0.00358}
+          - {label: add, value: 0.04333}
+        value: 0.0757
+      - errors:
+          - {label: unc, value: 0.00268}
+          - {label: add, value: 0.05585}
+        value: 0.053
+      - errors:
+          - {label: unc, value: 0.05522}
+          - {label: add, value: 0.03772}
+        value: 1.8454
+      - errors:
+          - {label: unc, value: 0.03675}
+          - {label: add, value: 0.03767}
+        value: 1.2445
+      - errors:
+          - {label: unc, value: 0.02573}
+          - {label: add, value: 0.03758}
+        value: 0.858
+      - errors:
+          - {label: unc, value: 0.01834}
+          - {label: add, value: 0.03749}
+        value: 0.5953
+      - errors:
+          - {label: unc, value: 0.01345}
+          - {label: add, value: 0.03746}
+        value: 0.4228
+      - errors:
+          - {label: unc, value: 0.01004}
+          - {label: add, value: 0.03733}
+        value: 0.3
+      - errors:
+          - {label: unc, value: 0.00801}
+          - {label: add, value: 0.03744}
+        value: 0.2201
+      - errors:
+          - {label: unc, value: 0.00673}
+          - {label: add, value: 0.03765}
+        value: 0.1636
+      - errors:
+          - {label: unc, value: 0.00593}
+          - {label: add, value: 0.03883}
+        value: 0.1195
+      - errors:
+          - {label: unc, value: 0.00559}
+          - {label: add, value: 0.04031}
+        value: 0.0893
+      - errors:
+          - {label: unc, value: 0.00559}
+          - {label: add, value: 0.04172}
+        value: 0.0652
+      - errors:
+          - {label: unc, value: 0.05751}
+          - {label: add, value: 0.03733}
+        value: 1.8432
+      - errors:
+          - {label: unc, value: 0.03844}
+          - {label: add, value: 0.03722}
+        value: 1.1629
+      - errors:
+          - {label: unc, value: 0.02899}
+          - {label: add, value: 0.03718}
+        value: 0.8176
+      - errors:
+          - {label: unc, value: 0.02338}
+          - {label: add, value: 0.03714}
+        value: 0.5686
+      - errors:
+          - {label: unc, value: 0.02256}
+          - {label: add, value: 0.03851}
+        value: 0.3989
+      - errors:
+          - {label: unc, value: 0.01019}
+          - {label: add, value: 0.03808}
+        value: 0.1912
+      - errors:
+          - {label: unc, value: 0.00665}
+          - {label: add, value: 0.03863}
+        value: 0.1429
+      - errors:
+          - {label: unc, value: 0.00503}
+          - {label: add, value: 0.04089}
+        value: 0.1076
+      - errors:
+          - {label: unc, value: 0.00405}
+          - {label: add, value: 0.04514}
+        value: 0.0833
+      - errors:
+          - {label: unc, value: 0.00324}
+          - {label: add, value: 0.05875}
+        value: 0.064
+      - errors:
+          - {label: unc, value: 0.02028}
+          - {label: add, value: 0.03817}
+        value: 0.4443
+      - errors:
+          - {label: unc, value: 0.01176}
+          - {label: add, value: 0.03771}
+        value: 0.3203
+      - errors:
+          - {label: unc, value: 0.00861}
+          - {label: add, value: 0.0376}
+        value: 0.2404
+      - errors:
+          - {label: unc, value: 0.00658}
+          - {label: add, value: 0.03773}
+        value: 0.176
+      - errors:
+          - {label: unc, value: 0.00545}
+          - {label: add, value: 0.03796}
+        value: 0.137
+      - errors:
+          - {label: unc, value: 0.0045}
+          - {label: add, value: 0.03889}
+        value: 0.1049
+      - errors:
+          - {label: unc, value: 0.00373}
+          - {label: add, value: 0.04136}
+        value: 0.0793
+      - errors:
+          - {label: unc, value: 0.00244}
+          - {label: add, value: 0.05079}
+        value: 0.0504
+      - errors:
+          - {label: unc, value: 0.02804}
+          - {label: add, value: 0.03823}
+        value: 0.8663
+      - errors:
+          - {label: unc, value: 0.01843}
+          - {label: add, value: 0.03806}
+        value: 0.5865
+      - errors:
+          - {label: unc, value: 0.01333}
+          - {label: add, value: 0.0379}
+        value: 0.4222
+      - errors:
+          - {label: unc, value: 0.01003}
+          - {label: add, value: 0.0377}
+        value: 0.3077
+      - errors:
+          - {label: unc, value: 0.00762}
+          - {label: add, value: 0.03776}
+        value: 0.2246
+      - errors:
+          - {label: unc, value: 0.00611}
+          - {label: add, value: 0.0377}
+        value: 0.1719
+      - errors:
+          - {label: unc, value: 0.0045}
+          - {label: add, value: 0.03755}
+        value: 0.1193
+      - errors:
+          - {label: unc, value: 0.00378}
+          - {label: add, value: 0.03881}
+        value: 0.0907
+      - errors:
+          - {label: unc, value: 0.00315}
+          - {label: add, value: 0.03994}
+        value: 0.0681
+      - errors:
+          - {label: unc, value: 0.00219}
+          - {label: add, value: 0.04797}
+        value: 0.0467
+      - errors:
+          - {label: unc, value: 0.05727}
+          - {label: add, value: 0.03831}
+        value: 1.8417
+      - errors:
+          - {label: unc, value: 0.03697}
+          - {label: add, value: 0.0382}
+        value: 1.2229
+      - errors:
+          - {label: unc, value: 0.02596}
+          - {label: add, value: 0.03813}
+        value: 0.8434
+      - errors:
+          - {label: unc, value: 0.0187}
+          - {label: add, value: 0.03801}
+        value: 0.5915
+      - errors:
+          - {label: unc, value: 0.01338}
+          - {label: add, value: 0.03786}
+        value: 0.4057
+      - errors:
+          - {label: unc, value: 0.00986}
+          - {label: add, value: 0.03797}
+        value: 0.2823
+      - errors:
+          - {label: unc, value: 0.0083}
+          - {label: add, value: 0.03875}
+        value: 0.2168
+      - errors:
+          - {label: unc, value: 0.00677}
+          - {label: add, value: 0.03863}
+        value: 0.1574
+      - errors:
+          - {label: unc, value: 0.00559}
+          - {label: add, value: 0.03876}
+        value: 0.1094
+      - errors:
+          - {label: unc, value: 0.00542}
+          - {label: add, value: 0.04343}
+        value: 0.0829
+      - errors:
+          - {label: unc, value: 0.00528}
+          - {label: add, value: 0.04681}
+        value: 0.0564
+      - errors:
+          - {label: unc, value: 0.06069}
+          - {label: add, value: 0.03805}
+        value: 1.764
+      - errors:
+          - {label: unc, value: 0.04536}
+          - {label: add, value: 0.03796}
+        value: 1.2225
+      - errors:
+          - {label: unc, value: 0.03284}
+          - {label: add, value: 0.03785}
+        value: 0.782
+      - errors:
+          - {label: unc, value: 0.02723}
+          - {label: add, value: 0.03799}
+        value: 0.5433
+      - errors:
+          - {label: unc, value: 0.02883}
+          - {label: add, value: 0.0383}
+        value: 0.4031
+      - errors:
+          - {label: unc, value: 0.01189}
+          - {label: add, value: 0.03854}
+        value: 0.164
+      - errors:
+          - {label: unc, value: 0.00723}
+          - {label: add, value: 0.03839}
+        value: 0.1167
+      - errors:
+          - {label: unc, value: 0.00513}
+          - {label: add, value: 0.03877}
+        value: 0.0846
+      - errors:
+          - {label: unc, value: 0.00449}
+          - {label: add, value: 0.04108}
+        value: 0.0779
+      - errors:
+          - {label: unc, value: 0.00281}
+          - {label: add, value: 0.05057}
+        value: 0.0522
+      - errors:
+          - {label: unc, value: 0.02253}
+          - {label: add, value: 0.03842}
+        value: 0.3915
+      - errors:
+          - {label: unc, value: 0.01306}
+          - {label: add, value: 0.03825}
+        value: 0.3012
+      - errors:
+          - {label: unc, value: 0.00927}
+          - {label: add, value: 0.0381}
+        value: 0.2205
+      - errors:
+          - {label: unc, value: 0.0068}
+          - {label: add, value: 0.03835}
+        value: 0.1481
+      - errors:
+          - {label: unc, value: 0.00555}
+          - {label: add, value: 0.03847}
+        value: 0.1123
+      - errors:
+          - {label: unc, value: 0.00464}
+          - {label: add, value: 0.03827}
+        value: 0.0878
+      - errors:
+          - {label: unc, value: 0.00405}
+          - {label: add, value: 0.04012}
+        value: 0.0678
+      - errors:
+          - {label: unc, value: 0.00238}
+          - {label: add, value: 0.04793}
+        value: 0.0434
+      - errors:
+          - {label: unc, value: 0.03069}
+          - {label: add, value: 0.0388}
+        value: 0.8144
+      - errors:
+          - {label: unc, value: 0.0204}
+          - {label: add, value: 0.03848}
+        value: 0.5863
+      - errors:
+          - {label: unc, value: 0.01461}
+          - {label: add, value: 0.03822}
+        value: 0.4144
+      - errors:
+          - {label: unc, value: 0.01109}
+          - {label: add, value: 0.0382}
+        value: 0.2974
+      - errors:
+          - {label: unc, value: 0.00849}
+          - {label: add, value: 0.03806}
+        value: 0.2102
+      - errors:
+          - {label: unc, value: 0.00638}
+          - {label: add, value: 0.03802}
+        value: 0.1431
+      - errors:
+          - {label: unc, value: 0.00554}
+          - {label: add, value: 0.03816}
+        value: 0.1174
+      - errors:
+          - {label: unc, value: 0.00441}
+          - {label: add, value: 0.03832}
+        value: 0.0835
+      - errors:
+          - {label: unc, value: 0.00367}
+          - {label: add, value: 0.03896}
+        value: 0.0616
+      - errors:
+          - {label: unc, value: 0.0022}
+          - {label: add, value: 0.04433}
+        value: 0.0379
+      - errors:
+          - {label: unc, value: 0.0663}
+          - {label: add, value: 0.03817}
+        value: 1.8173
+      - errors:
+          - {label: unc, value: 0.04018}
+          - {label: add, value: 0.03841}
+        value: 1.1894
+      - errors:
+          - {label: unc, value: 0.02872}
+          - {label: add, value: 0.03829}
+        value: 0.8085
+      - errors:
+          - {label: unc, value: 0.02168}
+          - {label: add, value: 0.03831}
+        value: 0.5701
+      - errors:
+          - {label: unc, value: 0.01628}
+          - {label: add, value: 0.03827}
+        value: 0.3909
+      - errors:
+          - {label: unc, value: 0.01295}
+          - {label: add, value: 0.03853}
+        value: 0.2803
+      - errors:
+          - {label: unc, value: 0.0114}
+          - {label: add, value: 0.0397}
+        value: 0.2116
+      - errors:
+          - {label: unc, value: 0.01029}
+          - {label: add, value: 0.03941}
+        value: 0.1624
+      - errors:
+          - {label: unc, value: 0.00829}
+          - {label: add, value: 0.0408}
+        value: 0.1
+      - errors:
+          - {label: unc, value: 0.00852}
+          - {label: add, value: 0.05121}
+        value: 0.0828
+      - errors:
+          - {label: unc, value: 0.00702}
+          - {label: add, value: 0.05408}
+        value: 0.0429
+      - errors:
+          - {label: unc, value: 0.08603}
+          - {label: add, value: 0.03855}
+        value: 1.8136
+      - errors:
+          - {label: unc, value: 0.06148}
+          - {label: add, value: 0.03848}
+        value: 1.0914
+      - errors:
+          - {label: unc, value: 0.05192}
+          - {label: add, value: 0.03859}
+        value: 0.7837
+      - errors:
+          - {label: unc, value: 0.04523}
+          - {label: add, value: 0.04483}
+        value: 0.5282
+      - errors:
+          - {label: unc, value: 0.04848}
+          - {label: add, value: 0.04836}
+        value: 0.3689
+      - errors:
+          - {label: unc, value: 0.01346}
+          - {label: add, value: 0.03804}
+        value: 0.1346
+      - errors:
+          - {label: unc, value: 0.00875}
+          - {label: add, value: 0.03849}
+        value: 0.106
+      - errors:
+          - {label: unc, value: 0.00628}
+          - {label: add, value: 0.0382}
+        value: 0.0754
+      - errors:
+          - {label: unc, value: 0.00549}
+          - {label: add, value: 0.03965}
+        value: 0.0686
+      - errors:
+          - {label: unc, value: 0.00292}
+          - {label: add, value: 0.04608}
+        value: 0.0434
+      - errors:
+          - {label: unc, value: 0.02796}
+          - {label: add, value: 0.03877}
+        value: 0.3446
+      - errors:
+          - {label: unc, value: 0.01571}
+          - {label: add, value: 0.03893}
+        value: 0.2754
+      - errors:
+          - {label: unc, value: 0.01065}
+          - {label: add, value: 0.0384}
+        value: 0.1979
+      - errors:
+          - {label: unc, value: 0.00816}
+          - {label: add, value: 0.03829}
+        value: 0.14
+      - errors:
+          - {label: unc, value: 0.007}
+          - {label: add, value: 0.03831}
+        value: 0.1065
+      - errors:
+          - {label: unc, value: 0.00582}
+          - {label: add, value: 0.03922}
+        value: 0.0816
+      - errors:
+          - {label: unc, value: 0.00496}
+          - {label: add, value: 0.04059}
+        value: 0.0611
+      - errors:
+          - {label: unc, value: 0.00259}
+          - {label: add, value: 0.04457}
+        value: 0.0359
+      - errors:
+          - {label: unc, value: 0.03873}
+          - {label: add, value: 0.03916}
+        value: 0.8213
+      - errors:
+          - {label: unc, value: 0.02229}
+          - {label: add, value: 0.03888}
+        value: 0.5288
+      - errors:
+          - {label: unc, value: 0.01681}
+          - {label: add, value: 0.03862}
+        value: 0.3957
+      - errors:
+          - {label: unc, value: 0.01291}
+          - {label: add, value: 0.03851}
+        value: 0.2742
+      - errors:
+          - {label: unc, value: 0.0103}
+          - {label: add, value: 0.03866}
+        value: 0.2007
+      - errors:
+          - {label: unc, value: 0.00766}
+          - {label: add, value: 0.03845}
+        value: 0.129
+      - errors:
+          - {label: unc, value: 0.00666}
+          - {label: add, value: 0.03817}
+        value: 0.1006
+      - errors:
+          - {label: unc, value: 0.00533}
+          - {label: add, value: 0.03905}
+        value: 0.0717
+      - errors:
+          - {label: unc, value: 0.00457}
+          - {label: add, value: 0.03954}
+        value: 0.0526
+      - errors:
+          - {label: unc, value: 0.00263}
+          - {label: add, value: 0.04472}
+        value: 0.0322
+      - errors:
+          - {label: unc, value: 0.08141}
+          - {label: add, value: 0.03863}
+        value: 1.7543
+      - errors:
+          - {label: unc, value: 0.04867}
+          - {label: add, value: 0.03882}
+        value: 1.1995
+      - errors:
+          - {label: unc, value: 0.0343}
+          - {label: add, value: 0.03877}
+        value: 0.7655
+      - errors:
+          - {label: unc, value: 0.02769}
+          - {label: add, value: 0.03862}
+        value: 0.5572
+      - errors:
+          - {label: unc, value: 0.02204}
+          - {label: add, value: 0.03889}
+        value: 0.3888
+      - errors:
+          - {label: unc, value: 0.02}
+          - {label: add, value: 0.03902}
+        value: 0.3116
+      - errors:
+          - {label: unc, value: 0.01675}
+          - {label: add, value: 0.0404}
+        value: 0.2178
+      - errors:
+          - {label: unc, value: 0.01399}
+          - {label: add, value: 0.0424}
+        value: 0.1453
+      - errors:
+          - {label: unc, value: 0.01172}
+          - {label: add, value: 0.04658}
+        value: 0.0893
+      - errors:
+          - {label: unc, value: 0.01248}
+          - {label: add, value: 0.04903}
+        value: 0.0718
+      - errors:
+          - {label: unc, value: 0.01206}
+          - {label: add, value: 0.05535}
+        value: 0.0477
+      - errors:
+          - {label: unc, value: 0.0309}
+          - {label: add, value: 0.03913}
+        value: 0.3639
+      - errors:
+          - {label: unc, value: 0.01678}
+          - {label: add, value: 0.03925}
+        value: 0.2813
+      - errors:
+          - {label: unc, value: 0.01178}
+          - {label: add, value: 0.0389}
+        value: 0.2077
+      - errors:
+          - {label: unc, value: 0.00883}
+          - {label: add, value: 0.03885}
+        value: 0.1421
+      - errors:
+          - {label: unc, value: 0.00737}
+          - {label: add, value: 0.03897}
+        value: 0.1047
+      - errors:
+          - {label: unc, value: 0.00614}
+          - {label: add, value: 0.03878}
+        value: 0.0784
+      - errors:
+          - {label: unc, value: 0.00484}
+          - {label: add, value: 0.03945}
+        value: 0.0507
+      - errors:
+          - {label: unc, value: 0.00249}
+          - {label: add, value: 0.04324}
+        value: 0.0296
+      - errors:
+          - {label: unc, value: 0.03855}
+          - {label: add, value: 0.03988}
+        value: 0.7522
+      - errors:
+          - {label: unc, value: 0.02307}
+          - {label: add, value: 0.03956}
+        value: 0.5218
+      - errors:
+          - {label: unc, value: 0.01617}
+          - {label: add, value: 0.0394}
+        value: 0.3553
+      - errors:
+          - {label: unc, value: 0.01297}
+          - {label: add, value: 0.03918}
+        value: 0.2593
+      - errors:
+          - {label: unc, value: 0.01059}
+          - {label: add, value: 0.03908}
+        value: 0.1904
+      - errors:
+          - {label: unc, value: 0.00851}
+          - {label: add, value: 0.03918}
+        value: 0.1368
+      - errors:
+          - {label: unc, value: 0.0073}
+          - {label: add, value: 0.03895}
+        value: 0.1068
+      - errors:
+          - {label: unc, value: 0.00528}
+          - {label: add, value: 0.03994}
+        value: 0.0661
+      - errors:
+          - {label: unc, value: 0.00465}
+          - {label: add, value: 0.03984}
+        value: 0.0502
+      - errors:
+          - {label: unc, value: 0.00247}
+          - {label: add, value: 0.04545}
+        value: 0.0264
+      - errors:
+          - {label: unc, value: 0.08659}
+          - {label: add, value: 0.03899}
+        value: 1.7708
+      - errors:
+          - {label: unc, value: 0.04668}
+          - {label: add, value: 0.03909}
+        value: 1.1196
+      - errors:
+          - {label: unc, value: 0.03426}
+          - {label: add, value: 0.03905}
+        value: 0.7539
+      - errors:
+          - {label: unc, value: 0.02622}
+          - {label: add, value: 0.03913}
+        value: 0.5111
+      - errors:
+          - {label: unc, value: 0.02134}
+          - {label: add, value: 0.0391}
+        value: 0.3683
+      - errors:
+          - {label: unc, value: 0.01805}
+          - {label: add, value: 0.03953}
+        value: 0.2752
+      - errors:
+          - {label: unc, value: 0.01546}
+          - {label: add, value: 0.0409}
+        value: 0.1995
+      - errors:
+          - {label: unc, value: 0.01366}
+          - {label: add, value: 0.0424}
+        value: 0.1415
+      - errors:
+          - {label: unc, value: 0.01363}
+          - {label: add, value: 0.04768}
+        value: 0.1141
+      - errors:
+          - {label: unc, value: 0.01194}
+          - {label: add, value: 0.0496}
+        value: 0.0758
+independent_variables:
+  - header: {name: z}
+    values:
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+      - {high: 0.75, low: 0.7, value: 0.725}
+      - {high: 0.85, low: 0.75, value: 0.8}
+      - {high: 0.25, low: 0.2, value: 0.225}
+      - {high: 0.3, low: 0.25, value: 0.275}
+      - {high: 0.35, low: 0.3, value: 0.325}
+      - {high: 0.4, low: 0.35, value: 0.375}
+      - {high: 0.45, low: 0.4, value: 0.425}
+      - {high: 0.5, low: 0.45, value: 0.475}
+      - {high: 0.55, low: 0.5, value: 0.525}
+      - {high: 0.6, low: 0.55, value: 0.575}
+      - {high: 0.65, low: 0.6, value: 0.625}
+      - {high: 0.7, low: 0.65, value: 0.675}
+  - header: {name: x}
+    values:
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.01, low: 0.004, value: 0.007}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.1, low: 0.06, value: 0.08}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.14, low: 0.1, value: 0.12}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.18, low: 0.14, value: 0.16}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+      - {high: 0.4, low: 0.18, value: 0.29}
+  - header: {name: y}
+    values:
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.7, low: 0.5, value: 0.6}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.15, low: 0.1, value: 0.125}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+      - {high: 0.5, low: 0.3, value: 0.4}
+  - header: {name: Q2}
+    values:
+      - {value: 0.842863}
+      - {value: 0.842863}
+      - {value: 0.842863}
+      - {value: 0.842863}
+      - {value: 0.842863}
+      - {value: 0.842863}
+      - {value: 0.842863}
+      - {value: 0.842863}
+      - {value: 0.842863}
+      - {value: 0.842863}
+      - {value: 1.264295}
+      - {value: 1.264295}
+      - {value: 1.264295}
+      - {value: 1.264295}
+      - {value: 1.264295}
+      - {value: 0.790184}
+      - {value: 0.790184}
+      - {value: 0.790184}
+      - {value: 0.790184}
+      - {value: 0.790184}
+      - {value: 0.790184}
+      - {value: 0.790184}
+      - {value: 0.790184}
+      - {value: 1.128834}
+      - {value: 1.128834}
+      - {value: 1.128834}
+      - {value: 1.128834}
+      - {value: 1.128834}
+      - {value: 1.128834}
+      - {value: 1.128834}
+      - {value: 1.128834}
+      - {value: 1.128834}
+      - {value: 1.128834}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 1.806135}
+      - {value: 2.709202}
+      - {value: 2.709202}
+      - {value: 2.709202}
+      - {value: 2.709202}
+      - {value: 2.709202}
+      - {value: 0.940695}
+      - {value: 0.940695}
+      - {value: 0.940695}
+      - {value: 0.940695}
+      - {value: 0.940695}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 4.515338}
+      - {value: 4.515338}
+      - {value: 4.515338}
+      - {value: 4.515338}
+      - {value: 4.515338}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.316973}
+      - {value: 1.843763}
+      - {value: 1.843763}
+      - {value: 1.843763}
+      - {value: 1.843763}
+      - {value: 1.843763}
+      - {value: 1.843763}
+      - {value: 1.843763}
+      - {value: 1.843763}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 1.881391}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 2.633947}
+      - {value: 3.762781}
+      - {value: 3.762781}
+      - {value: 3.762781}
+      - {value: 3.762781}
+      - {value: 3.762781}
+      - {value: 3.762781}
+      - {value: 3.762781}
+      - {value: 3.762781}
+      - {value: 3.762781}
+      - {value: 3.762781}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 3.010225}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 4.214315}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 9.63272}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 4.515338}
+      - {value: 4.515338}
+      - {value: 4.515338}
+      - {value: 4.515338}
+      - {value: 4.515338}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 6.321473}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 9.030675}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 14.44908}
+      - {value: 21.67362}
+      - {value: 21.67362}
+      - {value: 21.67362}
+      - {value: 21.67362}
+      - {value: 21.67362}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 6.02045}
+      - {value: 8.42863}
+      - {value: 8.42863}
+      - {value: 8.42863}
+      - {value: 8.42863}
+      - {value: 8.42863}
+      - {value: 8.42863}
+      - {value: 8.42863}
+      - {value: 8.42863}
+      - {value: 12.0409}
+      - {value: 12.0409}
+      - {value: 12.0409}
+      - {value: 12.0409}
+      - {value: 12.0409}
+      - {value: 12.0409}
+      - {value: 12.0409}
+      - {value: 12.0409}
+      - {value: 12.0409}
+      - {value: 12.0409}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 19.26544}
+      - {value: 15.276892}
+      - {value: 15.276892}
+      - {value: 15.276892}
+      - {value: 15.276892}
+      - {value: 15.276892}
+      - {value: 15.276892}
+      - {value: 15.276892}
+      - {value: 15.276892}
+      - {value: 21.824131}
+      - {value: 21.824131}
+      - {value: 21.824131}
+      - {value: 21.824131}
+      - {value: 21.824131}
+      - {value: 21.824131}
+      - {value: 21.824131}
+      - {value: 21.824131}
+      - {value: 21.824131}
+      - {value: 21.824131}
+      - {value: 34.91861}
+      - {value: 34.91861}
+      - {value: 34.91861}
+      - {value: 34.91861}
+      - {value: 34.91861}
+      - {value: 34.91861}
+      - {value: 34.91861}
+      - {value: 34.91861}
+      - {value: 34.91861}
+      - {value: 34.91861}
