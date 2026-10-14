@@ -1,0 +1,74 @@
+dependent_variables:
+  - header: {title: "HRS at 29 GeV, Lambda Multiplicity", titlepy: "HRS at 29 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{s}{#beta}#frac{d#it{#sigma}}{d#it{z}} [nb GeV^{2}]", ylabelpy: "$\\frac{s}{\\beta}\\frac{d\\sigma}{dz}[\\rm{nb GeV^{2}}]$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 29, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: normalised, value: false}
+      - {name: z, low: 0.1, high: 0.8, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 95}
+          - {label: unc, value: 269}
+        value: 1053
+      - errors:
+          - {label: unc, value: 47}
+          - {label: unc, value: 68.6}
+        value: 514
+      - errors:
+          - {label: unc, value: 33.4}
+          - {label: unc, value: 47}
+        value: 355.2
+      - errors:
+          - {label: unc, value: 28}
+          - {label: unc, value: 40.3}
+        value: 307.4
+      - errors:
+          - {label: unc, value: 23}
+          - {label: unc, value: 22.2}
+        value: 198.7
+      - errors:
+          - {label: unc, value: 13.4}
+          - {label: unc, value: 16.6}
+        value: 150.3
+      - errors:
+          - {label: unc, value: 10.1}
+          - {label: unc, value: 10.7}
+        value: 86
+      - errors:
+          - {label: unc, value: 8.7}
+          - {label: unc, value: 7.9}
+        value: 52.5
+      - errors:
+          - {label: unc, value: 7.8}
+          - {label: unc, value: 7.9}
+        value: 51.2
+      - errors:
+          - {label: unc, value: 5.2}
+          - {label: unc, value: 5.7}
+        value: 28.8
+      - errors:
+          - {label: unc, value: 2.7}
+          - {label: unc, value: 2.6}
+        value: 11.1
+      - errors:
+          - {label: unc, value: 1.09}
+          - {label: unc, value: 0.47}
+        value: 2
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.125, low: 0.1, value: 0.1125, factor: 841}
+      - {high: 0.15, low: 0.125, value: 0.1375, factor: 841}
+      - {high: 0.175, low: 0.15, value: 0.1625, factor: 841}
+      - {high: 0.2, low: 0.175, value: 0.1875, factor: 841}
+      - {high: 0.225, low: 0.2, value: 0.2125, factor: 841}
+      - {high: 0.275, low: 0.225, value: 0.25, factor: 841}
+      - {high: 0.325, low: 0.275, value: 0.3, factor: 841}
+      - {high: 0.375, low: 0.325, value: 0.35, factor: 841}
+      - {high: 0.425, low: 0.375, value: 0.4, factor: 841}
+      - {high: 0.5, low: 0.425, value: 0.4625, factor: 841}
+      - {high: 0.6, low: 0.5, value: 0.55, factor: 841}
+      - {high: 0.8, low: 0.6, value: 0.7, factor: 841}

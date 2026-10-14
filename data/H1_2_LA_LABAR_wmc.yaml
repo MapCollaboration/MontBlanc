@@ -1,0 +1,45 @@
+dependent_variables:
+  - header: {title: "H1 2009, Lambda + Lambdabar Multiplicity", titlepy: "H1 2009, Lambda + Lambdabar Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{d#it{N}}{d#it{z}} [nb]", ylabelpy: "$\\frac{dN}{dz} [nb]$"}
+    qualifiers:
+      - {name: process, value: SIDIS}
+      - {name: target_isoscalarity, value: 1}
+      - {name: prefactor, value: 1}
+      - {name: normalised, value: false}
+      - {name: Vs, value: 319, units: GeV}
+      - {name: Q, low: 1.4142136, high: 10, integrate: true}
+      - {name: x, low: 0.0001, high: 0.01, integrate: true}
+      - {name: z, low: 0.09, high: 0.9, integrate: true}
+      - {name: PS_reduction, W: 0, ymin: 0.1, ymax: 0.6}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+      - {name: observable, value: dsigma/dxdQdz}
+    values:
+      - errors:
+          - {label: unc, value: 0.05}
+          - {label: unc, value: 0.04}
+        value: 0.55
+      - errors:
+          - {label: unc, value: 0.02}
+          - {label: unc, value: 0.03}
+        value: 0.21
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.36658157, low: 0.15622925, value: 0.2482991, factor: 0.71638889}
+      - {high: 1, low: 0.36658157, value: 0.6856003, factor: 0.95063745}
+  - header: {name: "xP"}
+    values:
+      - {high: 0.3, low: 0, value: 0.15}
+      - {high: 1, low: 0.3, value: 0.65}
+  - header: {name: "x"}
+    values:
+      - {high: 0.01, low: 0.0001}
+      - {high: 0.01, low: 0.0001}
+  - header: {name: "y"}
+    values:
+      - {high: 0.6, low: 0.1}
+      - {high: 0.6, low: 0.1}
+  - header: {name: "Q2"}
+    values:
+      - {high: 100, low: 2}
+      - {high: 100, low: 2}

@@ -1,0 +1,165 @@
+dependent_variables:
+  - header: {title: "ALEPH at 91.2 GeV, Lambda Multiplicity", titlepy: "ALEPH at 91.2 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma}#frac{d#it{#sigma}}{d#it{z}}", ylabelpy: "$\\frac{1}{\\sigma}\\frac{d\\sigma}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 91.2, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.027251408, high: 0.9, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.35}
+          - {label: add, value: 0.04}
+        value: 2.97
+      - errors:
+          - {label: unc, value: 0.3}
+          - {label: add, value: 0.04}
+        value: 3.43
+      - errors:
+          - {label: unc, value: 0.29}
+          - {label: add, value: 0.04}
+        value: 3.74
+      - errors:
+          - {label: unc, value: 0.21}
+          - {label: add, value: 0.04}
+        value: 3.7
+      - errors:
+          - {label: unc, value: 0.18}
+          - {label: add, value: 0.04}
+        value: 3.69
+      - errors:
+          - {label: unc, value: 0.16}
+          - {label: add, value: 0.04}
+        value: 3.68
+      - errors:
+          - {label: unc, value: 0.15}
+          - {label: add, value: 0.04}
+        value: 3.7
+      - errors:
+          - {label: unc, value: 0.14}
+          - {label: add, value: 0.04}
+        value: 3.41
+      - errors:
+          - {label: unc, value: 0.11}
+          - {label: add, value: 0.04}
+        value: 3.18
+      - errors:
+          - {label: unc, value: 0.09}
+          - {label: add, value: 0.04}
+        value: 2.66
+      - errors:
+          - {label: unc, value: 0.06}
+          - {label: add, value: 0.04}
+        value: 2.04
+      - errors:
+          - {label: unc, value: 0.04}
+          - {label: add, value: 0.04}
+        value: 1.52
+      - errors:
+          - {label: unc, value: 0.03}
+          - {label: add, value: 0.04}
+        value: 1.19
+      - errors:
+          - {label: unc, value: 0.023}
+          - {label: add, value: 0.04}
+        value: 0.956
+      - errors:
+          - {label: unc, value: 0.018}
+          - {label: add, value: 0.04}
+        value: 0.771
+      - errors:
+          - {label: unc, value: 0.015}
+          - {label: add, value: 0.04}
+        value: 0.63
+      - errors:
+          - {label: unc, value: 0.013}
+          - {label: add, value: 0.04}
+        value: 0.528
+      - errors:
+          - {label: unc, value: 0.01}
+          - {label: add, value: 0.04}
+        value: 0.408
+      - errors:
+          - {label: unc, value: 0.008}
+          - {label: add, value: 0.04}
+        value: 0.269
+      - errors:
+          - {label: unc, value: 0.007}
+          - {label: add, value: 0.04}
+        value: 0.182
+      - errors:
+          - {label: unc, value: 0.006}
+          - {label: add, value: 0.04}
+        value: 0.129
+      - errors:
+          - {label: unc, value: 0.005}
+          - {label: add, value: 0.04}
+        value: 0.078
+      - errors:
+          - {label: unc, value: 0.003}
+          - {label: add, value: 0.04}
+        value: 0.035
+      - errors:
+          - {label: unc, value: 0.0019}
+          - {label: add, value: 0.04}
+        value: 0.0118
+      - errors:
+          - {label: unc, value: 0.0012}
+          - {label: add, value: 0.04}
+        value: 0.0026
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.028189346, low: 0.027251408, value: 0.027706303, factor: 0.46920731}
+      - {high: 0.029234214, low: 0.028189346, value: 0.028699116, factor: 0.52266419}
+      - {high: 0.030374977, low: 0.029234214, value: 0.029793275, factor: 0.57059856}
+      - {high: 0.031601254, low: 0.030374977, value: 0.030978044, factor: 0.61333762}
+      - {high: 0.034980555, low: 0.031601254, value: 0.033239874, factor: 0.67689787}
+      - {high: 0.038712262, low: 0.034980555, value: 0.03680882, factor: 0.74710354}
+      - {high: 0.042704089, low: 0.038712262, value: 0.04068033, factor: 0.79891191}
+      - {high: 0.04688965, low: 0.042704089, value: 0.04477599, factor: 0.83750243}
+      - {high: 0.055665422, low: 0.04688965, value: 0.051133641, factor: 0.8780912}
+      - {high: 0.064796908, low: 0.055665422, value: 0.060105318, factor: 0.91339672}
+      - {high: 0.08365787, low: 0.064796908, value: 0.073680996, factor: 0.94325543}
+      - {high: 0.10294969, low: 0.08365787, value: 0.092880564, factor: 0.96467975}
+      - {high: 0.12246893, low: 0.10294969, value: 0.11229781, factor: 0.97597625}
+      - {high: 0.14212192, low: 0.12246893, value: 0.13198761, factor: 0.98266799}
+      - {high: 0.16185994, low: 0.14212192, value: 0.15168629, factor: 0.98690531}
+      - {high: 0.18165528, low: 0.16185994, value: 0.17145474, factor: 0.98976556}
+      - {high: 0.20149104, low: 0.18165528, value: 0.19127135, factor: 0.99178471}
+      - {high: 0.25119443, low: 0.20149104, value: 0.22453703, factor: 0.99404538}
+      - {high: 0.30099608, low: 0.25119443, value: 0.27429342, factor: 0.99601369}
+      - {high: 0.35085416, low: 0.30099608, value: 0.32432422, factor: 0.99715032}
+      - {high: 0.4007476, low: 0.35085416, value: 0.37420075, factor: 0.99786011}
+      - {high: 0.50059828, low: 0.4007476, value: 0.44457378, factor: 0.99848443}
+      - {high: 0.60049866, low: 0.50059828, value: 0.54445004, factor: 0.99898973}
+      - {high: 0.70042747, low: 0.60049866, value: 0.6440649, factor: 0.99927817}
+      - {high: 0.90033252, low: 0.70042747, value: 0.76898934, factor: 0.9994937}
+  - header: {name: "xp"}
+    values:
+      - {high: 0.014, low: 0.012, value: 0.013}
+      - {high: 0.016, low: 0.014, value: 0.015}
+      - {high: 0.018, low: 0.016, value: 0.017}
+      - {high: 0.02, low: 0.018, value: 0.019}
+      - {high: 0.025, low: 0.02, value: 0.0225}
+      - {high: 0.03, low: 0.025, value: 0.0275}
+      - {high: 0.035, low: 0.03, value: 0.0325}
+      - {high: 0.04, low: 0.035, value: 0.0375}
+      - {high: 0.05, low: 0.04, value: 0.0449}
+      - {high: 0.06, low: 0.05, value: 0.0549}
+      - {high: 0.08, low: 0.06, value: 0.0695}
+      - {high: 0.1, low: 0.08, value: 0.0896}
+      - {high: 0.12, low: 0.1, value: 0.1096}
+      - {high: 0.14, low: 0.12, value: 0.1297}
+      - {high: 0.16, low: 0.14, value: 0.1497}
+      - {high: 0.18, low: 0.16, value: 0.1697}
+      - {high: 0.2, low: 0.18, value: 0.1897}
+      - {high: 0.25, low: 0.2, value: 0.2232}
+      - {high: 0.3, low: 0.25, value: 0.2732}
+      - {high: 0.35, low: 0.3, value: 0.3234}
+      - {high: 0.4, low: 0.35, value: 0.3734}
+      - {high: 0.5, low: 0.4, value: 0.4439}
+      - {high: 0.6, low: 0.5, value: 0.5439}
+      - {high: 0.7, low: 0.6, value: 0.6436}
+      - {high: 0.9, low: 0.7, value: 0.7686}

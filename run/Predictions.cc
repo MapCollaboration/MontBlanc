@@ -87,11 +87,18 @@ int main(int argc, char *argv[])
   // Set PDF set member to central set
   config["Predictions"]["pdfset"]["member"] = 0;
 
-  // APFEL++ x-space grid
-  std::vector<apfel::SubGrid> vsg;
-  for (auto const& sg : config["Predictions"]["xgrid"])
-    vsg.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
-  const std::shared_ptr<const apfel::Grid> g(new const apfel::Grid{vsg});
+// APFEL++ x-space and z-space grids
+  std::vector<apfel::SubGrid> vsgx, vsgz;
+  const auto config_xgrid = config["Predictions"]["xgrid"];
+  const auto config_zgrid = (config["Predictions"]["zgrid"] ? config["Predictions"]["zgrid"] : config_xgrid);
+  // Grid for x
+  for (auto const &sgx : config_xgrid)
+    vsgx.push_back({sgx[0].as<int>(), sgx[1].as<double>(), sgx[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gx(new const apfel::Grid{vsgx});
+  // Grid for z
+  for (auto const &sgz : config_zgrid)
+    vsgz.push_back({sgz[0].as<int>(), sgz[1].as<double>(), sgz[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gz(new const apfel::Grid{vsgz});
 
   // Run over the data set and gather pairs of DatHandler and
   // PredictionHandler pairs. Do not impose cuts to compute
@@ -105,7 +112,7 @@ int main(int argc, char *argv[])
       NangaParbat::DataHandler *DH = new NangaParbat::DataHandler{ds["name"].as<std::string>(), YAML::LoadFile(datafolder + ds["file"].as<std::string>())};
 
       // Add block to the chi2
-      DSVect.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{config["Predictions"], *DH, g}));
+      DSVect.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{config["Predictions"], *DH, gx, gz}));
     }
 
   // Run over the experiments, compute central values and standard
@@ -146,7 +153,7 @@ int main(int argc, char *argv[])
           for (int irep = 1; irep <= nrep; irep++)
             {
               // Construct chi2 object with the irep-th replica
-              MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, g, irep}};
+              MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, gz, irep}};
               const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
               const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
@@ -169,7 +176,7 @@ int main(int argc, char *argv[])
       else
         {
           // Construct chi2 object with the 0-th replica
-          MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, g, 0}};
+          MontBlanc::AnalyticChiSquare chi2{DSVect, new MontBlanc::LHAPDFparameterisation{sets, gz, 0}};
           const std::vector<double> prds = DSVect[iexp].second->GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
           const std::pair<std::vector<double>, double> shifts = chi2.GetSystematicShifts(iexp);
           for (int i = 0; i < (int) bins.size(); i++)

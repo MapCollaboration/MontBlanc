@@ -28,6 +28,7 @@
 
 // C++
 #include <unistd.h>
+#include <memory>
 #include <getopt.h>
 #include <sys/stat.h>
 
@@ -111,11 +112,18 @@ int main(int argc, char *argv[])
   // Set silent mode for APFEL++
   apfel::SetVerbosityLevel(0);
 
-  // APFEL++ x-space grid
-  std::vector<apfel::SubGrid> vsg;
-  for (auto const &sg : config["Predictions"]["xgrid"])
-    vsg.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
-  const std::shared_ptr<const apfel::Grid> g(new const apfel::Grid{vsg});
+  // APFEL++ x-space and z-space grids
+  std::vector<apfel::SubGrid> vsgx, vsgz;
+  const auto config_xgrid = config["Predictions"]["xgrid"];
+  const auto config_zgrid = (config["Predictions"]["zgrid"] ? config["Predictions"]["zgrid"] : config_xgrid);
+  // Grid for x
+  for (auto const &sg : config_xgrid)
+    vsgx.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gx(new const apfel::Grid{vsgx});
+  // Grid for z
+  for (auto const &sg : config_zgrid)
+    vsgz.push_back({sg[0].as<int>(), sg[1].as<double>(), sg[2].as<int>()});
+  const std::shared_ptr<const apfel::Grid> gz(new const apfel::Grid{vsgz});
 
   // Initialise GSL random-number generator
   gsl_rng *rng = gsl_rng_alloc(gsl_rng_ranlxs2);
@@ -161,7 +169,7 @@ int main(int argc, char *argv[])
                                                             (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double> {})));
 
       // Compute predictions within kinematic cuts
-      MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, g, cuts};
+      MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, gx, gz, cuts};
 
       // Training fraction
       double TrainingFraction = ds["training fraction"].as<double>();
@@ -176,7 +184,7 @@ int main(int argc, char *argv[])
             throw std::runtime_error("Only closure tests level 0, 1, and 2 are defined.");
 
           // Construct LHAPDF Parameterisation with input FF set
-          NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(config["Data"]["closure_test"]["ffset"].as<std::string>(), g);
+          NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(config["Data"]["closure_test"]["ffset"].as<std::string>(), gz);
 
           // Set LHAPDF set as an input and compute predictions
           PH.SetInputFFs(LHAPDF_FFs->DistributionFunction());
@@ -201,7 +209,7 @@ int main(int argc, char *argv[])
         }
 
       // Compute training and validation cuts
-      NangaParbat::TrainingCut *TrainingCut = new NangaParbat::TrainingCut{*DH, cuts, TrainingFraction, rng};
+      NangaParbat::TrainingCut *TrainingCut = new NangaParbat::TrainingCut{*DH, cuts, TrainingFraction, rng, 0};
       NangaParbat::TrainingCut *ValidationCut = new NangaParbat::TrainingCut{*TrainingCut, true, cuts};
 
       // Push back DataHandler-PredictionHandler pair of objects using
@@ -214,8 +222,7 @@ int main(int argc, char *argv[])
     }
 
   // NN Parameterisation
-  NangaParbat::Parameterisation *NN_FFs = new MontBlanc::NNADparameterisation(config["NNAD"], g);
-
+  NangaParbat::Parameterisation *NN_FFs = new MontBlanc::NNADparameterisation(config["NNAD"], gz);
   // Initialiase chi2 objects for training and validation
   MontBlanc::AnalyticChiSquare *chi2t = new MontBlanc::AnalyticChiSquare{DSVectt, NN_FFs};
   MontBlanc::AnalyticChiSquare *chi2v = new MontBlanc::AnalyticChiSquare{DSVectv, NN_FFs};

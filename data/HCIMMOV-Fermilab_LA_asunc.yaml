@@ -1,0 +1,71 @@
+dependent_variables:
+  - header: {title: "HCIMMOV Collaboration at Fermilab, Lambda Multiplicity", titlepy: "HCIMMOV Collaboration at Fermilab, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{N#mu}#frac{d#it{N}}{d#it{z}}", ylabelpy: "$\\frac{1}{N\\mu}\\frac{dN}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIDIS}
+      - {name: observable, value: dsigma/dxdQdz}
+      - {name: Vs, value: 20.567, units: GeV}
+      - {name: Q, low: 1, high: 7.0710678, integrate: true}
+      - {name: x, low: 0.001, high: 1, integrate: true}
+      - {name: z, low: 0.09, high: 0.9, integrate: true}
+      - {name: PS_reduction, W: 0, ymin: 0.08, ymax: 0.93}
+      - {name: prefactor, value: 1}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 1}
+    values:
+      - errors:
+          - {label: unc, value: 0.034}
+          - {label: unc, value: 0.046}
+        value: 0.184
+      - errors:
+          - {label: unc, value: 0.031}
+          - {label: unc, value: 0.038}
+        value: 0.152
+      - errors:
+          - {label: unc, value: 0.027}
+          - {label: unc, value: 0.029}
+        value: 0.117
+      - errors:
+          - {label: unc, value: 0.013}
+          - {label: unc, value: 0.0065}
+        value: 0.026
+      - errors:
+          - {label: unc, value: 0.014}
+          - {label: unc, value: 0.00775}
+        value: 0.031
+      - errors:
+          - {label: unc, value: 0.011}
+          - {label: unc, value: 0.00375}
+        value: 0.015
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.1, low: 0, value: 0.05}
+      - {high: 0.2, low: 0.1, value: 0.15}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.4, low: 0.3, value: 0.35}
+      - {high: 0.5, low: 0.4, value: 0.45}
+      - {high: 0.6, low: 0.5, value: 0.55}
+  - header: {name: "x"}
+    values:
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+      - {high: 1, low: 0.001}
+  - header: {name: "Q2"}
+    values:
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
+      - {high: 50, low: 1}
+  - header: {name: "y"}
+    values:
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}
+      - {high: 0.93, low: 0.08}

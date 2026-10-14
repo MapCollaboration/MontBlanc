@@ -1,0 +1,70 @@
+dependent_variables:
+  - header: {title: "DELPHI_91 at 91.2 GeV, Lambda Multiplicity", titlepy: "DELPHI_91 at 91.2 GeV, Lambda Multiplicity", xlabel: z, xlabelpy: $z$, ylabel: "#frac{1}{#sigma}#frac{d#it{#sigma}}{d#it{z}}", ylabelpy: "$\\frac{1}{\\sigma}\\frac{d\\sigma}{dz}$"}
+    qualifiers:
+      - {name: process, value: SIA}
+      - {name: Vs, value: 91.2, units: GeV}
+      - {name: prefactor, value: 1}
+      - {name: z, low: 0.026431785, high: 0.9, integrate: false}
+      - {name: hadron, value: LA}
+      - {name: charge, value: 0}
+    values:
+      - errors:
+          - {label: unc, value: 0.16}
+        value: 2.69
+      - errors:
+          - {label: unc, value: 0.09}
+        value: 3.76
+      - errors:
+          - {label: unc, value: 0.1}
+        value: 3.54
+      - errors:
+          - {label: unc, value: 0.05}
+        value: 2.84
+      - errors:
+          - {label: unc, value: 0.04}
+        value: 1.8
+      - errors:
+          - {label: unc, value: 0.03}
+        value: 1.17
+      - errors:
+          - {label: unc, value: 0.032}
+        value: 0.774
+      - errors:
+          - {label: unc, value: 0.025}
+        value: 0.555
+      - errors:
+          - {label: unc, value: 0.019}
+        value: 0.303
+      - errors:
+          - {label: unc, value: 0.02}
+        value: 0.121
+      - errors:
+          - {label: unc, value: 0.019}
+        value: 0.072
+independent_variables:
+  - header: {name: "z"}
+    values:
+      - {high: 0.031601254, low: 0.026431785, value: 0.028699116, factor: 0.52266419}
+      - {high: 0.038712262, low: 0.031601254, value: 0.034980555, factor: 0.71468277}
+      - {high: 0.04688965, low: 0.038712262, value: 0.042704089, factor: 0.81959364}
+      - {high: 0.064796908, low: 0.04688965, value: 0.055665422, factor: 0.89822367}
+      - {high: 0.093266496, low: 0.064796908, value: 0.078890045, factor: 0.95069029}
+      - {high: 0.12246893, low: 0.093266496, value: 0.10781298, factor: 0.97390868}
+      - {high: 0.15198236, low: 0.12246893, value: 0.13719927, factor: 0.98397026}
+      - {high: 0.20149104, low: 0.15198236, value: 0.17670212, factor: 0.99036729}
+      - {high: 0.30099608, low: 0.20149104, value: 0.25119443, factor: 0.99524502}
+      - {high: 0.4007476, low: 0.30099608, value: 0.35085416, factor: 0.99756549}
+      - {high: 0.50059828, low: 0.4007476, value: 0.45066466, factor: 0.99852515}
+  - header: {name: "xp"}
+    values:
+      - {high: 0.02, low: 0.01, value: 0.015}
+      - {high: 0.03, low: 0.02, value: 0.025}
+      - {high: 0.04, low: 0.03, value: 0.035}
+      - {high: 0.06, low: 0.04, value: 0.05}
+      - {high: 0.09, low: 0.06, value: 0.075}
+      - {high: 0.12, low: 0.09, value: 0.105}
+      - {high: 0.15, low: 0.12, value: 0.135}
+      - {high: 0.2, low: 0.15, value: 0.175}
+      - {high: 0.3, low: 0.2, value: 0.25}
+      - {high: 0.4, low: 0.3, value: 0.35}
+      - {high: 0.5, low: 0.4, value: 0.45}
