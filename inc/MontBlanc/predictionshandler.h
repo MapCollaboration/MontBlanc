@@ -17,8 +17,12 @@ namespace MontBlanc
   /**
    * @brief The "PredictionsHandler" class provides an interface to
    * the theorerical predictions.
+   *
+   * @note `final` keyword only for efficient resource management
+   * in runtime polymorphism in Optimize. This can be safely removed
+   * once PredictionsHandlerApprox is removed as well.
    */
-  class PredictionsHandler: public NangaParbat::ConvolutionTable
+  class PredictionsHandler final: public NangaParbat::ConvolutionTable
   {
   public:
     /**
@@ -26,7 +30,8 @@ namespace MontBlanc
      */
     PredictionsHandler(YAML::Node                                     const& config,
                        NangaParbat::DataHandler                       const& DH,
-                       std::shared_ptr<const apfel::Grid>             const& g,
+                       std::shared_ptr<const apfel::Grid>             const& gx,
+                       std::shared_ptr<const apfel::Grid>             const& gz,
                        std::vector<std::shared_ptr<NangaParbat::Cut>> const& cuts = {});
 
     /**
@@ -55,7 +60,8 @@ namespace MontBlanc
   private:
     double                                         const _mu0;
     std::vector<double>                            const _Thresholds;
-    std::shared_ptr<const apfel::Grid>             const _g;
+    std::shared_ptr<const apfel::Grid>             const _gx;
+    std::shared_ptr<const apfel::Grid>             const _gz;
     NangaParbat::DataHandler::Observable           const _obs;
     std::vector<NangaParbat::DataHandler::Binning> const _bins;
     std::vector<double>                            const _qTfact;

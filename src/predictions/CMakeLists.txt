@@ -1,5 +1,6 @@
 set(predictions_source
   predictionshandler.cc
+  predictionshandler_approx.cc
   predictionshandlerdata.cc
   )
 
