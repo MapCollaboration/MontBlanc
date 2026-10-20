@@ -10,74 +10,74 @@ dependent_variables:
   - {name: tagging, value: [b]}
   values:
   - errors:
-    - {label: unc, value: 1.14630}
-    value:  3.65
+    - {label: unc, value: 0.08341}
+    value:  0.303
   - errors:
-    - {label: unc, value: 1.05759}
-    value:  4.2
+    - {label: unc, value: 0.07286}
+    value:  0.305
   - errors:
-    - {label: unc, value: 1.34015}
-    value:  3.99
+    - {label: unc, value: 0.08382}
+    value:  0.331
   - errors:
-    - {label: unc, value: 1.10145}
-    value:  4.94
+    - {label: unc, value: 0.07209}
+    value:  0.266
   - errors:
-    - {label: unc, value: 1.03730}
-    value:  5.36
+    - {label: unc, value: 0.05644}
+    value:  0.257
   - errors:
-    - {label: unc, value: 1.09403}
-    value:  6.0
+    - {label: unc, value: 0.05161}
+    value:  0.284
   - errors:
-    - {label: unc, value: 1.10454}
-    value:  5.06
+    - {label: unc, value: 0.03607}
+    value:  0.176
   - errors:
-    - {label: unc, value: 0.82037}
-    value:  4.78
+    - {label: unc, value: 0.02126}
+    value:  0.117
   - errors:
-    - {label: unc, value: 0.87784}
-    value:  4.96
+    - {label: unc, value: 0.01942}
+    value:  0.093
   - errors:
-    - {label: unc, value: 1.03479}
-    value:  5.54
+    - {label: unc, value: 0.01860}
+    value:  0.092
   - errors:
-    - {label: unc, value: 1.31795}
-    value:  5.6
+    - {label: unc, value: 0.01942}
+    value:  0.072
   - errors:
-    - {label: unc, value: 1.13600}
-    value:  7.11
+    - {label: unc, value: 0.01281}
+    value:  0.079
   - errors:
-    - {label: unc, value: 2.07851}
-    value:  9.16
+    - {label: unc, value: 0.01562}
+    value:  0.075
   - errors:
-    - {label: unc, value: 3.32415}
-    value:  10.34
+    - {label: unc, value: 0.02025}
+    value:  0.06
   - errors:
-    - {label: unc, value: 5.67215}
-    value:  11.5
+    - {label: unc, value: 0.02377}
+    value:  0.044
   - errors:
-    - {label: unc, value: 3.73909}
-    value:  11.38
+    - {label: unc, value: 0.01208}
+    value:  0.034
   - errors:
-    - {label: unc, value: 2.06206}
-    value:  10.88
+    - {label: unc, value: 0.00358}
+    value:  0.0173
   - errors:
-    - {label: unc, value: 1.76173}
-    value:  10.43
+    - {label: unc, value: 0.00201}
+    value:  0.0089
   - errors:
-    - {label: unc, value: 1.31765}
-    value:  7.87
+    - {label: unc, value: 0.00080}
+    value:  0.00371
   - errors:
-    - {label: unc, value: 1.61978}
-    value:  5.71
+    - {label: unc, value: 0.00037}
+    value:  0.00102
   - errors:
-    - {label: unc, value: 2.35053}
-    value:  4.72
+    - {label: unc, value: 0.00020}
+    value:  0.00027
   - errors:
-    - {label: unc, value: 6.44736}
-    value:  4.08
+    - {label: unc, value: 0.00011}
+    value:  8.3e-05
   - errors:
-    - {label: unc, value: 177.82095}
-    value:  29.72
+    - {label: unc, value: 0.00002}
+    value:  4.5e-06
 independent_variables:
 - header: {name: "z"}
   values:
@@ -97,13 +97,13 @@ independent_variables:
   - {high: 0.16137, low: 0.14122, value: 0.15130, factor: 0.02173}
   - {high: 0.18136, low: 0.16104, value: 0.17120, factor: 0.02177}
   - {high: 0.20117, low: 0.18110, value: 0.19113, factor: 0.02180}
-  - {high: 0.26091, low: 0.20080, value: 0.23085, factor: 0.02184}
-  - {high: 0.30081, low: 0.26057, value: 0.28069, factor: 0.02187}
-  - {high: 0.40069, low: 0.30052, value: 0.35060, factor: 0.02189}
-  - {high: 0.50052, low: 0.40042, value: 0.45047, factor: 0.02191}
-  - {high: 0.60042, low: 0.50035, value: 0.55038, factor: 0.02191}
-  - {high: 0.80013, low: 0.60026, value: 0.70019, factor: 0.02192}
-  - {high: 0.98710, low: 0.79999, value: 0.89355, factor: 0.02192}
+  - {high: 0.26200, low: 0.20080, value: 0.23140, factor: 0.02184}
+  - {high: 0.30124, low: 0.26167, value: 0.28145, factor: 0.02187}
+  - {high: 0.39981, low: 0.30096, value: 0.35039, factor: 0.02189}
+  - {high: 0.50052, low: 0.39954, value: 0.45003, factor: 0.02191}
+  - {high: 0.60130, low: 0.50035, value: 0.55082, factor: 0.02191}
+  - {high: 0.80078, low: 0.60114, value: 0.70096, factor: 0.02192}
+  - {high: 1.00026, low: 0.80065, value: 0.90045, factor: 0.02192}
 - header: {name: "ph"}
   values:
   - {high: 0.91000, low: 0.70000, value: 0.80500}
@@ -122,10 +122,10 @@ independent_variables:
   - {high: 7.29000, low: 6.38000, value: 6.83500}
   - {high: 8.21000, low: 7.29000, value: 7.75000}
   - {high: 9.12000, low: 8.21000, value: 8.66500}
-  - {high: 11.85000, low: 9.12000, value: 10.48500}
-  - {high: 13.68000, low: 11.85000, value: 12.76500}
-  - {high: 18.24000, low: 13.68000, value: 15.96000}
-  - {high: 22.80000, low: 18.24000, value: 20.52000}
-  - {high: 27.36000, low: 22.80000, value: 25.08000}
-  - {high: 36.47000, low: 27.36000, value: 31.91500}
-  - {high: 45.00000, low: 36.47000, value: 40.73500}
+  - {high: 11.90000, low: 9.12000, value: 10.51000}
+  - {high: 13.70000, low: 11.90000, value: 12.80000}
+  - {high: 18.20000, low: 13.70000, value: 15.95000}
+  - {high: 22.80000, low: 18.20000, value: 20.50000}
+  - {high: 27.40000, low: 22.80000, value: 25.10000}
+  - {high: 36.50000, low: 27.40000, value: 31.95000}
+  - {high: 45.60000, low: 36.50000, value: 41.05000}
