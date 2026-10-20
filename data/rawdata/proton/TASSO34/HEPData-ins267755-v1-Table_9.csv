@@ -1,0 +1,23 @@
+#: table_doi: 10.17182/hepdata.1500.v1/t9
+#: name: Table 9
+#: description: No description provided.
+#: data_file: Table9.yaml
+#: keyword reactions: E+ E- --> PBAR X | E+ E- --> P X
+#: keyword observables: DSIG/DX
+#: keyword phrases: Inclusive | Single Differential Cross Section | E+ E- Scattering
+#: keyword cmenergies: 34.0
+#: RE,,,E+ E- --> (P + PBAR) X
+#: SQRT(S) [GeV],,,34.0,,,,
+X(DEF=P(P=3)/P(P=1)),X(DEF=P(P=3)/P(P=1)) LOW,X(DEF=P(P=3)/P(P=1)) HIGH,(D(SIG)/D(X))/SIG(NAME=TOTAL),error +,error -,"sys,Overall normalization error +","sys,Overall normalization error -"
+0.02,0.0171,0.0229,1.54,0.86,-0.86,6.0%,-6.0%
+0.0257,0.0229,0.0286,2.63,0.53,-0.53,6.0%,-6.0%
+0.0314,0.0286,0.0343,3.33,0.35,-0.35,6.0%,-6.0%
+0.0371,0.0343,0.04,4.55,0.53,-0.53,6.0%,-6.0%
+0.0429,0.04,0.0457,4.55,1.05,-1.05,6.0%,-6.0%
+0.056,0.0457,0.0686,4.74,0.44,-0.44,6.0%,-6.0%
+0.0789,0.0686,0.0914,4.1,0.67,-0.67,6.0%,-6.0%
+0.102,0.0914,0.114,3.4,1.03,-1.03,6.0%,-6.0%
+0.191,0.171,0.217,1.37,0.42,-0.42,6.0%,-6.0%
+0.271,0.217,0.343,0.56,0.23,-0.23,6.0%,-6.0%
+0.73,0.571,0.971,0.032,0.016,-0.016,6.0%,-6.0%
+

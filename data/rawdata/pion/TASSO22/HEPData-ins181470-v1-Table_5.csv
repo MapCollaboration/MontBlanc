@@ -1,0 +1,22 @@
+#: table_doi: 10.17182/hepdata.2143.v1/t5
+#: name: Table 5
+#: description: No description provided.
+#: data_file: Table5.yaml
+#: keyword reactions: E+ E- --> K- X | E+ E- --> K+ X
+#: keyword observables: DSIG/DP
+#: keyword phrases: Inclusive | Single Differential Cross Section | E+ E- Scattering | Strange production
+#: keyword cmenergies: 22.0
+#: RE,,,E+ E- --> (K+ + K-) X
+#: SQRT(S) [GeV],,,22.0,,
+P(P=3) [GEV],P(P=3) [GEV] LOW,P(P=3) [GEV] HIGH,D(SIG)/D(P) [NB/GEV],error +,error -
+0.35,0.3,0.4,0.38,0.08,-0.08
+0.45,0.4,0.5,0.54,0.09,-0.09
+0.55,0.5,0.6,0.64,0.1,-0.1
+0.6499999999999999,0.6,0.7,0.72,0.1,-0.1
+0.75,0.7,0.8,0.82,0.11,-0.11
+0.9,0.8,1.0,0.59,0.12,-0.12
+1.3,1.0,1.6,0.39,0.15,-0.15
+1.8,1.6,2.0,0.22,0.09,-0.09
+3.4,3.0,3.8,0.092,0.03,-0.03
+4.199999999999999,3.8,4.6,0.045,0.017,-0.017
+

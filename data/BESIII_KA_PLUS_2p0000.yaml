@@ -1,0 +1,75 @@
+dependent_variables:
+- header: {title: "BESIII $K^+$ Multiplicity"}
+  qualifiers:
+  - {name: process, value: SIA}
+  - {name: Vs, value:  2.0 , units: GeV}
+  - {name: prefactor, value: 1}
+  - {name: z, low:  0.011 , high:  0.8 , integrate: false}
+  - {name: hadron, value: KA}
+  - {name: charge, value: +1}
+  values:
+  - errors:
+    - {label: unc, value: 0.03158}
+    value: 0.37600
+  - errors:
+    - {label: unc, value: 0.02474}
+    value: 0.44000
+  - errors:
+    - {label: unc, value: 0.02474}
+    value: 0.47400
+  - errors:
+    - {label: unc, value: 0.03256}
+    value: 0.46700
+  - errors:
+    - {label: unc, value: 0.02474}
+    value: 0.44900
+  - errors:
+    - {label: unc, value: 0.01868}
+    value: 0.35700
+  - errors:
+    - {label: unc, value: 0.01868}
+    value: 0.26400
+  - errors:
+    - {label: unc, value: 0.01360}
+    value: 0.18500
+  - errors:
+    - {label: unc, value: 0.01360}
+    value: 0.11200
+  - errors:
+    - {label: unc, value: 0.00894}
+    value: 0.07600
+  - errors:
+    - {label: unc, value: 0.01030}
+    value: 0.05300
+  - errors:
+    - {label: unc, value: 0.00640}
+    value: 0.01800
+independent_variables:
+- header: {name: "z"}
+  values:
+  - {high: 0.60281, low: 0.48225, value: 0.54253, factor: 0.41472}
+  - {high: 0.61648, low: 0.51373, value: 0.56510, factor: 0.48664}
+  - {high: 0.63652, low: 0.54559, value: 0.59105, factor: 0.54987}
+  - {high: 0.66128, low: 0.57862, value: 0.61995, factor: 0.60488}
+  - {high: 0.68973, low: 0.61310, value: 0.65142, factor: 0.65243}
+  - {high: 0.72114, low: 0.64903, value: 0.68509, factor: 0.69334}
+  - {high: 0.75497, low: 0.68634, value: 0.72065, factor: 0.72851}
+  - {high: 0.79080, low: 0.72490, value: 0.75785, factor: 0.75872}
+  - {high: 0.82831, low: 0.76460, value: 0.79646, factor: 0.78473}
+  - {high: 0.86724, low: 0.80529, value: 0.83627, factor: 0.80716}
+  - {high: 0.90737, low: 0.84688, value: 0.87712, factor: 0.82657}
+  - {high: 0.94852, low: 0.88924, value: 0.91888, factor: 0.84342}
+- header: {name: "ph"}
+  values:
+  - {high: 0.25000, low: 0.20000, value: 0.22500}
+  - {high: 0.30000, low: 0.25000, value: 0.27500}
+  - {high: 0.35000, low: 0.30000, value: 0.32500}
+  - {high: 0.40000, low: 0.35000, value: 0.37500}
+  - {high: 0.45000, low: 0.40000, value: 0.42500}
+  - {high: 0.50000, low: 0.45000, value: 0.47500}
+  - {high: 0.55000, low: 0.50000, value: 0.52500}
+  - {high: 0.60000, low: 0.55000, value: 0.57500}
+  - {high: 0.65000, low: 0.60000, value: 0.62500}
+  - {high: 0.70000, low: 0.65000, value: 0.67500}
+  - {high: 0.75000, low: 0.70000, value: 0.72500}
+  - {high: 0.80000, low: 0.75000, value: 0.77500}

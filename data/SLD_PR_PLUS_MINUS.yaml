@@ -43,15 +43,15 @@ dependent_variables:
   - errors:
     - {label: unc, value: 0.28100}
     - {label: mult, value: 0.01}
-    value:  6.587000000000001
+    value:  6.587
   - errors:
     - {label: unc, value: 0.26013}
     - {label: mult, value: 0.01}
-    value:  5.787999999999999
+    value:  5.788
   - errors:
     - {label: unc, value: 0.24897}
     - {label: mult, value: 0.01}
-    value:  5.343999999999999
+    value:  5.344
   - errors:
     - {label: unc, value: 0.25151}
     - {label: mult, value: 0.01}
@@ -59,7 +59,7 @@ dependent_variables:
   - errors:
     - {label: unc, value: 0.26185}
     - {label: mult, value: 0.01}
-    value:  4.2780000000000005
+    value:  4.278
   - errors:
     - {label: unc, value: 0.27242}
     - {label: mult, value: 0.01}
@@ -87,7 +87,7 @@ dependent_variables:
   - errors:
     - {label: unc, value: 0.60871}
     - {label: mult, value: 0.01}
-    value:  1.6030000000000002
+    value:  1.603
   - errors:
     - {label: unc, value: 0.25894}
     - {label: mult, value: 0.01}
@@ -123,7 +123,7 @@ dependent_variables:
   - errors:
     - {label: unc, value: 0.01131}
     - {label: mult, value: 0.01}
-    value:  0.17300000000000001
+    value:  0.173
   - errors:
     - {label: unc, value: 0.00860}
     - {label: mult, value: 0.01}

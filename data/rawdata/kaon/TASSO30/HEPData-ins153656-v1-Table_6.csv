@@ -1,0 +1,35 @@
+#: table_doi: 10.17182/hepdata.27192.v1/t6
+#: name: Table 6
+#: description: No description provided.
+#: data_file: Table6.yaml
+#: keyword reactions: E+ E- --> K- X | E+ E- --> K+ X
+#: keyword observables: DSIG/DP | DSIG/DX
+#: keyword phrases: Inclusive | Single Differential Cross Section | E+ E- Scattering | Strange production
+#: keyword cmenergies: 30.0
+#: RE,E+ E- --> (K+ + K-) X
+#: SQRT(S) [GeV],30.0,,,,
+P(P=3) [GEV],D(SIG)/DP(P=3) [NB/GEV],error +,error -,"sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY +","sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY -"
+0.45,0.402,0.151,-0.151,20.0%,-20.0%
+0.55,0.463,0.243,-0.243,20.0%,-20.0%
+0.6,0.92,0.4,-0.4,20.0%,-20.0%
+0.8,0.42,0.2,-0.2,20.0%,-20.0%
+1.0,0.24,0.14,-0.14,20.0%,-20.0%
+
+#: RE,E+ E- --> (K+ + K-) X
+#: SQRT(S) [GeV],30.0,,,,
+P(P=3) [GEV],(S/BETA)*D(SIG)/DX [MUB/GEV**2],error +,error -,"sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY +","sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY -"
+0.45,12.3,4.6,-4.6,20.0%,-20.0%
+0.55,11.6,6.1,-6.1,20.0%,-20.0%
+0.6,21.4,9.7,-9.7,20.0%,-20.0%
+0.8,8.0,3.8,-3.8,20.0%,-20.0%
+1.0,4.1,2.4,-2.4,20.0%,-20.0%
+
+#: RE,E+ E- --> (K+ + K-) X
+#: SQRT(S) [GeV],30.0,,,,
+P(P=3) [GEV],(E(P=3)/(4*PI*P(P=3)**2))*D(SIG)/DP(P=3),error +,error -,"sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY +","sys,OVERALL NORMALIZATION UNCERTAINTY AT EACH ENERGY -"
+0.45,0.106,0.04,-0.04,20.0%,-20.0%
+0.55,0.09,0.047,-0.047,20.0%,-20.0%
+0.6,0.159,0.069,-0.069,20.0%,-20.0%
+0.8,0.049,0.023,-0.023,20.0%,-20.0%
+1.0,0.021,0.012,-0.012,20.0%,-20.0%
+

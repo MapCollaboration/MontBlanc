@@ -1,0 +1,16 @@
+#: table_doi: 10.17182/hepdata.1500.v1/t12
+#: name: Table 12
+#: description: No description provided.
+#: data_file: Table12.yaml
+#: keyword reactions: E+ E- --> PBAR X | E+ E- --> P X
+#: keyword observables: DSIG/DX
+#: keyword phrases: Inclusive | Single Differential Cross Section | E+ E- Scattering
+#: keyword cmenergies: 44.0
+#: RE,,,E+ E- --> (P + PBAR) X
+#: SQRT(S) [GeV],,,44.0,,,,
+X(DEF=P(P=3)/P(P=1)),X(DEF=P(P=3)/P(P=1)) LOW,X(DEF=P(P=3)/P(P=1)) HIGH,(D(SIG)/D(X))/SIG(NAME=TOTAL),error +,error -,"sys,Overall normalization error +","sys,Overall normalization error -"
+0.0159,0.0136,0.0182,2.4,1.1,-1.1,6.0%,-6.0%
+0.0205,0.0182,0.0227,6.6,1.3,-1.3,6.0%,-6.0%
+0.025,0.0227,0.0273,5.7,1.2,-1.2,6.0%,-6.0%
+0.0295,0.0273,0.0318,8.8,1.1,-1.1,6.0%,-6.0%
+
