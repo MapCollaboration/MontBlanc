@@ -227,41 +227,41 @@ namespace MontBlanc
         std::string SIDISTablePath = SOURCE_DIR + std::string("/") + (config["SIDIS tables"] ? config["SIDIS tables"].as<std::string>() : std::string("tables"));
 
         // -- LO
-        const apfel::DoubleOperator OT0ns{YAML::LoadFile(SIDISTablePath + "/DoubleIdentity.yaml"), *_gx, *_gz, apfel::DoubleIdentity{}};
+        const apfel::DoubleOperator OT0ns = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/DoubleIdentity.bin", *_gx, *_gz, apfel::DoubleIdentity{});
         // -- NLO
         // Transverse
-        const apfel::DoubleOperator OT1ns{YAML::LoadFile(SIDISTablePath + "/C1TQ2Q.yaml"), *_gx, *_gz, apfel::C1TQ2Q{}};
-        const apfel::DoubleOperator OT1gq{YAML::LoadFile(SIDISTablePath + "/C1TQ2G.yaml"), *_gx, *_gz, apfel::C1TQ2G{}};
-        const apfel::DoubleOperator OT1qg{YAML::LoadFile(SIDISTablePath + "/C1TG2Q.yaml"), *_gx, *_gz, apfel::C1TG2Q{}};
+        const apfel::DoubleOperator OT1ns = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C1TQ2Q.bin", *_gx, *_gz, apfel::C1TQ2Q{});
+        const apfel::DoubleOperator OT1gq = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C1TQ2G.bin", *_gx, *_gz, apfel::C1TQ2G{});
+        const apfel::DoubleOperator OT1qg = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C1TG2Q.bin", *_gx, *_gz, apfel::C1TG2Q{});
         // Longitudinal
-        const apfel::DoubleOperator OL1ns{YAML::LoadFile(SIDISTablePath + "/C1LQ2Q.yaml"), *_gx, *_gz, apfel::C1LQ2Q{}};
-        const apfel::DoubleOperator OL1gq{YAML::LoadFile(SIDISTablePath + "/C1LQ2G.yaml"), *_gx, *_gz, apfel::C1LQ2G{}};
-        const apfel::DoubleOperator OL1qg{YAML::LoadFile(SIDISTablePath + "/C1LG2Q.yaml"), *_gx, *_gz, apfel::C1LG2Q{}};
+        const apfel::DoubleOperator OL1ns = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C1LQ2Q.bin", *_gx, *_gz, apfel::C1LQ2Q{});
+        const apfel::DoubleOperator OL1gq = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C1LQ2G.bin", *_gx, *_gz, apfel::C1LQ2G{});
+        const apfel::DoubleOperator OL1qg = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C1LG2Q.bin", *_gx, *_gz, apfel::C1LG2Q{});
         // -- NNLO
         // Transverse
-        const apfel::DoubleOperator OT2ns_nf3{YAML::LoadFile(SIDISTablePath + "/C2TQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{3}};
-        const apfel::DoubleOperator OT2ns_nf4{YAML::LoadFile(SIDISTablePath + "/C2TQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{4}};
-        const apfel::DoubleOperator OT2ns_nf5{YAML::LoadFile(SIDISTablePath + "/C2TQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2TQ2QNS{5}};
-        const apfel::DoubleOperator OT2gq{YAML::LoadFile(SIDISTablePath + "/C2TQ2G.yaml"), *_gx, *_gz, apfel::C2TQ2G{}};
-        const apfel::DoubleOperator OT2qg{YAML::LoadFile(SIDISTablePath + "/C2TG2Q.yaml"), *_gx, *_gz, apfel::C2TG2Q{}};
-        const apfel::DoubleOperator OT2gg{YAML::LoadFile(SIDISTablePath + "/C2TG2G.yaml"), *_gx, *_gz, apfel::C2TG2G{}};
-        const apfel::DoubleOperator OT2qbq{YAML::LoadFile(SIDISTablePath + "/C2TQ2QB.yaml"), *_gx, *_gz, apfel::C2TQ2QB{}};
-        const apfel::DoubleOperator OT2qpq1{YAML::LoadFile(SIDISTablePath + "/C2TQ2QP1.yaml"), *_gx, *_gz, apfel::C2TQ2QP1{}};
-        const apfel::DoubleOperator OT2qpq2{YAML::LoadFile(SIDISTablePath + "/C2TQ2QP2.yaml"), *_gx, *_gz, apfel::C2TQ2QP2{}};
-        const apfel::DoubleOperator OT2qpq3{YAML::LoadFile(SIDISTablePath + "/C2TQ2QP3.yaml"), *_gx, *_gz, apfel::C2TQ2QP3{}};
-        const apfel::DoubleOperator OT2ps{YAML::LoadFile(SIDISTablePath + "/C2TQ2QPS.yaml"), *_gx, *_gz, apfel::C2TQ2QPS{}};
+        const apfel::DoubleOperator OT2ns_nf3 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TQ2QNS_nf3.bin", *_gx, *_gz, apfel::C2TQ2QNS{3});
+        const apfel::DoubleOperator OT2ns_nf4 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TQ2QNS_nf4.bin", *_gx, *_gz, apfel::C2TQ2QNS{4});
+        const apfel::DoubleOperator OT2ns_nf5 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TQ2QNS_nf5.bin", *_gx, *_gz, apfel::C2TQ2QNS{5});
+        const apfel::DoubleOperator OT2gq = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TQ2G.bin", *_gx, *_gz, apfel::C2TQ2G{});
+        const apfel::DoubleOperator OT2qg = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TG2Q.bin", *_gx, *_gz, apfel::C2TG2Q{});
+        const apfel::DoubleOperator OT2gg = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TG2G.bin", *_gx, *_gz, apfel::C2TG2G{});
+        const apfel::DoubleOperator OT2qbq = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TQ2QB.bin", *_gx, *_gz, apfel::C2TQ2QB{});
+        const apfel::DoubleOperator OT2qpq1 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TQ2QP1.bin", *_gx, *_gz, apfel::C2TQ2QP1{});
+        const apfel::DoubleOperator OT2qpq2 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TQ2QP2.bin", *_gx, *_gz, apfel::C2TQ2QP2{});
+        const apfel::DoubleOperator OT2qpq3 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TQ2QP3.bin", *_gx, *_gz, apfel::C2TQ2QP3{});
+        const apfel::DoubleOperator OT2ps = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2TQ2QPS.bin", *_gx, *_gz, apfel::C2TQ2QPS{});
         // Longitudinal
-        const apfel::DoubleOperator OL2ns_nf3{YAML::LoadFile(SIDISTablePath + "/C2LQ2QNS_nf3.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{3}};
-        const apfel::DoubleOperator OL2ns_nf4{YAML::LoadFile(SIDISTablePath + "/C2LQ2QNS_nf4.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{4}};
-        const apfel::DoubleOperator OL2ns_nf5{YAML::LoadFile(SIDISTablePath + "/C2LQ2QNS_nf5.yaml"), *_gx, *_gz, apfel::C2LQ2QNS{5}};
-        const apfel::DoubleOperator OL2gq{YAML::LoadFile(SIDISTablePath + "/C2LQ2G.yaml"), *_gx, *_gz, apfel::C2LQ2G{}};
-        const apfel::DoubleOperator OL2qg{YAML::LoadFile(SIDISTablePath + "/C2LG2Q.yaml"), *_gx, *_gz, apfel::C2LG2Q{}};
-        const apfel::DoubleOperator OL2gg{YAML::LoadFile(SIDISTablePath + "/C2LG2G.yaml"), *_gx, *_gz, apfel::C2LG2G{}};
-        const apfel::DoubleOperator OL2qbq{YAML::LoadFile(SIDISTablePath + "/C2LQ2QB.yaml"), *_gx, *_gz, apfel::C2LQ2QB{}};
-        const apfel::DoubleOperator OL2qpq1{YAML::LoadFile(SIDISTablePath + "/C2LQ2QP1.yaml"), *_gx, *_gz, apfel::C2LQ2QP1{}};
-        const apfel::DoubleOperator OL2qpq2{YAML::LoadFile(SIDISTablePath + "/C2LQ2QP2.yaml"), *_gx, *_gz, apfel::C2LQ2QP2{}};
-        const apfel::DoubleOperator OL2qpq3{YAML::LoadFile(SIDISTablePath + "/C2LQ2QP3.yaml"), *_gx, *_gz, apfel::C2LQ2QP3{}};
-        const apfel::DoubleOperator OL2ps{YAML::LoadFile(SIDISTablePath + "/C2LQ2QPS.yaml"), *_gx, *_gz, apfel::C2LQ2QPS{}};
+        const apfel::DoubleOperator OL2ns_nf3 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LQ2QNS_nf3.bin", *_gx, *_gz, apfel::C2LQ2QNS{3});
+        const apfel::DoubleOperator OL2ns_nf4 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LQ2QNS_nf4.bin", *_gx, *_gz, apfel::C2LQ2QNS{4});
+        const apfel::DoubleOperator OL2ns_nf5 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LQ2QNS_nf5.bin", *_gx, *_gz, apfel::C2LQ2QNS{5});
+        const apfel::DoubleOperator OL2gq = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LQ2G.bin", *_gx, *_gz, apfel::C2LQ2G{});
+        const apfel::DoubleOperator OL2qg = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LG2Q.bin", *_gx, *_gz, apfel::C2LG2Q{});
+        const apfel::DoubleOperator OL2gg = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LG2G.bin", *_gx, *_gz, apfel::C2LG2G{});
+        const apfel::DoubleOperator OL2qbq = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LQ2QB.bin", *_gx, *_gz, apfel::C2LQ2QB{});
+        const apfel::DoubleOperator OL2qpq1 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LQ2QP1.bin", *_gx, *_gz, apfel::C2LQ2QP1{});
+        const apfel::DoubleOperator OL2qpq2 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LQ2QP2.bin", *_gx, *_gz, apfel::C2LQ2QP2{});
+        const apfel::DoubleOperator OL2qpq3 = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LQ2QP3.bin", *_gx, *_gz, apfel::C2LQ2QP3{});
+        const apfel::DoubleOperator OL2ps = apfel::DoubleOperator::ReadBinary(SIDISTablePath + "/C2LQ2QPS.bin", *_gx, *_gz, apfel::C2LQ2QPS{});
 
         const apfel::DoubleOperator OZero{*_gx, *_gz, apfel::DoubleNull{}};
 
