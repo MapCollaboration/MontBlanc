@@ -5,6 +5,7 @@
 //          Hakim Khoudli: hakim.khoudli@polytechnique.org
 
 #include "MontBlanc/predictionshandler.h"
+#include "MontBlanc/predictionshandler_approx.h"
 #include "MontBlanc/AnalyticChiSquare.h"
 #include "MontBlanc/LHAPDFparameterisation.h"
 
@@ -161,6 +162,7 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
   const std::string DataFolder = ResultFolder + "/data/";
   YAML::Emitter emitter;
   emitter << YAML::BeginSeq;
+  const bool approx = config["Predictions"]["approximate SIDIS"] && config["Predictions"]["approximate SIDIS"].as<bool>();
   for (auto const& ds : config["Data"]["sets"])
     {
       // Dataset
@@ -173,7 +175,9 @@ void compute_chi2s(std::string ResultFolder, int member_index, std::string LHAPD
                                                             (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double> {})));
 
       // Predictions
-      NangaParbat::ConvolutionTable *PH = new MontBlanc::PredictionsHandler{config["Predictions"], *DH, gx, gz, cuts};
+      NangaParbat::ConvolutionTable *PH = approx
+        ? (NangaParbat::ConvolutionTable*) new MontBlanc::PredictionsHandlerApprox{config["Predictions"], *DH, gx, gz, cuts}
+        : new MontBlanc::PredictionsHandler{config["Predictions"], *DH, gx, gz, cuts};
 
       // Add block to the chi2
       chi2->AddBlock(std::make_pair(DH, PH));

@@ -6,6 +6,8 @@
 //
 
 #include "MontBlanc/predictionshandler.h"
+#include "MontBlanc/predictionshandler_approx.h"
+#include <unistd.h>
 #include "MontBlanc/AnalyticChiSquare.h"
 #include "MontBlanc/LHAPDFparameterisation.h"
 
@@ -105,6 +107,7 @@ int main(int argc, char *argv[])
   // predictions for all available points.
   std::cout << "Computing tables..." << std::endl;
   std::vector<std::pair<NangaParbat::DataHandler*, NangaParbat::ConvolutionTable*>> DSVect;
+  const bool approx = config["Predictions"]["approximate SIDIS"] && config["Predictions"]["approximate SIDIS"].as<bool>();
   for (auto const& ds : config["Data"]["sets"])
     {
       std::cout << "#Experiment = " << ds["name"].as<std::string>() << std::endl;
@@ -112,7 +115,10 @@ int main(int argc, char *argv[])
       NangaParbat::DataHandler *DH = new NangaParbat::DataHandler{ds["name"].as<std::string>(), YAML::LoadFile(datafolder + ds["file"].as<std::string>())};
 
       // Add block to the chi2
-      DSVect.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{config["Predictions"], *DH, gx, gz}));
+      NangaParbat::ConvolutionTable *PH = approx
+        ? (NangaParbat::ConvolutionTable*) new MontBlanc::PredictionsHandlerApprox{config["Predictions"], *DH, gx, gz}
+        : new MontBlanc::PredictionsHandler{config["Predictions"], *DH, gx, gz};
+      DSVect.push_back(std::make_pair(DH, PH));
     }
 
   // Run over the experiments, compute central values and standard

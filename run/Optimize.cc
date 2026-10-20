@@ -6,6 +6,7 @@
 //
 
 #include "MontBlanc/predictionshandler.h"
+#include "MontBlanc/predictionshandler_approx.h"
 #include "MontBlanc/AnalyticChiSquare.h"
 #include "MontBlanc/IterationCallBack.h"
 #include "MontBlanc/NNADparameterisation.h"
@@ -31,6 +32,8 @@
 #include <memory>
 #include <getopt.h>
 #include <sys/stat.h>
+
+template<class T> struct HandlerTag { using type = T; };
 
 int main(int argc, char *argv[])
 {
@@ -141,6 +144,7 @@ int main(int argc, char *argv[])
   std::vector<std::string> filenames;
 
   // Run over the data set
+  const bool approx = config["Predictions"]["approximate SIDIS"] && config["Predictions"]["approximate SIDIS"].as<bool>();
   for (auto const &ds : config["Data"]["sets"])
     {
       std::cout << "Initialising " << ds["name"].as<std::string>() << (config["Data"]["closure_test"] ? " for closure test level " + config["Data"]["closure_test"]["level"].as<std::string>() : "" ) + "...\n";
@@ -169,56 +173,64 @@ int main(int argc, char *argv[])
                                                             (c["pars"] ? c["pars"].as<std::vector<double>>() : std::vector<double> {})));
 
       // Compute predictions within kinematic cuts
-      MontBlanc::PredictionsHandler PH{config["Predictions"], *DH, gx, gz, cuts};
+      auto buildDataset = [&](auto tag)
+      {
+        using H = typename decltype(tag)::type;
+        H PH{config["Predictions"], *DH, gx, gz, cuts};
 
-      // Training fraction
-      double TrainingFraction = ds["training fraction"].as<double>();
+        // Training fraction
+        double TrainingFraction = ds["training fraction"].as<double>();
 
-      // If closure tests are enabled...
-      if (config["Data"]["closure_test"])
-        {
-          // Define closure test level and check if the value is allowed
-          const int ctlvl = config["Data"]["closure_test"]["level"].as<int>();
+        // If closure tests are enabled...
+        if (config["Data"]["closure_test"])
+          {
+            // Define closure test level and check if the value is allowed
+            const int ctlvl = config["Data"]["closure_test"]["level"].as<int>();
 
-          if (ctlvl != 0 && ctlvl != 1 && ctlvl != 2)
-            throw std::runtime_error("Only closure tests level 0, 1, and 2 are defined.");
+            if (ctlvl != 0 && ctlvl != 1 && ctlvl != 2)
+              throw std::runtime_error("Only closure tests level 0, 1, and 2 are defined.");
 
-          // Construct LHAPDF Parameterisation with input FF set
-          NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(config["Data"]["closure_test"]["ffset"].as<std::string>(), gz);
+            // Construct LHAPDF Parameterisation with input FF set
+            NangaParbat::Parameterisation *LHAPDF_FFs = new MontBlanc::LHAPDFparameterisation(config["Data"]["closure_test"]["ffset"].as<std::string>(), gz);
 
-          // Set LHAPDF set as an input and compute predictions
-          PH.SetInputFFs(LHAPDF_FFs->DistributionFunction());
-          const std::vector<double> theories = PH.GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
+            // Set LHAPDF set as an input and compute predictions
+            PH.SetInputFFs(LHAPDF_FFs->DistributionFunction());
+            const std::vector<double> theories = PH.GetPredictions([](double const &, double const &, double const &) -> double { return 0; });
 
-          // Data fluctuation seed, if zero no fluctuations
-          const int df = (ctlvl == 0 ? 0 : config["Data"]["seed"].as<int>());
+            // Data fluctuation seed, if zero no fluctuations
+            const int df = (ctlvl == 0 ? 0 : config["Data"]["seed"].as<int>());
 
-          // Replace experimental mean values with theoretical
-          // predictions. This fluactuates the means (if required) and
-          // sets fluctuations = means.
-          DH->SetMeans(theories, rng, df);
-          DHc->SetMeans(theories, rng, df);
+            // Replace experimental mean values with theoretical
+            // predictions. This fluactuates the means (if required) and
+            // sets fluctuations = means.
+            DH->SetMeans(theories, rng, df);
+            DHc->SetMeans(theories, rng, df);
 
-          // Set training fraction to one for level 0
-          if (ctlvl == 0)
-            TrainingFraction = 1;
+            // Set training fraction to one for level 0
+            if (ctlvl == 0)
+              TrainingFraction = 1;
 
-          // For level 2 fluctuate data according to the replica ID
-          if (ctlvl == 2)
-            DH->FluctuateData(rng, replica);
-        }
+            // For level 2 fluctuate data according to the replica ID
+            if (ctlvl == 2)
+              DH->FluctuateData(rng, replica);
+          }
 
-      // Compute training and validation cuts
-      NangaParbat::TrainingCut *TrainingCut = new NangaParbat::TrainingCut{*DH, cuts, TrainingFraction, rng};
-      NangaParbat::TrainingCut *ValidationCut = new NangaParbat::TrainingCut{*TrainingCut, true, cuts};
+        // Compute training and validation cuts
+        NangaParbat::TrainingCut *TrainingCut = new NangaParbat::TrainingCut{*DH, cuts, TrainingFraction, rng};
+        NangaParbat::TrainingCut *ValidationCut = new NangaParbat::TrainingCut{*TrainingCut, true, cuts};
 
-      // Push back DataHandler-PredictionHandler pair of objects using
-      // the DH and PH objects defined above (tables are not recomputed)
-      // for the total dataset (used at the end of the fit to compute
-      // the optimal chi2) and the training and validation subsets.
-      DSVect.push_back(std::make_pair(DHc, new MontBlanc::PredictionsHandler{PH}));
-      DSVectt.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{PH, {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*TrainingCut})}}));
-      DSVectv.push_back(std::make_pair(DH, new MontBlanc::PredictionsHandler{PH, {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*ValidationCut})}}));
+        // Push back DataHandler-PredictionHandler pair of objects using
+        // the DH and PH objects defined above (tables are not recomputed)
+        // for the total dataset (used at the end of the fit to compute
+        // the optimal chi2) and the training and validation subsets.
+        DSVect.push_back(std::make_pair(DHc, new H{PH}));
+        DSVectt.push_back(std::make_pair(DH, new H{PH, {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*TrainingCut})}}));
+        DSVectv.push_back(std::make_pair(DH, new H{PH, {std::shared_ptr<NangaParbat::Cut>(new NangaParbat::TrainingCut{*ValidationCut})}}));
+      };
+      if (approx)
+        buildDataset(HandlerTag<MontBlanc::PredictionsHandlerApprox>{});
+      else
+        buildDataset(HandlerTag<MontBlanc::PredictionsHandler>{});
     }
 
   // NN Parameterisation
